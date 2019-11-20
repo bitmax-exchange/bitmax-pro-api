@@ -1845,7 +1845,7 @@ only 500 bars will be returned. </li>
 npm install -g wscat
 
 <span class="c"># Connect to websocket</span>
-wscat -c wss://bitmax.io/0/api/t/stream -x <span class="s1">'{"op":"sub", "ch": "depth:BTMX/USDT"}'</span>
+wscat -c wss://bitmax.io/0/api/pro/stream -x <span class="s1">'{"op":"sub", "ch": "depth:BTMX/USDT"}'</span>
 
 
 <span class="nb">echo</span> <span class="s1">'{"op":"sub", "ch": "depth:BTMX/USDT"}'</span> &gt; wscat -c wss://bitmax.io/0/api/t/stream
