@@ -34,7 +34,7 @@ You can obtain a list of all assets listed on the exchange through this API.
 
 ## List all Products 
 
-> Request 
+> List all Products 
 
 ```
 curl -X GET https://bitmax.io/api/pro/products
@@ -80,12 +80,13 @@ The response also contains criteria for new order request.
 
  Field                   | Type      | Description                                                                                 
 ------------------------ | --------- | --------------------- 
- `minNotional`           | `String`  | 
- `maxNotional`           | `String`  | 
- `tickSize`              | `String`  | 
- `quoteSize`             | `String`  | 
- `marginTradable`        | `Boolean` | 
+ `minNotional`           | `String`  | minimum notional of an order 
+ `maxNotional`           | `String`  | maximum notional of an order 
+ `tickSize`              | `String`  | tick size of order price 
+ `lotSize`               | `String`  | lot size of order quantity 
+ `marginTradable`        | `Boolean` | `true` if the product is tradable in the margin account; `false` otherwise.
  `commissionType`        | `String`  | `"Base"`, `"Quote"`, `"Received"`
  `commissionReserveRate` | `String`  | e.g. `"0.001"`, see below.
 
 
+When placing orders, you should comply with all criteria above. More details can be found at 

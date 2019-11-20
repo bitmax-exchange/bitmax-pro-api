@@ -50,7 +50,7 @@ to be fast, flexible, stable, and comprehensive.
 * Simplified API schemas. For instance, we simplified the cancel order logic, now you can track the entire order
   life cycle with only one indentifier (`orderId`). 
 
-#### Demo codes
+### Demo codes
 
 We provide comprehensive demos (currently available in python). We provide two types of demo codes:
 
