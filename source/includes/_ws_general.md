@@ -1,9 +1,7 @@
 # WebSocket 
 
 
-## URL 
-
-`<account-group>/api/pro/stream`
+**URL** `<account-group>/api/pro/stream`
 
 In order to authorize the sessionm you must include `<account-group>` in the URL. Without `<account-group>`, you can 
 only subscribe to public data. 
@@ -78,7 +76,7 @@ wscat -c wss://bitmax.io/0/api/pro/stream -x '{"op":"sub", "ch": "depth:BTMX/USD
 
 The standard messages to subscribe(`sub`)/unsubscribe(`unsub`) to a data channel is an JSON object with fields:
 
- Field | Type               | Description                                                                                    
+ Name  | Type               | Description                                                                                    
 -------| ------------------ | ---------------------------------------------------------------------------------------------- 
  `op`  | `String`           | `sub` or `unsub`                                                                               
  `id`  | `Optional[String]` | user specified UUID, if provided, the server will echo back this value in the response message 
@@ -116,7 +114,7 @@ You could place/cancel order and take snapshot for some data via websocket.
 
 All operation or data request follow the same uniform format:
 
- Field   | Type                 | Description                                                                                    
+ Name    | Type                 | Description                                                                                    
 ---------| ---------------------| ---------------------------------------------------------------------------------------------- 
  `op`    |`String`              | `req`                                                                               
  `id`    |`Optional[String]`    | user specified UUID, if provided, the server will echo back this value in the response message 
@@ -128,12 +126,12 @@ All operation or data request follow the same uniform format:
 
 Response follow the following schema
 
- Field | Type               | Description                                                                                    
--------| ------------------ | ---------------------------------------------------------------------------------------------- 
- `m`  | `String`            | action field from request                                                                               
- `id`  | `Optional[String]` | user specified UUID, if provided, the server will echo back this value in the response message 
- `action`| `String`           | name of the request action with optional arguments, see below for details    
- `args` | `List of [key: value]` | Each `action` has different args, please see each action for detail.
+ Name     | Type               | Description                                                                                    
+--------- | ------------------ | ---------------------------------------------------------------------------------------------- 
+ `m`      | `String`           | action field from request                                                                               
+ `id`     | `Optional[String]` | user specified UUID, if provided, the server will echo back this value in the response message 
+ `action` | `String`           | name of the request action with optional arguments, see below for details    
+ `args`   | `List[key: value]` | Each `action` has different args, please see each action for detail.
 
 
 *Ack or Data*

@@ -333,9 +333,10 @@ Cancel all current open orders for the account specified, and optional symbol.
 
 **Request Parameters**
 
-      Name      | Type   |Required| Value Range                           | Description
-----------------|--------|-------| -------------------------------------- |---------------
-    symbol      | String |  No   |  Valid symbol supported by exchange    |  If provided, only cancel all orders on this symbol; otherwise, cancel all open orders under this account.
+
+   Name  | Type   | Required | Value Range                            | Description
+-------- | -------| -------- | -------------------------------------- |---------------
+ symbol  | String |   No     |  Valid symbol supported by exchange    | If provided, only cancel all orders on this symbol; otherwise, cancel all open orders under this account.
 
 **Response**
 

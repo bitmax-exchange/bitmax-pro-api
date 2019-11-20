@@ -76,7 +76,7 @@ This API endpoint does not take any parameters.
 
 #### Resposne
 
- Field              | Data Type | Description                                        
+ Name              | Type | Description                                        
 ------------------- | --------- | ---------------------------------------------------
  `name`             | `String`  | name of the interval
  `intervalInMillis` | `Long`    | length of the interval 
@@ -124,13 +124,13 @@ This API returns a list of **bar**s, with each contains the open/close/high/low 
 
 #### Request Parameters
 
- Field      | Data Type          | Description                                                                                 
------------ | ------------------ | ------------------------------------------------------------------------------------------- 
- `symbol`   |  `String`          | e.g. `"BTMX/USDT"`                                                                          
- `interval` |  `String`          | a string representing the interval type.                                                    
- `to`       |  `Optional[Long]`  | UTC timestamp in milliseconds. If not provided, this field will be set to the current time. 
- `from`     |  `Optional[Long]`  | UTC timestamp in milliseconds.                                                              
- `n`        |  `Optional[Int]`   | default 10, number of bars to be returned, this number will be capped at 500                
+ Name       | Type     | Required | Description                                                                                 
+----------- | -------- | -------- | ------------------------------------------------------------------------------------------- 
+ `symbol`   | `String` | Yes      | e.g. `"BTMX/USDT"`                                                                          
+ `interval` | `String` | Yes      | a string representing the interval type.                                                    
+ `to`       | `Long`   | No       | UTC timestamp in milliseconds. If not provided, this field will be set to the current time. 
+ `from`     | `Long`   | No       | UTC timestamp in milliseconds.                                                              
+ `n`        | `Int`    | No       | default 10, number of bars to be returned, this number will be capped at 500                
 
 The requested time range is determined by three parameters - `to`, `from`, and `n` - according to rules below:
 

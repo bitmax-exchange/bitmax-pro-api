@@ -2,7 +2,7 @@
 
 ### Cash Account Balance 
 
-> Sample response 
+> Cash Account Balance - Sample response 
 
 ```json
 {
@@ -32,7 +32,7 @@
 
 ### Margin Account Balance 
 
-> Sample response 
+> Margin Account Balance - Sample response 
 
 ```json
 {
@@ -61,7 +61,7 @@
 
 ### Margin Account Risk Profile
 
-> Sample response 
+> Margin Account Risk Profile - Sample response 
 
 ```json
 {

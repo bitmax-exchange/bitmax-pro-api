@@ -2,7 +2,7 @@
 
 ## Creating a Request 
 
-To access private data, you must include the following headers:
+To access private data via RESTful APIs, you must include the following headers:
 
 * `x-auth-key` - required, the api key as a string. 
 * `x-auth-timestamp` - required, the UTC timestamp in milliseconds of your request
@@ -14,7 +14,7 @@ be rejected.
 
 ## Signing a Request
 
-> Signing a request
+> Signing a RESTful Request
 
 ```shell
 # bash 

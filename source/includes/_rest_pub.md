@@ -69,7 +69,7 @@ You can obtain a list of all products traded on the exchange through this API.
 
 The response contains the following general fields:
 
- Field         | Type     | Description                                                                                 
+ Name         | Type     | Description                                                                                 
 -------------- | -------- | --------------------- 
  `symbol`      | `String` | e.g. `"BTMX/USDT"`
  `baseAsset`   | `String` | e.g. `"BTMX"`
@@ -78,7 +78,7 @@ The response contains the following general fields:
 
 The response also contains criteria for new order request. 
 
- Field                   | Type      | Description                                                                                 
+ Name                   | Type      | Description                                                                                 
 ------------------------ | --------- | --------------------- 
  `minNotional`           | `String`  | minimum notional of an order 
  `maxNotional`           | `String`  | maximum notional of an order 

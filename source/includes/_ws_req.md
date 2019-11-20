@@ -46,7 +46,7 @@ You can request the current order book via websocket by an `depth-snapshot` requ
 
 The `args` schema:
 
- Field         | Data Type           | Description                
+ Name          | Data Type           | Description                
 -------------- | ------------------- | -------------------------- 
  `op`          | `String`            | `req`                      
  `action`      | `String`            | `depth-snapshot`           
@@ -54,7 +54,7 @@ The `args` schema:
 
 The response schema:
 
- Field         | Data Type             | Description                   
+ Name          | Data Type             | Description                   
 -------------- | --------------------- | ----------------------------- 
  `symbol`      | `String`              | Symbol, e.g. `BTMX/USDT`      
  `data:seqnum` | `Long`                |                               

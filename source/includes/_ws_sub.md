@@ -133,7 +133,7 @@ See [Orderbook Snapshot](#orderbook-snapshot) for code examples.
 The `data` field is a list containing one or more trade objects. The server may combine consecutive trades with the same price and `bm` 
 value into one aggregated item. Each trade object contains the following fields:
 
- Field | Type             | Description                                                                                    
+ Name  | Type             | Description                                                                                    
 -------| ---------------- | ---------------------------------------------------------------------------------------------- 
  `id`  | `Long`           | the sequence number of the trade record. `id` is always increasing, but may not be consecutive 
  `p`   | `String`         | the executed price expressed as a string                                                       
@@ -207,7 +207,7 @@ If you already subscribe to *account* level, you cannot subject to *symbol* leve
 
 The `data` field is a single order udpate object.  Each order update object contains the following fields:
 
-Field    | Type | Description                                                                                    
+Name     | Type | Description                                                                                    
 ---------| -----| ---------------------------------
 `s`      | `String` | symbol
 `orderId`| `String` | order id

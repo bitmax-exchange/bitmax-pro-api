@@ -10,12 +10,12 @@ toc_footers:
   - <a href='https://bitmax.io'>BitMax.io</a>
 
 includes:
-  - auth
   - rest_pub
   - rest_pub_ticker
   - rest_pub_bar
   - rest_pub_depth
   - rest_pub_trades
+  - auth
   - rest_prv
   - rest_prv_bal
   - rest_prv_order
