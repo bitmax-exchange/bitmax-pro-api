@@ -232,17 +232,6 @@
               </ul>
           </li>
           <li>
-            <a href="#authenticate-a-restful-request" class="toc-h1 toc-link" data-title="Authenticate a RESTful Request">Authenticate a RESTful Request</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#creating-a-request" class="toc-h2 toc-link" data-title="Creating a Request">Creating a Request</a>
-                  </li>
-                  <li>
-                    <a href="#signing-a-request" class="toc-h2 toc-link" data-title="Signing a Request">Signing a Request</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
             <a href="#public-restful-apis" class="toc-h1 toc-link" data-title="Public RESTful APIs">Public RESTful APIs</a>
               <ul class="toc-list-h2">
                   <li>
@@ -265,6 +254,17 @@
                   </li>
                   <li>
                     <a href="#market-trades" class="toc-h2 toc-link" data-title="Market Trades">Market Trades</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#authenticate-a-restful-request" class="toc-h1 toc-link" data-title="Authenticate a RESTful Request">Authenticate a RESTful Request</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#creating-a-request" class="toc-h2 toc-link" data-title="Creating a Request">Creating a Request</a>
+                  </li>
+                  <li>
+                    <a href="#signing-a-request" class="toc-h2 toc-link" data-title="Signing a Request">Signing a Request</a>
                   </li>
               </ul>
           </li>
@@ -383,86 +383,6 @@ life cycle with only one indentifier (<code>orderId</code>). </li>
 </ul>
 
 <p>See <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo">https://github.com/bitmax-exchange/bitmax-pro-api-demo</a> for more details.</p>
-<h1 id='authenticate-a-restful-request'>Authenticate a RESTful Request</h1><h2 id='creating-a-request'>Creating a Request</h2>
-<p>To access private data, you must include the following headers:</p>
-
-<ul>
-<li><code>x-auth-key</code> - required, the api key as a string. </li>
-<li><code>x-auth-timestamp</code> - required, the UTC timestamp in milliseconds of your request</li>
-<li><code>x-auth-signature</code> - required, the request signature (see <a href="#signing-a-request">Signing a Request</a>)</li>
-</ul>
-
-<p>The timestamp in the header will be checked against server time. If the difference is greater than 30 seconds, the request will 
-be rejected. </p>
-<h2 id='signing-a-request'>Signing a Request</h2>
-<blockquote>
-<p>Signing a request</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code><span class="c"># bash </span>
-<span class="nv">APIPATH</span><span class="o">=</span>user/info
-<span class="nv">APIKEY</span><span class="o">=</span>CEcrjGyipqt0OflgdQQSRGdrDXdDUY2x
-<span class="nv">SECRET</span><span class="o">=</span>hV8FgjyJtpvVeAcMAgzgAFQCN36wmbWuN7o3WPcYcYhFd8qvE43gzFGVsFcCqMNk
-<span class="nv">TIMESTAMP</span><span class="o">=</span><span class="sb">`</span>date +%s%N | cut -c -13<span class="sb">`</span> <span class="c"># 1562952827927</span>
-<span class="nv">MESSAGE</span><span class="o">=</span><span class="nv">$TIMESTAMP</span>+<span class="nv">$APIPATH</span>
-<span class="nv">SIGNATURE</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> -n <span class="nv">$MESSAGE</span> | openssl dgst -sha256 -hmac <span class="nv">$SECRET</span> -binary | base64<span class="sb">`</span>
-<span class="nb">echo</span> <span class="nv">$SIGNATURE</span>  <span class="c"># vBZf8OQuiTJIVbNpNHGY3zcUsK5gJpwb5lgCgarpxYI=</span>
-
-curl -X GET -i <span class="se">\</span>
-  -H <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"x-auth-key: </span><span class="nv">$APIKEY</span><span class="s2">"</span> <span class="se">\</span>
-  -H <span class="s2">"x-auth-signature: </span><span class="nv">$SIGNATURE</span><span class="s2">"</span> <span class="se">\</span>
-  -H <span class="s2">"x-auth-timestamp: </span><span class="nv">$TIMESTAMP</span><span class="s2">"</span> <span class="se">\</span>
-  https://bitmax.io/api/pro/info
-</code></pre><pre class="highlight python tab-python"><code><span class="c"># python 3.6+</span>
-<span class="kn">import</span> <span class="nn">time</span><span class="p">,</span> <span class="n">hmac</span><span class="p">,</span> <span class="n">hashlib</span><span class="p">,</span> <span class="n">base64</span>
-
-<span class="n">api_path</span>  <span class="o">=</span> <span class="s">"user/info"</span>
-<span class="n">api_key</span>   <span class="o">=</span> <span class="s">"CEcrjGyipqt0OflgdQQSRGdrDXdDUY2x"</span>
-<span class="n">sec_key</span>   <span class="o">=</span> <span class="s">"hV8FgjyJtpvVeAcMAgzgAFQCN36wmbWuN7o3WPcYcYhFd8qvE43gzFGVsFcCqMNk"</span>
-<span class="n">timestamp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">*</span> <span class="mf">1e3</span><span class="p">))</span> <span class="c"># 1562952827927</span>
-
-<span class="n">message</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">f</span><span class="s">"{timestamp}+{api_path}"</span><span class="p">,</span> <span class="s">'utf-8'</span><span class="p">)</span>
-<span class="n">secret</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">sec_key</span><span class="p">,</span> <span class="s">'utf-8'</span><span class="p">)</span>
-
-<span class="n">signature</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">hmac</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">secret</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">digestmod</span><span class="o">=</span><span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">())</span>
-
-<span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s">"x-auth-key"</span><span class="p">:</span> <span class="n">api_key</span><span class="p">,</span>
-  <span class="s">"x-auth-signature"</span><span class="p">:</span> <span class="n">signature</span><span class="p">,</span> 
-  <span class="s">"x-auth-timestamp"</span><span class="p">:</span> <span class="n">timestamp</span><span class="p">,</span>
-<span class="p">}</span>
-<span class="k">print</span><span class="p">(</span><span class="n">signature</span><span class="p">)</span>  <span class="c"># b'vBZf8OQuiTJIVbNpNHGY3zcUsK5gJpwb5lgCgarpxYI='</span>
-</code></pre><pre class="highlight java tab-java"><code><span class="c1">// java 1.8+</span>
-<span class="kn">import</span> <span class="nn">javax.crypto.Mac</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">javax.crypto.spec.SecretKeySpec</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.apache.commons.codec.binary.Base64</span><span class="o">;</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SignatureExample</span> <span class="o">{</span>
-
-  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">try</span> <span class="o">{</span>
-      <span class="kt">long</span> <span class="n">timestamp</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span> <span class="c1">// 1562952827927</span>
-      <span class="n">String</span> <span class="n">api_path</span> <span class="o">=</span> <span class="s">"user/info"</span><span class="o">;</span>
-      <span class="n">String</span> <span class="n">secret</span> <span class="o">=</span> <span class="s">"hV8FgjyJtpvVeAcMAgzgAFQCN36wmbWuN7o3WPcYcYhFd8qvE43gzFGVsFcCqMNk"</span><span class="o">;</span>
-      <span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="n">timestamp</span> <span class="o">+</span> <span class="s">"+"</span> <span class="o">+</span> <span class="n">api_path</span><span class="o">;</span>
-
-      <span class="n">Mac</span> <span class="n">sha256_HMAC</span> <span class="o">=</span> <span class="n">Mac</span><span class="o">.</span><span class="na">getInstance</span><span class="o">(</span><span class="s">"HmacSHA256"</span><span class="o">);</span>
-      <span class="n">SecretKeySpec</span> <span class="n">secret_key</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SecretKeySpec</span><span class="o">(</span><span class="n">secret</span><span class="o">.</span><span class="na">getBytes</span><span class="o">(),</span> <span class="s">"HmacSHA256"</span><span class="o">);</span>
-      <span class="n">sha256_HMAC</span><span class="o">.</span><span class="na">init</span><span class="o">(</span><span class="n">secret_key</span><span class="o">);</span>
-
-      <span class="n">String</span> <span class="n">hash</span> <span class="o">=</span> <span class="n">Base64</span><span class="o">.</span><span class="na">encodeBase64String</span><span class="o">(</span><span class="n">sha256_HMAC</span><span class="o">.</span><span class="na">doFinal</span><span class="o">(</span><span class="n">message</span><span class="o">.</span><span class="na">getBytes</span><span class="o">()));</span>
-      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">hash</span><span class="o">);</span> <span class="c1">// vBZf8OQuiTJIVbNpNHGY3zcUsK5gJpwb5lgCgarpxYI=</span>
-    <span class="o">}</span>
-    <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Error"</span><span class="o">);</span>
-    <span class="o">}</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-</code></pre>
-<p>To query APIs with private data, you must include a signature using base64 encoded HMAC sha256 algorithm.</p>
-
-<p>See the code demos in (<code>bash</code>/<code>python</code>/<code>java</code>) on the right.</p>
 <h1 id='public-restful-apis'>Public RESTful APIs</h1><h2 id='list-all-assets'>List all Assets</h2>
 <blockquote>
 <p>List all Assets</p>
@@ -975,6 +895,86 @@ only 500 bars will be returned. </li>
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h4 id='url'>URL</h4>
 <p><code>GET /api/pro/trades</code></p>
+<h1 id='authenticate-a-restful-request'>Authenticate a RESTful Request</h1><h2 id='creating-a-request'>Creating a Request</h2>
+<p>To access private data, you must include the following headers:</p>
+
+<ul>
+<li><code>x-auth-key</code> - required, the api key as a string. </li>
+<li><code>x-auth-timestamp</code> - required, the UTC timestamp in milliseconds of your request</li>
+<li><code>x-auth-signature</code> - required, the request signature (see <a href="#signing-a-request">Signing a Request</a>)</li>
+</ul>
+
+<p>The timestamp in the header will be checked against server time. If the difference is greater than 30 seconds, the request will 
+be rejected. </p>
+<h2 id='signing-a-request'>Signing a Request</h2>
+<blockquote>
+<p>Signing a request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="c"># bash </span>
+<span class="nv">APIPATH</span><span class="o">=</span>user/info
+<span class="nv">APIKEY</span><span class="o">=</span>CEcrjGyipqt0OflgdQQSRGdrDXdDUY2x
+<span class="nv">SECRET</span><span class="o">=</span>hV8FgjyJtpvVeAcMAgzgAFQCN36wmbWuN7o3WPcYcYhFd8qvE43gzFGVsFcCqMNk
+<span class="nv">TIMESTAMP</span><span class="o">=</span><span class="sb">`</span>date +%s%N | cut -c -13<span class="sb">`</span> <span class="c"># 1562952827927</span>
+<span class="nv">MESSAGE</span><span class="o">=</span><span class="nv">$TIMESTAMP</span>+<span class="nv">$APIPATH</span>
+<span class="nv">SIGNATURE</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> -n <span class="nv">$MESSAGE</span> | openssl dgst -sha256 -hmac <span class="nv">$SECRET</span> -binary | base64<span class="sb">`</span>
+<span class="nb">echo</span> <span class="nv">$SIGNATURE</span>  <span class="c"># vBZf8OQuiTJIVbNpNHGY3zcUsK5gJpwb5lgCgarpxYI=</span>
+
+curl -X GET -i <span class="se">\</span>
+  -H <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"x-auth-key: </span><span class="nv">$APIKEY</span><span class="s2">"</span> <span class="se">\</span>
+  -H <span class="s2">"x-auth-signature: </span><span class="nv">$SIGNATURE</span><span class="s2">"</span> <span class="se">\</span>
+  -H <span class="s2">"x-auth-timestamp: </span><span class="nv">$TIMESTAMP</span><span class="s2">"</span> <span class="se">\</span>
+  https://bitmax.io/api/pro/info
+</code></pre><pre class="highlight python tab-python"><code><span class="c"># python 3.6+</span>
+<span class="kn">import</span> <span class="nn">time</span><span class="p">,</span> <span class="n">hmac</span><span class="p">,</span> <span class="n">hashlib</span><span class="p">,</span> <span class="n">base64</span>
+
+<span class="n">api_path</span>  <span class="o">=</span> <span class="s">"user/info"</span>
+<span class="n">api_key</span>   <span class="o">=</span> <span class="s">"CEcrjGyipqt0OflgdQQSRGdrDXdDUY2x"</span>
+<span class="n">sec_key</span>   <span class="o">=</span> <span class="s">"hV8FgjyJtpvVeAcMAgzgAFQCN36wmbWuN7o3WPcYcYhFd8qvE43gzFGVsFcCqMNk"</span>
+<span class="n">timestamp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">*</span> <span class="mf">1e3</span><span class="p">))</span> <span class="c"># 1562952827927</span>
+
+<span class="n">message</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">f</span><span class="s">"{timestamp}+{api_path}"</span><span class="p">,</span> <span class="s">'utf-8'</span><span class="p">)</span>
+<span class="n">secret</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">sec_key</span><span class="p">,</span> <span class="s">'utf-8'</span><span class="p">)</span>
+
+<span class="n">signature</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">hmac</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">secret</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">digestmod</span><span class="o">=</span><span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">())</span>
+
+<span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">"x-auth-key"</span><span class="p">:</span> <span class="n">api_key</span><span class="p">,</span>
+  <span class="s">"x-auth-signature"</span><span class="p">:</span> <span class="n">signature</span><span class="p">,</span> 
+  <span class="s">"x-auth-timestamp"</span><span class="p">:</span> <span class="n">timestamp</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="k">print</span><span class="p">(</span><span class="n">signature</span><span class="p">)</span>  <span class="c"># b'vBZf8OQuiTJIVbNpNHGY3zcUsK5gJpwb5lgCgarpxYI='</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="c1">// java 1.8+</span>
+<span class="kn">import</span> <span class="nn">javax.crypto.Mac</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.crypto.spec.SecretKeySpec</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.commons.codec.binary.Base64</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SignatureExample</span> <span class="o">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="kt">long</span> <span class="n">timestamp</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span> <span class="c1">// 1562952827927</span>
+      <span class="n">String</span> <span class="n">api_path</span> <span class="o">=</span> <span class="s">"user/info"</span><span class="o">;</span>
+      <span class="n">String</span> <span class="n">secret</span> <span class="o">=</span> <span class="s">"hV8FgjyJtpvVeAcMAgzgAFQCN36wmbWuN7o3WPcYcYhFd8qvE43gzFGVsFcCqMNk"</span><span class="o">;</span>
+      <span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="n">timestamp</span> <span class="o">+</span> <span class="s">"+"</span> <span class="o">+</span> <span class="n">api_path</span><span class="o">;</span>
+
+      <span class="n">Mac</span> <span class="n">sha256_HMAC</span> <span class="o">=</span> <span class="n">Mac</span><span class="o">.</span><span class="na">getInstance</span><span class="o">(</span><span class="s">"HmacSHA256"</span><span class="o">);</span>
+      <span class="n">SecretKeySpec</span> <span class="n">secret_key</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SecretKeySpec</span><span class="o">(</span><span class="n">secret</span><span class="o">.</span><span class="na">getBytes</span><span class="o">(),</span> <span class="s">"HmacSHA256"</span><span class="o">);</span>
+      <span class="n">sha256_HMAC</span><span class="o">.</span><span class="na">init</span><span class="o">(</span><span class="n">secret_key</span><span class="o">);</span>
+
+      <span class="n">String</span> <span class="n">hash</span> <span class="o">=</span> <span class="n">Base64</span><span class="o">.</span><span class="na">encodeBase64String</span><span class="o">(</span><span class="n">sha256_HMAC</span><span class="o">.</span><span class="na">doFinal</span><span class="o">(</span><span class="n">message</span><span class="o">.</span><span class="na">getBytes</span><span class="o">()));</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">hash</span><span class="o">);</span> <span class="c1">// vBZf8OQuiTJIVbNpNHGY3zcUsK5gJpwb5lgCgarpxYI=</span>
+    <span class="o">}</span>
+    <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Error"</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+<p>To query APIs with private data, you must include a signature using base64 encoded HMAC sha256 algorithm.</p>
+
+<p>See the code demos in (<code>bash</code>/<code>python</code>/<code>java</code>) on the right.</p>
 <h1 id='private-restful-apis'>Private RESTful APIs</h1><h3 id='account-info'>Account Info</h3>
 <blockquote>
 <p>Sample response:</p>
