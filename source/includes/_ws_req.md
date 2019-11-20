@@ -78,7 +78,7 @@ the timely order book data.
 
 More comprehensive examples can be found at:
 
-* Python: [https://github.com/gdm-exchange/bitmax-api-demo/blob/master/python/websocket-orderbook-snapshot.py](https://github.com/gdm-exchange/bitmax-api-demo/blob/master/python/websocket-orderbook-snapshot.py)
+* Python: [https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/bitmax/websocket/websocket_orderbook_snapshot.py](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/bitmax/websocket/websocket_orderbook_snapshot.py)
 
 
 ### Trades Snapshot

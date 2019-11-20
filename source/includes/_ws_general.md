@@ -12,7 +12,7 @@
 npm install -g wscat
 
 # Connect to websocket
-wscat -c wss://bitmax.io/0/api/t/stream -x '{"op":"sub", "ch": "depth:BTMX/USDT"}'
+wscat -c wss://bitmax.io/0/api/pro/stream -x '{"op":"sub", "ch": "depth:BTMX/USDT"}'
 
 
 echo '{"op":"sub", "ch": "depth:BTMX/USDT"}' > wscat -c wss://bitmax.io/0/api/t/stream
@@ -97,11 +97,4 @@ Response follow the following schema
 *Ack or Data*
 
 *Error*
-
-
-
-### Data
-
-
-### Order
 

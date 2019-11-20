@@ -10,6 +10,7 @@ For all order related ack or data, there is *orderId* field to identify the orde
 
 ###
 ### Order id generation method
+
 We use the following method to generate an unique id for each order place/cancel request.
 
 **Method**
@@ -26,7 +27,7 @@ We use the following method to generate an unique id for each order place/cancel
 
 **Code Sample**
 
-Please refer to python code [gen_server_order_id](https://github.com/gdm-exchange/bitmax-api-demo/blob/master/python/util/auth.py)
+Please refer to python code [gen_server_order_id](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/bitmax/util/auth.py)
 
 
 ###
@@ -162,18 +163,18 @@ respInst   | String |  No    |["ACK", "RESULT", "DONE"]             |Response in
 
 The table below shows how to correctly configure order of different types: (o - required, x - optional)
 
-Name       |Market|Limit|StopMarket|StopLimit
------------|------|-----|----------|---------
-id  	   |x	    |x	  |x         |x	
-time	   |o	    |o	  |o         |o
-symbol	   |o	    |o	  |o         |o
-orderPrice |		|o	  |          |o
-orderQty   |o	    |o	  |o         |o
-orderType  |o	    |o	  |o         |o
-side	   |o	    |o	  |o         |o
-postOnly   |        |x    |          | 		
-stopPrice  |	    |     |o	     |o
-timeInForce|		|x	  |          |
+Name        | Market | Limit | StopMarket | StopLimit
+----------- | ------ | ----- | ---------- | ---------
+id          | x      | x     | x          | x    
+time        | o      | o     | o          | o
+symbol      | o      | o     | o          | o
+orderPrice  |        | o     |            | o
+orderQty    | o      | o     | o          | o
+orderType   | o      | o     | o          | o
+side        | o      | o     | o          | o
+postOnly    |        | x     |            | 
+stopPrice   |        |       | o          | o
+timeInForce |        | x     |            | 
 
 
 **Response**
