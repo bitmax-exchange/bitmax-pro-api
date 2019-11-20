@@ -89,4 +89,6 @@ The response also contains criteria for new order request.
  `commissionReserveRate` | `String`  | e.g. `"0.001"`, see below.
 
 
-When placing orders, you should comply with all criteria above. More details can be found at 
+When placing orders, you should comply with all criteria above. More details can be found in the [Place Order](#place-order) section.
+
+
