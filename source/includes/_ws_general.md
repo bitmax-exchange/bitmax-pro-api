@@ -15,7 +15,7 @@ npm install -g wscat
 wscat -c wss://bitmax.io/0/api/pro/stream -x '{"op":"sub", "ch": "depth:BTMX/USDT"}'
 
 
-echo '{"op":"sub", "ch": "depth:BTMX/USDT"}' > wscat -c wss://bitmax.io/0/api/t/stream
+echo '{"op":"sub", "ch": "depth:BTMX/USDT"}' > wscat -c wss://bitmax.io/0/api/pro/stream
 ```
 
 > You can also setup authorized session
