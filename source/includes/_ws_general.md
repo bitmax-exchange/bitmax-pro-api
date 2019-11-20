@@ -4,9 +4,9 @@
 ## Data Channels 
 
 
-### Keep the Connection Alive
+### Keep the Connection Alive via Ping/Pong
 
-In order to keep the connection alive, you have two options, detailed below.
+In order to keep the websocket connection alive, you have two options, detailed below.
 
 
 #### Method 1: Responding to Server ping messages
