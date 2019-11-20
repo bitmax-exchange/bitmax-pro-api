@@ -560,7 +560,7 @@ curl -X GET -i <span class="se">\</span>
 <p>When placing orders, you should comply with all criteria above. More details can be found at </p>
 <h2 id='ticker'>Ticker</h2>
 <blockquote>
-<p>Sample response for one symbol</p>
+<p>Ticker for one product</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="err">//</span><span class="w"> </span><span class="err">curl</span><span class="w"> </span><span class="err">-X</span><span class="w"> </span><span class="err">GET</span><span class="w"> </span><span class="err">'https</span><span class="p">:</span><span class="err">//bitmax.io/api/pro/ticker?symbol=BTMX/USDT'</span><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -584,7 +584,7 @@ curl -X GET -i <span class="se">\</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>Sample response for multiple symbols</p>
+<p>List of Tickers for one or multiple products</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="err">//</span><span class="w"> </span><span class="err">curl</span><span class="w"> </span><span class="err">-X</span><span class="w"> </span><span class="err">GET</span><span class="w"> </span><span class="s2">"https://bitmax.io/api/pro/ticker?symbol=BTMX/USDT,"</span><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -615,14 +615,18 @@ curl -X GET -i <span class="se">\</span>
 <h4 id='request-parameters'>Request Parameters</h4>
 <table><thead>
 <tr>
-<th>Field</th>
-<th>Data Type</th>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Value Range</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td><code>symbol</code></td>
-<td><code>Optional[String]</code></td>
+<td><code>String</code></td>
+<td>No</td>
+<td></td>
 <td>you may specify one, multiple, or all symbols of interest. See below.</td>
 </tr>
 </tbody></table>
