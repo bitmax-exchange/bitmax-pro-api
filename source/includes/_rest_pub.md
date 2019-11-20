@@ -16,13 +16,13 @@ curl -X GET https://bitmax.io/api/pro/assets
     "code": 0,
     "data": [
         {
-            "assetCode": "BTMX",
-            "assetName": "BitMax.io Native Token",
-            "precisionScale": 9,
-            "nativeScale": 2,
-            "withdrawalFee": 11,
-            "minWithdrawalAmt": 22,
-            "status": "Normal"
+            "assetCode":        "BTMX",
+            "assetName":        "BitMax.io Native Token",
+            "precisionScale":    9,
+            "nativeScale":       2,
+            "withdrawalFee":     11,
+            "minWithdrawalAmt":  22,
+            "status":           "Normal"
         }
     ]
 }
@@ -47,17 +47,17 @@ curl -X GET https://bitmax.io/api/pro/products
     "code": 0,
     "data": [
         {
-            "symbol": "BTMX/USDT",
-            "baseAsset": "BTMX",
-            "quoteAsset": "USDT",
-            "status": "Normal",
-            "minNotional": "5",
-            "maxNotional": "100000",
-            "marginTradable": true,
-            "commissionType": "Quote",
+            "symbol":                "BTMX/USDT",
+            "baseAsset":             "BTMX",
+            "quoteAsset":            "USDT",
+            "status":                "Normal",
+            "minNotional":           "5",
+            "maxNotional":           "100000",
+            "marginTradable":         true,
+            "commissionType":        "Quote",
             "commissionReserveRate": "0.001",
-            "tickSize": "0.000001",
-            "lotSize": "0.001"
+            "tickSize":              "0.000001",
+            "lotSize":               "0.001"
         }
     ]
 }

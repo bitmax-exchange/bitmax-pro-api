@@ -92,49 +92,56 @@ More comprehensive examples can be found at:
 > Request to place new order
 
 ```json
-{"op": "req",
- "action": "place-Order",
- "args": {"time": 1573772908483,
-  "coid": "11eb9a8355fc41bd9bf5b08bc0d18f6b",
-  "symbol": "EOS/USDT",
-  "orderPrice": "3.27255",
-  "orderQty": "30.557210737803853",
-  "orderType": "limit",
-  "side": "buy",
-  "postOnly": false,
-  "respInst": "ACK"}}
+{
+    "op": "req",
+    "action": "place-Order",
+    "args": {
+        "time":        1573772908483,
+        "coid":       "11eb9a8355fc41bd9bf5b08bc0d18f6b",
+        "symbol":     "EOS/USDT",
+        "orderPrice": "3.27255",
+        "orderQty":   "30.557210737803853",
+        "orderType":  "limit",
+        "side":       "buy",
+        "postOnly":    false,
+        "respInst":   "ACK"
+    }
+}
 ```
 
 > Successful ACK message
 
 ```json
-
-{"m":"order",
-"accountId":"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
-"action":"place-order",
-"status":"Ack",
-"info":{
-    "symbol":"ETC/USDT",
-    "orderType":"Market",
-    "timestamp":1573623067556,
-    "id":"8a7612a36ab44766abec4bbb45fd84ea",
-    "orderId":"16e83845dcdsimtrader00008c645f67"}
+{
+    "m": "order",
+    "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
+    "action": "place-order",
+    "status": "Ack",
+    "info": {
+        "symbol":    "ETC/USDT",
+        "orderType": "Market",
+        "timestamp":  1573623067556,
+        "id":        "8a7612a36ab44766abec4bbb45fd84ea",
+        "orderId":   "16e83845dcdsimtrader00008c645f67"
+    }
 }
 ```
 
 > Error response message
 
 ```json
-{"m":"order",
-"accountId":"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
-"action":"place-order",
-"status":"Err",
-"info":{
-    "id":"69c482a3f29540a0b0d83e00551bb623",
-    "symbol": "ETH/USDT",
-    "code":300011,
-    "message":"Not Enough Account Balance",
-    "reason":"INVALID_BALANCE"}
+{
+    "m": "order",
+    "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
+    "action": "place-order",
+    "status": "Err",
+    "info": {
+        "id":      "69c482a3f29540a0b0d83e00551bb623",
+        "symbol":  "ETH/USDT",
+        "code":     300011,
+        "message": "Not Enough Account Balance",
+        "reason":  "INVALID_BALANCE"
+    }
 }
 ```
 
@@ -170,10 +177,10 @@ With *status* field as *Err* to indicate there is some obvisous errors in your o
 {"op": "req", 
 "action": "cancel-Order", 
 "args": {
-    "time": 1574165050128, 
-    "id": "2d4c3fa1e5c249e49f990ce86aebb607", 
+    "time":     1574165050128, 
+    "id":      "2d4c3fa1e5c249e49f990ce86aebb607", 
     "orderId": "16e83845dcdsimtrader00008c645f67", 
-    "symbol": "ETH/USDT"
+    "symbol":  "ETH/USDT"
     }
 }
 ```
@@ -186,11 +193,11 @@ With *status* field as *Err* to indicate there is some obvisous errors in your o
 "action": "cancel-order", 
 "status": "Ack", 
 "info": {
-    "symbol": "ETH/USDT", 
+    "symbol":    "ETH/USDT", 
     "orderType": "NULL_VAL", 
-    "timestamp": 1574165050147, 
-    "id": "7b73dcd8e8c847d5a99df5ef5ae5088b", 
-    "orderId": "16e83845dcdsimtrader00008c645f67"}}
+    "timestamp":  1574165050147, 
+    "id":        "7b73dcd8e8c847d5a99df5ef5ae5088b", 
+    "orderId":   "16e83845dcdsimtrader00008c645f67"}}
 ```
 
 > Error response message
@@ -201,11 +208,11 @@ With *status* field as *Err* to indicate there is some obvisous errors in your o
 "action": "cancel-order", 
 "status": "Ack", 
 "info": {
-    "code": 300006,
-    "id": "x@fabs",
+    "code":     300006,
+    "id":      "x@fabs",
     "message": "Invalid Client Order Id: x@fabs",     
-    "symbol": "ETH/USDT", 
-    "reason": "INVALID_ORDER_ID"
+    "symbol":  "ETH/USDT", 
+    "reason":  "INVALID_ORDER_ID"
     }
 }
 ```
@@ -236,19 +243,21 @@ With *status* field as *Err* to indicate there is some obvisous errors in your c
 > Request to cancel all existing open orders 
 
 ```json
-{"op": "req", 
-"action": "cancel-All", 
-"args": {}
+{
+    "op": "req",
+    "action": "cancel-All",
+    "args": {}
 }
 ```
 
 > Request to cancel existing open order related to symbol "BTC/USDT"
 
 ```json
-{"op": "req", 
-"action": "cancel-All", 
-"args": {
-    "symbol": "BTC/USDT"
+{
+    "op": "req",
+    "action": "cancel-All",
+    "args": {
+        "symbol": "BTC/USDT"
     }
 }
 ```
@@ -256,16 +265,17 @@ With *status* field as *Err* to indicate there is some obvisous errors in your c
 > Successful ACK message
 
 ```json
-{"m": "order", 
-"accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo", 
-"action": "cancel-all", 
-"status": "Ack", 
-"info": {
-    "symbol": "", 
-    "orderType": "NULL_VAL", 
-    "timestamp": 1574165159732, 
-    "id": "69c482a3f29540a0b0d83e00551bb623", 
-    "orderId": ""
+{
+    "m": "order",
+    "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
+    "action": "cancel-all",
+    "status": "Ack",
+    "info": {
+        "symbol":    "",
+        "orderType": "NULL_VAL",
+        "timestamp":  1574165159732,
+        "id":        "69c482a3f29540a0b0d83e00551bb623",
+        "orderId":   ""
     }
 }
 ```

@@ -9,19 +9,19 @@
     "code": 0,
     "data": [
         {
-            "asset": "USDT",
+            "asset":           "USDT",
             "availableAmount": "1285.366663467",
-            "totalAmount": "1285.366663467"
+            "totalAmount":     "1285.366663467"
         },
         {
-            "asset": "BTC",
+            "asset":           "BTC",
             "availableAmount": "16.1308675",
-            "totalAmount": "22.1308675"
+            "totalAmount":     "22.1308675"
         },
         {
-            "asset": "ETH",
+            "asset":           "ETH",
             "availableAmount": "0.6",
-            "totalAmount": "0.6"
+            "totalAmount":     "0.6"
         }
     ]
 }
@@ -39,18 +39,18 @@
     "code": 0,
     "data": [
         {
-            "asset": "USDT",
+            "asset":            "USDT",
             "availableBalance": "11200",
-            "borrowedBalance": "0",
-            "interest": "0",
-            "totalAmount": "11200"
+            "borrowedBalance":  "0",
+            "interest":         "0",
+            "totalAmount":      "11200"
         },
         {
-            "asset": "ETH",
+            "asset":            "ETH",
             "availableBalance": "20",
-            "borrowedBalance": "0",
-            "interest": "0",
-            "totalAmount": "20"
+            "borrowedBalance":  "0",
+            "interest":         "0",
+            "totalAmount":      "20"
         }
     ]
 }
@@ -67,15 +67,15 @@
 {
     "code": 0,
     "data": {
-        "accountMaxLeverage": "10",
+        "accountMaxLeverage":     "10",
         "availableBalanceInUSDT": "17715.8175",
-        "currentLeverage": "1",
-        "cushion": "-1",
-        "netBalanceInUSDT": "17715.8175",
-        "pointsBalance": "0",
-        "totalBalanceInUSDT": "17715.8175",
-        "totalBorrowedInUSDT": "0",
-        "totalInterestInUSDT": "0"
+        "currentLeverage":        "1",
+        "cushion":                "-1",
+        "netBalanceInUSDT":       "17715.8175",
+        "pointsBalance":          "0",
+        "totalBalanceInUSDT":     "17715.8175",
+        "totalBorrowedInUSDT":    "0",
+        "totalInterestInUSDT":    "0"
     }
 }
 ```
