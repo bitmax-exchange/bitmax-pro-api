@@ -30,9 +30,13 @@ search: true
 
 # BitMax Pro API Documentation
 
+<aside class="warning">
 **Important** This document is still work-in-progress and all contents are subject to change without further notice. 
+</aside>
 
+<aside class="warning">
 **Important** APIs in this document are not yet available for public access.
+</aside>
 
 BitMax Pro API is the latest release of APIs allowing our users to access the exchange programmatically. It is a major revision 
 of the older releases. The BitMax team re-implemented the entire backend system in support for the BitMax Pro API. It is designed
