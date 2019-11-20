@@ -2,7 +2,7 @@
 
 > Request 
 
-```shell
+```
 curl -X GET https://bitmax.io/api/pro/trades?symbol=BTMX/USDT
 ```
 
@@ -34,6 +34,5 @@ curl -X GET https://bitmax.io/api/pro/trades?symbol=BTMX/USDT
 }
 ```
 
-#### URL
+**URL** `GET /api/pro/trades`
 
-`GET /api/pro/trades`

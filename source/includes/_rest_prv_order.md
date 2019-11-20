@@ -154,7 +154,7 @@ time       | Long   |  Yes   |milliseconds since UNIX epoch in UTC  |We do not p
 orderQty   | String |  Yes   |                                      |Order size. Please set scale properly for each symbol.
 orderType  | String |  Yes   |["market", "limit"]                   |Order type
 side       | String |  Yes   |["buy", "sell"]                       |  
-id         | String |  No    |32 chars(letter and digit number only)|Please generate unique ID for each trade, we echo it back to help you to match response with request.
+id         | String |  No    |32 chars(letter and digit number only)|Please generate unique ID for each trade, we echo it back to help you match response with request.
 orderPrice | String |  No    |                                      |The limit price for limit order. Please set price scale properly.
 stopPrice  | String |  No    |                                      |Trigger price of stop limit order
 postOnly   | Boolean|  No    |["true", "false"]                     |

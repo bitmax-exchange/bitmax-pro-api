@@ -2,7 +2,7 @@
 
 > Request 
 
-```shell
+```
 curl -X GET https://bitmax.io/api/pro/barhist/info
 ```
 
@@ -91,7 +91,7 @@ The value in the `name` field should be your input to the [Historical Bar Data](
 
 > Request 
 
-```shell
+```
 curl -X GET https://bitmax.io/api/pro/trades?symbol=BTMX/USDT&interval=1
 ```
 
