@@ -1,6 +1,6 @@
 ## Ticker 
 
-> Sample response for one symbol
+> Ticker for one product
 
 ```json
 // curl -X GET 'https://bitmax.io/api/pro/ticker?symbol=BTMX/USDT'
@@ -25,7 +25,7 @@
 }
 ```
 
-> Sample response for multiple symbols
+> List of Tickers for one or multiple products
 
 ```json
 // curl -X GET "https://bitmax.io/api/pro/ticker?symbol=BTMX/USDT,"
@@ -62,9 +62,10 @@ You can get summary statistics of one or multiple symbols with this API.
 
 #### Request Parameters
 
- Field      | Data Type            | Description                                                                                 
------------ | -------------------- | --------------------- 
- `symbol`   |  `Optional[String]`  | you may specify one, multiple, or all symbols of interest. See below.
+Name       | Type      | Required | Value Range | Description
+-----------| --------- | -------- | ----------- | ---------------
+`symbol`   | `String`  |  No      |             | you may specify one, multiple, or all symbols of interest. See below.
+
 
 This API endpoint accepts one optional string field `symbol`: 
 

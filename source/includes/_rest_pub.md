@@ -3,7 +3,7 @@
 
 ## List all Assets
 
-> Request 
+> List all Assets
 
 ```
 curl -X GET https://bitmax.io/api/pro/assets
