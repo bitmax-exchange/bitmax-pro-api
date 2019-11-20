@@ -77,6 +77,6 @@ You can also authenticate a live websocket session by sending an `op:auth` messa
 
 More comprehensive examples can be found at:
 
-* Python: [https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/bitmax/websocket/websocket_auth.py](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/bitmax/websocket/websocket_auth.py)
+* Python: [https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/websocket_auth.py](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/websocket_auth.py)
 
 

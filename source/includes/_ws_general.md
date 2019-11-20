@@ -1,10 +1,16 @@
 # WebSocket 
 
 
-## Data Channels 
+## URL 
+
+`<account-group>/api/pro/stream`
+
+In order to authorize the sessionm you must include `<account-group>` in the URL. Without `<account-group>`, you can 
+only subscribe to public data. 
 
 
-### Keep the Connection Alive via Ping/Pong
+
+## Keep the Connection Alive via Ping/Pong
 
 In order to keep the websocket connection alive, you have two options, detailed below.
 
@@ -46,7 +52,11 @@ for 30 seconds if a client initiated `ping` message is received.
 
 
 
-### Subscription 
+
+## Data Channels 
+
+
+## Subscription 
 
 > Use `wscat` from Node.js to connect to websocket data.
 
@@ -56,9 +66,6 @@ npm install -g wscat
 
 # Connect to websocket
 wscat -c wss://bitmax.io/0/api/pro/stream -x '{"op":"sub", "ch": "depth:BTMX/USDT"}'
-
-
-echo '{"op":"sub", "ch": "depth:BTMX/USDT"}' > wscat -c wss://bitmax.io/0/api/pro/stream
 ```
 
 > You can also setup authorized session
@@ -66,14 +73,6 @@ echo '{"op":"sub", "ch": "depth:BTMX/USDT"}' > wscat -c wss://bitmax.io/0/api/pr
 ```bash
 @ToDo
 ```
-
-### URL 
-
-`<account-group>/api/pro/stream`
-
-
-In order to authorize the sessionm you must include `<account-group>` in the URL. Without `<account-group>`, you can 
-only subscribe to public data. 
 
 ### Request Body Schema 
 
