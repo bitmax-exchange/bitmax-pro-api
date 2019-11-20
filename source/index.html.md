@@ -23,6 +23,7 @@ includes:
   - ws_auth
   - ws_sub
   - ws_req
+  - error_code
 
 search: true
 ---
