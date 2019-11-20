@@ -226,6 +226,9 @@
                   <li>
                     <a href="#what-39-s-new" class="toc-h2 toc-link" data-title="What's New">What's New</a>
                   </li>
+                  <li>
+                    <a href="#demo-codes" class="toc-h2 toc-link" data-title="Demo codes">Demo codes</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -333,7 +336,7 @@ to get the order result in a single API call. You may also use asynchronized met
 <li>Simplified API schemas. For instance, we simplified the cancel order logic, now you can track the entire order
 life cycle with only one indentifier (<code>orderId</code>). </li>
 </ul>
-<h4 id='demo-codes'>Demo codes</h4>
+<h3 id='demo-codes'>Demo codes</h3>
 <p>We provide comprehensive demos (currently available in python). We provide two types of demo codes:</p>
 
 <ul>
@@ -449,7 +452,7 @@ curl -X GET -i <span class="se">\</span>
 <p>You can obtain a list of all assets listed on the exchange through this API.</p>
 <h2 id='list-all-products'>List all Products</h2>
 <blockquote>
-<p>Request </p>
+<p>List all Products </p>
 </blockquote>
 <pre class="highlight plaintext"><code>curl -X GET https://bitmax.io/api/pro/products
 </code></pre>
@@ -520,27 +523,27 @@ curl -X GET -i <span class="se">\</span>
 <tr>
 <td><code>minNotional</code></td>
 <td><code>String</code></td>
-<td></td>
+<td>minimum notional of an order</td>
 </tr>
 <tr>
 <td><code>maxNotional</code></td>
 <td><code>String</code></td>
-<td></td>
+<td>maximum notional of an order</td>
 </tr>
 <tr>
 <td><code>tickSize</code></td>
 <td><code>String</code></td>
-<td></td>
+<td>tick size of order price</td>
 </tr>
 <tr>
-<td><code>quoteSize</code></td>
+<td><code>lotSize</code></td>
 <td><code>String</code></td>
-<td></td>
+<td>lot size of order quantity</td>
 </tr>
 <tr>
 <td><code>marginTradable</code></td>
 <td><code>Boolean</code></td>
-<td></td>
+<td><code>true</code> if the product is tradable in the margin account; <code>false</code> otherwise.</td>
 </tr>
 <tr>
 <td><code>commissionType</code></td>
@@ -553,6 +556,8 @@ curl -X GET -i <span class="se">\</span>
 <td>e.g. <code>&quot;0.001&quot;</code>, see below.</td>
 </tr>
 </tbody></table>
+
+<p>When placing orders, you should comply with all criteria above. More details can be found at </p>
 <h2 id='ticker'>Ticker</h2>
 <blockquote>
 <p>Sample response for one symbol</p>
