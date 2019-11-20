@@ -289,7 +289,16 @@
             <a href="#websocket" class="toc-h1 toc-link" data-title="WebSocket">WebSocket</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#url" class="toc-h2 toc-link" data-title="URL">URL</a>
+                  </li>
+                  <li>
+                    <a href="#keep-the-connection-alive-via-ping-pong" class="toc-h2 toc-link" data-title="Keep the Connection Alive via Ping/Pong">Keep the Connection Alive via Ping/Pong</a>
+                  </li>
+                  <li>
                     <a href="#data-channels" class="toc-h2 toc-link" data-title="Data Channels">Data Channels</a>
+                  </li>
+                  <li>
+                    <a href="#subscription" class="toc-h2 toc-link" data-title="Subscription">Subscription</a>
                   </li>
                   <li>
                     <a href="#operation-or-data-request" class="toc-h2 toc-link" data-title="Operation or Data Request">Operation or Data Request</a>
@@ -1874,7 +1883,12 @@ only 500 bars will be returned. </li>
 <p><strong>Code Sample</strong></p>
 
 <p>Please refer to python code <a href="https://github.com/gdm-exchange/bitmax-api-demo/blob/master/python/query_order.py">get_hist_orders</a></p>
-<h1 id='websocket'>WebSocket</h1><h2 id='data-channels'>Data Channels</h2><h3 id='keep-the-connection-alive-via-ping-pong'>Keep the Connection Alive via Ping/Pong</h3>
+<h1 id='websocket'>WebSocket</h1><h2 id='url'>URL</h2>
+<p><code>&lt;account-group&gt;/api/pro/stream</code></p>
+
+<p>In order to authorize the sessionm you must include <code>&lt;account-group&gt;</code> in the URL. Without <code>&lt;account-group&gt;</code>, you can 
+only subscribe to public data. </p>
+<h2 id='keep-the-connection-alive-via-ping-pong'>Keep the Connection Alive via Ping/Pong</h2>
 <p>In order to keep the websocket connection alive, you have two options, detailed below.</p>
 <h4 id='method-1-responding-to-server-ping-messages'>Method 1: Responding to Server ping messages</h4>
 <blockquote>
@@ -1902,7 +1916,7 @@ the client should promptly send a <code>pong</code> message to the server. If yo
 </code></pre>
 <p>You can also send <code>ping</code> message to the server every 15 seconds to keep the connection alive. The server will stop sending <code>ping</code> message 
 for 30 seconds if a client initiated <code>ping</code> message is received. </p>
-<h3 id='subscription'>Subscription</h3>
+<h2 id='data-channels'>Data Channels</h2><h2 id='subscription'>Subscription</h2>
 <blockquote>
 <p>Use <code>wscat</code> from Node.js to connect to websocket data.</p>
 </blockquote>
@@ -1911,20 +1925,12 @@ npm install -g wscat
 
 <span class="c"># Connect to websocket</span>
 wscat -c wss://bitmax.io/0/api/pro/stream -x <span class="s1">'{"op":"sub", "ch": "depth:BTMX/USDT"}'</span>
-
-
-<span class="nb">echo</span> <span class="s1">'{"op":"sub", "ch": "depth:BTMX/USDT"}'</span> &gt; wscat -c wss://bitmax.io/0/api/pro/stream
 </code></pre>
 <blockquote>
 <p>You can also setup authorized session</p>
 </blockquote>
 <pre class="highlight shell"><code>@ToDo
-</code></pre><h3 id='url'>URL</h3>
-<p><code>&lt;account-group&gt;/api/pro/stream</code></p>
-
-<p>In order to authorize the sessionm you must include <code>&lt;account-group&gt;</code> in the URL. Without <code>&lt;account-group&gt;</code>, you can 
-only subscribe to public data. </p>
-<h3 id='request-body-schema'>Request Body Schema</h3>
+</code></pre><h3 id='request-body-schema'>Request Body Schema</h3>
 <p>The standard messages to subscribe(<code>sub</code>)/unsubscribe(<code>unsub</code>) to a data channel is an JSON object with fields:</p>
 
 <table><thead>
@@ -2179,7 +2185,7 @@ wscat -c wss://bitmax.io/1/api/pro/stream -w 1 -x <span class="s2">"{</span><spa
 <p>More comprehensive examples can be found at:</p>
 
 <ul>
-<li>Python: <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/bitmax/websocket/websocket_auth.py">https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/bitmax/websocket/websocket_auth.py</a></li>
+<li>Python: <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/websocket_auth.py">https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/websocket_auth.py</a></li>
 </ul>
 <h2 id='subscribing-data-channels'>Subscribing Data Channels</h2><h3 id='level-1-order-book-data-bbo'>Level 1 Order Book Data (BBO)</h3>
 <blockquote>
@@ -2587,7 +2593,7 @@ the timely order book data. </p>
 <p>More comprehensive examples can be found at:</p>
 
 <ul>
-<li>Python: <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/bitmax/websocket/websocket_orderbook_snapshot.py">https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/bitmax/websocket/websocket_orderbook_snapshot.py</a></li>
+<li>Python: <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/websocket_orderbook_snapshot.py">https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/websocket_orderbook_snapshot.py</a></li>
 </ul>
 <h3 id='trades-snapshot'>Trades Snapshot</h3><h2 id='sending-order-request-via-websocket'>Sending Order Request via WebSocket</h2><h3 id='place-order'>Place Order</h3>
 <blockquote>
