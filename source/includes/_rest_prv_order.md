@@ -33,7 +33,7 @@ Please refer to python code [gen_server_order_id](https://github.com/bitmax-exch
 ###
 ### Place Order
 
-> Successful ACK Response (Status 200, code 0)
+> Place Order - Successful ACK Response (Status 200, code 0)
 
 ```json
 {
@@ -42,81 +42,81 @@ Please refer to python code [gen_server_order_id](https://github.com/bitmax-exch
         "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
         "action": "place-order",
         "info": {
-            "id": "16e607e2b83a8bXHbAwwoqDo55c166fa",
-            "orderId": "16e85b4d9b9a8bXHbAwwoqDoc3d66830",
+            "id":        "16e607e2b83a8bXHbAwwoqDo55c166fa",
+            "orderId":   "16e85b4d9b9a8bXHbAwwoqDoc3d66830",
             "orderType": "Market",
-            "symbol":"BTC/USDT",
-            "timestamp": 1573576916201
+            "symbol":    "BTC/USDT",
+            "timestamp":  1573576916201
         },
         "status": "Ack"
     }
 }
 ```
 
-> Successful ACCEPT Response (Status 200, code 0)
+> Place Order - Successful ACCEPT Response (Status 200, code 0)
 
 ```json
 {
     "code": 0,
     "data": {
-        "accountCategory": "CASH",
-        "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
-        "avgPrice": "0",
-        "baseAvailableBalance": "39.2010425",
-        "baseTotalBalance": "39.2010425",
-        "errorCode": "NULL_VAL",
-        "execId": "78271",
-        "execInst": "NULL_VAL",
-        "fee": "0",
-        "feeAsset": "",
-        "filledQty": "0",
-        "m": "order",
-        "orderId": "16e60fc831ba8bXHbAwwoqDo3d898cf3",
-        "orderQty": "0.11",
-        "orderType": "Market",
+        "accountCategory":       "CASH",
+        "accountId":             "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
+        "avgPrice":              "0",
+        "baseAvailableBalance":  "39.2010425",
+        "baseTotalBalance":      "39.2010425",
+        "errorCode":             "NULL_VAL",
+        "execId":                "78271",
+        "execInst":              "NULL_VAL",
+        "fee":                   "0",
+        "feeAsset":               "",
+        "filledQty":             "0",
+        "m":                     "order",
+        "orderId":               "16e60fc831ba8bXHbAwwoqDo3d898cf3",
+        "orderQty":              "0.11",
+        "orderType":             "Market",
         "quoteAvailableBalance": "1113781.119315161",
-        "quoteTotalBalance": "1114852.305731461",
-        "side": "Buy",
-        "status": "New",
-        "symbol": "BTC/USDT",
-        "transactTime": 1573585191865
+        "quoteTotalBalance":     "1114852.305731461",
+        "side":                  "Buy",
+        "status":                "New",
+        "symbol":                "BTC/USDT",
+        "transactTime":           1573585191865
     }
 }
 ```
 
 
-> Successful DONE Response (Status 200, code 0)
+> Place Order - Successful DONE Response (Status 200, code 0)
 
 ```json
 {
     "code": 0,
     "data": {
-        "accountCategory": "CASH",
-        "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
-        "avgPrice": "8846.25",
-        "baseAvailableBalance": "39.2010425",
-        "baseTotalBalance": "39.2010425",        
-        "errorCode": "NULL_VAL",
-        "execId": "78266",
-        "execInst": "NULL_VAL",
-        "fee": "0.827124375",
-        "feeAsset": "USDT",
-        "filledQty": "0.11",
-        "m": "order",
-        "orderId": "16e60f6601ba8bXHbAwwoqDo345548c3",
-        "orderQty": "0.11",
-        "orderType": "Market",
+        "accountCategory":       "CASH",
+        "accountId":             "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
+        "avgPrice":              "8846.25",
+        "baseAvailableBalance":  "39.2010425",
+        "baseTotalBalance":      "39.2010425",        
+        "errorCode":             "NULL_VAL",
+        "execId":                "78266",
+        "execInst":              "NULL_VAL",
+        "fee":                   "0.827124375",
+        "feeAsset":              "USDT",
+        "filledQty":             "0.11",
+        "m":                     "order",
+        "orderId":               "16e60f6601ba8bXHbAwwoqDo345548c3",
+        "orderQty":              "0.11",
+        "orderType":             "Market",
         "quoteAvailableBalance": "1114852.305731461",
-        "quoteTotalBalance": "1114852.305731461",
-        "side": "Buy",
-        "status": "Filled",
-        "symbol": "BTC/USDT",
-        "transactTime": 1573584789682
+        "quoteTotalBalance":     "1114852.305731461",
+        "side":                  "Buy",
+        "status":                "Filled",
+        "symbol":                "BTC/USDT",
+        "transactTime":           1573584789682
     }
 }
 ```
 
-> Error Response (Status 200, code 0)
+> Place Order - Error Response (Status 200, code 0)
 
 ```json
 {
@@ -125,10 +125,10 @@ Please refer to python code [gen_server_order_id](https://github.com/bitmax-exch
         "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
         "action": "place-order",
         "info": {
-            "code": 300002,
-            "id": "ZPJNQSMGhGGse6y5e2Ft79MFEUCbBF9U",
+            "code":     300002,
+            "id":      "ZPJNQSMGhGGse6y5e2Ft79MFEUCbBF9U",
             "message": "Order quantity is too small.",
-            "reason": "INVALID_QTY"
+            "reason":  "INVALID_QTY"
         },
         "status": "Err"
     }
@@ -159,7 +159,7 @@ orderPrice | String |  No    |                                      |The limit p
 stopPrice  | String |  No    |                                      |Trigger price of stop limit order
 postOnly   | Boolean|  No    |["true", "false"]                     |
 timeInForce| String |  No    |["GTC", "IOC"]                        |GTC: good-till-canceled; IOC: immediate-or-cancel. GTC by default.
-respInst   | String |  No    |["ACK", "RESULT", "DONE"]             |Response instruction. Refer to "Response" below. "ACK" by default.  
+respInst   | String |  No    |["ACK", "ACCEPT", "DONE"]             |Response instruction. Refer to "Response" below. "ACK" by default.  
 
 The table below shows how to correctly configure order of different types: (o - required, x - optional)
 
@@ -228,32 +228,44 @@ Refer to sample python code [place_order](https://github.com/gdm-exchange/bitmax
 ###
 ### Cancel Order
 
-> Successful ACK Response (Status 200, code 0)
+> Cancel Order - Successful ACK Response (Status 200, code 0)
 
 ```json
-{"code": 0,
- "data": {"accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
-          "action": "cancel-order",
-          "info": {"id": "wv8QGquoeamhssvQBeHOHGQCGlcBjj23",
-                   "orderId": "16e6198afb4s8bXHbAwwoqDo2ebc19dc",
-                   "orderType": "NULL_VAL",
-                   "symbol": "ETH/USDT",
-                   "timestamp": 1573594877822},
-          "status": "Ack"}}
+{
+    "code": 0,
+    "data": {
+        "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
+        "action": "cancel-order",
+        "status": "Ack",
+        "info": {
+            "id":        "wv8QGquoeamhssvQBeHOHGQCGlcBjj23",
+            "orderId":   "16e6198afb4s8bXHbAwwoqDo2ebc19dc",
+            "orderType": "NULL_VAL",
+            "symbol":    "ETH/USDT",
+            "timestamp":  1573594877822
+        }
+    }
+}
 ```
 
-> Error Response (Status 200, code 0)
+> Cancel Order - Error Response (Status 200, code 0)
 
 ```json
-{"code": 0,
- "data": {"accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
-          "action": "cancel-order",
-          "info": {"code": 300006,
-                   "id": "jHAfoOqZmRv3GP1URJ5624moJ9RCG2@3",
-                   "message": "Invalid Client Order Id: jHAfoOqZmRv3GP1URJ5624moJ9RCG2@3",
-                   "reason": "INVALID_ORDER_ID",
-                   "symbol": "ETH/USDT"},
-          "status": "Err"}}
+{
+    "code": 0,
+    "data": {
+        "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
+        "action": "cancel-order",
+        "status": "Err",
+        "info": {
+            "code":     300006,
+            "id":      "jHAfoOqZmRv3GP1URJ5624moJ9RCG2@3",
+            "message": "Invalid Client Order Id: jHAfoOqZmRv3GP1URJ5624moJ9RCG2@3",
+            "reason":  "INVALID_ORDER_ID",
+            "symbol":  "ETH/USDT"
+        }
+    }
+}
 ```
 
 Cancel an existing open order. 
@@ -293,7 +305,7 @@ Refer to sample python code [cancel_order](https://github.com/gdm-exchange/bitma
 ###
 ### Cancel All Orders
 
-> Successful ACK Response (Status 200, code 0)
+> Cancel All Orders - Successful ACK Response (Status 200, code 0)
 
 ```json
 {
@@ -302,11 +314,11 @@ Refer to sample python code [cancel_order](https://github.com/gdm-exchange/bitma
         "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
         "action": "cancel-all",
         "info": {
-            "id": "2bmYvi7lyTrneMzpcJcf2D7Pe9V1P9wy",
-            "orderId": "",
+            "id":        "2bmYvi7lyTrneMzpcJcf2D7Pe9V1P9wy",
+            "orderId":   "",
             "orderType": "NULL_VAL",
-            "symbol": "",
-            "timestamp": 1574118495462
+            "symbol":    "",
+            "timestamp":  1574118495462
         },
         "status": "Ack"
     }
@@ -333,10 +345,16 @@ Response with status "Ack" to indicate cancel all order request is received by s
 
 Refer to sample python code [cancel_all_order](https://github.com/gdm-exchange/bitmax-api-demo/blob/master/python/cancel_order.py)
 
+#### Caveat 
+
+The server will process the cancel all request with best effort. Orders sent but un-acked will not be canceled. You should rely on websocket order update messages or the RESTful api 
+to obtain the latest status of each order. 
+
+
 ###
 ### Place Batch Orders
 
-> Successful ACK Response (Status 200, code 0)
+> Place Batch Orders - Successful ACK Response (Status 200, code 0)
 
 ```json
 {
@@ -346,18 +364,18 @@ Refer to sample python code [cancel_all_order](https://github.com/gdm-exchange/b
         "action": "batch-place-order",
         "info": [
             {
-                "id": "0r9LFylwSF3Pj6vOQC4j33Nv2pQnuFD9",
-                "orderId": "16e80b75cbda8bXHbAwwoqDoa5be7384",
+                "id":        "0r9LFylwSF3Pj6vOQC4j33Nv2pQnuFD9",
+                "orderId":   "16e80b75cbda8bXHbAwwoqDoa5be7384",
                 "orderType": "Limit",
-                "symbol": "BTC/USDT",
-                "timestamp": 1573596819185
+                "symbol":    "BTC/USDT",
+                "timestamp":  1573596819185
             },
             {
-                "id": "mYnbq6xcTLdAs9qzq1tY57lUZ1iWWIac",
-                "orderId": "16e61adeee5a8bXHbAwwoqDo100e364e",
+                "id":        "mYnbq6xcTLdAs9qzq1tY57lUZ1iWWIac",
+                "orderId":   "16e61adeee5a8bXHbAwwoqDo100e364e",
                 "orderType": "Limit",
-                "symbol": "BTC/USDT",
-                "timestamp": 1573596819185
+                "symbol":    "BTC/USDT",
+                "timestamp":  1573596819185
             }
         ],
         "status": "Ack"
@@ -365,7 +383,7 @@ Refer to sample python code [cancel_all_order](https://github.com/gdm-exchange/b
 }
 ```
 
-> Error Response (Status 200, code 0)
+> Place Batch Orders - Error Response (Status 200, code 0)
 
 ```json
 {
@@ -375,18 +393,18 @@ Refer to sample python code [cancel_all_order](https://github.com/gdm-exchange/b
         "action": "batch-place-order",
         "info": [
             {
-                "code": 300013,
-                "id": "N7PxdMH8iGWiCZOau14i3SGLEzfZpO06",
+                "code":     300013,
+                "id":      "N7PxdMH8iGWiCZOau14i3SGLEzfZpO06",
                 "message": "Some invalid order in this batch",
-                "reason": "INVALID_BATCH_ORDER",
-                "symbol": "ETH/USDT"
+                "reason":  "INVALID_BATCH_ORDER",
+                "symbol":  "ETH/USDT"
             },
             {
-                "code": 300004,
-                "id": "R1LWczhWvAP3DGTEfAOzD3XmXybywXiC",
+                "code":     300004,
+                "id":      "R1LWczhWvAP3DGTEfAOzD3XmXybywXiC",
                 "message": "Notional is too small.",
-                "reason": "INVALID_NOTIONAL",
-                "symbol": "BTC/USDT"
+                "reason":  "INVALID_NOTIONAL",
+                "symbol":  "BTC/USDT"
             }
         ],
         "status": "Err"
@@ -424,26 +442,7 @@ Please refer to python code [place_batch_order] (https://github.com/gdm-exchange
 ###
 ### Cancel Batch Orders
 
-> Successful ACK Response (Status 200, code 0)
-
-```json
-{"code": 0,
- "data": {"accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
-          "action": "batch-cancel-order",
-          "info": [{"id": "0a8bXHbAwwoqDo3b485d7ea0b09c2cd8",
-                    "orderId": "16e61d5ff43s8bXHbAwwoqDo9d817339",
-                    "orderType": "NULL_VAL",
-                    "symbol": "BTC/USDT",
-                    "timestamp": 1573619097746},
-                   {"id": "0a8bXHbAwwoqDo7d303e2edf6c26d1be",
-                   "orderId": "16e61adeee5a8bXHbAwwoqDo100e364e",
-                    "orderType": "NULL_VAL",
-                    "symbol": "ETH/USDT"
-                    "timestamp": 1573619098342}],
-          "status": "Ack"}}
-```
-
-> Error Response (Status 200, code 0)
+> Cancel Batch Orders - Successful ACK Response (Status 200, code 0)
 
 ```json
 {
@@ -451,25 +450,54 @@ Please refer to python code [place_batch_order] (https://github.com/gdm-exchange
     "data": {
         "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
         "action": "batch-cancel-order",
+        "status": "Ack",
         "info": [
             {
-                "code": 300006,
-                "id": "NUty15oXcNt9JAngZ1D6q6jY15LOpKPC",
-                "orderId": "16e61d5ff43s8bXHbAwwoqDo9d817339",
-                "message": "The order is already filled or canceled.",
-                "reason": "INVALID_ORDER_ID",
-                "symbol": ""
+                "id":        "0a8bXHbAwwoqDo3b485d7ea0b09c2cd8",
+                "orderId":   "16e61d5ff43s8bXHbAwwoqDo9d817339",
+                "orderType": "NULL_VAL",
+                "symbol":    "BTC/USDT",
+                "timestamp":  1573619097746
             },
             {
-                "code": 300006,
-                "id": "mpoL0q8cheL8PL2UstJFRzp6yuPk1sGc",
+                "id":        "0a8bXHbAwwoqDo7d303e2edf6c26d1be",
+                "orderId":   "16e61adeee5a8bXHbAwwoqDo100e364e",
+                "orderType": "NULL_VAL",
+                "symbol":    "ETH/USDT",
+                "timestamp":  1573619098342
+            }
+        ]
+    }
+}
+```
+
+> Cancel Batch Orders - Error Response (Status 200, code 0)
+
+```json
+{
+    "code": 0,
+    "data": {
+        "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
+        "action": "batch-cancel-order",
+        "status": "Err",
+        "info": [
+            {
+                "code":     300006,
+                "id":      "NUty15oXcNt9JAngZ1D6q6jY15LOpKPC",
+                "orderId": "16e61d5ff43s8bXHbAwwoqDo9d817339",
+                "message": "The order is already filled or canceled.",
+                "reason":  "INVALID_ORDER_ID",
+                "symbol":   ""
+            },
+            {
+                "code":     300006,
+                "id":      "mpoL0q8cheL8PL2UstJFRzp6yuPk1sGc",
                 "orderId": "16e61adeee5a8bXHbAwwoqDo100e364e",
                 "message": "The order is already filled or canceled.",
-                "reason": "INVALID_ORDER_ID",
-                "symbol": ""
+                "reason":  "INVALID_ORDER_ID",
+                "symbol":   ""
             }
-        ],
-        "status": "Err"
+        ]
     }
 }
 ```
@@ -502,34 +530,34 @@ please refer to python code [cancel_batch_order](https://github.com/gdm-exchange
 ###
 ### Query Order
 
-> Successful Response (Status 200, code 0)
+> Query Order - Successful Response (Status 200, code 0)
 
 ```json
 {
     "code": 0,
     "data": {
         "accountCategory": "CASH",
-        "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
-        "avgPrice": "8844.640000000",
-        "baseAsset": "BTC",
-        "btmxCommission": "0.000000000",        
-        "errorCode": "NULL_VAL",
-        "execId": "76877",
-        "execInst": "NULL_VAL",
-        "fee": "0.751794400",
-        "feeAsset": "USDT",
-        "filledQty": "0.100000000",
-        "notional": "884.464000000",
-        "orderId": "16e60458b97a8bXHbAwwoqDo4723edf8",
-        "orderQty": "0.100000000",
-        "orderType": "Market",
-        "quoteAsset": "USDT",
-        "sendingTime": 1573573206843,
-        "side": "Buy",
-        "status": "Filled",
-        "symbol": "BTC/USDT",
-        "time": 1573573206843,
-        "userId": "mNeGB66kTS3n1TOkrRSd2txkMYWNYXGO"
+        "accountId":       "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
+        "avgPrice":        "8844.640000000",
+        "baseAsset":       "BTC",
+        "btmxCommission":  "0.000000000",        
+        "errorCode":       "NULL_VAL",
+        "execId":          "76877",
+        "execInst":        "NULL_VAL",
+        "fee":             "0.751794400",
+        "feeAsset":        "USDT",
+        "filledQty":       "0.100000000",
+        "notional":        "884.464000000",
+        "orderId":         "16e60458b97a8bXHbAwwoqDo4723edf8",
+        "orderQty":        "0.100000000",
+        "orderType":       "Market",
+        "quoteAsset":      "USDT",
+        "sendingTime":      1573573206843,
+        "side":            "Buy",
+        "status":          "Filled",
+        "symbol":          "BTC/USDT",
+        "time":             1573573206843,
+        "userId":          "mNeGB66kTS3n1TOkrRSd2txkMYWNYXGO"
     }
 }
 ```
@@ -551,7 +579,7 @@ Please refer to python code [get_order_status](https://github.com/gdm-exchange/b
 ### 
 ### Open Orders
 
-> Successful Response (Status 200, code 0)
+> Open Orders - Successful Response (Status 200, code 0)
 
 ```json
 {
@@ -577,8 +605,8 @@ Please refer to python code [get_order_status](https://github.com/gdm-exchange/b
       "orderType":          "StopLimit",
       "status":             "PendingNew",
       "stopPrice":          "0.300000000",                      // only available for stop market and stop limit orders
-      "time":               1566091628227,                      // The last execution time of the order @TODO@FixMe
-      "sendingTime":        1566091503547                       // The sending time of the order
+      "time":                1566091628227,                     // The last execution time of the order @TODO@FixMe
+      "sendingTime":         1566091503547                      // The sending time of the order
     }
   ]
 }
@@ -615,38 +643,42 @@ Change from the previous version:
 * `errorCode` is no longer included in the open order response. It is still included in the historical order query response.
 
 
-###Current History Orders
+### Current History Orders
 
-> Successful Response (Status 200, code 0)
+> Current History Orders - Successful Response (Status 200, code 0)
 
 ```json
-{"code": 0,
- "data": [{"accountCategory": "CASH",
-           "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
-           "avgPrice": "0.000000000",
-           "baseAsset": "BTC",
-           "btmxCommission": "0.000000000",           
-           "errorCode": "NULL_VAL",
-           "execId": "79923",
-           "execInst": "NULL_VAL",
-           "fee": "0.000000000",
-           "feeAsset": "USDT",
-           "filledQty": "0.000000000",
-           "notional": "0.000000000",
-           "orderId": "16e61d5ff43s8bXHbAwwoqDo9d817339",
-           "orderPrice": "9048.210000000",
-           "orderQty": "0.110519000",
-           "orderType": "Limit",
-           "quoteAsset": "USDT",
-           "sendingTime": 1573599444807,
-           "side": "Sell",
-           "status": "Canceled",
-           "stopPrice": "0.000000000",
-           "symbol": "BTC/USDT",
-           "time": 1573619099000,
-           "userId": "mNeGB66kTS3n1TOkrRSd2txkMYWNYXGO"},
-           ...
-        ]
+{
+    "code": 0,
+    "data": [
+        {
+            "accountCategory": "CASH",
+            "accountId":       "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
+            "avgPrice":        "0.000000000",
+            "baseAsset":       "BTC",
+            "btmxCommission":  "0.000000000",
+            "errorCode":       "NULL_VAL",
+            "execId":          "79923",
+            "execInst":        "NULL_VAL",
+            "fee":             "0.000000000",
+            "feeAsset":        "USDT",
+            "filledQty":       "0.000000000",
+            "notional":        "0.000000000",
+            "orderId":         "16e61d5ff43s8bXHbAwwoqDo9d817339",
+            "orderPrice":      "9048.210000000",
+            "orderQty":        "0.110519000",
+            "orderType":       "Limit",
+            "quoteAsset":      "USDT",
+            "sendingTime":      1573599444807,
+            "side":            "Sell",
+            "status":          "Canceled",
+            "stopPrice":       "0.000000000",
+            "symbol":          "BTC/USDT",
+            "time":             1573619099000,
+            "userId":          "mNeGB66kTS3n1TOkrRSd2txkMYWNYXGO"
+        },
+        ...
+    ]
 }
 ```
 
