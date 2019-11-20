@@ -188,7 +188,7 @@ When placing a new **limit** order, the request parameters must meet all criteri
 * For cash trading, you must have sufficient balance to fund the order. 
   * for buy orders, if `commissionType=Quote`, the quote asset balance must be no less than `orderPrice * orderQty * (1 + commissionReserveRate)`. For all other `commissionType`s (`Base` and `Received`), the quote asset balance must be no less than `orderPrice * orderQty`
   * for sell orders, if `commissionType=Base`, your base asset balance must be no less than `orderQty * (1 + commissionReserveRate)`, For other `commissionType`s (`Received` and `Quote`), the base asset balance must be no less than `orderQty`.
-
+* For margin trading, you must make sure you have sufficient **max sellable amount** to fund the order. 
 
 
 #### Response
