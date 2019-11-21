@@ -1368,6 +1368,8 @@ The <code>timestamp</code> is the UTC timestamp in milliseconds.  </p>
 
 <p><code>POST &lt;account-group&gt;/api/pro/{account-category}/order</code></p>
 
+<p>Set <code>account-category</code> to<code>cash</code> for cash account and <code>margin</code> for margin account. </p>
+
 <p><strong>Signature</strong></p>
 
 <p>You should sign the message in header as specified in <strong>Authenticate a RESTful Request</strong> section.</p>
@@ -1645,13 +1647,19 @@ The <code>timestamp</code> is the UTC timestamp in milliseconds.  </p>
 </span></code></pre>
 <p>Cancel an existing open order. </p>
 
+<p><strong>HTTP Request</strong></p>
+
+<p><code>DELETE &lt;account-group&gt;/api/pro/{account-category}/order</code></p>
+
+<p>Set <code>account-category</code> to<code>cash</code> for cash account and <code>margin</code> for margin account. </p>
+
 <p><strong>Signature</strong></p>
 
 <p>You should sign the message in header as specified in <strong>Authenticate a RESTful Request</strong> section.</p>
 
-<p><strong>HTTP Request</strong></p>
+<p><strong>Prehash String</strong></p>
 
-<p><code>DELETE &lt;account-group&gt;/api/pro/{account-category}/order</code></p>
+<p><code>&lt;timestamp&gt;+order</code></p>
 
 <p><strong>Request Parameters</strong></p>
 
@@ -1733,13 +1741,15 @@ The <code>timestamp</code> is the UTC timestamp in milliseconds.  </p>
 
 <p><code>DELETE &lt;account-group&gt;/api/pro/{account-category}/order/all</code></p>
 
+<p>Set <code>account-category</code> to<code>cash</code> for cash account and <code>margin</code> for margin account. </p>
+
 <p><strong>Signature</strong></p>
 
 <p>You should sign the message in header as specified in <strong>Authenticate a RESTful Request</strong> section.</p>
 
 <p><strong>Prehash String</strong></p>
 
-<p><code>&lt;timestamp&gt;+order</code></p>
+<p><code>&lt;timestamp&gt;+order/all</code></p>
 
 <p><strong>Request Parameters</strong></p>
 
@@ -1836,6 +1846,12 @@ to obtain the latest status of each order. </p>
 
 <p><code>POST &lt;account-group&gt;/api/pro/{account-category}/order/batch</code></p>
 
+<p>Set <code>account-category</code> to<code>cash</code> for cash account and <code>margin</code> for margin account.</p>
+
+<p><strong>Signature</strong></p>
+
+<p>You should sign the message in header as specified in <a href="#signing-a-Request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
+
 <p><strong>Prehash String</strong></p>
 
 <p><code>&lt;timestamp&gt;+order/batch</code></p>
@@ -1918,6 +1934,12 @@ to obtain the latest status of each order. </p>
 
 <p><code>DELETE &lt;account-group&gt;/api/pro/{account-category}/order/batch</code></p>
 
+<p>Set <code>account-category</code> to<code>cash</code> for cash account and <code>margin</code> for margin account. </p>
+
+<p><strong>Signature</strong></p>
+
+<p>You should sign the message in header as specified in <a href="#signing-a-Request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
+
 <p><strong>Prehash String</strong></p>
 
 <p><code>&lt;timestamp&gt;+order/batch</code></p>
@@ -1973,6 +1995,12 @@ to obtain the latest status of each order. </p>
 
 <p><code>GET &lt;account-group&gt;/api/pro/{account-category}/order/status</code></p>
 
+<p>Set <code>account-category</code> to<code>cash</code> for cash account and <code>margin</code> for margin account. </p>
+
+<p><strong>Signature</strong></p>
+
+<p>You should sign the message in header as specified in <a href="#signing-a-Request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
+
 <p><strong>Prehash String</strong></p>
 
 <p><code>&lt;timestamp&gt;+order/status</code></p>
@@ -2019,13 +2047,19 @@ to obtain the latest status of each order. </p>
 </span></code></pre>
 <p>This API returns all current open orders for the account specified. </p>
 
-<p><strong>Signature</strong> </p>
-
-<p>You should sign the message </p>
-
 <p><strong>HTTP Request</strong></p>
 
 <p><code>GET &lt;account-group&gt;/api/pro/{account-category}/order/open</code></p>
+
+<p>Set <code>account-category</code> to<code>cash</code> for cash account and <code>margin</code> for margin account. </p>
+
+<p><strong>Signature</strong></p>
+
+<p>You should sign the message in header as specified in <a href="#signing-a-Request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
+
+<p><strong>Prehash String</strong></p>
+
+<p><code>&lt;timestamp&gt;+order/open</code></p>
 
 <p><strong>Response</strong></p>
 
@@ -2101,6 +2135,12 @@ to obtain the latest status of each order. </p>
 <p><strong>HTTP Request</strong></p>
 
 <p><code>GET &lt;account-group&gt;/api/pro/{account-category}/order/hist/current</code></p>
+
+<p>Set <code>account-category</code> to<code>cash</code> for cash account and <code>margin</code> for margin account. </p>
+
+<p><strong>Signature</strong></p>
+
+<p>You should sign the message in header as specified in <a href="#signing-a-Request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
 
 <p><strong>Prehash String</strong></p>
 
