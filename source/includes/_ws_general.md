@@ -15,16 +15,14 @@ In order to keep the websocket connection alive, you have two options, detailed 
 
 #### Method 1: Responding to Server ping messages
 
-> Server pushed ping message 
+> Keep the connection alive by responding to Server pushed ping message 
 
 ```
-{ "op": "ping" }
-```
+# Server pushed 
+>>> { "op": "ping" }
 
-> Client responds to server pushed ping 
-
-```
-{ "op": "pong" }
+# Client respond
+<<< { "op": "pong" }
 ```
 
 If the server doesn't receive any client message after a while, it will send a `ping` message to the client. Once the `ping` message is received,
@@ -33,16 +31,15 @@ the client should promptly send a `pong` message to the server. If you missed tw
 
 #### Method 2: Sending ping messages to Server 
 
-> Client initiated ping message 
+> Keep the connection alive by sending ping message to the server
 
 ```
-{ "op": "ping" }
-```
+# Client initiated ping message (every 30 seconds)
+>>> { "op": "ping" }
 
-> Server responds to client ping 
 
-```
-{ "m":"pong", "code":0, "ts":1574260701259 }
+# Server responds to client ping 
+<<< { "m":"pong", "code":0, "ts":1574260701259 }
 ``` 
 
 You can also send `ping` message to the server every 15 seconds to keep the connection alive. The server will stop sending `ping` message 
