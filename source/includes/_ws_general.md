@@ -46,16 +46,13 @@ for 30 seconds if a client initiated `ping` message is received.
 
 
 
-
-## Data Channels 
-
-
 ## Subscription 
 
 > Use `wscat` from Node.js to connect to websocket data.
 
 ```bash
-# install wscat if you haven't
+# # Install wscat from Node.js if you haven't
+# npm install -g wscat  
 npm install -g wscat
 
 # Connect to websocket
@@ -68,7 +65,12 @@ wscat -c wss://bitmax.io/0/api/pro/stream -x '{"op":"sub", "ch": "depth:BTMX/USD
 @ToDo
 ```
 
-### Request Body Schema 
+You can **subscribe/unsubscribe** to one or multiple data channels.
+
+* If the subscription is successful, you will receive one ack message confirming the request is successful and you will start receiving data streams. 
+* If the subscription is unsuccessful, you will receive one ack message with text explaining why the subscription failed. 
+
+#### Request Body Schema 
 
 The standard messages to subscribe(`sub`)/unsubscribe(`unsub`) to a data channel is an JSON object with fields:
 
@@ -79,7 +81,7 @@ The standard messages to subscribe(`sub`)/unsubscribe(`unsub`) to a data channel
  `ch`  | `String`           | name of the data channel with optional arguments, see below for details                        
 
 
-###  Customize Channel content with `ch`
+####  Customize Channel content with `ch`
 
 You can subscription to different data channels by setting `ch` to `name:<arg1>[:<arg2>]` with `arg1` being the required argument 
 and `arg2` being optinal:
@@ -104,7 +106,11 @@ the following rules:
 
 ## Operation or Data Request
 
-You could place/cancel order and take snapshot for some data via websocket.
+Besides subscript mesages, you could also send **request message** via websocket. You will receive exactly one message regarding each 
+request message. Here are some use cases: 
+
+* Place/cancel orders 
+* Request orderbook snapshot data to initialize/rebuild orderbook. 
 
 ### Request Schema
 
