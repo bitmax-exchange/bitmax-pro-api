@@ -401,6 +401,10 @@ life cycle with only one indentifier (<code>orderId</code>). </li>
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<p><strong>HTTP Request</strong> </p>
+
+<p><code>GET /api/pro/assets</code></p>
+
 <p>You can obtain a list of all assets listed on the exchange through this API.</p>
 <h2 id='list-all-products'>List all Products</h2>
 <blockquote>
@@ -429,7 +433,11 @@ life cycle with only one indentifier (<code>orderId</code>). </li>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h4 id='response-content'>Response Content</h4>
+</span></code></pre>
+<p><strong>HTTP Request</strong></p>
+
+<p><code>GET /api/pro/products</code></p>
+<h4 id='response-content'>Response Content</h4>
 <p>You can obtain a list of all products traded on the exchange through this API.</p>
 
 <p>The response contains the following general fields:</p>
@@ -561,9 +569,11 @@ life cycle with only one indentifier (<code>orderId</code>). </li>
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>You can get summary statistics of one or multiple symbols with this API. </p>
-<h4 id='url'>URL</h4>
+<p><strong>HTTP Request</strong></p>
+
 <p><code>GET api/pro/ticker</code></p>
+
+<p>You can get summary statistics of one or multiple symbols with this API. </p>
 <h4 id='request-parameters'>Request Parameters</h4>
 <table><thead>
 <tr>
@@ -707,9 +717,11 @@ If you want to wrap the object in a one-element list, append a comma to the symb
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This API returns a list of all bar intervals supported by the server. </p>
-<h4 id='url'>URL</h4>
+<p><strong>HTTP Request</strong></p>
+
 <p><code>GET /api/pro/barhist/info</code></p>
+
+<p>This API returns a list of all bar intervals supported by the server. </p>
 <h4 id='request-parameters'>Request Parameters</h4>
 <p>This API endpoint does not take any parameters. </p>
 <h4 id='resposne'>Resposne</h4>
@@ -761,9 +773,11 @@ If you want to wrap the object in a one-element list, append a comma to the symb
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This API returns a list of <strong>bar</strong>s, with each contains the open/close/high/low prices of a symbol for a specific time range. </p>
-<h4 id='url-2'>URL</h4>
+<p><strong>HTTP Request</strong></p>
+
 <p><code>GET /api/pro/barhist</code></p>
+
+<p>This API returns a list of <strong>bar</strong>s, with each contains the open/close/high/low prices of a symbol for a specific time range. </p>
 <h4 id='request-parameters-2'>Request Parameters</h4>
 <table><thead>
 <tr>
@@ -861,7 +875,9 @@ only 500 bars will be returned. </li>
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>URL</strong> <code>GET /api/pro/depth</code></p>
+<p><strong>HTTP Request</strong></p>
+
+<p><code>GET /api/pro/depth</code></p>
 <h4 id='request-parameters'>Request Parameters</h4>
 <table><thead>
 <tr>
@@ -954,7 +970,9 @@ only 500 bars will be returned. </li>
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>URL</strong> <code>GET /api/pro/trades</code></p>
+<p><strong>HTTP Request</strong></p>
+
+<p><code>GET /api/pro/trades</code></p>
 <h1 id='authenticate-a-restful-request'>Authenticate a RESTful Request</h1><h2 id='creating-a-request'>Creating a Request</h2>
 <p>To access private data via RESTful APIs, you must include the following headers:</p>
 
@@ -1032,7 +1050,8 @@ curl -X GET -i <span class="se">\</span>
   <span class="o">}</span>
 <span class="o">}</span>
 </code></pre>
-<p>To query APIs with private data, you must include a signature using base64 encoded HMAC sha256 algorithm.</p>
+<p>To query APIs with private data, you must include a signature using base64 encoded HMAC sha256 algorithm. The prehash string is <code>&lt;timestamp&gt;+&lt;api-path&gt;</code>. 
+The <code>timestamp</code> is the UTC timestamp in milliseconds.  </p>
 
 <p>See the code demos in (<code>bash</code>/<code>python</code>/<code>java</code>) on the right.</p>
 <h1 id='private-restful-apis'>Private RESTful APIs</h1><h3 id='account-info'>Account Info</h3>
@@ -1056,6 +1075,18 @@ curl -X GET -i <span class="se">\</span>
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<p><strong>HTTP Request</strong> </p>
+
+<p><code>GET /api/pro/info</code></p>
+
+<p><strong>Signature</strong></p>
+
+<p>You should sign the message in header as specified in <a href="#signing-a-Request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
+
+<p><strong>prehash string</strong> </p>
+
+<p><code>&lt;timestamp&gt;+info</code></p>
+
 <p>Obtain the account information. </p>
 
 <p>You can obtain your <code>accountGroup</code> from this API, which you will need to include in the URL for all your private RESTful requests.</p>
@@ -1132,7 +1163,17 @@ curl -X GET -i <span class="se">\</span>
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>URL</strong> <code>https://bitmax.io/api/pro/cash/balance</code></p>
+<p><strong>HTTP Request</strong></p>
+
+<p><code>GET /api/pro/cash/balance</code></p>
+
+<p><strong>Signature</strong></p>
+
+<p>You should sign the message in header as specified in <a href="#signing-a-Request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
+
+<p><strong>Prehash String</strong> </p>
+
+<p><code>&lt;timestamp&gt;+balance</code></p>
 <h3 id='margin-account-balance'>Margin Account Balance</h3>
 <blockquote>
 <p>Margin Account Balance - Sample response </p>
@@ -1157,7 +1198,17 @@ curl -X GET -i <span class="se">\</span>
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>URL</strong> <code>https://bitmax.io/api/pro/margin/balance</code></p>
+<p><strong>HTTP Request</strong> </p>
+
+<p><code>GET /api/pro/margin/balance</code></p>
+
+<p><strong>Signature</strong></p>
+
+<p>You should sign the message in header as specified in <a href="#signing-a-Request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
+
+<p><strong>Prehash String</strong> </p>
+
+<p><code>&lt;timestamp&gt;+balance</code></p>
 <h3 id='margin-account-risk-profile'>Margin Account Risk Profile</h3>
 <blockquote>
 <p>Margin Account Risk Profile - Sample response </p>
@@ -1177,7 +1228,17 @@ curl -X GET -i <span class="se">\</span>
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>URL</strong> <code>https://bitmax.io/api/pro/margin/risk</code></p>
+<p><strong>HTTP Request</strong></p>
+
+<p><code>POST &lt;account-group&gt;/api/pro/margin/risk</code></p>
+
+<p><strong>Signature</strong></p>
+
+<p>You should sign the message in header as specified in <a href="#signing-a-Request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
+
+<p><strong>Prehash String</strong></p>
+
+<p><code>&lt;timestamp&gt;+margin/risk</code></p>
 <h2 id='order'>Order</h2>
 <p>Trading and Order related APIs. API path usually depend on account-group and account-category: </p>
 
@@ -1302,10 +1363,18 @@ curl -X GET -i <span class="se">\</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Place a new order.</p>
-<h4 id='signature'>Signature</h4>
-<p>You should sign the message and include it in request header. (Please refer to section <strong>Authenticate a RESTful Request</strong>)</p>
-<h4 id='http-request'>HTTP Request</h4>
+
+<p><strong>HTTP Request</strong></p>
+
 <p><code>POST &lt;account-group&gt;/api/pro/{account-category}/order</code></p>
+
+<p><strong>Signature</strong></p>
+
+<p>You should sign the message in header as specified in <strong>Authenticate a RESTful Request</strong> section.</p>
+
+<p><strong>Prehash String</strong></p>
+
+<p><code>&lt;timestamp&gt;+order</code></p>
 <h4 id='request-parameters'>Request Parameters</h4>
 <table><thead>
 <tr>
@@ -1664,6 +1733,14 @@ curl -X GET -i <span class="se">\</span>
 
 <p><code>DELETE &lt;account-group&gt;/api/pro/{account-category}/order/all</code></p>
 
+<p><strong>Signature</strong></p>
+
+<p>You should sign the message in header as specified in <strong>Authenticate a RESTful Request</strong> section.</p>
+
+<p><strong>Prehash String</strong></p>
+
+<p><code>&lt;timestamp&gt;+order</code></p>
+
 <p><strong>Request Parameters</strong></p>
 
 <table><thead>
@@ -1759,9 +1836,9 @@ to obtain the latest status of each order. </p>
 
 <p><code>POST &lt;account-group&gt;/api/pro/{account-category}/order/batch</code></p>
 
-<p><strong>Signature</strong></p>
+<p><strong>Prehash String</strong></p>
 
-<p>For this API you must include <em>x-auth-coid</em> in your request header. You must concatenate IDs of all orders with character <em>+</em>. The order of IDs in the header must match the orders in the request.</p>
+<p><code>&lt;timestamp&gt;+order/batch</code></p>
 
 <p><strong>Response</strong></p>
 
@@ -1841,9 +1918,9 @@ to obtain the latest status of each order. </p>
 
 <p><code>DELETE &lt;account-group&gt;/api/pro/{account-category}/order/batch</code></p>
 
-<p><strong>Signature</strong></p>
+<p><strong>Prehash String</strong></p>
 
-<p>For this API you must include <em>x-auth-coid</em> in your request header. You must concatenate IDs of all orders with character <em>+</em>. The order of IDs in the header must match the orders in the request.</p>
+<p><code>&lt;timestamp&gt;+order/batch</code></p>
 
 <p><strong>Response</strong></p>
 
@@ -1895,6 +1972,10 @@ to obtain the latest status of each order. </p>
 <p><strong>HTTP Request</strong></p>
 
 <p><code>GET &lt;account-group&gt;/api/pro/{account-category}/order/status</code></p>
+
+<p><strong>Prehash String</strong></p>
+
+<p><code>&lt;timestamp&gt;+order/status</code></p>
 
 <p><strong><em>Response</em></strong></p>
 
@@ -2021,6 +2102,10 @@ to obtain the latest status of each order. </p>
 
 <p><code>GET &lt;account-group&gt;/api/pro/{account-category}/order/hist/current</code></p>
 
+<p><strong>Prehash String</strong></p>
+
+<p><code>&lt;timestamp&gt;+order/hist/current</code></p>
+
 <p><strong>Response</strong></p>
 
 <p>Return a list of history orders in <em>&quot;data&quot;</em> field.</p>
@@ -2029,7 +2114,9 @@ to obtain the latest status of each order. </p>
 
 <p>Please refer to python code <a href="https://github.com/gdm-exchange/bitmax-api-demo/blob/master/python/query_order.py">get_hist_orders</a></p>
 <h1 id='websocket'>WebSocket</h1>
-<p><strong>URL</strong> <code>&lt;account-group&gt;/api/pro/stream</code></p>
+<p><strong>WebSocket Request</strong></p>
+
+<p><code>WSS &lt;account-group&gt;/api/pro/stream</code></p>
 
 <p>In order to authorize the sessionm you must include <code>&lt;account-group&gt;</code> in the URL. Without <code>&lt;account-group&gt;</code>, you can 
 only subscribe to public data. </p>
