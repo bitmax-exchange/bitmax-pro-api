@@ -19,6 +19,14 @@ includes:
   - rest_prv
   - rest_prv_bal
   - rest_prv_order
+  - rest_prv_order_new
+  - rest_prv_order_cancel
+  - rest_prv_order_cancel_all
+  - rest_prv_order_new_batch
+  - rest_prv_order_cancel_batch
+  - rest_prv_order_query
+  - rest_prv_order_open
+  - rest_prv_order_hist_curr
   - ws_general
   - ws_auth
   - ws_sub
