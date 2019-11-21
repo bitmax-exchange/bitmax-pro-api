@@ -141,6 +141,8 @@ Place a new order.
 
 `POST <account-group>/api/pro/{account-category}/order`
 
+Set `account-category` to`cash` for cash account and `margin` for margin account. 
+
 **Signature**
 
 You should sign the message in header as specified in **Authenticate a RESTful Request** section.
@@ -275,13 +277,21 @@ Refer to sample python code [place_order](https://github.com/gdm-exchange/bitmax
 
 Cancel an existing open order. 
 
-**Signature**
-
-You should sign the message in header as specified in **Authenticate a RESTful Request** section.
 
 **HTTP Request**
 
 `DELETE <account-group>/api/pro/{account-category}/order`
+
+Set `account-category` to`cash` for cash account and `margin` for margin account. 
+
+**Signature**
+
+You should sign the message in header as specified in **Authenticate a RESTful Request** section.
+
+**Prehash String**
+
+`<timestamp>+order`
+
 
 **Request Parameters**
 
@@ -336,13 +346,15 @@ Cancel all current open orders for the account specified, and optional symbol.
 
 `DELETE <account-group>/api/pro/{account-category}/order/all`
 
+Set `account-category` to`cash` for cash account and `margin` for margin account. 
+
 **Signature**
 
 You should sign the message in header as specified in **Authenticate a RESTful Request** section.
 
 **Prehash String**
 
-`<timestamp>+order`
+`<timestamp>+order/all`
 
 
 **Request Parameters**
@@ -435,6 +447,12 @@ You may submit up to 10 orders at a time. Server will respond with error if you 
 
 `POST <account-group>/api/pro/{account-category}/order/batch`
 
+Set `account-category` to`cash` for cash account and `margin` for margin account.
+
+**Signature**
+
+You should sign the message in header as specified in [**Authenticate a RESTful Request**](#signing-a-Request) section.
+
 **Prehash String**
 
 `<timestamp>+order/batch`
@@ -452,7 +470,7 @@ Status "ERR" to indicate the batch order request is accepted by server. Field "i
 
 **Code Sample**
 
-Please refer to python code [place_batch_order] (https://github.com/gdm-exchange/bitmax-api-demo/blob/master/python/place_order.py)
+Please refer to python code [place_batch_order](https://github.com/gdm-exchange/bitmax-api-demo/blob/master/python/place_order.py)
 
 ###
 ### Cancel Batch Orders
@@ -523,6 +541,12 @@ Cancel multiple orders in a batch. If some order in the batch failed our basic c
 
 `DELETE <account-group>/api/pro/{account-category}/order/batch`
 
+Set `account-category` to`cash` for cash account and `margin` for margin account. 
+
+**Signature**
+
+You should sign the message in header as specified in [**Authenticate a RESTful Request**](#signing-a-Request) section.
+
 **Prehash String**
 
 `<timestamp>+order/batch`
@@ -583,6 +607,12 @@ Query order status, either open or history order. //TODO: not all order, specify
 
 `GET <account-group>/api/pro/{account-category}/order/status`
 
+Set `account-category` to`cash` for cash account and `margin` for margin account. 
+
+**Signature**
+
+You should sign the message in header as specified in [**Authenticate a RESTful Request**](#signing-a-Request) section.
+
 **Prehash String**
 
 `<timestamp>+order/status`
@@ -633,13 +663,19 @@ Please refer to python code [get_order_status](https://github.com/gdm-exchange/b
 
 This API returns all current open orders for the account specified. 
 
-**Signature** 
-
-You should sign the message 
-
 **HTTP Request**
 
 `GET <account-group>/api/pro/{account-category}/order/open`
+
+Set `account-category` to`cash` for cash account and `margin` for margin account. 
+
+**Signature**
+
+You should sign the message in header as specified in [**Authenticate a RESTful Request**](#signing-a-Request) section.
+
+**Prehash String**
+
+`<timestamp>+order/open`
 
 **Response**
 
@@ -706,6 +742,12 @@ This API returns all current history orders for the account specified. //TODO: n
 **HTTP Request**
 
 `GET <account-group>/api/pro/{account-category}/order/hist/current`
+
+Set `account-category` to`cash` for cash account and `margin` for margin account. 
+
+**Signature**
+
+You should sign the message in header as specified in [**Authenticate a RESTful Request**](#signing-a-Request) section.
 
 **Prehash String**
 
