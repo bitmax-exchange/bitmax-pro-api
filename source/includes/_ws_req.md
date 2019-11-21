@@ -174,7 +174,7 @@ With *status* field as *Err* to indicate there is some obvisous errors in your o
 *info* field provide some detail: if you provide *id* in your request, it will be echoed back as *id* to help you identify; we also provide error *code*, *reason*, and *message* detail.
 
 ### 
-###Cancel Order
+### Cancel an Order
 
 > Request to cancel existing open order
 
@@ -248,7 +248,7 @@ With *status* field as *Err* to indicate there is some obvisous errors in your c
 *info* field provide some detail: if you provide *id* in your request, it will be echoed back as *id* to help you identify; we also provide error *code*, *reason*, and *message* detail.
 
 ### 
-###Cancel All Order
+### Cancel All Orders
 
 > Request to cancel all existing open orders 
 
