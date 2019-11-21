@@ -124,7 +124,7 @@ See [Orderbook Snapshot](#orderbook-snapshot) for code examples.
             "q": "100.000",
             "ts": 1573069903254,
             "bm": false,
-            "id": 144115188077966308
+            "seqnum": 144115188077966308
         }
     ]
 }
@@ -133,13 +133,13 @@ See [Orderbook Snapshot](#orderbook-snapshot) for code examples.
 The `data` field is a list containing one or more trade objects. The server may combine consecutive trades with the same price and `bm` 
 value into one aggregated item. Each trade object contains the following fields:
 
- Name  | Type             | Description                                                                                    
--------| ---------------- | ---------------------------------------------------------------------------------------------- 
- `id`  | `Long`           | the sequence number of the trade record. `id` is always increasing, but may not be consecutive 
- `p`   | `String`         | the executed price expressed as a string                                                       
- `q`   | `String`         | the aggregated traded amount expressed as string                                               
- `ts`  | `Long`           | the UTC timestamp in milliseconds of the first trade                                           
- `bm`  | `Boolean`        | if true, the buyer of the trade is the maker.                                                  
+ Name     | Type       | Description                                                                                    
+--------- | ---------- | ---------------------------------------------------------------------------------------------- 
+ `seqnum` | `Long`     | the sequence number of the trade record. `seqnum` is always increasing for each symbol, but may not be consecutive 
+ `p`      | `String`   | the executed price expressed as a string                                                       
+ `q`      | `String`   | the aggregated traded amount expressed as string                                               
+ `ts`     | `Long`     | the UTC timestamp in milliseconds of the first trade                                           
+ `bm`     | `Boolean`  | if true, the buyer of the trade is the maker.                                                  
 
 
 ### Account Order
