@@ -27,7 +27,17 @@
 }
 ```
 
-**URL** `https://bitmax.io/api/pro/cash/balance`
+**HTTP Request**
+
+`GET /api/pro/cash/balance`
+
+**Signature**
+
+You should sign the message in header as specified in [**Authenticate a RESTful Request**](#signing-a-Request) section.
+
+**Prehash String** 
+
+`<timestamp>+balance`
 
 
 ### Margin Account Balance 
@@ -56,8 +66,17 @@
 }
 ```
 
-**URL** `https://bitmax.io/api/pro/margin/balance`
+**HTTP Request** 
 
+`GET /api/pro/margin/balance`
+
+**Signature**
+
+You should sign the message in header as specified in [**Authenticate a RESTful Request**](#signing-a-Request) section.
+
+**Prehash String** 
+
+`<timestamp>+balance`
 
 ### Margin Account Risk Profile
 
@@ -80,6 +99,18 @@
 }
 ```
 
-**URL** `https://bitmax.io/api/pro/margin/risk`
+**HTTP Request**
+
+`POST <account-group>/api/pro/margin/risk`
+
+**Signature**
+
+You should sign the message in header as specified in [**Authenticate a RESTful Request**](#signing-a-Request) section.
+
+**Prehash String**
+
+`<timestamp>+margin/risk`
+
+
 
 

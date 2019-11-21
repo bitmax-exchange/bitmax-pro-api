@@ -34,5 +34,7 @@ curl -X GET https://bitmax.io/api/pro/trades?symbol=BTMX/USDT
 }
 ```
 
-**URL** `GET /api/pro/trades`
+**HTTP Request**
+
+`GET /api/pro/trades`
 

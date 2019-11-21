@@ -28,8 +28,11 @@ curl -X GET https://bitmax.io/api/pro/assets
 }
 ```
 
-You can obtain a list of all assets listed on the exchange through this API.
+**HTTP Request** 
 
+`GET /api/pro/assets`
+
+You can obtain a list of all assets listed on the exchange through this API.
 
 
 ## List all Products 
@@ -62,6 +65,10 @@ curl -X GET https://bitmax.io/api/pro/products
     ]
 }
 ```
+
+**HTTP Request**
+
+`GET /api/pro/products`
 
 #### Response Content
 

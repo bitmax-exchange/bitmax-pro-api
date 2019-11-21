@@ -64,11 +64,12 @@ curl -X GET https://bitmax.io/api/pro/barhist/info
 }
 ```
 
-This API returns a list of all bar intervals supported by the server. 
-
-#### URL
+**HTTP Request**
 
 `GET /api/pro/barhist/info`
+
+This API returns a list of all bar intervals supported by the server. 
+
 
 #### Request Parameters 
 
@@ -84,6 +85,10 @@ This API endpoint does not take any parameters.
 Plesae note that the one-month bar (`1m`) always resets at the month start. The `intervalInMillis` value for the one-month `bar` is only indicative. 
 
 The value in the `name` field should be your input to the [Historical Bar Data](#historical-bar-data) API.
+
+
+
+
 
 
 
@@ -116,11 +121,11 @@ curl -X GET https://bitmax.io/api/pro/trades?symbol=BTMX/USDT&interval=1
 }
 ```
 
-This API returns a list of **bar**s, with each contains the open/close/high/low prices of a symbol for a specific time range. 
-
-#### URL 
+**HTTP Request**
 
 `GET /api/pro/barhist`
+
+This API returns a list of **bar**s, with each contains the open/close/high/low prices of a symbol for a specific time range. 
 
 #### Request Parameters
 

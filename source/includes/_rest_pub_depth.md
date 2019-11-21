@@ -40,7 +40,9 @@ curl -X GET https://bitmax.io/api/pro/depth?symbol=BTMX/USDT
 }
 ```
 
-**URL** `GET /api/pro/depth`
+**HTTP Request**
+
+`GET /api/pro/depth`
 
 #### Request Parameters
 

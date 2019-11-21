@@ -26,6 +26,18 @@
 }
 ```
 
+**HTTP Request** 
+
+`GET /api/pro/info`
+
+**Signature**
+
+You should sign the message in header as specified in [**Authenticate a RESTful Request**](#signing-a-Request) section.
+
+**prehash string** 
+
+`<timestamp>+info`
+
 Obtain the account information. 
 
 You can obtain your `accountGroup` from this API, which you will need to include in the URL for all your private RESTful requests.

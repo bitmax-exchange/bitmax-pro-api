@@ -52,13 +52,11 @@
 }
 ```
 
-You can get summary statistics of one or multiple symbols with this API. 
-
-
-#### URL
+**HTTP Request**
 
 `GET api/pro/ticker`
 
+You can get summary statistics of one or multiple symbols with this API. 
 
 #### Request Parameters
 

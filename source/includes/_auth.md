@@ -86,7 +86,8 @@ public class SignatureExample {
 }
 ```
 
-To query APIs with private data, you must include a signature using base64 encoded HMAC sha256 algorithm.
+To query APIs with private data, you must include a signature using base64 encoded HMAC sha256 algorithm. The prehash string is `<timestamp>+<api-path>`. 
+The `timestamp` is the UTC timestamp in milliseconds.  
 
 
 See the code demos in (`bash`/`python`/`java`) on the right.

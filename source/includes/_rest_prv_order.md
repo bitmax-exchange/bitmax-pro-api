@@ -137,13 +137,18 @@ Please refer to python code [gen_server_order_id](https://github.com/bitmax-exch
 
 Place a new order.
 
-#### Signature
-
-You should sign the message and include it in request header. (Please refer to section **Authenticate a RESTful Request**)
-
-#### HTTP Request
+**HTTP Request**
 
 `POST <account-group>/api/pro/{account-category}/order`
+
+**Signature**
+
+You should sign the message in header as specified in **Authenticate a RESTful Request** section.
+
+**Prehash String**
+
+`<timestamp>+order`
+
 
 #### Request Parameters
 
@@ -331,6 +336,15 @@ Cancel all current open orders for the account specified, and optional symbol.
 
 `DELETE <account-group>/api/pro/{account-category}/order/all`
 
+**Signature**
+
+You should sign the message in header as specified in **Authenticate a RESTful Request** section.
+
+**Prehash String**
+
+`<timestamp>+order`
+
+
 **Request Parameters**
 
 
@@ -421,9 +435,9 @@ You may submit up to 10 orders at a time. Server will respond with error if you 
 
 `POST <account-group>/api/pro/{account-category}/order/batch`
 
-**Signature**
+**Prehash String**
 
-For this API you must include *x-auth-coid* in your request header. You must concatenate IDs of all orders with character *+*. The order of IDs in the header must match the orders in the request.
+`<timestamp>+order/batch`
 
 **Response**
 
@@ -509,9 +523,9 @@ Cancel multiple orders in a batch. If some order in the batch failed our basic c
 
 `DELETE <account-group>/api/pro/{account-category}/order/batch`
 
-**Signature**
+**Prehash String**
 
-For this API you must include *x-auth-coid* in your request header. You must concatenate IDs of all orders with character *+*. The order of IDs in the header must match the orders in the request.
+`<timestamp>+order/batch`
 
 **Response**
 
@@ -568,6 +582,10 @@ Query order status, either open or history order. //TODO: not all order, specify
 **HTTP Request**
 
 `GET <account-group>/api/pro/{account-category}/order/status`
+
+**Prehash String**
+
+`<timestamp>+order/status`
 
 ***Response***
 
@@ -688,6 +706,10 @@ This API returns all current history orders for the account specified. //TODO: n
 **HTTP Request**
 
 `GET <account-group>/api/pro/{account-category}/order/hist/current`
+
+**Prehash String**
+
+`<timestamp>+order/hist/current`
 
 **Response**
 
