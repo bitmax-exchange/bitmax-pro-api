@@ -2074,7 +2074,12 @@ wscat -c wss://bitmax.io/0/api/pro/stream -x <span class="s1">'{"op":"sub", "ch"
 </blockquote>
 <pre class="highlight shell"><code>@ToDo
 </code></pre>
-<p>You can subscribe/unsubscribe to one or multiple channels. </p>
+<p>You can <strong>subscribe/unsubscribe</strong> to one or multiple data channels.</p>
+
+<ul>
+<li>If the subscription is successful, you will receive one ack message confirming the request is successful and you will start receiving data streams. </li>
+<li>If the subscription is unsuccessful, you will receive one ack message with text explaining why the subscription failed. </li>
+</ul>
 <h4 id='request-body-schema'>Request Body Schema</h4>
 <p>The standard messages to subscribe(<code>sub</code>)/unsubscribe(<code>unsub</code>) to a data channel is an JSON object with fields:</p>
 
@@ -2160,7 +2165,13 @@ the following rules:</p>
 
 <p>@ToDo rule: maximum number of channels </p>
 <h2 id='operation-or-data-request'>Operation or Data Request</h2>
-<p>You could place/cancel order and take snapshot for some data via websocket.</p>
+<p>Besides subscript mesages, you could also send <strong>request message</strong> via websocket. You will receive exactly one message regarding each 
+request message. Here are some use cases: </p>
+
+<ul>
+<li>Place/cancel orders </li>
+<li>Request orderbook snapshot data to initialize/rebuild orderbook. </li>
+</ul>
 <h3 id='request-schema'>Request Schema</h3>
 <p>All operation or data request follow the same uniform format:</p>
 
