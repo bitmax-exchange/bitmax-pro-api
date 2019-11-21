@@ -292,9 +292,6 @@
                     <a href="#keep-the-connection-alive-via-ping-pong" class="toc-h2 toc-link" data-title="Keep the Connection Alive via Ping/Pong">Keep the Connection Alive via Ping/Pong</a>
                   </li>
                   <li>
-                    <a href="#data-channels" class="toc-h2 toc-link" data-title="Data Channels">Data Channels</a>
-                  </li>
-                  <li>
                     <a href="#subscription" class="toc-h2 toc-link" data-title="Subscription">Subscription</a>
                   </li>
                   <li>
@@ -2062,7 +2059,7 @@ the client should promptly send a <code>pong</code> message to the server. If yo
 </code></pre>
 <p>You can also send <code>ping</code> message to the server every 15 seconds to keep the connection alive. The server will stop sending <code>ping</code> message 
 for 30 seconds if a client initiated <code>ping</code> message is received. </p>
-<h2 id='data-channels'>Data Channels</h2><h2 id='subscription'>Subscription</h2>
+<h2 id='subscription'>Subscription</h2>
 <blockquote>
 <p>Use <code>wscat</code> from Node.js to connect to websocket data.</p>
 </blockquote>
@@ -2076,7 +2073,9 @@ wscat -c wss://bitmax.io/0/api/pro/stream -x <span class="s1">'{"op":"sub", "ch"
 <p>You can also setup authorized session</p>
 </blockquote>
 <pre class="highlight shell"><code>@ToDo
-</code></pre><h3 id='request-body-schema'>Request Body Schema</h3>
+</code></pre>
+<p>You can subscribe/unsubscribe to one or multiple channels. </p>
+<h4 id='request-body-schema'>Request Body Schema</h4>
 <p>The standard messages to subscribe(<code>sub</code>)/unsubscribe(<code>unsub</code>) to a data channel is an JSON object with fields:</p>
 
 <table><thead>
@@ -2102,7 +2101,7 @@ wscat -c wss://bitmax.io/0/api/pro/stream -x <span class="s1">'{"op":"sub", "ch"
 <td>name of the data channel with optional arguments, see below for details</td>
 </tr>
 </tbody></table>
-<h3 id='customize-channel-content-with-ch'>Customize Channel content with <code>ch</code></h3>
+<h4 id='customize-channel-content-with-ch'>Customize Channel content with <code>ch</code></h4>
 <p>You can subscription to different data channels by setting <code>ch</code> to <code>name:&lt;arg1&gt;[:&lt;arg2&gt;]</code> with <code>arg1</code> being the required argument 
 and <code>arg2</code> being optinal:</p>
 
