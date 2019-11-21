@@ -29,7 +29,7 @@
 
 **HTTP Request**
 
-`GET /api/pro/cash/balance`
+`GET <account-group>/api/pro/cash/balance`
 
 **Signature**
 
@@ -68,7 +68,7 @@ You should sign the message in header as specified in [**Authenticate a RESTful 
 
 **HTTP Request** 
 
-`GET /api/pro/margin/balance`
+`GET <account-group>/api/pro/margin/balance`
 
 **Signature**
 
