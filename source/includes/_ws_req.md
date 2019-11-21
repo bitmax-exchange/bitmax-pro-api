@@ -81,7 +81,10 @@ More comprehensive examples can be found at:
 * Python: [https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/websocket_orderbook_snapshot.py](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/websocket_orderbook_snapshot.py)
 
 
-### Trades Snapshot
+### Recent Trades
+
+@TODO
+
 
 
 ## Sending Order Request via WebSocket
@@ -151,6 +154,8 @@ Place order via websocket
 
 Make new order request follow the general websocket request rule, with proper place new order parameters as specified in rest api for *args* field.
 
+see [placing order via RESTful API](#place-new-order).
+
 **Response**
 
 Respond with *m* field as *order*, and *action* field as *place-order*; *status* field to indicate if this is a successful *Ack* or failed *Err*.
@@ -174,46 +179,51 @@ With *status* field as *Err* to indicate there is some obvisous errors in your o
 > Request to cancel existing open order
 
 ```json
-{"op": "req", 
-"action": "cancel-Order", 
-"args": {
-    "time":     1574165050128, 
-    "id":      "2d4c3fa1e5c249e49f990ce86aebb607", 
-    "orderId": "16e83845dcdsimtrader00008c645f67", 
+{
+  "op": "req",
+  "action": "cancel-Order",
+  "args": {
+    "time":    1574165050128,
+    "id":      "2d4c3fa1e5c249e49f990ce86aebb607",
+    "orderId": "16e83845dcdsimtrader00008c645f67",
     "symbol":  "ETH/USDT"
-    }
+  }
 }
 ```
 
 > Successful ACK message
 
 ```json
-{"m": "order", 
-"accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo", 
-"action": "cancel-order", 
-"status": "Ack", 
-"info": {
-    "symbol":    "ETH/USDT", 
-    "orderType": "NULL_VAL", 
-    "timestamp":  1574165050147, 
-    "id":        "7b73dcd8e8c847d5a99df5ef5ae5088b", 
-    "orderId":   "16e83845dcdsimtrader00008c645f67"}}
+{
+  "m": "order",
+  "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
+  "action": "cancel-order",
+  "status": "Ack",
+  "info": {
+    "symbol":    "ETH/USDT",
+    "orderType": "NULL_VAL",
+    "timestamp":  1574165050147,
+    "id":        "7b73dcd8e8c847d5a99df5ef5ae5088b",
+    "orderId":   "16e83845dcdsimtrader00008c645f67"
+  }
+}
 ```
 
 > Error response message
 
 ```json
-{"m": "order", 
-"accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo", 
-"action": "cancel-order", 
-"status": "Ack", 
-"info": {
+{
+  "m": "order",
+  "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
+  "action": "cancel-order",
+  "status": "Ack",
+  "info": {
     "code":     300006,
     "id":      "x@fabs",
-    "message": "Invalid Client Order Id: x@fabs",     
-    "symbol":  "ETH/USDT", 
+    "message": "Invalid Client Order Id: x@fabs",
+    "symbol":  "ETH/USDT",
     "reason":  "INVALID_ORDER_ID"
-    }
+  }
 }
 ```
 

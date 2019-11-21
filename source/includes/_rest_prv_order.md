@@ -31,7 +31,7 @@ Please refer to python code [gen_server_order_id](https://github.com/bitmax-exch
 
 
 ###
-### Place Order
+### Place New Order
 
 > Place Order - Successful ACK Response (Status 200, code 0)
 
