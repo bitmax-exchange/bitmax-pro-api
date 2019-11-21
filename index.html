@@ -2040,23 +2040,22 @@ only subscribe to public data. </p>
 <p>In order to keep the websocket connection alive, you have two options, detailed below.</p>
 <h4 id='method-1-responding-to-server-ping-messages'>Method 1: Responding to Server ping messages</h4>
 <blockquote>
-<p>Keep the connection alive by responding to Server pushed ping message </p>
+<p>Method 1. keep the connection alive by responding to Server pushed ping message </p>
 </blockquote>
-<pre class="highlight plaintext"><code># Server pushed 
+<pre class="highlight plaintext"><code># Server pushed ping message
 &gt;&gt;&gt; { "op": "ping" }
 
-# Client respond
+# Client responds with pong
 &lt;&lt;&lt; { "op": "pong" }
 </code></pre>
 <p>If the server doesn&#39;t receive any client message after a while, it will send a <code>ping</code> message to the client. Once the <code>ping</code> message is received,
 the client should promptly send a <code>pong</code> message to the server. If you missed two consecutive <code>ping</code> messages, the session will be disconnected. </p>
 <h4 id='method-2-sending-ping-messages-to-server'>Method 2: Sending ping messages to Server</h4>
 <blockquote>
-<p>Keep the connection alive by sending ping message to the server</p>
+<p>Method 2. keep the connection alive by sending ping message to the server</p>
 </blockquote>
 <pre class="highlight plaintext"><code># Client initiated ping message (every 30 seconds)
 &gt;&gt;&gt; { "op": "ping" }
-
 
 # Server responds to client ping 
 &lt;&lt;&lt; { "m":"pong", "code":0, "ts":1574260701259 }
