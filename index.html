@@ -941,7 +941,7 @@ only 500 bars will be returned. </li>
 <blockquote>
 <p>Request </p>
 </blockquote>
-<pre class="highlight plaintext"><code>curl -X GET https://bitmax.io/api/pro/trades?symbol=BTMX/USDT
+<pre class="highlight plaintext"><code>curl -X GET /api/pro/trades?symbol=BTMX/USDT
 </code></pre>
 <blockquote>
 <p>Sample response </p>
@@ -949,30 +949,89 @@ only 500 bars will be returned. </li>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"m"</span><span class="p">:</span><span class="w"> </span><span class="s2">"trades"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTMX/USDT"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"trades"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"bm"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">               </span><span class="err">//</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">buyer</span><span class="w"> </span><span class="err">maker?</span><span class="w">
                 </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">144115191800016553</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.06762"</span><span class="p">,</span><span class="w">            
                 </span><span class="s2">"q"</span><span class="p">:</span><span class="w"> </span><span class="s2">"400"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"ts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1573165890854</span><span class="w">
+                </span><span class="s2">"ts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1573165890854</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"bm"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">               </span><span class="err">//</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">buyer</span><span class="w"> </span><span class="err">maker?</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"bm"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">144115191800070421</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.06797"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"q"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"ts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1573166037845</span><span class="w">
+                </span><span class="s2">"ts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1573166037845</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"bm"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
             </span><span class="p">}</span><span class="w">
-        </span><span class="p">],</span><span class="w">
-        </span><span class="s2">"m"</span><span class="p">:</span><span class="w"> </span><span class="s2">"trades"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTMX/USDT"</span><span class="w">
+        </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>HTTP Request</strong></p>
 
 <p><code>GET /api/pro/trades</code></p>
+<h4 id='request-parameters'>Request Parameters</h4>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Value Range</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>symbol</code></td>
+<td>String</td>
+<td>Yes</td>
+<td>Valid symbol supported by exchange</td>
+<td></td>
+</tr>
+<tr>
+<td><code>n</code></td>
+<td>Int</td>
+<td>No</td>
+<td>any positive integer, capped at 100</td>
+<td>number of trades to return.</td>
+</tr>
+</tbody></table>
+<h4 id='response-content'>Response Content</h4>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>seqnum</code></td>
+<td><code>Long</code></td>
+<td>the sequence number of the trade record. <code>seqnum</code> is always increasing for each symbol, but may not be consecutive</td>
+</tr>
+<tr>
+<td><code>p</code></td>
+<td><code>String</code></td>
+<td>trade price in string format</td>
+</tr>
+<tr>
+<td><code>q</code></td>
+<td><code>String</code></td>
+<td>trade size in string format</td>
+</tr>
+<tr>
+<td><code>ts</code></td>
+<td><code>Long</code></td>
+<td>UTC timestamp in milliseconds</td>
+</tr>
+<tr>
+<td><code>bm</code></td>
+<td><code>Boolean</code></td>
+<td>If true, the maker of the trade is the buyer.</td>
+</tr>
+</tbody></table>
 <h1 id='authenticate-a-restful-request'>Authenticate a RESTful Request</h1><h2 id='creating-a-request'>Creating a Request</h2>
 <p>To access private data via RESTful APIs, you must include the following headers:</p>
 
@@ -2585,7 +2644,7 @@ you can use to update the order book snapshot. In the message, <code>price</code
             </span><span class="s2">"q"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.000"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"ts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1573069903254</span><span class="p">,</span><span class="w">
             </span><span class="s2">"bm"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">144115188077966308</span><span class="w">
+            </span><span class="s2">"seqnum"</span><span class="p">:</span><span class="w"> </span><span class="mi">144115188077966308</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2601,9 +2660,9 @@ value into one aggregated item. Each trade object contains the following fields:
 </tr>
 </thead><tbody>
 <tr>
-<td><code>id</code></td>
+<td><code>seqnum</code></td>
 <td><code>Long</code></td>
-<td>the sequence number of the trade record. <code>id</code> is always increasing, but may not be consecutive</td>
+<td>the sequence number of the trade record. <code>seqnum</code> is always increasing for each symbol, but may not be consecutive</td>
 </tr>
 <tr>
 <td><code>p</code></td>
