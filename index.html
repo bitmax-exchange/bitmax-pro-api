@@ -1203,7 +1203,7 @@ curl -X GET -i <span class="se">\</span>
 <p><strong>Code Sample</strong></p>
 
 <p>Please refer to python code <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/bitmax/util/auth.py">gen_server_order_id</a></p>
-<h3 id='place-order'>Place Order</h3>
+<h3 id='place-new-order'>Place New Order</h3>
 <blockquote>
 <p>Place Order - Successful ACK Response (Status 200, code 0)</p>
 </blockquote>
@@ -2820,6 +2820,8 @@ the timely order book data. </p>
 
 <p>Make new order request follow the general websocket request rule, with proper place new order parameters as specified in rest api for <em>args</em> field.</p>
 
+<p>see <a href="#place-new-order">placing order via RESTful API</a>.</p>
+
 <p><strong>Response</strong></p>
 
 <p>Respond with <em>m</em> field as <em>order</em>, and <em>action</em> field as <em>place-order</em>; <em>status</em> field to indicate if this is a successful <em>Ack</em> or failed <em>Err</em>.</p>
@@ -2839,44 +2841,49 @@ the timely order book data. </p>
 <blockquote>
 <p>Request to cancel existing open order</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"req"</span><span class="p">,</span><span class="w"> 
-</span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cancel-Order"</span><span class="p">,</span><span class="w"> 
-</span><span class="s2">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"time"</span><span class="p">:</span><span class="w">     </span><span class="mi">1574165050128</span><span class="p">,</span><span class="w"> 
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w">      </span><span class="s2">"2d4c3fa1e5c249e49f990ce86aebb607"</span><span class="p">,</span><span class="w"> 
-    </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16e83845dcdsimtrader00008c645f67"</span><span class="p">,</span><span class="w"> 
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"req"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cancel-Order"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"time"</span><span class="p">:</span><span class="w">    </span><span class="mi">1574165050128</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w">      </span><span class="s2">"2d4c3fa1e5c249e49f990ce86aebb607"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16e83845dcdsimtrader00008c645f67"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w">  </span><span class="s2">"ETH/USDT"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
 <p>Successful ACK message</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"m"</span><span class="p">:</span><span class="w"> </span><span class="s2">"order"</span><span class="p">,</span><span class="w"> 
-</span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w"> 
-</span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cancel-order"</span><span class="p">,</span><span class="w"> 
-</span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ack"</span><span class="p">,</span><span class="w"> 
-</span><span class="s2">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w">    </span><span class="s2">"ETH/USDT"</span><span class="p">,</span><span class="w"> 
-    </span><span class="s2">"orderType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NULL_VAL"</span><span class="p">,</span><span class="w"> 
-    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w">  </span><span class="mi">1574165050147</span><span class="p">,</span><span class="w"> 
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w">        </span><span class="s2">"7b73dcd8e8c847d5a99df5ef5ae5088b"</span><span class="p">,</span><span class="w"> 
-    </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w">   </span><span class="s2">"16e83845dcdsimtrader00008c645f67"</span><span class="p">}}</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"m"</span><span class="p">:</span><span class="w"> </span><span class="s2">"order"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cancel-order"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ack"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w">    </span><span class="s2">"ETH/USDT"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"orderType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NULL_VAL"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w">  </span><span class="mi">1574165050147</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w">        </span><span class="s2">"7b73dcd8e8c847d5a99df5ef5ae5088b"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w">   </span><span class="s2">"16e83845dcdsimtrader00008c645f67"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
 <p>Error response message</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"m"</span><span class="p">:</span><span class="w"> </span><span class="s2">"order"</span><span class="p">,</span><span class="w"> 
-</span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w"> 
-</span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cancel-order"</span><span class="p">,</span><span class="w"> 
-</span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ack"</span><span class="p">,</span><span class="w"> 
-</span><span class="s2">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"m"</span><span class="p">:</span><span class="w"> </span><span class="s2">"order"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cancel-order"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ack"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w">     </span><span class="mi">300006</span><span class="p">,</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w">      </span><span class="s2">"x@fabs"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid Client Order Id: x@fabs"</span><span class="p">,</span><span class="w">     
-    </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w">  </span><span class="s2">"ETH/USDT"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid Client Order Id: x@fabs"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w">  </span><span class="s2">"ETH/USDT"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"reason"</span><span class="p">:</span><span class="w">  </span><span class="s2">"INVALID_ORDER_ID"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Cancel an existing open order via websocket </p>
