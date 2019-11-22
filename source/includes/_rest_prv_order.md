@@ -9,7 +9,7 @@ Trading and Order related APIs. API path usually depend on account-group and acc
 For all order related ack or data, there is *orderId* field to identify the order. 
 
 ###
-### Order id generation method
+### Generate Order Id
 
 We use the following method to generate an unique id for each order place/cancel request.
 

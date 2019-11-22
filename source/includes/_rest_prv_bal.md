@@ -33,7 +33,7 @@
 
 **Signature**
 
-You should sign the message in header as specified in [**Authenticate a RESTful Request**](#signing-a-Request) section.
+You should sign the message in header as specified in [**Authenticate a RESTful Request**](#sign-request) section.
 
 **Prehash String** 
 
@@ -78,7 +78,9 @@ You should sign the message in header as specified in [**Authenticate a RESTful 
 
 `<timestamp>+balance`
 
-### Margin Account Risk Profile
+
+
+### Margin Risk Profile
 
 > Margin Account Risk Profile - Sample response 
 

@@ -1,4 +1,4 @@
-## Ticker 
+### Ticker 
 
 > Ticker for one product
 

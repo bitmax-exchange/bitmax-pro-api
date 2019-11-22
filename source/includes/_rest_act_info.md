@@ -1,8 +1,3 @@
-# Private RESTful APIs
-
-
-
-
 ### Account Info
 
 > Account Info - Sample response:
@@ -32,7 +27,7 @@
 
 **Signature**
 
-You should sign the message in header as specified in [**Authenticate a RESTful Request**](#signing-a-Request) section.
+You should sign the message in header as specified in [**Authenticate a RESTful Request**](#sign-a-Request) section.
 
 **prehash string** 
 
@@ -44,7 +39,7 @@ You can obtain your `accountGroup` from this API, which you will need to include
 
 #### Response Content
 
- Name                 | Type           | Description                                                                                 
+ Name                 | Type           | Description
 --------------------- | -------------- | --------------------- 
  `accountGroup`       | `Int`          | non-negative integer
  `email`              | `String`       | 
@@ -56,7 +51,3 @@ You can obtain your `accountGroup` from this API, which you will need to include
 
 See a demo at [https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_account_info.py](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_account_info.py).
 
-
-### Fee Schedule 
-
-@ToDo

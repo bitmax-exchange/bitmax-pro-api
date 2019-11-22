@@ -10,13 +10,18 @@ toc_footers:
   - <a href='https://bitmax.io'>BitMax.io</a>
 
 includes:
+  - rest_general
+  - rest_auth
   - rest_pub
+  - rest_pub_assets
+  - rest_pub_products
   - rest_pub_ticker
   - rest_pub_bar
   - rest_pub_depth
   - rest_pub_trades
-  - auth
-  - rest_prv
+  - rest_act
+  - rest_act_info
+  - rest_act_fee
   - rest_prv_bal
   - rest_prv_order
   - rest_prv_order_new
@@ -28,9 +33,19 @@ includes:
   - rest_prv_order_open
   - rest_prv_order_hist_curr
   - ws_general
+  - ws_keep_alive
   - ws_auth
   - ws_sub
+  - ws_sub_level1
+  - ws_sub_level2
+  - ws_sub_trades
+  - ws_sub_order
   - ws_req
+  - ws_req_level2
+  - ws_req_trades
+  - ws_req_place_order
+  - ws_req_cancel_order
+  - ws_req_cancel_all
   - error_code
 
 search: true

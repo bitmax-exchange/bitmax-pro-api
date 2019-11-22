@@ -1,4 +1,4 @@
-## Bar Info 
+### Bar Info 
 
 > Request 
 
@@ -92,7 +92,7 @@ The value in the `name` field should be your input to the [Historical Bar Data](
 
 
 
-## Historical Bar Data
+### Historical Bar Data
 
 > Request 
 

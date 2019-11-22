@@ -1,4 +1,4 @@
-## Order Book (Depth)
+### Order Book (Depth)
 
 > Request for Order Book (Depth) Data
 

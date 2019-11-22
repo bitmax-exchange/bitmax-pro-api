@@ -1,6 +1,6 @@
-# Authenticate a RESTful Request 
+## Authenticate a RESTful Request 
 
-## Creating a Request 
+### Create Request 
 
 To access private data via RESTful APIs, you must include the following headers:
 
@@ -12,7 +12,7 @@ The timestamp in the header will be checked against server time. If the differen
 be rejected. 
 
 
-## Signing a Request
+### Sign Request
 
 > Signing a RESTful Request
 
