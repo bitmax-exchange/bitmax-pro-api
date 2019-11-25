@@ -39,6 +39,7 @@ includes:
   - ws_sub_level1
   - ws_sub_level2
   - ws_sub_trades
+  - ws_sub_bar
   - ws_sub_order
   - ws_req
   - ws_req_level2

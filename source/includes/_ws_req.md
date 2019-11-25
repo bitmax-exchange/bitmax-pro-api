@@ -6,7 +6,7 @@ request message. Here are some use cases:
 * Place/cancel orders 
 * Request orderbook snapshot data to initialize/rebuild orderbook. 
 
-### WS: Request Schema
+### WebSocket Request Schema
 
 All operation or data request follow the same uniform format:
 
@@ -18,7 +18,7 @@ All operation or data request follow the same uniform format:
  `args`  |`List of [key: value]`| Each `action` has different args, please see each action for detail.
 
 
-### WS: Response Schema
+### WebSocket Response Schema
 
 Response follow the following schema
 

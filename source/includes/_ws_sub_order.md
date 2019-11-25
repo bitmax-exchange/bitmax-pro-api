@@ -18,23 +18,12 @@ If you already subscribe to *account* level, you cannot subject to *symbol* leve
 { "op": "sub", "id": "abc123", "ch":"order:cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo" }
 ```
 
-> Subscribe to `cash` account and symbol `BTMX/USDT` order update stream
-
-```json
-{ "op": "sub", "id": "abc123", "ch":"order:cash:BTMX/USDT" }
-```
-
 > Unsubscribe from `cash` account order update stream
 
 ```json
 { "op": "unsub", "id": "abc123", "ch":"order:cash" }
 ```
 
-> Unsubscribe from `cash` account and symbol `BTMX/USDT` order update stream
-
-```json
-{ "op": "unsub", "id": "abc123", "ch":"order:cash:BTMX/USDT" }
-```
 
 > Order update message
 
@@ -43,28 +32,28 @@ If you already subscribe to *account* level, you cannot subject to *symbol* leve
     "m": "order", 
     "accountId": "simtrader0000", 
     "data": {
-        "s": "ETC/USDT", 
+        "s":       "ETC/USDT", 
         "orderId": "16e85af7bc8simtrader0000fb6255dd", 
-        "t": 1574200900684, 
-        "st": "New", 
-        "p": "100.8365", 
-        "q": "9.91704", 
-        "fp": "0", 
-        "fq": "0", 
-        "fee": "0", 
-        "fa": "base", 
-        "bb": "0", 
-        "bpb": "0", 
-        "qb": "115137.964757493", 
-        "qpb": "114136.965153929"
+        "t":        1574200900684, 
+        "st":      "New", 
+        "p":       "100.8365", 
+        "q":       "9.91704", 
+        "fp":      "0", 
+        "fq":      "0", 
+        "fee":     "0", 
+        "fa":      "base", 
+        "bb":      "0", 
+        "bpb":     "0", 
+        "qb":      "115137.964757493", 
+        "qpb":     "114136.965153929"
     }
 }
 ```
 
 The `data` field is a single order udpate object.  Each order update object contains the following fields:
 
-Name     | Type | Description                                                                                    
----------| -----| ---------------------------------
+Name     | Type     | Description                                                                                    
+---------| -------- | ---------------------------------
 `s`      | `String` | symbol
 `orderId`| `String` | order id
 `t`      | `Long`   | timestamp
@@ -79,4 +68,4 @@ Name     | Type | Description
 `bpb`    | `String` | base asset available balance
 `qb`     | `String` | quote asset total balance
 `qpb`    | `String` | quote asset available balance
-
+`ac`     | `String` | account category, `"cash"`, `"margin"`, etc. 
