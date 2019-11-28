@@ -351,6 +351,9 @@
                     <a href="#subscribe-to-data-channels" class="toc-h2 toc-link" data-title="Subscribe to Data Channels">Subscribe to Data Channels</a>
                     <ul class="toc-list-h3">
                         <li>
+                          <a href="#how-to-subscribe" class="toc-h3 toc-link" data-title="How to Subscribe">How to Subscribe</a>
+                        </li>
+                        <li>
                           <a href="#channel-level-1-order-book-data-bbo" class="toc-h3 toc-link" data-title="Channel: Level 1 Order Book Data (BBO)">Channel: Level 1 Order Book Data (BBO)</a>
                         </li>
                         <li>
@@ -358,6 +361,9 @@
                         </li>
                         <li>
                           <a href="#channel-market-trades" class="toc-h3 toc-link" data-title="Channel: Market Trades">Channel: Market Trades</a>
+                        </li>
+                        <li>
+                          <a href="#channel-bar-data" class="toc-h3 toc-link" data-title="Channel: Bar Data">Channel: Bar Data</a>
                         </li>
                         <li>
                           <a href="#channel-order" class="toc-h3 toc-link" data-title="Channel: Order">Channel: Order</a>
@@ -368,10 +374,10 @@
                     <a href="#data-query-order-request" class="toc-h2 toc-link" data-title="Data Query / Order Request">Data Query / Order Request</a>
                     <ul class="toc-list-h3">
                         <li>
-                          <a href="#ws-request-schema" class="toc-h3 toc-link" data-title="WS: Request Schema">WS: Request Schema</a>
+                          <a href="#websocket-request-schema" class="toc-h3 toc-link" data-title="WebSocket Request Schema">WebSocket Request Schema</a>
                         </li>
                         <li>
-                          <a href="#ws-response-schema" class="toc-h3 toc-link" data-title="WS: Response Schema">WS: Response Schema</a>
+                          <a href="#websocket-response-schema" class="toc-h3 toc-link" data-title="WebSocket Response Schema">WebSocket Response Schema</a>
                         </li>
                         <li>
                           <a href="#ws-orderbook-snapshot" class="toc-h3 toc-link" data-title="WS: Orderbook Snapshot">WS: Orderbook Snapshot</a>
@@ -2308,11 +2314,8 @@ only subscribe to public data. </p>
 <blockquote>
 <p>Method 1. keep the connection alive by responding to Server pushed ping message </p>
 </blockquote>
-<pre class="highlight plaintext"><code># Server pushed ping message
-&gt;&gt;&gt; { "op": "ping" }
-
-# Client responds with pong
-&lt;&lt;&lt; { "op": "pong" }
+<pre class="highlight plaintext"><code>&gt;&gt;&gt; { "op": "ping" }  # Server pushed ping message
+&lt;&lt;&lt; { "m": "pong" }   # Client responds with pong
 </code></pre>
 <p>If the server doesn&#39;t receive any client message after a while, it will send a <code>ping</code> message to the client. Once the <code>ping</code> message is received,
 the client should promptly send a <code>pong</code> message to the server. If you missed two consecutive <code>ping</code> messages, the session will be disconnected. </p>
@@ -2320,11 +2323,8 @@ the client should promptly send a <code>pong</code> message to the server. If yo
 <blockquote>
 <p>Method 2. keep the connection alive by sending ping message to the server</p>
 </blockquote>
-<pre class="highlight plaintext"><code># Client initiated ping message (every 30 seconds)
-&gt;&gt;&gt; { "op": "ping" }
-
-# Server responds to client ping 
-&lt;&lt;&lt; { "m":"pong", "code":0, "ts":1574260701259 }
+<pre class="highlight plaintext"><code>&gt;&gt;&gt; { "op": "ping" }                             # Client initiated ping message (every 30 seconds)
+&lt;&lt;&lt; { "m":"pong", "code":0, "ts":1574260701259 } # Server responds to client ping 
 </code></pre>
 <p>You can also send <code>ping</code> message to the server every 15 seconds to keep the connection alive. The server will stop sending <code>ping</code> message 
 for 30 seconds if a client initiated <code>ping</code> message is received. </p>
@@ -2439,7 +2439,7 @@ wscat -c wss://bitmax.io/1/api/pro/stream -w 1 -x <span class="s2">"{</span><spa
 <ul>
 <li>Python: <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/websocket_auth.py">https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/websocket_auth.py</a></li>
 </ul>
-<h2 id='subscribe-to-data-channels'>Subscribe to Data Channels</h2>
+<h2 id='subscribe-to-data-channels'>Subscribe to Data Channels</h2><h3 id='how-to-subscribe'>How to Subscribe</h3>
 <blockquote>
 <p>Use <code>wscat</code> from Node.js to connect to websocket data.</p>
 </blockquote>
@@ -2458,11 +2458,11 @@ wscat -c wss://bitmax.io/0/api/pro/stream -x <span class="s1">'{"op":"sub", "ch"
 <p>You can <strong>subscribe/unsubscribe</strong> to one or multiple data channels.</p>
 
 <ul>
-<li>If the subscription is successful, you will receive one ack message confirming the request is successful and you will start receiving data streams. </li>
+<li>If the subscription is successful, you will receive at least one ack message confirming the request is successful and you will start receiving data streams. </li>
 <li>If the subscription is unsuccessful, you will receive one ack message with text explaining why the subscription failed. </li>
 </ul>
 <h4 id='request-body-schema'>Request Body Schema</h4>
-<p>The standard messages to subscribe(<code>sub</code>)/unsubscribe(<code>unsub</code>) to a data channel is an JSON object with fields:</p>
+<p>The standard messages to subscribe to / unsubscribe from data channels is an JSON object with fields:</p>
 
 <table><thead>
 <tr>
@@ -2474,7 +2474,7 @@ wscat -c wss://bitmax.io/0/api/pro/stream -x <span class="s1">'{"op":"sub", "ch"
 <tr>
 <td><code>op</code></td>
 <td><code>String</code></td>
-<td><code>sub</code> or <code>unsub</code></td>
+<td><code>sub</code> to subscribe and <code>unsub</code> to unsubscribe</td>
 </tr>
 <tr>
 <td><code>id</code></td>
@@ -2488,8 +2488,7 @@ wscat -c wss://bitmax.io/0/api/pro/stream -x <span class="s1">'{"op":"sub", "ch"
 </tr>
 </tbody></table>
 <h4 id='customize-channel-content-with-ch'>Customize Channel content with <code>ch</code></h4>
-<p>You can subscription to different data channels by setting <code>ch</code> to <code>name:&lt;arg1&gt;[:&lt;arg2&gt;]</code> with <code>arg1</code> being the required argument 
-and <code>arg2</code> being optinal:</p>
+<p>You can customize the channel content by setting <code>ch</code> according to the table below:</p>
 
 <table><thead>
 <tr>
@@ -2501,27 +2500,27 @@ and <code>arg2</code> being optinal:</p>
 <tr>
 <td>public</td>
 <td><code>depth:&lt;symbol&gt;</code></td>
-<td></td>
+<td>Updates to order book levels.</td>
 </tr>
 <tr>
 <td>public</td>
 <td><code>bbo:&lt;symbol&gt;</code></td>
-<td></td>
+<td>Price and size at best bid and ask levels on the order book.</td>
 </tr>
 <tr>
 <td>public</td>
 <td><code>trade:&lt;symbol&gt;</code></td>
-<td></td>
+<td>Market trade data</td>
 </tr>
 <tr>
 <td>public</td>
-<td><code>bar:&lt;symbol&gt;</code></td>
-<td></td>
+<td><code>bar:&lt;interval&gt;:&lt;symbol&gt;</code></td>
+<td>Bar data containing O/C/H/L prices and volume for specific time intervals</td>
 </tr>
 <tr>
 <td>public</td>
 <td><code>ticker:&lt;symbol&gt;</code></td>
-<td></td>
+<td>Ticker data</td>
 </tr>
 <tr>
 <td>public</td>
@@ -2533,12 +2532,27 @@ and <code>arg2</code> being optinal:</p>
 <td><code>order:&lt;account&gt;</code></td>
 <td>Order Update Stream</td>
 </tr>
-<tr>
-<td>Private</td>
-<td><code>order:&lt;account&gt;[:&lt;symbol&gt;]</code></td>
-<td></td>
-</tr>
 </tbody></table>
+<h4 id='unsubscribe-with-wildcard-character'>Unsubscribe with Wildcard Character <code>*</code></h4>
+<p>Using the wildcard character <code>*</code>, you can unsubscribe from multiple channels with the same channel name. For instance: </p>
+
+<ul>
+<li>Unsubscribes from the depth stream for all symbols:</li>
+</ul>
+
+<p><code>{ &quot;op&quot;: &quot;unsub&quot;, &quot;ch&quot;: &quot;depth:*&quot; }</code></p>
+
+<ul>
+<li>Unsubscribes from the 1 minute bar streams for all symbols:</li>
+</ul>
+
+<p><code>{ &quot;op&quot;: &quot;unsub&quot;, &quot;ch&quot;: &quot;bar:1:*&quot; }</code></p>
+
+<ul>
+<li>Unsubscribes from bar streams of all frequencies for <code>BTMX/USDT</code>:</li>
+</ul>
+
+<p><code>{ &quot;op&quot;: &quot;unsub&quot;, &quot;ch&quot;: &quot;bar:*:BTMX/USDT&quot; }</code></p>
 
 <p>You can subscribe/unsubscribe one channel per subscription message. You can subscribe to multiple data channels by sending multiple 
 subscription messages. However, the exchange limits the total number of data channels per client (<strong>NOT per session</strong>) according to 
@@ -2649,13 +2663,85 @@ you can use to update the order book snapshot. In the message, <code>price</code
     </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTMX/USDT"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.068600"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"q"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.000"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1573069903254</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"bm"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"seqnum"</span><span class="p">:</span><span class="w"> </span><span class="mi">144115188077966308</span><span class="w">
+            </span><span class="s2">"p"</span><span class="p">:</span><span class="w">      </span><span class="s2">"0.068600"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"q"</span><span class="p">:</span><span class="w">      </span><span class="s2">"100.000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ts"</span><span class="p">:</span><span class="w">      </span><span class="mi">1573069903254</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"bm"</span><span class="p">:</span><span class="w">      </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"seqnum"</span><span class="p">:</span><span class="w">  </span><span class="mi">144115188077966308</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The <code>data</code> field is a list containing one or more trade objects. The server may combine consecutive trades with the same price and <code>bm</code> 
+value into one aggregated item. Each trade object contains the following fields:</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>seqnum</code></td>
+<td><code>Long</code></td>
+<td>the sequence number of the trade record. <code>seqnum</code> is always increasing for each symbol, but may not be consecutive</td>
+</tr>
+<tr>
+<td><code>p</code></td>
+<td><code>String</code></td>
+<td>the executed price expressed as a string</td>
+</tr>
+<tr>
+<td><code>q</code></td>
+<td><code>String</code></td>
+<td>the aggregated traded amount expressed as string</td>
+</tr>
+<tr>
+<td><code>ts</code></td>
+<td><code>Long</code></td>
+<td>the UTC timestamp in milliseconds of the first trade</td>
+</tr>
+<tr>
+<td><code>bm</code></td>
+<td><code>Boolean</code></td>
+<td>if true, the buyer of the trade is the maker.</td>
+</tr>
+</tbody></table>
+<h3 id='channel-bar-data'>Channel: Bar Data</h3>
+<blockquote>
+<p>Subscribe to <code>BTMX/USDT</code> 1 minute bar stream</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sub"</span><span class="p">,</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ch"</span><span class="p">:</span><span class="s2">"bar:1:BTMX/USDT"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Unsubscribe to <code>BTMX/USDT</code> 1 minute bar stream</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unsub"</span><span class="p">,</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ch"</span><span class="p">:</span><span class="s2">"bar:1:BTMX/USDT"</span><span class="w"> </span><span class="p">}</span><span class="w">
+
+</span><span class="err">//</span><span class="w">  </span><span class="err">Alternatively</span><span class="p">,</span><span class="w"> </span><span class="err">you</span><span class="w"> </span><span class="err">can</span><span class="w"> </span><span class="err">unsubscribe</span><span class="w"> </span><span class="err">all</span><span class="w"> </span><span class="err">bar</span><span class="w"> </span><span class="err">streams</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">BTMX/USDT</span><span class="w">
+</span><span class="p">{</span><span class="w"> </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unsub"</span><span class="p">,</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ch"</span><span class="p">:</span><span class="s2">"bar:*:BTMX/USDT"</span><span class="w"> </span><span class="p">}</span><span class="w">
+
+</span><span class="err">//</span><span class="w"> </span><span class="err">Or</span><span class="w"> </span><span class="err">unsubscribe</span><span class="w"> </span><span class="err">all</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="err">minute</span><span class="w"> </span><span class="err">bar</span><span class="w"> </span><span class="err">stream</span><span class="w">
+</span><span class="p">{</span><span class="w"> </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unsub"</span><span class="p">,</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ch"</span><span class="p">:</span><span class="s2">"bar:1"</span><span class="w"> </span><span class="p">}</span><span class="w">
+
+</span><span class="err">//</span><span class="w"> </span><span class="err">Or</span><span class="w"> </span><span class="err">unsubscribe</span><span class="w"> </span><span class="err">all</span><span class="w"> </span><span class="err">bar</span><span class="w"> </span><span class="err">stream</span><span class="w">
+</span><span class="p">{</span><span class="w"> </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unsub"</span><span class="p">,</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ch"</span><span class="p">:</span><span class="s2">"bar"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Trade Message </p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"m"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTMX/USDT"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"i"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"p"</span><span class="p">:</span><span class="w">      </span><span class="s2">"0.068600"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"q"</span><span class="p">:</span><span class="w">      </span><span class="s2">"100.000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ts"</span><span class="p">:</span><span class="w">      </span><span class="mi">1573069903254</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"bm"</span><span class="p">:</span><span class="w">      </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"seqnum"</span><span class="p">:</span><span class="w">  </span><span class="mi">144115188077966308</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>The <code>data</code> field is a list containing one or more trade objects. The server may combine consecutive trades with the same price and <code>bm</code> 
@@ -2712,19 +2798,9 @@ value into one aggregated item. Each trade object contains the following fields:
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sub"</span><span class="p">,</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ch"</span><span class="p">:</span><span class="s2">"order:cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="w"> </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>Subscribe to <code>cash</code> account and symbol <code>BTMX/USDT</code> order update stream</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sub"</span><span class="p">,</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ch"</span><span class="p">:</span><span class="s2">"order:cash:BTMX/USDT"</span><span class="w"> </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<blockquote>
 <p>Unsubscribe from <code>cash</code> account order update stream</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unsub"</span><span class="p">,</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ch"</span><span class="p">:</span><span class="s2">"order:cash"</span><span class="w"> </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<blockquote>
-<p>Unsubscribe from <code>cash</code> account and symbol <code>BTMX/USDT</code> order update stream</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unsub"</span><span class="p">,</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ch"</span><span class="p">:</span><span class="s2">"order:cash:BTMX/USDT"</span><span class="w"> </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
 <p>Order update message</p>
@@ -2733,20 +2809,20 @@ value into one aggregated item. Each trade object contains the following fields:
     </span><span class="s2">"m"</span><span class="p">:</span><span class="w"> </span><span class="s2">"order"</span><span class="p">,</span><span class="w"> 
     </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"simtrader0000"</span><span class="p">,</span><span class="w"> 
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"s"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ETC/USDT"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"s"</span><span class="p">:</span><span class="w">       </span><span class="s2">"ETC/USDT"</span><span class="p">,</span><span class="w"> 
         </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16e85af7bc8simtrader0000fb6255dd"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"t"</span><span class="p">:</span><span class="w"> </span><span class="mi">1574200900684</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"st"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.8365"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"q"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9.91704"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"fp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"fq"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"fa"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"bb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"bpb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"qb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"115137.964757493"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"qpb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"114136.965153929"</span><span class="w">
+        </span><span class="s2">"t"</span><span class="p">:</span><span class="w">        </span><span class="mi">1574200900684</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"st"</span><span class="p">:</span><span class="w">      </span><span class="s2">"New"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"p"</span><span class="p">:</span><span class="w">       </span><span class="s2">"100.8365"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"q"</span><span class="p">:</span><span class="w">       </span><span class="s2">"9.91704"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"fp"</span><span class="p">:</span><span class="w">      </span><span class="s2">"0"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"fq"</span><span class="p">:</span><span class="w">      </span><span class="s2">"0"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"fee"</span><span class="p">:</span><span class="w">     </span><span class="s2">"0"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"fa"</span><span class="p">:</span><span class="w">      </span><span class="s2">"base"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"bb"</span><span class="p">:</span><span class="w">      </span><span class="s2">"0"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"bpb"</span><span class="p">:</span><span class="w">     </span><span class="s2">"0"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"qb"</span><span class="p">:</span><span class="w">      </span><span class="s2">"115137.964757493"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"qpb"</span><span class="p">:</span><span class="w">     </span><span class="s2">"114136.965153929"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -2829,6 +2905,11 @@ value into one aggregated item. Each trade object contains the following fields:
 <td><code>String</code></td>
 <td>quote asset available balance</td>
 </tr>
+<tr>
+<td><code>ac</code></td>
+<td><code>String</code></td>
+<td>account category, <code>&quot;cash&quot;</code>, <code>&quot;margin&quot;</code>, etc.</td>
+</tr>
 </tbody></table>
 <h2 id='data-query-order-request'>Data Query / Order Request</h2>
 <p>Besides subscript mesages, you could also send <strong>request message</strong> via websocket. You will receive exactly one message regarding each 
@@ -2838,38 +2919,49 @@ request message. Here are some use cases: </p>
 <li>Place/cancel orders </li>
 <li>Request orderbook snapshot data to initialize/rebuild orderbook. </li>
 </ul>
-<h3 id='ws-request-schema'>WS: Request Schema</h3>
+<h3 id='websocket-request-schema'>WebSocket Request Schema</h3>
 <p>All operation or data request follow the same uniform format:</p>
 
 <table><thead>
 <tr>
 <th>Name</th>
 <th>Type</th>
+<th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td><code>op</code></td>
 <td><code>String</code></td>
+<td>Yes</td>
 <td><code>req</code></td>
 </tr>
 <tr>
 <td><code>id</code></td>
-<td><code>Optional[String]</code></td>
+<td><code>String</code></td>
+<td>No</td>
 <td>user specified UUID, if provided, the server will echo back this value in the response message</td>
 </tr>
 <tr>
 <td><code>action</code></td>
 <td><code>String</code></td>
+<td>Yes</td>
 <td>name of the request action with optional arguments, see below for details</td>
+</tr>
+<tr>
+<td><code>account</code></td>
+<td><code>String</code></td>
+<td>NO</td>
+<td>the account of the interest, this field is not required for public data request</td>
 </tr>
 <tr>
 <td><code>args</code></td>
 <td><code>List of [key: value]</code></td>
-<td>Each <code>action</code> has different args, please see each action for detail.</td>
+<td>No</td>
+<td>each <code>action</code> has different args, please see each action for detail.</td>
 </tr>
 </tbody></table>
-<h3 id='ws-response-schema'>WS: Response Schema</h3>
+<h3 id='websocket-response-schema'>WebSocket Response Schema</h3>
 <p>Response follow the following schema</p>
 
 <table><thead>
