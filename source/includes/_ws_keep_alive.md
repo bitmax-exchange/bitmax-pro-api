@@ -8,8 +8,8 @@ In order to keep the websocket connection alive, you have two options, detailed 
 > Method 1. keep the connection alive by responding to Server pushed ping message 
 
 ```
->>> { "op": "ping", "hp": 3 }  # Server pushed ping message
-<<< { "m": "pong" }   # Client responds with pong
+>>> { "m": "ping", "hp": 3 }  # Server pushed ping message
+<<< { "op": "pong" }   # Client responds with pong
 ```
 
 If the server doesn't receive any client message after a while, it will send a `ping` message to the client. Once the `ping` message is received,
