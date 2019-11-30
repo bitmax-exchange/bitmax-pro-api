@@ -10,18 +10,18 @@
     "data": [
         {
             "asset":            "USDT",
-            "availableBalance": "1285.366663467",
-            "totalABalance":    "1285.366663467"
+            "totalBalance":    "1285.366663467",
+            "availableBalance": "1285.366663467"
         },
         {
             "asset":            "BTC",
-            "availableBalance": "16.1308675",
-            "totalABalance":    "22.1308675"
+            "totalBalance":    "22.1308675",
+            "availableBalance": "16.1308675"
         },
         {
             "asset":            "ETH",
-            "availableBalance": "0.6",
-            "totalABalance":    "0.6"
+            "totalBalance":     "0.6",
+            "availableBalance": "0.6"
         }
     ]
 }
@@ -50,7 +50,7 @@ You should sign the message in header as specified in [**Authenticate a RESTful 
     "data": [
         {
             "asset":            "USDT",
-            "totalABalance":    "11200",
+            "totalBalance":     "11200",
             "availableBalance": "11200",
             "borrowed":         "0",
             "interest":         "0"
