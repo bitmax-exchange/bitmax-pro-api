@@ -29,8 +29,9 @@ If you already subscribe to *account* level, you cannot subject to *symbol* leve
 
 ```json
 {
-    "m": "order", 
+    "m":         "order", 
     "accountId": "simtrader0000", 
+    "ac":        "cash", // Account Category
     "data": {
         "s":       "ETC/USDT", 
         "orderId": "16e85af7bc8simtrader0000fb6255dd", 
