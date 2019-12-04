@@ -51,7 +51,7 @@ Response with status "Ack" to indicate cancel all order request is received by s
 
 **Code Sample**
 
-Refer to sample python code [cancel_all_order](https://github.com/gdm-exchange/bitmax-api-demo/blob/master/python/cancel_order.py)
+Refer to sample python code to [cancel all order](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/cancel_order.py)
 
 #### Caveat 
 

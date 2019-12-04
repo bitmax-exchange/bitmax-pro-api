@@ -48,7 +48,7 @@ Cancel an existing open order.
 
 `DELETE <account-group>/api/pro/{account-category}/order`
 
-Set `account-category` to`cash` for cash account and `margin` for margin account. 
+Set `account-category` to `cash` for cash account and `margin` for margin account. 
 
 **Signature**
 
@@ -81,4 +81,4 @@ Response with status "Err" to indicate there is something wrong with the cancel 
 
 **Code Sample**
 
-Refer to sample python code [cancel_order](https://github.com/gdm-exchange/bitmax-api-demo/blob/master/python/cancel_order.py)
+Refer to sample python code to [cancel order](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/cancel_order.py)

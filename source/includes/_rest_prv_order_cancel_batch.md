@@ -91,4 +91,4 @@ Response with status "Err" to explain detailed failure reason for each order in 
 
 **Code Sample**
 
-please refer to python code [cancel_batch_order](https://github.com/gdm-exchange/bitmax-api-demo/blob/master/python/cancel_order.py)
+please refer to python code to [cancel batch order](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/cancel_order.py)

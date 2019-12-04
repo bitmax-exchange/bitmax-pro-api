@@ -67,6 +67,10 @@ You can following the steps below to keep track of the the most recent order boo
 * Once you obtain the snapshot message from the server, initialize the snapshot.
 * Using consequent `depth` messages to update the order book.
 
+Please note that field `seqnum` should strictly increase by 1 for each new depth update (each `symbol` maintain its own `seqnum`). 
+If you see a larger than 1 gap from previous `seqnum` (for the same `symbol`), then there might be data loss, 
+you need to repeat above steps to maintain a new order book.
+
 The `depth-snapshot` message is constructed in a consistent way with all `depth` message. 
 
 Please note that the `depth-snapshot` API has higher latency. The response time is usually between 
@@ -75,4 +79,4 @@ the timely order book data.
 
 More comprehensive examples can be found at:
 
-* Python: [https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/websocket_orderbook_snapshot.py](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/websocket_orderbook_snapshot.py)
+* Python: [websocket orderbook snapshot](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/websocket_orderbook_snapshot.py)

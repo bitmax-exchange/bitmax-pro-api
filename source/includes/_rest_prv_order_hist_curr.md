@@ -8,29 +8,28 @@
     "data": [
         {
             "accountCategory": "CASH",
-            "accountId":       "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
-            "avgPrice":        "0.000000000",
-            "baseAsset":       "BTC",
-            "btmxCommission":  "0.000000000",
-            "errorCode":       "NULL_VAL",
-            "execId":          "79923",
-            "execInst":        "NULL_VAL",
-            "fee":             "0.000000000",
-            "feeAsset":        "USDT",
-            "filledQty":       "0.000000000",
-            "notional":        "0.000000000",
-            "orderId":         "16e61d5ff43s8bXHbAwwoqDo9d817339",
-            "orderPrice":      "9048.210000000",
-            "orderQty":        "0.110519000",
-            "orderType":       "Limit",
-            "quoteAsset":      "USDT",
-            "sendingTime":      1573599444807,
-            "side":            "Sell",
-            "status":          "Canceled",
-            "stopPrice":       "0.000000000",
-            "symbol":          "BTC/USDT",
-            "time":             1573619099000,
-            "userId":          "mNeGB66kTS3n1TOkrRSd2txkMYWNYXGO"
+            "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
+            "avgPrice": "7290.520000000",
+            "baseAsset": "BTC",
+            "btmxCommission": "0.000000000",
+            "errorCode": "NULL_VAL",
+            "execInst": "NULL_VAL",
+            "fee": "0.003288025",
+            "feeAsset": "USDT",
+            "filledQty": "0.000820000",
+            "notional": "5.978226400",
+            "orderId": "a16eca1ca893U9490877774G90ClwU19",
+            "orderQty": "0.000820000",
+            "orderType": "Market",
+            "quoteAsset": "USDT",
+            "sendingTime": 1575348906967,
+            "seqNum": "2242870574",
+            "side": "Buy",
+            "status": "Filled",
+            "stopPrice": "0.000000000",
+            "symbol": "BTC/USDT",
+            "time": 1575348906991,
+            "userId": "H1FR4LY7qxZDGMsVzBvt6ElDwtOjPL7Z"
         },
         ...
     ]
@@ -59,4 +58,4 @@ Return a list of history orders in *"data"* field.
 
 **Code Sample**
 
-Please refer to python code [get_hist_orders](https://github.com/gdm-exchange/bitmax-api-demo/blob/master/python/query_order.py)
+Please refer to python code to [get hist orders](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_order.py)

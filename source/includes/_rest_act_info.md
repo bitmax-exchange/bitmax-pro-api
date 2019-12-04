@@ -49,5 +49,5 @@ You can obtain your `accountGroup` from this API, which you will need to include
  `transferPermission` | `Boolean`      | 
  `viewPermission`     | `Boolean`      | 
 
-See a demo at [https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_account_info.py](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_account_info.py).
+See a demo at [query private account info](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_account_info.py).
 

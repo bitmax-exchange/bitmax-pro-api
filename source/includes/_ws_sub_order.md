@@ -12,7 +12,7 @@ If you already subscribe to *account* level, you cannot subject to *symbol* leve
 { "op": "sub", "id": "abc123", "ch":"order:cash" }
 ```
 
-> Subscribe to specific account id *cshQtyfq8XLAA9kcf19h8bXHbAwwoqDoaccount* for order update stream
+> Subscribe to specific account id *cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo* account for order update stream
 
 ```json
 { "op": "sub", "id": "abc123", "ch":"order:cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo" }
@@ -29,24 +29,29 @@ If you already subscribe to *account* level, you cannot subject to *symbol* leve
 
 ```json
 {
-    "m":         "order", 
-    "accountId": "simtrader0000", 
-    "ac":        "cash", // Account Category
+    "m": "order",
+    "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
     "data": {
-        "s":       "ETC/USDT", 
-        "orderId": "16e85af7bc8simtrader0000fb6255dd", 
-        "t":        1574200900684, 
-        "st":      "New", 
-        "p":       "100.8365", 
-        "q":       "9.91704", 
-        "fp":      "0", 
-        "fq":      "0", 
-        "fee":     "0", 
-        "fa":      "base", 
-        "bb":      "0", 
-        "bpb":     "0", 
-        "qb":      "115137.964757493", 
-        "qpb":     "114136.965153929"
+        "s": "BTC/USDT",
+        "orderId": "s16ecd8e618aU9490877774d9f1789b8",
+        "t": 1575406690850,
+        "sn": 72057600439748931,
+        "st": "New",
+        "sd": "Buy",
+        "ot": "Limit",
+        "sp": "0",
+        "p": "7105",
+        "q": "0.00083",
+        "fp": "0",
+        "fq": "0",
+        "ap": "0",
+        "fee": "0",
+        "fa": "base",
+        "btb": "0.028343365",
+        "bab": "0.028343365",
+        "qtb": "6305.501839976",
+        "qab": "6299.598792826",
+        "ac": "cash"
     }
 }
 ```
@@ -58,15 +63,20 @@ Name     | Type     | Description
 `s`      | `String` | symbol
 `orderId`| `String` | order id
 `t`      | `Long`   | timestamp
+`sn`     | `long`   | sequence number
 `st`     | `String` | order status
+`sd`     | `String` | order side
+`ot`     | `String` | order type
+`sp`     | `String` | stop price
 `p`      | `String` | order price
 `q`      | `String` | order quantity
 `fp`     | `String` | filled price
 `fq`     | `String` | filled qty
+`ap`     | `String` | average price
 `fee`    | `String` | commission
 `fa`     | `String` | fee asset
-`bb`     | `String` | base asset total balance
-`bpb`    | `String` | base asset available balance
-`qb`     | `String` | quote asset total balance
-`qpb`    | `String` | quote asset available balance
+`btb`    | `String` | base asset total balance
+`bab`    | `String` | base asset available balance
+`qtb`    | `String` | quote asset total balance
+`qab`    | `String` | quote asset available balance
 `ac`     | `String` | account category, `"cash"`, `"margin"`, etc. 

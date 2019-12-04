@@ -107,16 +107,28 @@ curl -X GET https://bitmax.io/api/pro/trades?symbol=BTMX/USDT&interval=1
     "code": 0,
     "data": [
         {
-            "m": "bar",           // message 
-            "ts": 1573584540000,  // bar start time 
-            "s": "BTMX/USDT",     // symbol 
-            "i": "1",             // interval 
-            "o": "0.06736",       // open price 
-            "c": "0.06736",       // close price 
-            "h": "0.06736",       // high price 
-            "l": "0.06736",       // low price 
-            "v": "4606"           // volume in quote asset
-        }
+            "data": {
+                "c": "0.05019",
+                "h": "0.05019",
+                "i": "1",
+                "l": "0.05019",
+                "o": "0.05019",
+                "ts": 1575409260000,
+                "v": "1612"},
+           "m": "bar",
+           "s": "BTMX/USDT"},
+        {
+            "data": {
+                "c": "0.05019",
+                "h": "0.05027",
+                "i": "1",
+                "l": "0.05017",
+                "o": "0.05017",
+                "ts": 1575409200000,
+                "v": "57242"
+                },
+           "m": "bar",
+           "s": "BTMX/USDT"},
     ]
 }
 ```
@@ -150,4 +162,19 @@ The requested time range is determined by three parameters - `to`, `from`, and `
 
 #### Response 
 
-@ToDo
+Name     | Type   |   value  | Description
+---------| -------| ---------| -------------------------------
+`m`      | String |`bar`     | message type
+`s`      | String |          | symbol 
+`data:ts`| Long   |          | bar start time in milliseconds
+`i`      | String |          | interval 
+`o`      | String |          | open price 
+`c`      | String |          | close price 
+`h`      | String |          | high price 
+`l`      | String |          | low price 
+`v`      | String |          | volume in quote asset
+            
+
+#### Code Sample
+
+Please refer python code to [get bar history]{https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_pub_barhist.py}

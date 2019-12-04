@@ -15,15 +15,15 @@ We use the following method to generate an unique id for each order place/cancel
 
 **Method**
   
-  * A = Convert timestamp (in miliseconds) to hex string;
+  * A = 'a' for order via rest api, or 's' for order via websocket;
 
-  * B = 'a' for order via rest api, or 's' for order via websocket;
+  * B = Convert timestamp (in miliseconds) to hex string;
   
-  * C = Account Id + Symbol + 'b' for buy or 's' for sell + User generated 32 chars order id;
+  * C = User UID (11 chars, starting with 'U' followed by 10 digits);
   
-  * D = first 11 chars of A  + B + last 12 chars of Account Id + MD5(C);
+  * D = If user provide client order Id (with length >= 9, letters and digits only), then take the right 9 chars; otherwise, we randomly generate 9 chars;
   
-  * Final order Id = first 32 chars of D.
+  * Final order Id = A + B + C + D.
 
 **Code Sample**
 

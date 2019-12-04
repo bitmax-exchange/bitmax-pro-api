@@ -8,29 +8,30 @@
     "code": 0,
     "data": {
         "accountCategory": "CASH",
-        "accountId":       "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
-        "avgPrice":        "8844.640000000",
-        "baseAsset":       "BTC",
-        "btmxCommission":  "0.000000000",        
-        "errorCode":       "NULL_VAL",
-        "execId":          "76877",
-        "execInst":        "NULL_VAL",
-        "fee":             "0.751794400",
-        "feeAsset":        "USDT",
-        "filledQty":       "0.100000000",
-        "notional":        "884.464000000",
-        "orderId":         "16e60458b97a8bXHbAwwoqDo4723edf8",
-        "orderQty":        "0.100000000",
-        "orderType":       "Market",
-        "quoteAsset":      "USDT",
-        "sendingTime":      1573573206843,
-        "side":            "Buy",
-        "status":          "Filled",
-        "symbol":          "BTC/USDT",
-        "time":             1573573206843,
-        "userId":          "mNeGB66kTS3n1TOkrRSd2txkMYWNYXGO"
+        "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
+        "avgPrice": "7323.240000000",
+        "baseAsset": "BTC",
+        "btmxCommission": "0.000000000",
+        "errorCode": "NULL_VAL",
+        "execInst": "NULL_VAL",
+        "fee": "0.003302782",
+        "feeAsset": "USDT",
+        "filledQty": "0.000820000",
+        "notional": "6.005056800",
+        "orderId": "a16ecd4c0caeU9490877774BwHW0fCYn",
+        "orderQty": "0.000820000",
+        "orderType": "Market",
+        "quoteAsset": "USDT",
+        "sendingTime": 1575402344401,
+        "seqNum": "2259385850",
+        "side": "Sell",
+        "status": "Filled",
+        "stopPrice": "0.000000000",
+        "symbol": "BTC/USDT",
+        "time": 1575402344424,
+        "userId": "H1FR4LY7qxZDGMsVzBvt6ElDwtOjPL7Z"
     }
-}
+} 
 ```
 
 Query order status, either open or history order. //TODO: not all order, specify order range later.
@@ -55,4 +56,4 @@ Returns order information in *"data"* field. Please use *orderId* field to match
 
 **Code Sample**
 
-Please refer to python code [get_order_status](https://github.com/gdm-exchange/bitmax-api-demo/blob/master/python/query_order.py)
+Please refer to python code to [get order status](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_order.py)

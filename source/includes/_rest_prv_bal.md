@@ -39,6 +39,9 @@ You should sign the message in header as specified in [**Authenticate a RESTful 
 
 `<timestamp>+balance`
 
+**Code Sample**
+
+Please refer to python code to[query private balance]{https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_balance.py}
 
 ### Margin Account Balance 
 
@@ -113,6 +116,8 @@ You should sign the message in header as specified in [**Authenticate a RESTful 
 
 `<timestamp>+margin/risk`
 
+**Code Sample**
 
+Please refer to python code to[query private margin risk]{https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_margin_risk.py}
 
 

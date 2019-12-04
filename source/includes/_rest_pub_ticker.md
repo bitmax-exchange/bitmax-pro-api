@@ -89,3 +89,6 @@ Each ticker object contains the following fields:
  `ask`      |  `[String, String]`  | the price and size at the current best ask level
  `bid`      |  `[String, String]`  | the price and size at the current best bid level
 
+#### Code Sample
+
+Please refer to python code to [query ticker info]{https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_pub_ticker.py}
