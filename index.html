@@ -3333,7 +3333,7 @@ request message. Here are some use cases: </p>
 <tr>
 <td><code>action</code></td>
 <td><code>String</code></td>
-<td>echo <code>action</code> in request</td>
+<td>echo <code>action</code> field in request</td>
 </tr>
 <tr>
 <td><code>data</code> or <code>info</code></td>
@@ -3343,7 +3343,52 @@ request message. Here are some use cases: </p>
 </tbody></table>
 
 <p><em>Error</em></p>
-<h3 id='ws-orderbook-snapshot'>WS: Orderbook Snapshot</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>m</code></td>
+<td><code>String</code></td>
+<td>&quot;error&quot;</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>String</code></td>
+<td>Echo back the error</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>Long</td>
+<td></td>
+</tr>
+<tr>
+<td><code>reason</code></td>
+<td><code>String</code></td>
+<td>simple error  message</td>
+</tr>
+<tr>
+<td><code>info</code></td>
+<td><code>String</code></td>
+<td>detailed error message</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Example error response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"m"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ab123"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="mi">100005</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reason"</span><span class="p">:</span><span class="s2">"INVALID_WS_REQUEST_DATA"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"info"</span><span class="p">:</span><span class="s2">"Invalid request action: trade-snapshot"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='ws-orderbook-snapshot'>WS: Orderbook Snapshot</h3>
 <blockquote>
 <p>Requesting the current order book snapshot</p>
 </blockquote>
