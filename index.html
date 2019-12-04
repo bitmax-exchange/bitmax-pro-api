@@ -345,6 +345,9 @@
                         <li>
                           <a href="#method-2-websocket-authentication-by-sending-the-auth-message" class="toc-h3 toc-link" data-title="Method 2 - WebSocket Authentication by Sending the Auth Message">Method 2 - WebSocket Authentication by Sending the Auth Message</a>
                         </li>
+                        <li>
+                          <a href="#authentication-response" class="toc-h3 toc-link" data-title="Authentication Response">Authentication Response</a>
+                        </li>
                     </ul>
                   </li>
                   <li>
@@ -824,6 +827,8 @@ If you want to wrap the object in a one-element list, append a comma to the symb
 <td>the price and size at the current best bid level</td>
 </tr>
 </tbody></table>
+<h4 id='code-sample'>Code Sample</h4>
+<p>Please refer to python code to [query ticker info]{https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_pub_ticker.py}</p>
 <h3 id='bar-info'>Bar Info</h3>
 <blockquote>
 <p>Request </p>
@@ -930,16 +935,28 @@ If you want to wrap the object in a one-element list, append a comma to the symb
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"m"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="p">,</span><span class="w">           </span><span class="err">//</span><span class="w"> </span><span class="err">message</span><span class="w"> 
-            </span><span class="s2">"ts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1573584540000</span><span class="p">,</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">bar</span><span class="w"> </span><span class="err">start</span><span class="w"> </span><span class="err">time</span><span class="w"> 
-            </span><span class="s2">"s"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTMX/USDT"</span><span class="p">,</span><span class="w">     </span><span class="err">//</span><span class="w"> </span><span class="err">symbol</span><span class="w"> 
-            </span><span class="s2">"i"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">             </span><span class="err">//</span><span class="w"> </span><span class="err">interval</span><span class="w"> 
-            </span><span class="s2">"o"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.06736"</span><span class="p">,</span><span class="w">       </span><span class="err">//</span><span class="w"> </span><span class="err">open</span><span class="w"> </span><span class="err">price</span><span class="w"> 
-            </span><span class="s2">"c"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.06736"</span><span class="p">,</span><span class="w">       </span><span class="err">//</span><span class="w"> </span><span class="err">close</span><span class="w"> </span><span class="err">price</span><span class="w"> 
-            </span><span class="s2">"h"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.06736"</span><span class="p">,</span><span class="w">       </span><span class="err">//</span><span class="w"> </span><span class="err">high</span><span class="w"> </span><span class="err">price</span><span class="w"> 
-            </span><span class="s2">"l"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.06736"</span><span class="p">,</span><span class="w">       </span><span class="err">//</span><span class="w"> </span><span class="err">low</span><span class="w"> </span><span class="err">price</span><span class="w"> 
-            </span><span class="s2">"v"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4606"</span><span class="w">           </span><span class="err">//</span><span class="w"> </span><span class="err">volume</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">quote</span><span class="w"> </span><span class="err">asset</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"c"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.05019"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"h"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.05019"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"i"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"l"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.05019"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"o"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.05019"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"ts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1575409260000</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"v"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1612"</span><span class="p">},</span><span class="w">
+           </span><span class="s2">"m"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"s"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTMX/USDT"</span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"c"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.05019"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"h"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.05027"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"i"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"l"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.05017"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"o"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.05017"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"ts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1575409200000</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"v"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57242"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+           </span><span class="s2">"m"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"s"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTMX/USDT"</span><span class="p">},</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1005,7 +1022,71 @@ only 500 bars will be returned. </li>
 </ul></li>
 </ul>
 <h4 id='response'>Response</h4>
-<p>@ToDo</p>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>m</code></td>
+<td>String</td>
+<td><code>bar</code></td>
+<td>message type</td>
+</tr>
+<tr>
+<td><code>s</code></td>
+<td>String</td>
+<td></td>
+<td>symbol</td>
+</tr>
+<tr>
+<td><code>data:ts</code></td>
+<td>Long</td>
+<td></td>
+<td>bar start time in milliseconds</td>
+</tr>
+<tr>
+<td><code>i</code></td>
+<td>String</td>
+<td></td>
+<td>interval</td>
+</tr>
+<tr>
+<td><code>o</code></td>
+<td>String</td>
+<td></td>
+<td>open price</td>
+</tr>
+<tr>
+<td><code>c</code></td>
+<td>String</td>
+<td></td>
+<td>close price</td>
+</tr>
+<tr>
+<td><code>h</code></td>
+<td>String</td>
+<td></td>
+<td>high price</td>
+</tr>
+<tr>
+<td><code>l</code></td>
+<td>String</td>
+<td></td>
+<td>low price</td>
+</tr>
+<tr>
+<td><code>v</code></td>
+<td>String</td>
+<td></td>
+<td>volume in quote asset</td>
+</tr>
+</tbody></table>
+<h4 id='code-sample'>Code Sample</h4>
+<p>Please refer python code to [get bar history]{https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_pub_barhist.py}</p>
 <h3 id='order-book-depth'>Order Book (Depth)</h3>
 <blockquote>
 <p>Request for Order Book (Depth) Data</p>
@@ -1020,28 +1101,30 @@ only 500 bars will be returned. </li>
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"m"</span><span class="p">:</span><span class="w">      </span><span class="s2">"depth-snapshot"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTMX/USDT"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"seqnum"</span><span class="p">:</span><span class="w">  </span><span class="mi">5068757</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"ts"</span><span class="p">:</span><span class="w">      </span><span class="mi">1573165838976</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"asks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">[</span><span class="w">
-                </span><span class="s2">"0.06848"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"4084.2"</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"seqnum"</span><span class="p">:</span><span class="w">  </span><span class="mi">5068757</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ts"</span><span class="p">:</span><span class="w">      </span><span class="mi">1573165838976</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"asks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">[</span><span class="w">
+                    </span><span class="s2">"0.06848"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"4084.2"</span><span class="w">
+                </span><span class="p">],</span><span class="w">
+                </span><span class="p">[</span><span class="w">
+                    </span><span class="s2">"0.0696"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"15890.6"</span><span class="w">
+                </span><span class="p">]</span><span class="w">
             </span><span class="p">],</span><span class="w">
-            </span><span class="p">[</span><span class="w">
-                </span><span class="s2">"0.0696"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"15890.6"</span><span class="w">
+            </span><span class="s2">"bids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">[</span><span class="w">
+                    </span><span class="s2">"0.06703"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"13500"</span><span class="w">
+                </span><span class="p">],</span><span class="w">
+                </span><span class="p">[</span><span class="w">
+                    </span><span class="s2">"0.06615"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"24036.9"</span><span class="w">
+                </span><span class="p">]</span><span class="w">
             </span><span class="p">]</span><span class="w">
-        </span><span class="p">],</span><span class="w">
-        </span><span class="s2">"bids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">[</span><span class="w">
-                </span><span class="s2">"0.06703"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"13500"</span><span class="w">
-            </span><span class="p">],</span><span class="w">
-            </span><span class="p">[</span><span class="w">
-                </span><span class="s2">"0.06615"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"24036.9"</span><span class="w">
-            </span><span class="p">]</span><span class="w">
-        </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1105,8 +1188,8 @@ only 500 bars will be returned. </li>
 <td>pair of price and size of bid levels</td>
 </tr>
 </tbody></table>
-<h4 id='demo-scripts'>Demo Scripts</h4>
-<p>python: <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_pub_depth.py">https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_pub_depth.py</a></p>
+<h4 id='demo-sample'>Demo Sample</h4>
+<p>Pleas refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_pub_depth.py">take depth snapshot</a></p>
 <h3 id='market-trades'>Market Trades</h3>
 <blockquote>
 <p>Request </p>
@@ -1123,14 +1206,14 @@ only 500 bars will be returned. </li>
         </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTMX/USDT"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"trades"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">144115191800016553</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"seqnum"</span><span class="p">:</span><span class="w"> </span><span class="mi">144115191800016553</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.06762"</span><span class="p">,</span><span class="w">            
                 </span><span class="s2">"q"</span><span class="p">:</span><span class="w"> </span><span class="s2">"400"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"ts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1573165890854</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"bm"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">               </span><span class="err">//</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">buyer</span><span class="w"> </span><span class="err">maker?</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">144115191800070421</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"seqnum"</span><span class="p">:</span><span class="w"> </span><span class="mi">144115191800070421</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.06797"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"q"</span><span class="p">:</span><span class="w"> </span><span class="s2">"341"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"ts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1573166037845</span><span class="p">,</span><span class="w">
@@ -1283,7 +1366,7 @@ only 500 bars will be returned. </li>
 </tr>
 </tbody></table>
 
-<p>See a demo at <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_account_info.py">https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_account_info.py</a>.</p>
+<p>See a demo at <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_account_info.py">query private account info</a>.</p>
 <h3 id='fee-schedule'>Fee Schedule</h3>
 <p>@ToDo</p>
 <h2 id='balance'>Balance</h2><h3 id='cash-account-balance'>Cash Account Balance</h3>
@@ -1322,6 +1405,10 @@ only 500 bars will be returned. </li>
 <p><strong>Prehash String</strong> </p>
 
 <p><code>&lt;timestamp&gt;+balance</code></p>
+
+<p><strong>Code Sample</strong></p>
+
+<p>Please refer to python code to[query private balance]{https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_balance.py}</p>
 <h3 id='margin-account-balance'>Margin Account Balance</h3>
 <blockquote>
 <p>Margin Account Balance - Sample response </p>
@@ -1387,6 +1474,10 @@ only 500 bars will be returned. </li>
 <p><strong>Prehash String</strong></p>
 
 <p><code>&lt;timestamp&gt;+margin/risk</code></p>
+
+<p><strong>Code Sample</strong></p>
+
+<p>Please refer to python code to[query private margin risk]{https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_margin_risk.py}</p>
 <h2 id='order'>Order</h2>
 <p>Trading and Order related APIs. API path usually depend on account-group and account-category: </p>
 
@@ -1402,11 +1493,11 @@ only 500 bars will be returned. </li>
 <p><strong>Method</strong></p>
 
 <ul>
-<li><p>A = Convert timestamp (in miliseconds) to hex string;</p></li>
-<li><p>B = &#39;a&#39; for order via rest api, or &#39;s&#39; for order via websocket;</p></li>
-<li><p>C = Account Id + Symbol + &#39;b&#39; for buy or &#39;s&#39; for sell + User generated 32 chars order id;</p></li>
-<li><p>D = first 11 chars of A  + B + last 12 chars of Account Id + MD5(C);</p></li>
-<li><p>Final order Id = first 32 chars of D.</p></li>
+<li><p>A = &#39;a&#39; for order via rest api, or &#39;s&#39; for order via websocket;</p></li>
+<li><p>B = Convert timestamp (in miliseconds) to hex string;</p></li>
+<li><p>C = User UID (11 chars, starting with &#39;U&#39; followed by 10 digits);</p></li>
+<li><p>D = If user provide client order Id (with length &gt;= 9, letters and digits only), then take the right 9 chars; otherwise, we randomly generate 9 chars;</p></li>
+<li><p>Final order Id = A + B + C + D.</p></li>
 </ul>
 
 <p><strong>Code Sample</strong></p>
@@ -1436,59 +1527,84 @@ only 500 bars will be returned. </li>
 <p>Place Order - Successful ACCEPT Response (Status 200, code 0)</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iGwzbzWxxcHwno4b8VCvh8aaYCJaPALm"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1575403713964</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/USDT"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"orderPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7289.0"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"orderQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00082"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"orderType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"limit"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sell"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"respInst"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACCEPT"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"accountCategory"</span><span class="p">:</span><span class="w">       </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w">             </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"avgPrice"</span><span class="p">:</span><span class="w">              </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"baseAvailableBalance"</span><span class="p">:</span><span class="w">  </span><span class="s2">"39.2010425"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"baseTotalBalance"</span><span class="p">:</span><span class="w">      </span><span class="s2">"39.2010425"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w">             </span><span class="s2">"NULL_VAL"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"execId"</span><span class="p">:</span><span class="w">                </span><span class="s2">"78271"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"execInst"</span><span class="p">:</span><span class="w">              </span><span class="s2">"NULL_VAL"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"fee"</span><span class="p">:</span><span class="w">                   </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"feeAsset"</span><span class="p">:</span><span class="w">               </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"filledQty"</span><span class="p">:</span><span class="w">             </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"m"</span><span class="p">:</span><span class="w">                     </span><span class="s2">"order"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w">               </span><span class="s2">"16e60fc831ba8bXHbAwwoqDo3d898cf3"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"orderQty"</span><span class="p">:</span><span class="w">              </span><span class="s2">"0.11"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"orderType"</span><span class="p">:</span><span class="w">             </span><span class="s2">"Market"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"quoteAvailableBalance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1113781.119315161"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"quoteTotalBalance"</span><span class="p">:</span><span class="w">     </span><span class="s2">"1114852.305731461"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"side"</span><span class="p">:</span><span class="w">                  </span><span class="s2">"Buy"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"status"</span><span class="p">:</span><span class="w">                </span><span class="s2">"New"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w">                </span><span class="s2">"BTC/USDT"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"transactTime"</span><span class="p">:</span><span class="w">           </span><span class="mi">1573585191865</span><span class="w">
+        </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"accountCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"place-order"</span><span class="p">,</span><span class="w">          
+        </span><span class="s2">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"avgPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"baseAvailableBalance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.028333365"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"baseTotalBalance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.029153365"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NULL_VAL"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"execInst"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NULL_VAL"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"feeAsset"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"filledQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iGwzbzWxxcHwno4b8VCvh8aaYCJaPALm"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a16ecd60f5acU9490877774aYCJaPALm"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"orderQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00082"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"orderType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Limit"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7289"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quoteAvailableBalance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6293.595163232"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quoteTotalBalance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6299.578120212"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"seqNum"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2259840148"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sell"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/USDT"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"transactTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1575403715461</span><span class="p">},</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACCEPT"</span><span class="w">
     </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">   
 </span></code></pre>
 <blockquote>
 <p>Place Order - Successful DONE Response (Status 200, code 0)</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UHTe3uVB0KhNGatoRS10YgABwHW0fCYn"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1575348906131</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/USDT"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"orderQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00082"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"orderType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"market"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buy"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"respInst"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DONE"</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"accountCategory"</span><span class="p">:</span><span class="w">       </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w">             </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"avgPrice"</span><span class="p">:</span><span class="w">              </span><span class="s2">"8846.25"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"baseAvailableBalance"</span><span class="p">:</span><span class="w">  </span><span class="s2">"39.2010425"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"baseTotalBalance"</span><span class="p">:</span><span class="w">      </span><span class="s2">"39.2010425"</span><span class="p">,</span><span class="w">        
-        </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w">             </span><span class="s2">"NULL_VAL"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"execId"</span><span class="p">:</span><span class="w">                </span><span class="s2">"78266"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"execInst"</span><span class="p">:</span><span class="w">              </span><span class="s2">"NULL_VAL"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"fee"</span><span class="p">:</span><span class="w">                   </span><span class="s2">"0.827124375"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"feeAsset"</span><span class="p">:</span><span class="w">              </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"filledQty"</span><span class="p">:</span><span class="w">             </span><span class="s2">"0.11"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"m"</span><span class="p">:</span><span class="w">                     </span><span class="s2">"order"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w">               </span><span class="s2">"16e60f6601ba8bXHbAwwoqDo345548c3"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"orderQty"</span><span class="p">:</span><span class="w">              </span><span class="s2">"0.11"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"orderType"</span><span class="p">:</span><span class="w">             </span><span class="s2">"Market"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"quoteAvailableBalance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1114852.305731461"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"quoteTotalBalance"</span><span class="p">:</span><span class="w">     </span><span class="s2">"1114852.305731461"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"side"</span><span class="p">:</span><span class="w">                  </span><span class="s2">"Buy"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"status"</span><span class="p">:</span><span class="w">                </span><span class="s2">"Filled"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w">                </span><span class="s2">"BTC/USDT"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"transactTime"</span><span class="p">:</span><span class="w">           </span><span class="mi">1573584789682</span><span class="w">
+        </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"place-order"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"accountCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"avgPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7323.24"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"baseAvailableBalance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.029153365"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"baseTotalBalance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.029153365"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NULL_VAL"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"execInst"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NULL_VAL"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.003302782"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"feeAsset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"filledQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00082"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UHTe3uVB0KhNGatoRS10YgABwHW0fCYn"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a16ecd4c0caeU9490877774BwHW0fCYn"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"orderQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00082"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"orderType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Market"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quoteAvailableBalance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6293.595163232"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quoteTotalBalance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6299.578120212"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"seqNum"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2259385852"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sell"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Filled"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/USDT"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"transactTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1575402344424</span><span class="p">},</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DONE"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1574,8 +1690,8 @@ only 500 bars will be returned. </li>
 <td>id</td>
 <td>String</td>
 <td>No</td>
-<td>32 chars(letter and digit number only)</td>
-<td>Please generate unique ID for each trade, we echo it back to help you match response with request.</td>
+<td>&gt;=9 chars(letter and digit number only)</td>
+<td>Optional but recommended. We echo it back to help you match response with request.</td>
 </tr>
 <tr>
 <td>orderPrice</td>
@@ -1715,7 +1831,7 @@ only 500 bars will be returned. </li>
 <h4 id='response'>Response</h4>
 <p>In &quot;Err&quot; response, <em>id</em> is the id provided by user when placing order; for other responses, <em>orderId</em> is the id generated by server following &quot;Order id generation method&quot; above, and this is the id you should provide for future order query or cancel. </p>
 
-<p>In case you want to cancel an order before response from server, you could figure out the orderId following &quot;Order id generation method&quot; above.</p>
+<p>In case you want to cancel an order before response from server, you could figure out the orderId following <strong>Order id generation method</strong> above.</p>
 
 <p><em>ACK</em></p>
 
@@ -1753,7 +1869,7 @@ only 500 bars will be returned. </li>
 
 <p><strong>Code Sample</strong></p>
 
-<p>Refer to sample python code <a href="https://github.com/gdm-exchange/bitmax-api-demo/blob/master/python/place_order.py">place_order</a></p>
+<p>Refer to sample python code <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/tree/master/python/place_order.py">place_order</a></p>
 <h3 id='cancel-order'>Cancel Order</h3>
 <blockquote>
 <p>Cancel Order - Successful ACK Response (Status 200, code 0)</p>
@@ -1799,7 +1915,7 @@ only 500 bars will be returned. </li>
 
 <p><code>DELETE &lt;account-group&gt;/api/pro/{account-category}/order</code></p>
 
-<p>Set <code>account-category</code> to<code>cash</code> for cash account and <code>margin</code> for margin account. </p>
+<p>Set <code>account-category</code> to <code>cash</code> for cash account and <code>margin</code> for margin account. </p>
 
 <p><strong>Signature</strong></p>
 
@@ -1862,7 +1978,7 @@ only 500 bars will be returned. </li>
 
 <p><strong>Code Sample</strong></p>
 
-<p>Refer to sample python code <a href="https://github.com/gdm-exchange/bitmax-api-demo/blob/master/python/cancel_order.py">cancel_order</a></p>
+<p>Refer to sample python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/cancel_order.py">cancel order</a></p>
 <h3 id='cancel-all-orders'>Cancel All Orders</h3>
 <blockquote>
 <p>Cancel All Orders - Successful ACK Response (Status 200, code 0)</p>
@@ -1925,7 +2041,7 @@ only 500 bars will be returned. </li>
 
 <p><strong>Code Sample</strong></p>
 
-<p>Refer to sample python code <a href="https://github.com/gdm-exchange/bitmax-api-demo/blob/master/python/cancel_order.py">cancel_all_order</a></p>
+<p>Refer to sample python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/cancel_order.py">cancel all order</a></p>
 <h4 id='caveat'>Caveat</h4>
 <p>The server will process the cancel all request with best effort. Orders sent but un-acked will not be canceled. You should rely on websocket order update messages or the RESTful api 
 to obtain the latest status of each order. </p>
@@ -2016,7 +2132,7 @@ to obtain the latest status of each order. </p>
 
 <p><strong>Code Sample</strong></p>
 
-<p>Please refer to python code <a href="https://github.com/gdm-exchange/bitmax-api-demo/blob/master/python/place_order.py">place_batch_order</a></p>
+<p>Please refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/place_order.py">place batch order</a></p>
 <h3 id='cancel-batch-orders'>Cancel Batch Orders</h3>
 <blockquote>
 <p>Cancel Batch Orders - Successful ACK Response (Status 200, code 0)</p>
@@ -2104,7 +2220,7 @@ to obtain the latest status of each order. </p>
 
 <p><strong>Code Sample</strong></p>
 
-<p>please refer to python code <a href="https://github.com/gdm-exchange/bitmax-api-demo/blob/master/python/cancel_order.py">cancel_batch_order</a></p>
+<p>please refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/cancel_order.py">cancel batch order</a></p>
 <h3 id='query-order'>Query Order</h3>
 <blockquote>
 <p>Query Order - Successful Response (Status 200, code 0)</p>
@@ -2113,29 +2229,30 @@ to obtain the latest status of each order. </p>
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"accountCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w">       </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"avgPrice"</span><span class="p">:</span><span class="w">        </span><span class="s2">"8844.640000000"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"baseAsset"</span><span class="p">:</span><span class="w">       </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"btmxCommission"</span><span class="p">:</span><span class="w">  </span><span class="s2">"0.000000000"</span><span class="p">,</span><span class="w">        
-        </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w">       </span><span class="s2">"NULL_VAL"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"execId"</span><span class="p">:</span><span class="w">          </span><span class="s2">"76877"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"execInst"</span><span class="p">:</span><span class="w">        </span><span class="s2">"NULL_VAL"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"fee"</span><span class="p">:</span><span class="w">             </span><span class="s2">"0.751794400"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"feeAsset"</span><span class="p">:</span><span class="w">        </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"filledQty"</span><span class="p">:</span><span class="w">       </span><span class="s2">"0.100000000"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"notional"</span><span class="p">:</span><span class="w">        </span><span class="s2">"884.464000000"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w">         </span><span class="s2">"16e60458b97a8bXHbAwwoqDo4723edf8"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"orderQty"</span><span class="p">:</span><span class="w">        </span><span class="s2">"0.100000000"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"orderType"</span><span class="p">:</span><span class="w">       </span><span class="s2">"Market"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"quoteAsset"</span><span class="p">:</span><span class="w">      </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"sendingTime"</span><span class="p">:</span><span class="w">      </span><span class="mi">1573573206843</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"side"</span><span class="p">:</span><span class="w">            </span><span class="s2">"Buy"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"status"</span><span class="p">:</span><span class="w">          </span><span class="s2">"Filled"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w">          </span><span class="s2">"BTC/USDT"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"time"</span><span class="p">:</span><span class="w">             </span><span class="mi">1573573206843</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"userId"</span><span class="p">:</span><span class="w">          </span><span class="s2">"mNeGB66kTS3n1TOkrRSd2txkMYWNYXGO"</span><span class="w">
+        </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avgPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7323.240000000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"baseAsset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"btmxCommission"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NULL_VAL"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"execInst"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NULL_VAL"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.003302782"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"feeAsset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"filledQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000820000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"notional"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6.005056800"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a16ecd4c0caeU9490877774BwHW0fCYn"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000820000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Market"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quoteAsset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sendingTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1575402344401</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"seqNum"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2259385850"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sell"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Filled"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"stopPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/USDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1575402344424</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"H1FR4LY7qxZDGMsVzBvt6ElDwtOjPL7Z"</span><span class="w">
     </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w"> 
 </span></code></pre>
 <p>Query order status, either open or history order. //TODO: not all order, specify order range later.</p>
 
@@ -2159,7 +2276,7 @@ to obtain the latest status of each order. </p>
 
 <p><strong>Code Sample</strong></p>
 
-<p>Please refer to python code <a href="https://github.com/gdm-exchange/bitmax-api-demo/blob/master/python/query_order.py">get_order_status</a></p>
+<p>Please refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_order.py">get order status</a></p>
 <h3 id='list-open-orders'>List Open Orders</h3>
 <blockquote>
 <p>Open Orders - Successful Response (Status 200, code 0)</p>
@@ -2169,26 +2286,28 @@ to obtain the latest status of each order. </p>
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w"> 
       </span><span class="s2">"accountCategory"</span><span class="p">:</span><span class="w">    </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"userId"</span><span class="p">:</span><span class="w">             </span><span class="s2">"supEQeSJQllKkxYSgLOoVk7hJAX59WSz"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w">          </span><span class="s2">"cshKAhmTHQNUKhR1pQyrDOdotE3Tsnz4"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w">             </span><span class="s2">"ETH/BTC"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"avgPrice"</span><span class="p">:</span><span class="w">           </span><span class="s2">"0.000000000"</span><span class="p">,</span><span class="w">                      </span><span class="err">//</span><span class="w"> </span><span class="err">Average</span><span class="w"> </span><span class="err">filled</span><span class="w"> </span><span class="err">price</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">order</span><span class="w">   
       </span><span class="s2">"baseAsset"</span><span class="p">:</span><span class="w">          </span><span class="s2">"ETH"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"quoteAsset"</span><span class="p">:</span><span class="w">         </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"orderPrice"</span><span class="p">:</span><span class="w">         </span><span class="s2">"0.310000000"</span><span class="p">,</span><span class="w">                      </span><span class="err">//</span><span class="w"> </span><span class="err">only</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">limit</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">stop</span><span class="w"> </span><span class="err">limit</span><span class="w"> </span><span class="err">orders</span><span class="w">
-      </span><span class="s2">"orderQty"</span><span class="p">:</span><span class="w">           </span><span class="s2">"1.000000000"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"side"</span><span class="p">:</span><span class="w">               </span><span class="s2">"Buy"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"avgPrice"</span><span class="p">:</span><span class="w">           </span><span class="s2">"0.000000000"</span><span class="p">,</span><span class="w">                      </span><span class="err">//</span><span class="w"> </span><span class="err">Average</span><span class="w"> </span><span class="err">filled</span><span class="w"> </span><span class="err">price</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">order</span><span class="w">      
+      </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w">          </span><span class="s2">"NULL_VAL"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"execInst"</span><span class="p">:</span><span class="w">           </span><span class="s2">"NULL_VAL"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"fee"</span><span class="p">:</span><span class="w">                </span><span class="s2">"0.000000000"</span><span class="p">,</span><span class="w">                      </span><span class="err">//</span><span class="w"> </span><span class="err">cumulative</span><span class="w"> </span><span class="err">fee</span><span class="w"> </span><span class="err">paid</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">this</span><span class="w"> </span><span class="err">order</span><span class="w">
       </span><span class="s2">"feeAsset"</span><span class="p">:</span><span class="w">           </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">                              </span><span class="err">//</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">asset</span><span class="w">
       </span><span class="s2">"filledQty"</span><span class="p">:</span><span class="w">          </span><span class="s2">"0.000000000"</span><span class="p">,</span><span class="w">                      </span><span class="err">//</span><span class="w"> </span><span class="err">filled</span><span class="w"> </span><span class="err">quantity</span><span class="w">
+      </span><span class="s2">"notional"</span><span class="p">:</span><span class="w">           </span><span class="s2">"0.000000000"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w">            </span><span class="s2">"16e85a95e35a8bXHbAwwoqDo297932b1"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">unique</span><span class="w"> </span><span class="err">identifier</span><span class="p">,</span><span class="w"> </span><span class="err">you</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">need</span><span class="w">
-                                                                </span><span class="err">//</span><span class="w"> </span><span class="err">this</span><span class="w"> </span><span class="err">value</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">cancel</span><span class="w"> </span><span class="err">this</span><span class="w"> </span><span class="err">order</span><span class="w">
+                                                          </span><span class="err">//</span><span class="w"> </span><span class="err">this</span><span class="w"> </span><span class="err">value</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">cancel</span><span class="w"> </span><span class="err">this</span><span class="w"> </span><span class="err">order</span><span class="w">
+      </span><span class="s2">"orderPrice"</span><span class="p">:</span><span class="w">         </span><span class="s2">"0.310000000"</span><span class="p">,</span><span class="w">                      </span><span class="err">//</span><span class="w"> </span><span class="err">only</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">limit</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">stop</span><span class="w"> </span><span class="err">limit</span><span class="w"> </span><span class="err">orders</span><span class="w">
+      </span><span class="s2">"orderQty"</span><span class="p">:</span><span class="w">           </span><span class="s2">"1.000000000"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"orderType"</span><span class="p">:</span><span class="w">          </span><span class="s2">"StopLimit"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"status"</span><span class="p">:</span><span class="w">             </span><span class="s2">"PendingNew"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"quoteAsset"</span><span class="p">:</span><span class="w">         </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sendingTime"</span><span class="p">:</span><span class="w">        </span><span class="mi">1566091503547</span><span class="p">,</span><span class="w">                      </span><span class="err">//</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">sending</span><span class="w"> </span><span class="err">time</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">order</span><span class="w">
+      </span><span class="s2">"side"</span><span class="p">:</span><span class="w">               </span><span class="s2">"Buy"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w">             </span><span class="s2">"New"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stopPrice"</span><span class="p">:</span><span class="w">          </span><span class="s2">"0.300000000"</span><span class="p">,</span><span class="w">                      </span><span class="err">//</span><span class="w"> </span><span class="err">only</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">stop</span><span class="w"> </span><span class="err">market</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">stop</span><span class="w"> </span><span class="err">limit</span><span class="w"> </span><span class="err">orders</span><span class="w">
-      </span><span class="s2">"time"</span><span class="p">:</span><span class="w">                </span><span class="mi">1566091628227</span><span class="p">,</span><span class="w">                     </span><span class="err">//</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">last</span><span class="w"> </span><span class="err">execution</span><span class="w"> </span><span class="err">time</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">@TODO@FixMe</span><span class="w">
-      </span><span class="s2">"sendingTime"</span><span class="p">:</span><span class="w">         </span><span class="mi">1566091503547</span><span class="w">                      </span><span class="err">//</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">sending</span><span class="w"> </span><span class="err">time</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">order</span><span class="w">
+      </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w">             </span><span class="s2">"ETH/BTC"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"time"</span><span class="p">:</span><span class="w">               </span><span class="mi">1566091628227</span><span class="p">,</span><span class="w">                      </span><span class="err">//</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">last</span><span class="w"> </span><span class="err">execution</span><span class="w"> </span><span class="err">time</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">@TODO@FixMe</span><span class="w">
+      </span><span class="s2">"userId"</span><span class="p">:</span><span class="w">             </span><span class="s2">"supEQeSJQllKkxYSgLOoVk7hJAX59WSz"</span><span class="p">,</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2233,7 +2352,7 @@ to obtain the latest status of each order. </p>
 
 <p><strong>Code Sample</strong></p>
 
-<p>Please refer to python code <a href="https://github.com/gdm-exchange/bitmax-api-demo/blob/master/python/query_order.py">get_open_orders</a></p>
+<p>Please refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_order.py">get open orders</a></p>
 
 <p>Change from the previous version:</p>
 
@@ -2250,29 +2369,28 @@ to obtain the latest status of each order. </p>
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"accountCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w">       </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"avgPrice"</span><span class="p">:</span><span class="w">        </span><span class="s2">"0.000000000"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"baseAsset"</span><span class="p">:</span><span class="w">       </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"btmxCommission"</span><span class="p">:</span><span class="w">  </span><span class="s2">"0.000000000"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w">       </span><span class="s2">"NULL_VAL"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"execId"</span><span class="p">:</span><span class="w">          </span><span class="s2">"79923"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"execInst"</span><span class="p">:</span><span class="w">        </span><span class="s2">"NULL_VAL"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"fee"</span><span class="p">:</span><span class="w">             </span><span class="s2">"0.000000000"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"feeAsset"</span><span class="p">:</span><span class="w">        </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"filledQty"</span><span class="p">:</span><span class="w">       </span><span class="s2">"0.000000000"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"notional"</span><span class="p">:</span><span class="w">        </span><span class="s2">"0.000000000"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w">         </span><span class="s2">"16e61d5ff43s8bXHbAwwoqDo9d817339"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"orderPrice"</span><span class="p">:</span><span class="w">      </span><span class="s2">"9048.210000000"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"orderQty"</span><span class="p">:</span><span class="w">        </span><span class="s2">"0.110519000"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"orderType"</span><span class="p">:</span><span class="w">       </span><span class="s2">"Limit"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"quoteAsset"</span><span class="p">:</span><span class="w">      </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"sendingTime"</span><span class="p">:</span><span class="w">      </span><span class="mi">1573599444807</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"side"</span><span class="p">:</span><span class="w">            </span><span class="s2">"Sell"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"status"</span><span class="p">:</span><span class="w">          </span><span class="s2">"Canceled"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"stopPrice"</span><span class="p">:</span><span class="w">       </span><span class="s2">"0.000000000"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w">          </span><span class="s2">"BTC/USDT"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"time"</span><span class="p">:</span><span class="w">             </span><span class="mi">1573619099000</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"userId"</span><span class="p">:</span><span class="w">          </span><span class="s2">"mNeGB66kTS3n1TOkrRSd2txkMYWNYXGO"</span><span class="w">
+            </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"avgPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7290.520000000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"baseAsset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"btmxCommission"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NULL_VAL"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"execInst"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NULL_VAL"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.003288025"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"feeAsset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"filledQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000820000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"notional"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5.978226400"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a16eca1ca893U9490877774G90ClwU19"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"orderQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000820000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"orderType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Market"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quoteAsset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sendingTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1575348906967</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"seqNum"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2242870574"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buy"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Filled"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"stopPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/USDT"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1575348906991</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"H1FR4LY7qxZDGMsVzBvt6ElDwtOjPL7Z"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="err">...</span><span class="w">
     </span><span class="p">]</span><span class="w">
@@ -2300,14 +2418,18 @@ to obtain the latest status of each order. </p>
 
 <p><strong>Code Sample</strong></p>
 
-<p>Please refer to python code <a href="https://github.com/gdm-exchange/bitmax-api-demo/blob/master/python/query_order.py">get_hist_orders</a></p>
+<p>Please refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_order.py">get hist orders</a></p>
 <h1 id='websocket'>WebSocket</h1>
 <p><strong>WebSocket Request</strong></p>
 
 <p><code>WSS &lt;account-group&gt;/api/pro/stream</code></p>
 
-<p>In order to authorize the sessionm you must include <code>&lt;account-group&gt;</code> in the URL. Without <code>&lt;account-group&gt;</code>, you can 
+<p>In order to authorize the session you must include <code>&lt;account-group&gt;</code> in the URL. Without <code>&lt;account-group&gt;</code>, you can 
 only subscribe to public data. </p>
+
+<p><strong>Code Sample</strong> </p>
+
+<p>Please refer to python code for all kinds of [websocket operation]{https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/client.py} (e.g. authorization, sub/unsub, place/cancel order, and so on) </p>
 <h2 id='keep-the-connection-alive-via-ping-pong'>Keep the Connection Alive via Ping/Pong</h2>
 <p>In order to keep the websocket connection alive, you have two options, detailed below.</p>
 <h4 id='method-1-responding-to-server-ping-messages'>Method 1: Responding to Server ping messages</h4>
@@ -2396,6 +2518,12 @@ for 30 seconds if a client initiated <code>ping</code> message is received. </p>
 <ul>
 <li>for authenticated websocket session: <code>{&quot;op&quot;:&quot;connected&quot;,&quot;type&quot;:&quot;auth&quot;}</code></li>
 <li>for unauthenticated websocket session: <code>{&quot;op&quot;:&quot;connected&quot;,&quot;type&quot;:&quot;unauth&quot;}</code></li>
+</ul>
+
+<p>If the session is disconnected for some reason, you will receive a <code>disconnected</code> message:</p>
+
+<ul>
+<li><code>{&quot;m&quot;:&quot;disconnected&quot;,&quot;code&quot;:100005,&quot;reason&quot;:&quot;INVALID_WS_REQUEST_DATA&quot;,&quot;info&quot;:&quot;Session is disconnected due to missing pong message from the client&quot;}</code></li>
 </ul>
 <h3 id='method-1-websocket-authentication-with-request-headers'>Method 1 - WebSocket Authentication with Request Headers</h3>
 <blockquote>
@@ -2489,8 +2617,58 @@ wscat -c wss://bitmax.io/1/api/pro/stream -w 1 -x <span class="s2">"{</span><spa
 <p>More comprehensive examples can be found at:</p>
 
 <ul>
-<li>Python: <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/websocket_auth.py">https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/websocket_auth.py</a></li>
+<li>Python for <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/websocket_auth.py">websocket auth</a></li>
 </ul>
+<h3 id='authentication-response'>Authentication Response</h3>
+<blockquote>
+<p>Auth success message</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">  
+  </span><span class="s2">"m"</span><span class="p">:</span><span class="w"> </span><span class="s2">"auth"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Auth error message</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"m"</span><span class="p">:</span><span class="s2">"auth"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200006</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"err"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unable to find User Account Data"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>You will receive a message for authentication result after you send authentication request.</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>m</code></td>
+<td><code>String</code></td>
+<td><code>&quot;auth&quot;</code></td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>String</code></td>
+<td>echo back the id if you provide one in the request</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td><code>Long</code></td>
+<td>Any code other than 0 indicate an error in authentication</td>
+</tr>
+<tr>
+<td><code>err</code></td>
+<td><code>Optional[String]</code></td>
+<td>Provide detailed error message if code is not 0</td>
+</tr>
+</tbody></table>
 <h2 id='subscribe-to-data-channels'>Subscribe to Data Channels</h2><h3 id='how-to-subscribe'>How to Subscribe</h3>
 <blockquote>
 <p>Use <code>wscat</code> from Node.js to connect to websocket data.</p>
@@ -2561,7 +2739,7 @@ wscat -c wss://bitmax.io/0/api/pro/stream -x <span class="s1">'{"op":"sub", "ch"
 </tr>
 <tr>
 <td>public</td>
-<td><code>trade:&lt;symbol&gt;</code></td>
+<td><code>trades:&lt;symbol&gt;</code></td>
 <td>Market trade data</td>
 </tr>
 <tr>
@@ -2571,37 +2749,62 @@ wscat -c wss://bitmax.io/0/api/pro/stream -x <span class="s1">'{"op":"sub", "ch"
 </tr>
 <tr>
 <td>public</td>
-<td><code>ticker:&lt;symbol&gt;</code></td>
-<td>Ticker data</td>
-</tr>
-<tr>
-<td>public</td>
 <td><code>ref-px:&lt;symbol&gt;</code></td>
-<td>Reference prices used by margin risk Calculation</td>
+<td>Reference prices used by margin risk Calculation.</td>
 </tr>
 <tr>
 <td>Private</td>
 <td><code>order:&lt;account&gt;</code></td>
-<td>Order Update Stream</td>
+<td>Order Update Stream: &quot;cash&quot;, &quot;margin&quot;, or actual accountId for `account.</td>
 </tr>
 </tbody></table>
+
+<p><em>Symbol</em> in <em>ref-px</em> is single asset symbol(e.g. <code>BTC</code>), not trading pair symbol (e.g. <code>BTC/USDT</code>), which is different from other channels.</p>
+<h4 id='subscribe-to-single-or-multiple-symbols'>Subscribe to single or multiple symbols</h4>
+<p>Subscribe to a single symbol (e.g. <code>BTC/USDT</code>), or multiple symbols (up to 10) separated by &quot;,&quot;, e.g. <code>&quot;BTC/USDT,ETH/USDT&quot;</code>.</p>
+
+<ul>
+<li>Subscribe to <em>bbo</em> stream for symbol <code>BTC/USDT</code></li>
+</ul>
+
+<p><code>{ &quot;op&quot;: &quot;sub&quot;, &quot;id&quot;: &quot;abcd1234&quot;, &quot;ch&quot;: &quot;bbo:BTC/USDT&quot; }</code></p>
+
+<ul>
+<li>Subscribe to <em>ref-px</em> stream for symbol <code>BTC</code></li>
+</ul>
+
+<p><code>{ &quot;op&quot;: &quot;sub&quot;, &quot;id&quot;: &quot;abcd1234&quot;, &quot;ch&quot;: &quot;ref-px:BTC&quot; }</code></p>
+
+<ul>
+<li>Subscribe to <em>trade</em> stream for a list of symbols</li>
+</ul>
+
+<p><code>{ &quot;op&quot;: &quot;sub&quot;, &quot;id&quot;: &quot;abcd1234&quot;, &quot;ch&quot;: &quot;trades:BTC/USDT,ETH/USDT,BTMX/USDT&quot; }</code></p>
 <h4 id='unsubscribe-with-wildcard-character'>Unsubscribe with Wildcard Character <code>*</code></h4>
 <p>Using the wildcard character <code>*</code>, you can unsubscribe from multiple channels with the same channel name. For instance: </p>
 
 <ul>
-<li>Unsubscribes from the depth stream for all symbols:</li>
+<li>Unsubscribes from the <em>depth</em> stream for all symbols:</li>
 </ul>
 
 <p><code>{ &quot;op&quot;: &quot;unsub&quot;, &quot;ch&quot;: &quot;depth:*&quot; }</code></p>
 
+<p>or</p>
+
+<p><code>{ &quot;op&quot;: &quot;unsub&quot;, &quot;ch&quot;: &quot;depth&quot; }</code></p>
+
 <ul>
-<li>Unsubscribes from the 1 minute bar streams for all symbols:</li>
+<li>Unsubscribes from the 1 minute <em>bar</em> streams for all symbols:</li>
 </ul>
 
 <p><code>{ &quot;op&quot;: &quot;unsub&quot;, &quot;ch&quot;: &quot;bar:1:*&quot; }</code></p>
 
+<p>or </p>
+
+<p><code>{ &quot;op&quot;: &quot;unsub&quot;, &quot;ch&quot;: &quot;bar:1&quot; }</code></p>
+
 <ul>
-<li>Unsubscribes from bar streams of all frequencies for <code>BTMX/USDT</code>:</li>
+<li>Unsubscribes from <em>bar</em> streams of all frequencies for <code>BTMX/USDT</code>:</li>
 </ul>
 
 <p><code>{ &quot;op&quot;: &quot;unsub&quot;, &quot;ch&quot;: &quot;bar:*:BTMX/USDT&quot; }</code></p>
@@ -2781,18 +2984,19 @@ value into one aggregated item. Each trade object contains the following fields:
 </span><span class="p">{</span><span class="w"> </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unsub"</span><span class="p">,</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ch"</span><span class="p">:</span><span class="s2">"bar"</span><span class="w"> </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>Trade Message </p>
+<p>Bar Data Message </p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"m"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTMX/USDT"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"i"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"s"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTMX/USDT"</span><span class="p">,</span><span class="w">    
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"p"</span><span class="p">:</span><span class="w">      </span><span class="s2">"0.068600"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"q"</span><span class="p">:</span><span class="w">      </span><span class="s2">"100.000"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"ts"</span><span class="p">:</span><span class="w">      </span><span class="mi">1573069903254</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"bm"</span><span class="p">:</span><span class="w">      </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"seqnum"</span><span class="p">:</span><span class="w">  </span><span class="mi">144115188077966308</span><span class="w">
+        </span><span class="s2">"i"</span><span class="p">:</span><span class="w">  </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1575398940000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"o"</span><span class="p">:</span><span class="w">  </span><span class="s2">"0.04993"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"c"</span><span class="p">:</span><span class="w">  </span><span class="s2">"0.04970"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"h"</span><span class="p">:</span><span class="w">  </span><span class="s2">"0.04993"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"l"</span><span class="p">:</span><span class="w">  </span><span class="s2">"0.04970"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"v"</span><span class="p">:</span><span class="w">  </span><span class="s2">"8052"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -2845,7 +3049,7 @@ value into one aggregated item. Each trade object contains the following fields:
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sub"</span><span class="p">,</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ch"</span><span class="p">:</span><span class="s2">"order:cash"</span><span class="w"> </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>Subscribe to specific account id <em>cshQtyfq8XLAA9kcf19h8bXHbAwwoqDoaccount</em> for order update stream</p>
+<p>Subscribe to specific account id <em>cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo</em> account for order update stream</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sub"</span><span class="p">,</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ch"</span><span class="p">:</span><span class="s2">"order:cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="w"> </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -2858,24 +3062,29 @@ value into one aggregated item. Each trade object contains the following fields:
 <p>Order update message</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"m"</span><span class="p">:</span><span class="w">         </span><span class="s2">"order"</span><span class="p">,</span><span class="w"> 
-    </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"simtrader0000"</span><span class="p">,</span><span class="w"> 
-    </span><span class="s2">"ac"</span><span class="p">:</span><span class="w">        </span><span class="s2">"cash"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Account</span><span class="w"> </span><span class="err">Category</span><span class="w">
+    </span><span class="s2">"m"</span><span class="p">:</span><span class="w"> </span><span class="s2">"order"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"s"</span><span class="p">:</span><span class="w">       </span><span class="s2">"ETC/USDT"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16e85af7bc8simtrader0000fb6255dd"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"t"</span><span class="p">:</span><span class="w">        </span><span class="mi">1574200900684</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"st"</span><span class="p">:</span><span class="w">      </span><span class="s2">"New"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"p"</span><span class="p">:</span><span class="w">       </span><span class="s2">"100.8365"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"q"</span><span class="p">:</span><span class="w">       </span><span class="s2">"9.91704"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"fp"</span><span class="p">:</span><span class="w">      </span><span class="s2">"0"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"fq"</span><span class="p">:</span><span class="w">      </span><span class="s2">"0"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"fee"</span><span class="p">:</span><span class="w">     </span><span class="s2">"0"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"fa"</span><span class="p">:</span><span class="w">      </span><span class="s2">"base"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"bb"</span><span class="p">:</span><span class="w">      </span><span class="s2">"0"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"bpb"</span><span class="p">:</span><span class="w">     </span><span class="s2">"0"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"qb"</span><span class="p">:</span><span class="w">      </span><span class="s2">"115137.964757493"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"qpb"</span><span class="p">:</span><span class="w">     </span><span class="s2">"114136.965153929"</span><span class="w">
+        </span><span class="s2">"s"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/USDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s16ecd8e618aU9490877774d9f1789b8"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"t"</span><span class="p">:</span><span class="w"> </span><span class="mi">1575406690850</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sn"</span><span class="p">:</span><span class="w"> </span><span class="mi">72057600439748931</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"st"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buy"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ot"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Limit"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7105"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"q"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00083"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fq"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ap"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fa"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"btb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.028343365"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"bab"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.028343365"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"qtb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6305.501839976"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"qab"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6299.598792826"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ac"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cash"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -2904,9 +3113,29 @@ value into one aggregated item. Each trade object contains the following fields:
 <td>timestamp</td>
 </tr>
 <tr>
+<td><code>sn</code></td>
+<td><code>long</code></td>
+<td>sequence number</td>
+</tr>
+<tr>
 <td><code>st</code></td>
 <td><code>String</code></td>
 <td>order status</td>
+</tr>
+<tr>
+<td><code>sd</code></td>
+<td><code>String</code></td>
+<td>order side</td>
+</tr>
+<tr>
+<td><code>ot</code></td>
+<td><code>String</code></td>
+<td>order type</td>
+</tr>
+<tr>
+<td><code>sp</code></td>
+<td><code>String</code></td>
+<td>stop price</td>
 </tr>
 <tr>
 <td><code>p</code></td>
@@ -2929,6 +3158,11 @@ value into one aggregated item. Each trade object contains the following fields:
 <td>filled qty</td>
 </tr>
 <tr>
+<td><code>ap</code></td>
+<td><code>String</code></td>
+<td>average price</td>
+</tr>
+<tr>
 <td><code>fee</code></td>
 <td><code>String</code></td>
 <td>commission</td>
@@ -2939,22 +3173,22 @@ value into one aggregated item. Each trade object contains the following fields:
 <td>fee asset</td>
 </tr>
 <tr>
-<td><code>bb</code></td>
+<td><code>btb</code></td>
 <td><code>String</code></td>
 <td>base asset total balance</td>
 </tr>
 <tr>
-<td><code>bpb</code></td>
+<td><code>bab</code></td>
 <td><code>String</code></td>
 <td>base asset available balance</td>
 </tr>
 <tr>
-<td><code>qb</code></td>
+<td><code>qtb</code></td>
 <td><code>String</code></td>
 <td>quote asset total balance</td>
 </tr>
 <tr>
-<td><code>qpb</code></td>
+<td><code>qab</code></td>
 <td><code>String</code></td>
 <td>quote asset available balance</td>
 </tr>
@@ -2980,6 +3214,7 @@ request message. Here are some use cases: </p>
 <th>Name</th>
 <th>Type</th>
 <th>Required</th>
+<th>Value</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
@@ -2988,33 +3223,44 @@ request message. Here are some use cases: </p>
 <td><code>String</code></td>
 <td>Yes</td>
 <td><code>req</code></td>
+<td></td>
 </tr>
 <tr>
 <td><code>id</code></td>
 <td><code>String</code></td>
 <td>No</td>
-<td>user specified UUID, if provided, the server will echo back this value in the response message</td>
+<td>digits and numbers</td>
+<td>if provided, the server will echo back this value in the response message</td>
 </tr>
 <tr>
 <td><code>action</code></td>
 <td><code>String</code></td>
 <td>Yes</td>
-<td>name of the request action with optional arguments, see below for details</td>
+<td>See below</td>
+<td>name of the request action with optional arguments</td>
 </tr>
 <tr>
 <td><code>account</code></td>
 <td><code>String</code></td>
 <td>NO</td>
+<td><code>cash</code>, <code>margin</code></td>
 <td>the account of the interest, this field is not required for public data request</td>
 </tr>
 <tr>
 <td><code>args</code></td>
-<td><code>List of [key: value]</code></td>
+<td><code>{key:value}</code></td>
 <td>No</td>
+<td></td>
 <td>each <code>action</code> has different args, please see each action for detail.</td>
 </tr>
 </tbody></table>
+
+<p>supported action</p>
 <h3 id='websocket-response-schema'>WebSocket Response Schema</h3>
+<p>We try to provide all data in consistent format.</p>
+
+<p><em>Ack or Data</em></p>
+
 <p>Response follow the following schema</p>
 
 <table><thead>
@@ -3027,7 +3273,7 @@ request message. Here are some use cases: </p>
 <tr>
 <td><code>m</code></td>
 <td><code>String</code></td>
-<td>action field from request</td>
+<td>message topic related with request <code>action</code></td>
 </tr>
 <tr>
 <td><code>id</code></td>
@@ -3037,16 +3283,12 @@ request message. Here are some use cases: </p>
 <tr>
 <td><code>action</code></td>
 <td><code>String</code></td>
-<td>name of the request action with optional arguments, see below for details</td>
-</tr>
-<tr>
-<td><code>args</code></td>
-<td><code>List[key: value]</code></td>
-<td>Each <code>action</code> has different args, please see each action for detail.</td>
+<td>echo <code>action</code> in request</td>
 </tr>
 </tbody></table>
 
-<p><em>Ack or Data</em></p>
+<p><code>data</code> or 
+ <br><code>info</code><br>| <code>Json</code>             | detailed <code>data</code> for data request, or <code>info</code> for operation result(e.g. order place/cancel)</p>
 
 <p><em>Error</em></p>
 <h3 id='ws-orderbook-snapshot'>WS: Orderbook Snapshot</h3>
@@ -3161,6 +3403,10 @@ request message. Here are some use cases: </p>
 <li>Using consequent <code>depth</code> messages to update the order book.</li>
 </ul>
 
+<p>Please note that field <code>seqnum</code> should strictly increase by 1 for each new depth update (each <code>symbol</code> maintain its own <code>seqnum</code>). 
+If you see a larger than 1 gap from previous <code>seqnum</code> (for the same <code>symbol</code>), then there might be data loss, 
+you need to repeat above steps to maintain a new order book.</p>
+
 <p>The <code>depth-snapshot</code> message is constructed in a consistent way with all <code>depth</code> message. </p>
 
 <p>Please note that the <code>depth-snapshot</code> API has higher latency. The response time is usually between 
@@ -3170,10 +3416,126 @@ the timely order book data. </p>
 <p>More comprehensive examples can be found at:</p>
 
 <ul>
-<li>Python: <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/websocket_orderbook_snapshot.py">https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/websocket_orderbook_snapshot.py</a></li>
+<li>Python: <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/websocket_orderbook_snapshot.py">websocket orderbook snapshot</a></li>
 </ul>
 <h3 id='ws-recent-market-trades'>WS: Recent Market Trades</h3>
-<p>@TODO</p>
+<blockquote>
+<p>Requesting the most recent 20 trades for symbol BTMX/USDT</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"req"</span><span class="p">,</span><span class="w"> </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"market-trades"</span><span class="p">,</span><span class="w"> </span><span class="s2">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTMX/USDT"</span><span class="p">,</span><span class="w"> </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Trades snapshot message</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"m"</span><span class="p">:</span><span class="w"> </span><span class="s2">"market-trades"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTMX/USDT"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"p"</span><span class="p">:</span><span class="w">      </span><span class="s2">"0.068600"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"q"</span><span class="p">:</span><span class="w">      </span><span class="s2">"100.000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ts"</span><span class="p">:</span><span class="w">      </span><span class="mi">1573069903254</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"bm"</span><span class="p">:</span><span class="w">      </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"seqnum"</span><span class="p">:</span><span class="w">  </span><span class="mi">144115188077966308</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>You can request the current order book via websocket by an <code>market-trades</code> request. </p>
+
+<p>The request schema:</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>op</code></td>
+<td><code>String</code></td>
+<td><code>req</code></td>
+</tr>
+<tr>
+<td><code>action</code></td>
+<td><code>String</code></td>
+<td><code>market-trades</code></td>
+</tr>
+<tr>
+<td><code>args</code></td>
+<td><code>{key:value}</code></td>
+<td>see <code>args</code> below for detail</td>
+</tr>
+</tbody></table>
+
+<p>The <code>args</code> schema:</p>
+
+<p><code>symbol</code> | <code>String</code>            | Symbol, e.g. <code>BTMX/USDT</code><br>
+ <code>level</code>  | Int                 | Number of trades to request</p>
+
+<p>The response schema:</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>m</code></td>
+<td><code>String</code></td>
+<td><code>market-trades</code></td>
+</tr>
+<tr>
+<td><code>symbol</code></td>
+<td><code>String</code></td>
+<td>Symbol, e.g. <code>BTMX/USDT</code></td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td><code>Json Array</code></td>
+<td>A list of trade json objects</td>
+</tr>
+</tbody></table>
+
+<p>The <code>data</code> field is a list containing one or more trade objects. The server may combine consecutive trades with the same price and <code>bm</code> 
+value into one aggregated item. Each trade object contains the following fields:</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>seqnum</code></td>
+<td><code>Long</code></td>
+<td>the sequence number of the trade record. <code>seqnum</code> is always increasing for each symbol, but may not be consecutive</td>
+</tr>
+<tr>
+<td><code>p</code></td>
+<td><code>String</code></td>
+<td>the executed price expressed as a string</td>
+</tr>
+<tr>
+<td><code>q</code></td>
+<td><code>String</code></td>
+<td>the aggregated traded amount expressed as string</td>
+</tr>
+<tr>
+<td><code>ts</code></td>
+<td><code>Long</code></td>
+<td>the UTC timestamp in milliseconds of the first trade</td>
+</tr>
+<tr>
+<td><code>bm</code></td>
+<td><code>Boolean</code></td>
+<td>if true, the buyer of the trade is the maker.</td>
+</tr>
+</tbody></table>
 <h3 id='ws-place-order'>WS: Place Order</h3>
 <blockquote>
 <p>Request to place new order</p>
@@ -3181,9 +3543,10 @@ the timely order book data. </p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"req"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"place-Order"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cash"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"time"</span><span class="p">:</span><span class="w">        </span><span class="mi">1573772908483</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"coid"</span><span class="p">:</span><span class="w">       </span><span class="s2">"11eb9a8355fc41bd9bf5b08bc0d18f6b"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"time"</span><span class="p">:</span><span class="w">       </span><span class="mi">1573772908483</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w">         </span><span class="s2">"11eb9a8355fc41bd9bf5b08bc0d18f6b"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w">     </span><span class="s2">"EOS/USDT"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"orderPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.27255"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"orderQty"</span><span class="p">:</span><span class="w">   </span><span class="s2">"30.557210737803853"</span><span class="p">,</span><span class="w">
@@ -3258,6 +3621,7 @@ the timely order book data. </p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"req"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cancel-Order"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cash"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"time"</span><span class="p">:</span><span class="w">    </span><span class="mi">1574165050128</span><span class="p">,</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w">      </span><span class="s2">"2d4c3fa1e5c249e49f990ce86aebb607"</span><span class="p">,</span><span class="w">
@@ -3335,6 +3699,7 @@ the timely order book data. </p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"req"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cancel-All"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cash"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/USDT"</span><span class="w">
     </span><span class="p">}</span><span class="w">
