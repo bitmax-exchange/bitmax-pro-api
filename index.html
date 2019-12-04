@@ -3255,9 +3255,61 @@ request message. Here are some use cases: </p>
 </tr>
 </tbody></table>
 
-<p>supported action</p>
+<p><strong>Supported action</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>place-order</code></td>
+<td>Place new order</td>
+</tr>
+<tr>
+<td><code>cancel-order</code></td>
+<td>Cancel exisitng open order</td>
+</tr>
+<tr>
+<td><code>cancel-all</code></td>
+<td>Cancel all open orders on account level</td>
+</tr>
+<tr>
+<td><code>batch-place-order</code></td>
+<td>Place new order in batch</td>
+</tr>
+<tr>
+<td><code>batch-cancel-order</code></td>
+<td>Cancel orders in batch</td>
+</tr>
+<tr>
+<td><code>depth-snapshot</code></td>
+<td>Get market depth for symbol up to 500 level</td>
+</tr>
+<tr>
+<td><code>depth-snapshot-top100</code></td>
+<td>Get top 100 depth</td>
+</tr>
+<tr>
+<td><code>market-trades</code></td>
+<td>Get market trades for a symbol</td>
+</tr>
+<tr>
+<td><code>balance</code></td>
+<td>Request balance</td>
+</tr>
+<tr>
+<td><code>open-order</code></td>
+<td>Query open order</td>
+</tr>
+<tr>
+<td><code>margin-risk</code></td>
+<td>Get margin risk</td>
+</tr>
+</tbody></table>
 <h3 id='websocket-response-schema'>WebSocket Response Schema</h3>
-<p>We try to provide all data in consistent format.</p>
+<p>We try to provide all data in uniform format.</p>
 
 <p><em>Ack or Data</em></p>
 
@@ -3285,10 +3337,12 @@ request message. Here are some use cases: </p>
 <td><code>String</code></td>
 <td>echo <code>action</code> in request</td>
 </tr>
+<tr>
+<td><code>data</code> or <br><code>info</code><br></td>
+<td><code>Json</code></td>
+<td>detailed <code>data</code> for data request, or <code>info</code> for operation result(e.g. order place/cancel)</td>
+</tr>
 </tbody></table>
-
-<p><code>data</code> or 
- <br><code>info</code><br>| <code>Json</code>             | detailed <code>data</code> for data request, or <code>info</code> for operation result(e.g. order place/cancel)</p>
 
 <p><em>Error</em></p>
 <h3 id='ws-orderbook-snapshot'>WS: Orderbook Snapshot</h3>
