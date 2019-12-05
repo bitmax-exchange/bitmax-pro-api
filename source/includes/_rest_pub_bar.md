@@ -97,7 +97,7 @@ The value in the `name` field should be your input to the [Historical Bar Data](
 > Request 
 
 ```
-curl -X GET https://bitmax.io/api/pro/trades?symbol=BTMX/USDT&interval=1
+curl -X GET https://bitmax.io/api/pro/barhist?symbol=BTMX/USDT&interval=1
 ```
 
 > Sample response
