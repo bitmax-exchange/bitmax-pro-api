@@ -334,6 +334,9 @@
             <a href="#websocket" class="toc-h1 toc-link" data-title="WebSocket">WebSocket</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#general-message-request-handling-logic-from-client-side" class="toc-h2 toc-link" data-title="General Message Request/Handling Logic from Client Side">General Message Request/Handling Logic from Client Side</a>
+                  </li>
+                  <li>
                     <a href="#keep-the-connection-alive-via-ping-pong" class="toc-h2 toc-link" data-title="Keep the Connection Alive via Ping/Pong">Keep the Connection Alive via Ping/Pong</a>
                   </li>
                   <li>
@@ -1285,6 +1288,8 @@ only 500 bars will be returned. </li>
 <td>If true, the maker of the trade is the buyer.</td>
 </tr>
 </tbody></table>
+<h4 id='code-sample'>Code Sample</h4>
+<p>Please refer to python code to [query trades]{https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_pub_trades.py}</p>
 <h2 id='account'>Account</h2><h3 id='account-info'>Account Info</h3>
 <blockquote>
 <p>Account Info - Sample response:</p>
@@ -2419,7 +2424,11 @@ to obtain the latest status of each order. </p>
 <p><strong>Code Sample</strong></p>
 
 <p>Please refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_order.py">get hist orders</a></p>
-<h1 id='websocket'>WebSocket</h1>
+<h1 id='websocket'>WebSocket</h1><h2 id='general-message-request-handling-logic-from-client-side'>General Message Request/Handling Logic from Client Side</h2>
+<p>+* Client usually initiate request with <code>op</code> parameter (followed by other required parameters).^M
++* Server usually reply message with <code>m</code> value to indicate message topic, e.g., <code>order</code>, <code>depth</code>, <code>auth</code>.^
+** Private data response usually include <code>accountId</code> field, such as <code>order</code>, <code>balance</code>.</p>
+
 <p><strong>WebSocket Request</strong></p>
 
 <p><code>WSS &lt;account-group&gt;/api/pro/stream</code></p>
