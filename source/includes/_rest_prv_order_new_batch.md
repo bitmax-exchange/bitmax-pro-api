@@ -90,4 +90,4 @@ Status "ERR" to indicate the batch order request is accepted by server. Field "i
 
 **Code Sample**
 
-Please refer to python code [place_batch_order](https://github.com/gdm-exchange/bitmax-api-demo/blob/master/python/place_order.py)
+Please refer to python code to [place batch order](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/place_order.py)

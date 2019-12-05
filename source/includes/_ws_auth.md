@@ -13,6 +13,10 @@ Once you successfully connect to the websocket, you will receive a `connected` m
 * for authenticated websocket session: `{"op":"connected","type":"auth"}`
 * for unauthenticated websocket session: `{"op":"connected","type":"unauth"}`
 
+If the session is disconnected for some reason, you will receive a `disconnected` message:
+
+* `{"m":"disconnected","code":100005,"reason":"INVALID_WS_REQUEST_DATA","info":"Session is disconnected due to missing pong message from the client"}`
+
 
 ### Method 1 - WebSocket Authentication with Request Headers
 
@@ -77,6 +81,36 @@ You can also authenticate a live websocket session by sending an `op:auth` messa
 
 More comprehensive examples can be found at:
 
-* Python: [https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/websocket_auth.py](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/websocket_auth.py)
+* Python for [websocket auth](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/websocket_auth.py)
 
+### Authentication Response
 
+> Auth success message
+
+```json
+{  
+  "m": "auth",
+  "id": "abc123",
+  "code": 0
+}
+```
+
+> Auth error message
+
+```json
+{
+  "m":"auth",
+  "id": "abc123",
+  "code": 200006,
+  "err": "Unable to find User Account Data"
+}
+```
+
+You will receive a message for authentication result after you send authentication request.
+
+| Field | Type                 | Description                                                             |
+| ----- | -------------------- | ----------------------------------------------------------------------- |
+| `m`   |  `String`            | `"auth"`                                                                |
+| `id`  |  `String`            | echo back the id if you provide one in the request                      |
+| `code`|  `Long`              | Any code other than 0 indicate an error in authentication               |
+| `err` |  `Optional[String]`  | Provide detailed error message if code is not 0   

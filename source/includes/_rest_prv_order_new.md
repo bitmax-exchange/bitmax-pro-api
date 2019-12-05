@@ -25,61 +25,91 @@
 
 ```json
 {
-    "code": 0,
-    "data": {
-        "accountCategory":       "CASH",
-        "accountId":             "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
-        "avgPrice":              "0",
-        "baseAvailableBalance":  "39.2010425",
-        "baseTotalBalance":      "39.2010425",
-        "errorCode":             "NULL_VAL",
-        "execId":                "78271",
-        "execInst":              "NULL_VAL",
-        "fee":                   "0",
-        "feeAsset":               "",
-        "filledQty":             "0",
-        "m":                     "order",
-        "orderId":               "16e60fc831ba8bXHbAwwoqDo3d898cf3",
-        "orderQty":              "0.11",
-        "orderType":             "Market",
-        "quoteAvailableBalance": "1113781.119315161",
-        "quoteTotalBalance":     "1114852.305731461",
-        "side":                  "Buy",
-        "status":                "New",
-        "symbol":                "BTC/USDT",
-        "transactTime":           1573585191865
-    }
+    "id": "iGwzbzWxxcHwno4b8VCvh8aaYCJaPALm", 
+    "time": 1575403713964, 
+    "symbol": "BTC/USDT", 
+    "orderPrice": "7289.0", 
+    "orderQty": "0.00082", 
+    "orderType": "limit", 
+    "side": "sell", 
+    "respInst": "ACCEPT"
 }
 ```
-
-
-> Place Order - Successful DONE Response (Status 200, code 0)
 
 ```json
 {
     "code": 0,
     "data": {
-        "accountCategory":       "CASH",
-        "accountId":             "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
-        "avgPrice":              "8846.25",
-        "baseAvailableBalance":  "39.2010425",
-        "baseTotalBalance":      "39.2010425",        
-        "errorCode":             "NULL_VAL",
-        "execId":                "78266",
-        "execInst":              "NULL_VAL",
-        "fee":                   "0.827124375",
-        "feeAsset":              "USDT",
-        "filledQty":             "0.11",
-        "m":                     "order",
-        "orderId":               "16e60f6601ba8bXHbAwwoqDo345548c3",
-        "orderQty":              "0.11",
-        "orderType":             "Market",
-        "quoteAvailableBalance": "1114852.305731461",
-        "quoteTotalBalance":     "1114852.305731461",
-        "side":                  "Buy",
-        "status":                "Filled",
-        "symbol":                "BTC/USDT",
-        "transactTime":           1573584789682
+        "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
+        "accountCategory": "CASH",
+        "action": "place-order",          
+        "info": {
+            "avgPrice": "0",
+            "baseAvailableBalance": "0.028333365",
+            "baseTotalBalance": "0.029153365",
+            "errorCode": "NULL_VAL",
+            "execInst": "NULL_VAL",
+            "fee": "0",
+            "feeAsset": "",
+            "filledQty": "0",
+            "id": "iGwzbzWxxcHwno4b8VCvh8aaYCJaPALm",
+            "orderId": "a16ecd60f5acU9490877774aYCJaPALm",
+            "orderQty": "0.00082",
+            "orderType": "Limit",
+            "price": "7289",
+            "quoteAvailableBalance": "6293.595163232",
+            "quoteTotalBalance": "6299.578120212",
+            "seqNum": "2259840148",
+            "side": "Sell",
+            "status": "New",
+            "symbol": "BTC/USDT",
+            "transactTime": 1575403715461},
+        "status": "ACCEPT"
+    }
+}   
+```
+
+> Place Order - Successful DONE Response (Status 200, code 0)
+
+```json
+{
+    "id": "UHTe3uVB0KhNGatoRS10YgABwHW0fCYn", 
+    "time": 1575348906131, 
+    "symbol": "BTC/USDT",
+    "orderQty": "0.00082", 
+    "orderType": "market", 
+    "side": "buy", 
+    "respInst": "DONE"}
+```
+
+```json
+{
+    "code": 0,
+    "data": {
+        "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
+        "action": "place-order",
+        "accountCategory": "CASH",
+        "info": {
+            "avgPrice": "7323.24",
+            "baseAvailableBalance": "0.029153365",
+            "baseTotalBalance": "0.029153365",
+            "errorCode": "NULL_VAL",
+            "execInst": "NULL_VAL",
+            "fee": "0.003302782",
+            "feeAsset": "USDT",
+            "filledQty": "0.00082",
+            "id": "UHTe3uVB0KhNGatoRS10YgABwHW0fCYn",
+            "orderId": "a16ecd4c0caeU9490877774BwHW0fCYn",
+            "orderQty": "0.00082",
+            "orderType": "Market",
+            "quoteAvailableBalance": "6293.595163232",
+            "quoteTotalBalance": "6299.578120212",
+            "seqNum": "2259385852",
+            "side": "Sell",
+            "status": "Filled",
+            "symbol": "BTC/USDT",
+            "transactTime": 1575402344424},
+        "status": "DONE"
     }
 }
 ```
@@ -129,7 +159,7 @@ time       | Long   |  Yes   |milliseconds since UNIX epoch in UTC  |We do not p
 orderQty   | String |  Yes   |                                      |Order size. Please set scale properly for each symbol.
 orderType  | String |  Yes   |["market", "limit"]                   |Order type
 side       | String |  Yes   |["buy", "sell"]                       |  
-id         | String |  No    |32 chars(letter and digit number only)|Please generate unique ID for each trade, we echo it back to help you match response with request.
+id         | String |  No    |>=9 chars(letter and digit number only)|Optional but recommended. We echo it back to help you match response with request.
 orderPrice | String |  No    |                                      |The limit price for limit order. Please set price scale properly.
 stopPrice  | String |  No    |                                      |Trigger price of stop limit order
 postOnly   | Boolean|  No    |["true", "false"]                     |
@@ -170,7 +200,7 @@ When placing a new **limit** order, the request parameters must meet all criteri
 
 In "Err" response, *id* is the id provided by user when placing order; for other responses, *orderId* is the id generated by server following "Order id generation method" above, and this is the id you should provide for future order query or cancel. 
 
-In case you want to cancel an order before response from server, you could figure out the orderId following "Order id generation method" above.
+In case you want to cancel an order before response from server, you could figure out the orderId following **Order id generation method** above.
 
 *ACK*
 
@@ -198,4 +228,4 @@ HTTP Status Code | Error Code | Reason           | Example
 
 **Code Sample**
 
-Refer to sample python code [place_order](https://github.com/gdm-exchange/bitmax-api-demo/blob/master/python/place_order.py)
+Refer to sample python code [place_order](https://github.com/bitmax-exchange/bitmax-pro-api-demo/tree/master/python/place_order.py)

@@ -9,26 +9,28 @@
   "data": [
     { 
       "accountCategory":    "CASH",
-      "userId":             "supEQeSJQllKkxYSgLOoVk7hJAX59WSz",
       "accountId":          "cshKAhmTHQNUKhR1pQyrDOdotE3Tsnz4",
-      "symbol":             "ETH/BTC",
+      "avgPrice":           "0.000000000",                      // Average filled price of the order   
       "baseAsset":          "ETH",
-      "quoteAsset":         "BTC",
-      "orderPrice":         "0.310000000",                      // only available for limit and stop limit orders
-      "orderQty":           "1.000000000",
-      "side":               "Buy",
-      "avgPrice":           "0.000000000",                      // Average filled price of the order      
+      "errorCode":          "NULL_VAL",
       "execInst":           "NULL_VAL",
       "fee":                "0.000000000",                      // cumulative fee paid for this order
       "feeAsset":           "BTC",                              // the asset
       "filledQty":          "0.000000000",                      // filled quantity
+      "notional":           "0.000000000",
       "orderId":            "16e85a95e35a8bXHbAwwoqDo297932b1", // the unique identifier, you will need
-                                                                // this value to cancel this order
+                                                          // this value to cancel this order
+      "orderPrice":         "0.310000000",                      // only available for limit and stop limit orders
+      "orderQty":           "1.000000000",
       "orderType":          "StopLimit",
-      "status":             "PendingNew",
+      "quoteAsset":         "BTC",
+      "sendingTime":        1566091503547,                      // The sending time of the order
+      "side":               "Buy",
+      "status":             "New",
       "stopPrice":          "0.300000000",                      // only available for stop market and stop limit orders
-      "time":                1566091628227,                     // The last execution time of the order @TODO@FixMe
-      "sendingTime":         1566091503547                      // The sending time of the order
+      "symbol":             "ETH/BTC",
+      "time":               1566091628227,                      // The last execution time of the order @TODO@FixMe
+      "userId":             "supEQeSJQllKkxYSgLOoVk7hJAX59WSz",
     }
   ]
 }
@@ -63,7 +65,7 @@ HTTP Status Code | Error Code | Reason           | Example
 
 **Code Sample**
 
-Please refer to python code [get_open_orders](https://github.com/gdm-exchange/bitmax-api-demo/blob/master/python/query_order.py)
+Please refer to python code to [get open orders](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_order.py)
 
 Change from the previous version:
 

@@ -16,6 +16,7 @@
 {
     "op": "req",
     "action": "cancel-All",
+    "account": "cash",
     "args": {
         "symbol": "BTC/USDT"
     }
