@@ -35,25 +35,6 @@ The standard messages to subscribe to / unsubscribe from data channels is an JSO
  `ch`  | `String`           | name of the data channel with optional arguments, see below for details                        
 
 
-#### Customize Channel content with `ch`
-
-You can customize the channel content by setting `ch` according to the table below:
-
- Type    | Value                        | Description                                      
--------- | ---------------------------- | ------------------------------------------------ 
- public  | `depth:<symbol>`             | Updates to order book levels. 
- public  | `bbo:<symbol>`               | Price and size at best bid and ask levels on the order book.
- public  | `trades:<symbol>`            | Market trade data 
- public  | `bar:<interval>:<symbol>`    | Bar data containing O/C/H/L prices and volume for specific time intervals
- public  | `ref-px:<symbol>`            | Reference prices used by margin risk Calculation. 
- Private | `order:<account>`            | Order Update Stream: "cash", "margin", or actual accountId for `account.                              
-
- *Symbol* in *ref-px* is single asset symbol(e.g. `BTC`), not trading pair symbol (e.g. `BTC/USDT`), which is different from other channels.
- 
-#### Subscribe to single or multiple symbols
-
-Subscribe to a single symbol (e.g. `BTC/USDT`), or multiple symbols (up to 10) separated by ",", e.g. `"BTC/USDT,ETH/USDT"`.
-
 > Subscribe to *bbo* stream for symbol `BTC/USDT`
 
 ```json
@@ -71,10 +52,6 @@ Subscribe to a single symbol (e.g. `BTC/USDT`), or multiple symbols (up to 10) s
 ```json
 { "op": "sub", "id": "abcd1234", "ch": "trades:BTC/USDT,ETH/USDT,BTMX/USDT" }
 ```
-
-#### Unsubscribe with Wildcard Character `*`
-
-Using the wildcard character `*`, you can unsubscribe from multiple channels with the same channel name. For instance: 
 
 > Unsubscribes from the *depth* stream for all symbols (method 1)
 
@@ -106,10 +83,6 @@ Using the wildcard character `*`, you can unsubscribe from multiple channels wit
 { "op": "unsub", "id": "abcd1234", "ch": "bar:*:BTMX/USDT" }
 ```
 
-#### Sub/Unsub response with multiple symbols
-
-When sub or unsub from multiple symbols, we may ack symbol by symbol, or ack in one single message.
-
 > Response for sub multiple symbols in one single message
 
 ```json
@@ -121,6 +94,33 @@ When sub or unsub from multiple symbols, we may ack symbol by symbol, or ack in 
 ```json
 { "m": "unsub", "id": "abcd1234", "ch": "bar:*:BTMX/USDT" }
 ```
+
+#### Customize Channel content with `ch`
+
+You can customize the channel content by setting `ch` according to the table below:
+
+ Type    | Value                        | Description                                      
+-------- | ---------------------------- | ------------------------------------------------ 
+ public  | `depth:<symbol>`             | Updates to order book levels. 
+ public  | `bbo:<symbol>`               | Price and size at best bid and ask levels on the order book.
+ public  | `trades:<symbol>`            | Market trade data 
+ public  | `bar:<interval>:<symbol>`    | Bar data containing O/C/H/L prices and volume for specific time intervals
+ public  | `ref-px:<symbol>`            | Reference prices used by margin risk Calculation. 
+ Private | `order:<account>`            | Order Update Stream: "cash", "margin", or actual accountId for `account.                              
+
+ *Symbol* in *ref-px* is single asset symbol(e.g. `BTC`), not trading pair symbol (e.g. `BTC/USDT`), which is different from other channels.
+
+ #### Unsubscribe with Wildcard Character `*`
+
+Using the wildcard character `*`, you can unsubscribe from multiple channels with the same channel name.
+ 
+#### Subscribe to single or multiple symbols
+
+Subscribe to a single symbol (e.g. `BTC/USDT`), or multiple symbols (up to 10) separated by ",", e.g. `"BTC/USDT,ETH/USDT"`.
+
+#### Sub/Unsub response with multiple symbols
+
+When sub or unsub from multiple symbols, we may ack symbol by symbol, or ack in one single message.
 
 You can subscribe/unsubscribe one channel per subscription message. You can subscribe to multiple data channels by sending multiple 
 subscription messages. However, the exchange limits the total number of data channels per client (**NOT per session**) according to 
