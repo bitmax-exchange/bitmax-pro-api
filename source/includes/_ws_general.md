@@ -1,10 +1,10 @@
 # WebSocket 
 
-## General Message Request/Handling Logic from Client Side 
+**General Message Request/Handling Logic from Client Side**
  
-+* Client usually initiate request with `op` parameter (followed by other required parameters).^M
-+* Server usually reply message with `m` value to indicate message topic, e.g., `order`, `depth`, `auth`.^
-** Private data response usually include `accountId` field, such as `order`, `balance`.
+* Client usually initiate request with `op` parameter (followed by other required parameters).^M
+* Server usually reply message with `m` value to indicate message topic, e.g., `order`, `depth`, `auth`.^
+* Private data response usually include `accountId` field, such as `order`, `balance`.
 
 **WebSocket Request**
 

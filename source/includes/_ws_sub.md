@@ -54,42 +54,73 @@ You can customize the channel content by setting `ch` according to the table bel
 
 Subscribe to a single symbol (e.g. `BTC/USDT`), or multiple symbols (up to 10) separated by ",", e.g. `"BTC/USDT,ETH/USDT"`.
 
-* Subscribe to *bbo* stream for symbol `BTC/USDT`
+> Subscribe to *bbo* stream for symbol `BTC/USDT`
 
-`{ "op": "sub", "id": "abcd1234", "ch": "bbo:BTC/USDT" }`
+```json
+{ "op": "sub", "id": "abcd1234", "ch": "bbo:BTC/USDT" }
+```
 
-* Subscribe to *ref-px* stream for symbol `BTC`
+> Subscribe to *ref-px* stream for symbol `BTC`
 
-`{ "op": "sub", "id": "abcd1234", "ch": "ref-px:BTC" }`
+```json
+{ "op": "sub", "id": "abcd1234", "ch": "ref-px:BTC" }
+```
 
-* Subscribe to *trade* stream for a list of symbols
+> Subscribe to *trade* stream for a list of symbols
 
-`{ "op": "sub", "id": "abcd1234", "ch": "trades:BTC/USDT,ETH/USDT,BTMX/USDT" }`
+```json
+{ "op": "sub", "id": "abcd1234", "ch": "trades:BTC/USDT,ETH/USDT,BTMX/USDT" }
+```
 
 #### Unsubscribe with Wildcard Character `*`
 
 Using the wildcard character `*`, you can unsubscribe from multiple channels with the same channel name. For instance: 
 
-* Unsubscribes from the *depth* stream for all symbols:
+> Unsubscribes from the *depth* stream for all symbols (method 1)
 
-`{ "op": "unsub", "ch": "depth:*" }`
+```json
+{ "op": "unsub", "id": "abcd1234", "ch": "depth:*" }
+```
 
-or
+> Unsubscribes from the *depth* stream for all symbols (methond 2)
 
-`{ "op": "unsub", "ch": "depth" }`
+```json
+{ "op": "unsub", "id": "abcd1234", "ch": "depth" }
+```
 
-* Unsubscribes from the 1 minute *bar* streams for all symbols:
+> Unsubscribes from the 1 minute *bar* streams for all symbols (method 1)
 
-`{ "op": "unsub", "ch": "bar:1:*" }`
+```json
+{ "op": "unsub", "id": "abcd1234", "ch": "bar:1:*" }
+```
 
-or 
+> Unsubscribes from the 1 minute *bar* streams for all symbols (method 2)
 
-`{ "op": "unsub", "ch": "bar:1" }`
+```json
+{ "op": "unsub", "id": "abcd1234", "ch": "bar:1" }
+```
 
-* Unsubscribes from *bar* streams of all frequencies for `BTMX/USDT`:
+> Unsubscribes from *bar* streams of all frequencies for `BTMX/USDT`
 
-`{ "op": "unsub", "ch": "bar:*:BTMX/USDT" }`
+```json
+{ "op": "unsub", "id": "abcd1234", "ch": "bar:*:BTMX/USDT" }
+```
 
+#### Sub/Unsub response with multiple symbols
+
+When sub or unsub from multiple symbols, we may ack symbol by symbol, or ack in one single message.
+
+> Response for sub multiple symbols in one single message
+
+```json
+{"m":"sub","id":"abc23g","ch":"summary:BTC/USDT,BTMX/USDT","code":0}
+```
+
+> Response for unsub multiple symbols in one single message
+
+```json
+{ "m": "unsub", "id": "abcd1234", "ch": "bar:*:BTMX/USDT" }
+```
 
 You can subscribe/unsubscribe one channel per subscription message. You can subscribe to multiple data channels by sending multiple 
 subscription messages. However, the exchange limits the total number of data channels per client (**NOT per session**) according to 
