@@ -334,9 +334,6 @@
             <a href="#websocket" class="toc-h1 toc-link" data-title="WebSocket">WebSocket</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#general-message-request-handling-logic-from-client-side" class="toc-h2 toc-link" data-title="General Message Request/Handling Logic from Client Side">General Message Request/Handling Logic from Client Side</a>
-                  </li>
-                  <li>
                     <a href="#keep-the-connection-alive-via-ping-pong" class="toc-h2 toc-link" data-title="Keep the Connection Alive via Ping/Pong">Keep the Connection Alive via Ping/Pong</a>
                   </li>
                   <li>
@@ -2424,10 +2421,14 @@ to obtain the latest status of each order. </p>
 <p><strong>Code Sample</strong></p>
 
 <p>Please refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_order.py">get hist orders</a></p>
-<h1 id='websocket'>WebSocket</h1><h2 id='general-message-request-handling-logic-from-client-side'>General Message Request/Handling Logic from Client Side</h2>
-<p>+* Client usually initiate request with <code>op</code> parameter (followed by other required parameters).^M
-+* Server usually reply message with <code>m</code> value to indicate message topic, e.g., <code>order</code>, <code>depth</code>, <code>auth</code>.^
-** Private data response usually include <code>accountId</code> field, such as <code>order</code>, <code>balance</code>.</p>
+<h1 id='websocket'>WebSocket</h1>
+<p><strong>General Message Request/Handling Logic from Client Side</strong></p>
+
+<ul>
+<li>Client usually initiate request with <code>op</code> parameter (followed by other required parameters).^M</li>
+<li>Server usually reply message with <code>m</code> value to indicate message topic, e.g., <code>order</code>, <code>depth</code>, <code>auth</code>.^</li>
+<li>Private data response usually include <code>accountId</code> field, such as <code>order</code>, <code>balance</code>.</li>
+</ul>
 
 <p><strong>WebSocket Request</strong></p>
 
@@ -2772,52 +2773,60 @@ wscat -c wss://bitmax.io/0/api/pro/stream -x <span class="s1">'{"op":"sub", "ch"
 <h4 id='subscribe-to-single-or-multiple-symbols'>Subscribe to single or multiple symbols</h4>
 <p>Subscribe to a single symbol (e.g. <code>BTC/USDT</code>), or multiple symbols (up to 10) separated by &quot;,&quot;, e.g. <code>&quot;BTC/USDT,ETH/USDT&quot;</code>.</p>
 
-<ul>
-<li>Subscribe to <em>bbo</em> stream for symbol <code>BTC/USDT</code></li>
-</ul>
-
-<p><code>{ &quot;op&quot;: &quot;sub&quot;, &quot;id&quot;: &quot;abcd1234&quot;, &quot;ch&quot;: &quot;bbo:BTC/USDT&quot; }</code></p>
-
-<ul>
-<li>Subscribe to <em>ref-px</em> stream for symbol <code>BTC</code></li>
-</ul>
-
-<p><code>{ &quot;op&quot;: &quot;sub&quot;, &quot;id&quot;: &quot;abcd1234&quot;, &quot;ch&quot;: &quot;ref-px:BTC&quot; }</code></p>
-
-<ul>
-<li>Subscribe to <em>trade</em> stream for a list of symbols</li>
-</ul>
-
-<p><code>{ &quot;op&quot;: &quot;sub&quot;, &quot;id&quot;: &quot;abcd1234&quot;, &quot;ch&quot;: &quot;trades:BTC/USDT,ETH/USDT,BTMX/USDT&quot; }</code></p>
-<h4 id='unsubscribe-with-wildcard-character'>Unsubscribe with Wildcard Character <code>*</code></h4>
+<blockquote>
+<p>Subscribe to <em>bbo</em> stream for symbol <code>BTC/USDT</code></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sub"</span><span class="p">,</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd1234"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bbo:BTC/USDT"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Subscribe to <em>ref-px</em> stream for symbol <code>BTC</code></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sub"</span><span class="p">,</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd1234"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ref-px:BTC"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Subscribe to <em>trade</em> stream for a list of symbols</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sub"</span><span class="p">,</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd1234"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"trades:BTC/USDT,ETH/USDT,BTMX/USDT"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre><h4 id='unsubscribe-with-wildcard-character'>Unsubscribe with Wildcard Character <code>*</code></h4>
 <p>Using the wildcard character <code>*</code>, you can unsubscribe from multiple channels with the same channel name. For instance: </p>
 
-<ul>
-<li>Unsubscribes from the <em>depth</em> stream for all symbols:</li>
-</ul>
+<blockquote>
+<p>Unsubscribes from the <em>depth</em> stream for all symbols (method 1)</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unsub"</span><span class="p">,</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd1234"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"depth:*"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Unsubscribes from the <em>depth</em> stream for all symbols (methond 2)</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unsub"</span><span class="p">,</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd1234"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"depth"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Unsubscribes from the 1 minute <em>bar</em> streams for all symbols (method 1)</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unsub"</span><span class="p">,</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd1234"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar:1:*"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Unsubscribes from the 1 minute <em>bar</em> streams for all symbols (method 2)</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unsub"</span><span class="p">,</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd1234"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar:1"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Unsubscribes from <em>bar</em> streams of all frequencies for <code>BTMX/USDT</code></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"op"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unsub"</span><span class="p">,</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd1234"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar:*:BTMX/USDT"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre><h4 id='sub-unsub-response-with-multiple-symbols'>Sub/Unsub response with multiple symbols</h4>
+<p>When sub or unsub from multiple symbols, we may ack symbol by symbol, or ack in one single message.</p>
 
-<p><code>{ &quot;op&quot;: &quot;unsub&quot;, &quot;ch&quot;: &quot;depth:*&quot; }</code></p>
-
-<p>or</p>
-
-<p><code>{ &quot;op&quot;: &quot;unsub&quot;, &quot;ch&quot;: &quot;depth&quot; }</code></p>
-
-<ul>
-<li>Unsubscribes from the 1 minute <em>bar</em> streams for all symbols:</li>
-</ul>
-
-<p><code>{ &quot;op&quot;: &quot;unsub&quot;, &quot;ch&quot;: &quot;bar:1:*&quot; }</code></p>
-
-<p>or </p>
-
-<p><code>{ &quot;op&quot;: &quot;unsub&quot;, &quot;ch&quot;: &quot;bar:1&quot; }</code></p>
-
-<ul>
-<li>Unsubscribes from <em>bar</em> streams of all frequencies for <code>BTMX/USDT</code>:</li>
-</ul>
-
-<p><code>{ &quot;op&quot;: &quot;unsub&quot;, &quot;ch&quot;: &quot;bar:*:BTMX/USDT&quot; }</code></p>
-
+<blockquote>
+<p>Response for sub multiple symbols in one single message</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"m"</span><span class="p">:</span><span class="s2">"sub"</span><span class="p">,</span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"abc23g"</span><span class="p">,</span><span class="s2">"ch"</span><span class="p">:</span><span class="s2">"summary:BTC/USDT,BTMX/USDT"</span><span class="p">,</span><span class="s2">"code"</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Response for unsub multiple symbols in one single message</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"m"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unsub"</span><span class="p">,</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd1234"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar:*:BTMX/USDT"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>You can subscribe/unsubscribe one channel per subscription message. You can subscribe to multiple data channels by sending multiple 
 subscription messages. However, the exchange limits the total number of data channels per client (<strong>NOT per session</strong>) according to 
 the following rules:</p>
