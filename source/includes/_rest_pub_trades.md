@@ -55,3 +55,7 @@ curl -X GET /api/pro/trades?symbol=BTMX/USDT
   `q`      | `String`   | trade size in string format
   `ts`     | `Long`     | UTC timestamp in milliseconds
   `bm`     | `Boolean`  | If true, the maker of the trade is the buyer. 
+
+#### Code Sample
+
+Please refer to python code to [query trades]{https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_pub_trades.py}
