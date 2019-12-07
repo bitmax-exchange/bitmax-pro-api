@@ -193,11 +193,11 @@ In case you want to cancel an order before response from server, you could figur
 
 *ACK*
 
-Response with status 'Ack' to indicate new order request received by our server and passed some basic order field check. This is the default response type.
+Response with status 'Ack' to indicate new order request received by our server and passed some basic order field check. This is the default response type. If awaiting async order (ACCEPT or DONE) numbers exceeds capacity 1000, then the rest async order will be ACK automatically.
 
 *ACCEPT*
 
-Response with status "New" to indicate new order request is accepted by our match engine. Return normal 'Ack' response if no 'New' status update within 5 seconds.
+Response with status "New" to indicate new order request is accepted by our match engine. Return normal 'Ack' response if no 'New' status update within 5 seconds. 
 
 *DONE*
 
