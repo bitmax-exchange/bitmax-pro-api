@@ -1,6 +1,6 @@
 ### WS: Recent Market Trades 
 
-> Requesting the most recent 20 trades for symbol BTMX/USDT
+> Requesting the most recent 12 trades for symbol BTMX/USDT
 
 ```json
 { "op": "req", "action": "market-trades", "args": { "symbol": "BTMX/USDT", "level": 12} }
@@ -11,6 +11,7 @@
 ```json
 {
     "m": "market-trades",
+    "id": "abcd1334",
     "symbol": "BTMX/USDT",
     "data": [
         {

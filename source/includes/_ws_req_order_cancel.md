@@ -56,7 +56,7 @@ Cancel an existing open order via websocket
 
 **Request**
 
-Make order cancelling request follow the general websocket request rule, with proper cancel order parameters as specified in rest api for *args* field.
+Make order cancelling request follow the general websocket request rule by setting `action` to be `cancel-orde`, with proper cancel order parameters as specified in rest api for *args* field.
 
 **Response**
 

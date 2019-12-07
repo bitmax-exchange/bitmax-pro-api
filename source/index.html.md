@@ -43,10 +43,11 @@ includes:
   - ws_sub_order
   - ws_req
   - ws_req_level2
+  - ws_req_order_place
+  - ws_req_order_cancel
+  - ws_req_order_cancel_all
+  - ws_req_order_open
   - ws_req_trades
-  - ws_req_place_order
-  - ws_req_cancel_order
-  - ws_req_cancel_all
   - error_code
 
 search: true
@@ -74,6 +75,7 @@ to be fast, flexible, stable, and comprehensive.
   to get the order result in a single API call. You may also use asynchronized method to achieve minimum latency. 
 * Simplified API schemas. For instance, we simplified the cancel order logic, now you can track the entire order
   life cycle with only one indentifier (`orderId`). 
+* More detailed error message.
 
 ### Demo codes
 

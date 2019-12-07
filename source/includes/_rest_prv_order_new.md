@@ -41,29 +41,24 @@
     "code": 0,
     "data": {
         "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
-        "accountCategory": "CASH",
         "action": "place-order",          
         "info": {
-            "avgPrice": "0",
-            "baseAvailableBalance": "0.028333365",
-            "baseTotalBalance": "0.029153365",
-            "errorCode": "NULL_VAL",
-            "execInst": "NULL_VAL",
-            "fee": "0",
-            "feeAsset": "",
-            "filledQty": "0",
-            "id": "iGwzbzWxxcHwno4b8VCvh8aaYCJaPALm",
-            "orderId": "a16ecd60f5acU9490877774aYCJaPALm",
-            "orderQty": "0.00082",
+            "accountCategory": "CASH",
+            "avgPx": "0",
+            "cumFee": "0",
+            "cumFilledQty": "0",
+            "errorCode": "",
+            "feeAsset": "USDT",
+            "lastExecTime": 1575573998500,
+            "orderId": "a16ed787462fU9490877774N4KBHIVN0",
+            "orderQty": "0.00081",
             "orderType": "Limit",
-            "price": "7289",
-            "quoteAvailableBalance": "6293.595163232",
-            "quoteTotalBalance": "6299.578120212",
-            "seqNum": "2259840148",
-            "side": "Sell",
+            "price": "7019",
+            "seqNum": 2323407894,
+            "side": "Buy",
             "status": "New",
-            "symbol": "BTC/USDT",
-            "transactTime": 1575403715461},
+            "stopPrice": "",
+            "symbol": "BTC/USDT"},
         "status": "ACCEPT"
     }
 }   
@@ -83,35 +78,29 @@
 ```
 
 ```json
-{
-    "code": 0,
-    "data": {
-        "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
-        "action": "place-order",
-        "accountCategory": "CASH",
-        "info": {
-            "avgPrice": "7323.24",
-            "baseAvailableBalance": "0.029153365",
-            "baseTotalBalance": "0.029153365",
-            "errorCode": "NULL_VAL",
-            "execInst": "NULL_VAL",
-            "fee": "0.003302782",
-            "feeAsset": "USDT",
-            "filledQty": "0.00082",
-            "id": "UHTe3uVB0KhNGatoRS10YgABwHW0fCYn",
-            "orderId": "a16ecd4c0caeU9490877774BwHW0fCYn",
-            "orderQty": "0.00082",
-            "orderType": "Market",
-            "quoteAvailableBalance": "6293.595163232",
-            "quoteTotalBalance": "6299.578120212",
-            "seqNum": "2259385852",
-            "side": "Sell",
-            "status": "Filled",
-            "symbol": "BTC/USDT",
-            "transactTime": 1575402344424},
-        "status": "DONE"
-    }
-}
+{"code": 0,
+ "data": {
+    "accountCategory": "CASH",
+    "accountId": "MPXFNEYEJIJ93CREXT3LTCIDIJPCFNIX",
+    "action": "place-order",
+    "info": {
+        "avgPx": "7399.99",
+        "cumFee": "0.003296696",
+        "cumFilledQty": "0.00081",
+        "errorCode": "",
+        "feeAsset": "USDT",
+        "id": "ROunD0hpprO2KEgkVK30FOIpPK3zuGGh",
+        "lastExecTime": 1575646514077,
+        "orderId": "a16edbd9aefaU9490877774pPK3zuGGh",
+        "orderQty": "0.00081",
+        "orderType": "Market",
+        "price": "",
+        "seqNum": 2348421435,
+        "side": "Sell",
+        "status": "Filled",
+        "stopPrice": "",
+        "symbol": "BTC/USDT"},
+    "status": "DONE"}}
 ```
 
 > Place Order - Error Response (Status 200, code 0)
@@ -228,4 +217,4 @@ HTTP Status Code | Error Code | Reason           | Example
 
 **Code Sample**
 
-Refer to sample python code [place_order](https://github.com/bitmax-exchange/bitmax-pro-api-demo/tree/master/python/place_order.py)
+Refer to sample python code to [place order](https://github.com/bitmax-exchange/bitmax-pro-api-demo/tree/master/python/place_order.py)

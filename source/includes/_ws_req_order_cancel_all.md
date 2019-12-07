@@ -41,11 +41,11 @@
 }
 ```
 
-Cancel all open orders via websocket with optional symbol.
+Cancel all open orders on account level via websocket with optional symbol.
 
 **Request**
 
-Make general websocket request with *action* field as *cancel-All*, and provide *time* value in *args*.
+Make general websocket request with `action` field as `cancel-All` and set proper `account` value(`cash`, or `margin`), and provide *time* value in *args*.
 
 **Response**
 

@@ -4,7 +4,8 @@
  
 * Client usually initiate request with `op` parameter (followed by other required parameters).
 * Server usually reply message with `m` value to indicate message topic, e.g., `order`, `depth`, `auth`.
-* Private data response usually include `accountId` field, such as `order`, `balance`.
+* Private data response usually has `accountId` field, such as `order`, `balance`; public data response usually contains `symbol` field.
+* Uniquie `id` parameter is recommended for your request. We will echo it back for you to track the requests. (The only exception is `depth-snapshot`, we do not include `id`)
 
 **WebSocket Request**
 

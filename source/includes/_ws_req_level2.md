@@ -3,7 +3,7 @@
 > Requesting the current order book snapshot
 
 ```json
-{ "op": "req", "action": "depth-snapshot", "args": { "symbol": "BTMX/USDT" } }
+{ "op": "req", "id": "abcdefg", "action": "depth-snapshot", "args": { "symbol": "BTMX/USDT" } }
 ```
 
 > Depth snapshot message
@@ -12,6 +12,7 @@
 {
     "m": "depth-snapshot",
     "symbol": "BTMX/USDT",
+    "id": "abcdefg",
     "data": {
         "seqnum": 3167819629,
         "ts": 1573142900389,
@@ -46,14 +47,17 @@ The `args` schema:
  Name          | Data Type           | Description                
 -------------- | ------------------- | -------------------------- 
  `op`          | `String`            | `req`                      
- `action`      | `String`            | `depth-snapshot`           
+ `action`      | `String`            | `depth-snapshot`      
+ `id`          | `String`            | for result match purpose     
  `args:symbol` | `String`            | Symbol, e.g. `BTMX/USDT`   
 
 The response schema:
 
  Name          | Data Type             | Description                   
 -------------- | --------------------- | ----------------------------- 
- `symbol`      | `String`              | Symbol, e.g. `BTMX/USDT`      
+ `m`           | `String`              | `depth-snapshot`
+ `symbol`      | `String`              | Symbol, e.g. `BTMX/USDT`  
+ `id`          | `String`              | echo back `id` in request    
  `data:seqnum` | `Long`                |                               
  `data:ts`     | `Long`                | UTC Timestamp in milliseconds 
  `data:asks`   | `[[String, String]]`  | List of (price, size) pair    

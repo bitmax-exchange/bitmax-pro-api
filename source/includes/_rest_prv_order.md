@@ -27,5 +27,5 @@ We use the following method to generate an unique id for each order place/cancel
 
 **Code Sample**
 
-Please refer to python code [gen_server_order_id](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/bitmax/util/auth.py)
+Please refer to python code to [gen server order id](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/util.py)
 
