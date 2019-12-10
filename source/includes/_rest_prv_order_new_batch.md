@@ -34,28 +34,28 @@
 
 ```json
 {
-    "code": 0,
-    "data": {
-        "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
-        "action": "batch-place-order",
-        "info": [
-            {
-                "code":     300013,
-                "id":      "N7PxdMH8iGWiCZOau14i3SGLEzfZpO06",
-                "message": "Some invalid order in this batch",
-                "reason":  "INVALID_BATCH_ORDER",
-                "symbol":  "ETH/USDT"
-            },
-            {
-                "code":     300004,
-                "id":      "R1LWczhWvAP3DGTEfAOzD3XmXybywXiC",
-                "message": "Notional is too small.",
-                "reason":  "INVALID_NOTIONAL",
-                "symbol":  "BTC/USDT"
-            }
-        ],
-        "status": "Err"
-    }
+    "accountCategory": "cash",
+    "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
+    "action": "batch-place-order",
+    "code": 300013,
+    "info": [
+        {
+            "code": 300011,
+            "id": "kyrRLhtHvJwUvAdsnnrtenwNab9BBQNy",
+            "message": "Not Enough Account Balance",
+            "reason": "INVALID_BALANCE",
+            "symbol": "BTC/USDT"
+        },
+        {
+            "code": 300011,
+            "id": "RQ1ZeR9nsglUYI6GhYprJn4EeNapruie",
+            "message": "Not Enough Account Balance",
+            "reason": "INVALID_BALANCE",
+            "symbol": "ETH/USDT"
+        }],
+    "message": "Batch Order failed, please check each order info for detail.",
+    "reason": "INVALID_BATCH_ORDER",
+    "status": "Err"
 }
 ```
 

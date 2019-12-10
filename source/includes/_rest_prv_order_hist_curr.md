@@ -5,10 +5,10 @@
 ```json
 {
     "code": 0,
+    "accountCategory": "CASH",
+    "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
     "data": [
-        {
-            "accountCategory": "CASH",
-            "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
+        {           
             "avgPrice": "7290.520000000",
             "baseAsset": "BTC",
             "btmxCommission": "0.000000000",

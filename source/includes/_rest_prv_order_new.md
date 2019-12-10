@@ -7,6 +7,7 @@
 {
     "code": 0,
     "data": {
+        "accountCategory": "MARGIN",
         "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
         "action": "place-order",
         "info": {
@@ -21,7 +22,7 @@
 }
 ```
 
-> Place Order - Successful ACCEPT Response (Status 200, code 0)
+> Place Order with `ACCEPT` respInst
 
 ```json
 {
@@ -36,14 +37,16 @@
 }
 ```
 
+> Successful ACCEPT Response (Status 200, code 0)
+
 ```json
 {
     "code": 0,
     "data": {
+        "accountCategory": "CASH",
         "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
         "action": "place-order",          
-        "info": {
-            "accountCategory": "CASH",
+        "info": {            
             "avgPx": "0",
             "cumFee": "0",
             "cumFilledQty": "0",
@@ -64,7 +67,7 @@
 }   
 ```
 
-> Place Order - Successful DONE Response (Status 200, code 0)
+> Place Order with `DONE` respInst 
 
 ```json
 {
@@ -76,6 +79,8 @@
     "side": "buy", 
     "respInst": "DONE"}
 ```
+
+> Successful DONE Response (Status 200, code 0)
 
 ```json
 {"code": 0,
@@ -107,19 +112,19 @@
 
 ```json
 {
-    "code": 0,
-    "data": {
-        "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
-        "action": "place-order",
-        "info": {
-            "code":     300002,
-            "id":      "ZPJNQSMGhGGse6y5e2Ft79MFEUCbBF9U",
-            "message": "Order quantity is too small.",
-            "reason":  "INVALID_QTY"
-        },
-        "status": "Err"
-    }
+    "code": 300011,
+    "accountCategory": "CASH",
+    "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
+    "action": "place-order",
+    "info": {
+        "id": "JkpnjJRuBtFpW7F7PWDB7uwBEJtUOISZ", 
+        "symbol": "BTC/USDT"
+    },
+    "message": "Not Enough Account Balance",
+    "reason": "INVALID_BALANCE",
+    "status": "Err"
 }
+
 ```
 
 Place a new order.
@@ -206,6 +211,19 @@ Response with status "PartiallyFilled", "Filled", or "Rejected" to indicate the 
 *ERR*
 
 Response with status "Err" to provide detailed error information on the order request. 
+
+Name            | Type   | Description
+code            | Long   | none 0 to indicate error
+accountCategory | String | "CASH", "MARGIN"
+accountId       | String | account id
+action          | String | "place-order"
+message         | String | detail error message
+reason          | String | error info code, e.g. "INVALID_ORDER_ID"
+status          | String | "Err"
+info: symbol    | String | symbol
+info: id        | String | id from request if provided
+
+
 
 
 Error Response Messages (TODO: verify HTTP Status Code)
