@@ -48,7 +48,7 @@ The response contains the following general fields:
 
 The response also contains criteria for new order request. 
 
- Name                   | Type      | Description                                                                                 
+ Name                    | Type      | Description                                                                                 
 ------------------------ | --------- | --------------------- 
  `minNotional`           | `String`  | minimum notional of an order 
  `maxNotional`           | `String`  | maximum notional of an order 
