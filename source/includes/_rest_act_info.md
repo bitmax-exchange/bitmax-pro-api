@@ -16,6 +16,7 @@
         ],
         "tradePermission":    True,
         "transferPermission": True,
+        "userUID": "U0866943712",
         "viewPermission":     True
     }
 }
@@ -48,6 +49,7 @@ You can obtain your `accountGroup` from this API, which you will need to include
  `tradePermission`    | `Boolean`      | 
  `transferPermission` | `Boolean`      | 
  `viewPermission`     | `Boolean`      | 
+ `userUID`            | `String`       | an unique id associated with user
 
 See a demo at [query private account info](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_account_info.py).
 
