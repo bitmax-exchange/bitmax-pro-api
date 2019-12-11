@@ -1,19 +1,5 @@
 ## Authenticate a RESTful Request 
 
-### Create Request 
-
-To access private data via RESTful APIs, you must include the following headers:
-
-* `x-auth-key` - required, the api key as a string. 
-* `x-auth-timestamp` - required, the UTC timestamp in milliseconds of your request
-* `x-auth-signature` - required, the request signature (see [Signing a Request](#signing-a-request))
-
-The timestamp in the header will be checked against server time. If the difference is greater than 30 seconds, the request will 
-be rejected. 
-
-
-### Sign Request
-
 > Signing a RESTful Request
 
 ```shell
@@ -85,6 +71,20 @@ public class SignatureExample {
   }
 }
 ```
+
+### Create Request 
+
+To access private data via RESTful APIs, you must include the following headers:
+
+* `x-auth-key` - required, the api key as a string. 
+* `x-auth-timestamp` - required, the UTC timestamp in milliseconds of your request
+* `x-auth-signature` - required, the request signature (see [Signing a Request](#signing-a-request))
+
+The timestamp in the header will be checked against server time. If the difference is greater than 30 seconds, the request will 
+be rejected. 
+
+
+### Sign Request
 
 To query APIs with private data, you must include a signature using base64 encoded HMAC sha256 algorithm. The prehash string is `<timestamp>+<api-path>`. 
 The `timestamp` is the UTC timestamp in milliseconds.  
