@@ -8,12 +8,13 @@
     "code": 0,
     "data": {
         "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
+        "accountCategory": "CASH",
         "action": "cancel-order",
         "status": "Ack",
         "info": {
             "id":        "wv8QGquoeamhssvQBeHOHGQCGlcBjj23",
             "orderId":   "16e6198afb4s8bXHbAwwoqDo2ebc19dc",
-            "orderType": "NULL_VAL",
+            "orderType": "", // could be empty
             "symbol":    "ETH/USDT",
             "timestamp":  1573594877822
         }
@@ -25,18 +26,16 @@
 
 ```json
 {
-    "code": 0,
-    "data": {
-        "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
-        "action": "cancel-order",
-        "status": "Err",
-        "info": {
-            "code":     300006,
-            "id":      "jHAfoOqZmRv3GP1URJ5624moJ9RCG2@3",
-            "message": "Invalid Client Order Id: jHAfoOqZmRv3GP1URJ5624moJ9RCG2@3",
-            "reason":  "INVALID_ORDER_ID",
-            "symbol":  "ETH/USDT"
-        }
+    "code": 300006,
+    "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
+    "accountCategory": "CASH",
+    "action": "cancel-order",
+    "status": "Err",
+    "message": "Invalid Client Order Id: jHAfoOqZmRv3GP1URJ5624moJ9RCG2@3",
+    "reason":  "INVALID_ORDER_ID",
+    "info": {
+        "id": "jHAfoOqZmRv3GP1URJ5624moJ9RCG2@3",
+        "symbol":  "ETH/USDT"
     }
 }
 ```

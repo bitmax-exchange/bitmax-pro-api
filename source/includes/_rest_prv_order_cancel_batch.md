@@ -8,6 +8,7 @@
 {
     "code": 0,
     "data": {
+        "accountCategory": "CASH",
         "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
         "action": "batch-cancel-order",
         "status": "Ack",
@@ -35,30 +36,31 @@
 
 ```json
 {
-    "code": 0,
-    "data": {
-        "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
-        "action": "batch-cancel-order",
-        "status": "Err",
-        "info": [
-            {
-                "code":     300006,
-                "id":      "NUty15oXcNt9JAngZ1D6q6jY15LOpKPC",
-                "orderId": "16e61d5ff43s8bXHbAwwoqDo9d817339",
-                "message": "The order is already filled or canceled.",
-                "reason":  "INVALID_ORDER_ID",
-                "symbol":   ""
-            },
-            {
-                "code":     300006,
-                "id":      "mpoL0q8cheL8PL2UstJFRzp6yuPk1sGc",
-                "orderId": "16e61adeee5a8bXHbAwwoqDo100e364e",
-                "message": "The order is already filled or canceled.",
-                "reason":  "INVALID_ORDER_ID",
-                "symbol":   ""
-            }
-        ]
-    }
+    "code": 300013,
+    "accountCategory": "CASH",
+    "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
+    "action": "batch-place-order", 
+    "message": "Batch Order failed, please check each order info for detail.",
+    "reason": "INVALID_BATCH_ORDER",
+    "status": "Err", 
+    "info": [
+        {
+            "code":     300006,
+            "id":      "NUty15oXcNt9JAngZ1D6q6jY15LOpKPC",
+            "orderId": "16e61d5ff43s8bXHbAwwoqDo9d817339",
+            "message": "The order is already filled or canceled.",
+            "reason":  "INVALID_ORDER_ID",
+            "symbol":   ""
+        },
+        {
+            "code":     300006,
+            "id":      "mpoL0q8cheL8PL2UstJFRzp6yuPk1sGc",
+            "orderId": "16e61adeee5a8bXHbAwwoqDo100e364e",
+            "message": "The order is already filled or canceled.",
+            "reason":  "INVALID_ORDER_ID",
+            "symbol":   ""
+        }
+    ]
 }
 ```
 

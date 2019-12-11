@@ -4,34 +4,27 @@
 > Open Orders - Successful Response (Status 200, code 0)
 
 ```json
-{
-  "code": 0,
-  "data": [
-    { 
-      "accountCategory":    "CASH",
-      "accountId":          "cshKAhmTHQNUKhR1pQyrDOdotE3Tsnz4",
-      "avgPrice":           "0.000000000",                      // Average filled price of the order   
-      "baseAsset":          "ETH",
-      "errorCode":          "NULL_VAL",
-      "execInst":           "NULL_VAL",
-      "fee":                "0.000000000",                      // cumulative fee paid for this order
-      "feeAsset":           "BTC",                              // the asset
-      "filledQty":          "0.000000000",                      // filled quantity
-      "notional":           "0.000000000",
-      "orderId":            "16e85a95e35a8bXHbAwwoqDo297932b1", // the unique identifier, you will need
-                                                          // this value to cancel this order
-      "orderPrice":         "0.310000000",                      // only available for limit and stop limit orders
-      "orderQty":           "1.000000000",
-      "orderType":          "StopLimit",
-      "quoteAsset":         "BTC",
-      "sendingTime":        1566091503547,                      // The sending time of the order
-      "side":               "Buy",
-      "status":             "New",
-      "stopPrice":          "0.300000000",                      // only available for stop market and stop limit orders
-      "symbol":             "ETH/BTC",
-      "time":               1566091628227,                      // The last execution time of the order @TODO@FixMe
-      "userId":             "supEQeSJQllKkxYSgLOoVk7hJAX59WSz",
-    }
+{"accountCategory": "CASH",
+ "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
+ "code": 0,
+ "data": [
+   {
+     "avgPx": "0", // Average filled price of the order   
+      "cumFee": "0", // cumulative fee paid for this order
+      "cumFilledQty": "0", // cumulative filled quantity
+      "errorCode": "", // error code; could be empty
+      "feeAsset": "USDT", // fee asset
+      "lastExecTime": 1576019723550, //  The last execution time of the order
+      "orderId": "s16ef21882ea0866943712034f36d83", // server provided orderId
+      "orderQty": "0.0083", // order quantity
+      "orderType": "Limit", // order type
+      "price": "7105", // order price
+      "seqNum": 8193258, // sequence number
+      "side": "Buy", // order side
+      "status": "New", // order status on matching engine
+      "stopPrice": "", // only available for stop market and stop limit orders; otherwise empty 
+      "symbol": "BTC/USDT"},
+      ...
   ]
 }
 ```

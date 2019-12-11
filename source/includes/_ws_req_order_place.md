@@ -25,16 +25,17 @@
 
 ```json
 {
-    "m": "order",
-    "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
-    "action": "place-order",
-    "status": "Ack",
+    "m": "order", 
+    "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo", 
+    "accountCategory": "CASH", 
+    "action": "place-order", 
+    "status": "Ack", 
     "info": {
-        "symbol":    "ETC/USDT",
-        "orderType": "Market",
-        "timestamp":  1573623067556,
-        "id":        "8a7612a36ab44766abec4bbb45fd84ea",
-        "orderId":   "16e83845dcdsimtrader00008c645f67"
+        "symbol": "BTC/USDT", 
+        "orderType": "Limit", 
+        "timestamp": 1576015701441, 
+        "id": "17e1f6809122469589ffc991523b505d", 
+        "orderId": "s16ef1daefbe08669437121523b505d"
     }
 }
 ```
@@ -45,6 +46,7 @@
 {
     "m": "order",
     "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
+    "accountCategory": "CASH", 
     "action": "place-order",
     "status": "Err",
     "info": {
