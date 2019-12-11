@@ -471,7 +471,11 @@ life cycle with only one indentifier (<code>orderId</code>). </li>
 </ul>
 
 <p>See <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo">https://github.com/bitmax-exchange/bitmax-pro-api-demo</a> for more details.</p>
-<h1 id='rest-apis'>REST APIs</h1><h2 id='authenticate-a-restful-request'>Authenticate a RESTful Request</h2><h3 id='create-request'>Create Request</h3>
+<h1 id='rest-apis'>REST APIs</h1>
+<p>We always respond with json include <code>code</code> field to indicate request result. <code>0</code> usually means success response, and you could find data in json format in field <code>data</code>; any code other than <code>0</code> indicate failure during the request process. For failure response, usually you could find detailed error in fields <code>message</code>, <code>reason</code>, and possibly extra <code>info</code>.</p>
+
+<p>For private data, such as <code>open order</code>, <code>balance</code>, we usually include <code>accountId</code>, and <code>accountCategory</code> value in top level of response. </p>
+<h2 id='authenticate-a-restful-request'>Authenticate a RESTful Request</h2><h3 id='create-request'>Create Request</h3>
 <p>To access private data via RESTful APIs, you must include the following headers:</p>
 
 <ul>
@@ -1893,12 +1897,13 @@ info: id        | String | id from request if provided</p>
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"accountCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cancel-order"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ack"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w">        </span><span class="s2">"wv8QGquoeamhssvQBeHOHGQCGlcBjj23"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w">   </span><span class="s2">"16e6198afb4s8bXHbAwwoqDo2ebc19dc"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"orderType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NULL_VAL"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"orderType"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">could</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">empty</span><span class="w">
             </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w">    </span><span class="s2">"ETH/USDT"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w">  </span><span class="mi">1573594877822</span><span class="w">
         </span><span class="p">}</span><span class="w">
@@ -1909,18 +1914,16 @@ info: id        | String | id from request if provided</p>
 <p>Cancel Order - Error Response (Status 200, code 0)</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cancel-order"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Err"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"code"</span><span class="p">:</span><span class="w">     </span><span class="mi">300006</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w">      </span><span class="s2">"jHAfoOqZmRv3GP1URJ5624moJ9RCG2@3"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid Client Order Id: jHAfoOqZmRv3GP1URJ5624moJ9RCG2@3"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"reason"</span><span class="p">:</span><span class="w">  </span><span class="s2">"INVALID_ORDER_ID"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w">  </span><span class="s2">"ETH/USDT"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">300006</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"accountCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cancel-order"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Err"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid Client Order Id: jHAfoOqZmRv3GP1URJ5624moJ9RCG2@3"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reason"</span><span class="p">:</span><span class="w">  </span><span class="s2">"INVALID_ORDER_ID"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jHAfoOqZmRv3GP1URJ5624moJ9RCG2@3"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w">  </span><span class="s2">"ETH/USDT"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -2093,25 +2096,22 @@ to obtain the latest status of each order. </p>
 <p>Place Batch Orders - Error Response (Status 200, code 0)</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"accountCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cash"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"accountCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"batch-place-order"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">300013</span><span class="p">,</span><span class="w">
     </span><span class="s2">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">300011</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"kyrRLhtHvJwUvAdsnnrtenwNab9BBQNy"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Not Enough Account Balance"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INVALID_BALANCE"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/USDT"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">300011</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RQ1ZeR9nsglUYI6GhYprJn4EeNapruie"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Not Enough Account Balance"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INVALID_BALANCE"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ETH/USDT"</span><span class="w">
-        </span><span class="p">}],</span><span class="w">
+            </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">300004</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nGFdep927xsqSaL2B4R3jDSm1IGwcfmr"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Notional is too small."</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INVALID_NOTIONAL"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/USDT"</span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">300013</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PGEcSVsoQWythsYTs2hWfogLoRs6hhi8"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Some invalid order in this batch."</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INVALID_BATCH_ORDER"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ETH/USDT"</span><span class="p">}],</span><span class="w">
     </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Batch Order failed, please check each order info for detail."</span><span class="p">,</span><span class="w">
     </span><span class="s2">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INVALID_BATCH_ORDER"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Err"</span><span class="w">
@@ -2244,38 +2244,53 @@ to obtain the latest status of each order. </p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"accountCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"avgPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7323.240000000"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"baseAsset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"btmxCommission"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000000"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NULL_VAL"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"execInst"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NULL_VAL"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.003302782"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"feeAsset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"filledQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000820000"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"notional"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6.005056800"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a16ecd4c0caeU9490877774BwHW0fCYn"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"orderQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000820000"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"orderType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Market"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"quoteAsset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"sendingTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1575402344401</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"seqNum"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2259385850"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sell"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Filled"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"stopPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000000"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/USDT"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1575402344424</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"H1FR4LY7qxZDGMsVzBvt6ElDwtOjPL7Z"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w"> 
+    </span><span class="s2">"accountCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"avgPx"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7391.13"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"cumFee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.005151618"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"cumFilledQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00082"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"feeAsset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"lastExecTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1575953134011</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a16eee206d610866943712rPNknIyhH"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"orderQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00082"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"orderType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Market"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8130.24"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"seqNum"</span><span class="p">:</span><span class="w"> </span><span class="mi">2622058</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buy"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Filled"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"stopPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/USDT"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"avgPx"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7392.02"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"cumFee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.005152238"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"cumFilledQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00082"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"feeAsset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"lastExecTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1575953151764</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a16eee20b6750866943712zWEDdAjt3"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"orderQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00082"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"orderType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Market"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8131.22"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"seqNum"</span><span class="p">:</span><span class="w"> </span><span class="mi">2623469</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buy"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Filled"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"stopPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/USDT"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Query order status, either open or history order. //TODO: not all order, specify order range later.</p>
 
 <p><strong>HTTP Request</strong></p>
 
-<p><code>GET &lt;account-group&gt;/api/pro/{account-category}/order/status</code></p>
+<p><code>GET &lt;account-group&gt;/api/pro/{account-category}/order/status?OrderId={orderId}</code></p>
+
+<p><code>orderId</code> could be a single order Id, or multiple order Ids separated by <code>,</code>. </p>
 
 <p>Set <code>account-category</code> to<code>cash</code> for cash account and <code>margin</code> for margin account. </p>
 
@@ -2298,34 +2313,27 @@ to obtain the latest status of each order. </p>
 <blockquote>
 <p>Open Orders - Successful Response (Status 200, code 0)</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w"> 
-      </span><span class="s2">"accountCategory"</span><span class="p">:</span><span class="w">    </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w">          </span><span class="s2">"cshKAhmTHQNUKhR1pQyrDOdotE3Tsnz4"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"avgPrice"</span><span class="p">:</span><span class="w">           </span><span class="s2">"0.000000000"</span><span class="p">,</span><span class="w">                      </span><span class="err">//</span><span class="w"> </span><span class="err">Average</span><span class="w"> </span><span class="err">filled</span><span class="w"> </span><span class="err">price</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">order</span><span class="w">   
-      </span><span class="s2">"baseAsset"</span><span class="p">:</span><span class="w">          </span><span class="s2">"ETH"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w">          </span><span class="s2">"NULL_VAL"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"execInst"</span><span class="p">:</span><span class="w">           </span><span class="s2">"NULL_VAL"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"fee"</span><span class="p">:</span><span class="w">                </span><span class="s2">"0.000000000"</span><span class="p">,</span><span class="w">                      </span><span class="err">//</span><span class="w"> </span><span class="err">cumulative</span><span class="w"> </span><span class="err">fee</span><span class="w"> </span><span class="err">paid</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">this</span><span class="w"> </span><span class="err">order</span><span class="w">
-      </span><span class="s2">"feeAsset"</span><span class="p">:</span><span class="w">           </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">                              </span><span class="err">//</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">asset</span><span class="w">
-      </span><span class="s2">"filledQty"</span><span class="p">:</span><span class="w">          </span><span class="s2">"0.000000000"</span><span class="p">,</span><span class="w">                      </span><span class="err">//</span><span class="w"> </span><span class="err">filled</span><span class="w"> </span><span class="err">quantity</span><span class="w">
-      </span><span class="s2">"notional"</span><span class="p">:</span><span class="w">           </span><span class="s2">"0.000000000"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w">            </span><span class="s2">"16e85a95e35a8bXHbAwwoqDo297932b1"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">unique</span><span class="w"> </span><span class="err">identifier</span><span class="p">,</span><span class="w"> </span><span class="err">you</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">need</span><span class="w">
-                                                          </span><span class="err">//</span><span class="w"> </span><span class="err">this</span><span class="w"> </span><span class="err">value</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">cancel</span><span class="w"> </span><span class="err">this</span><span class="w"> </span><span class="err">order</span><span class="w">
-      </span><span class="s2">"orderPrice"</span><span class="p">:</span><span class="w">         </span><span class="s2">"0.310000000"</span><span class="p">,</span><span class="w">                      </span><span class="err">//</span><span class="w"> </span><span class="err">only</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">limit</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">stop</span><span class="w"> </span><span class="err">limit</span><span class="w"> </span><span class="err">orders</span><span class="w">
-      </span><span class="s2">"orderQty"</span><span class="p">:</span><span class="w">           </span><span class="s2">"1.000000000"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"orderType"</span><span class="p">:</span><span class="w">          </span><span class="s2">"StopLimit"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"quoteAsset"</span><span class="p">:</span><span class="w">         </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"sendingTime"</span><span class="p">:</span><span class="w">        </span><span class="mi">1566091503547</span><span class="p">,</span><span class="w">                      </span><span class="err">//</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">sending</span><span class="w"> </span><span class="err">time</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">order</span><span class="w">
-      </span><span class="s2">"side"</span><span class="p">:</span><span class="w">               </span><span class="s2">"Buy"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"status"</span><span class="p">:</span><span class="w">             </span><span class="s2">"New"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"stopPrice"</span><span class="p">:</span><span class="w">          </span><span class="s2">"0.300000000"</span><span class="p">,</span><span class="w">                      </span><span class="err">//</span><span class="w"> </span><span class="err">only</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">stop</span><span class="w"> </span><span class="err">market</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">stop</span><span class="w"> </span><span class="err">limit</span><span class="w"> </span><span class="err">orders</span><span class="w">
-      </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w">             </span><span class="s2">"ETH/BTC"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"time"</span><span class="p">:</span><span class="w">               </span><span class="mi">1566091628227</span><span class="p">,</span><span class="w">                      </span><span class="err">//</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">last</span><span class="w"> </span><span class="err">execution</span><span class="w"> </span><span class="err">time</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">@TODO@FixMe</span><span class="w">
-      </span><span class="s2">"userId"</span><span class="p">:</span><span class="w">             </span><span class="s2">"supEQeSJQllKkxYSgLOoVk7hJAX59WSz"</span><span class="p">,</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"accountCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+ </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+     </span><span class="s2">"avgPx"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Average</span><span class="w"> </span><span class="err">filled</span><span class="w"> </span><span class="err">price</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">order</span><span class="w">   
+      </span><span class="s2">"cumFee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">cumulative</span><span class="w"> </span><span class="err">fee</span><span class="w"> </span><span class="err">paid</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">this</span><span class="w"> </span><span class="err">order</span><span class="w">
+      </span><span class="s2">"cumFilledQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">cumulative</span><span class="w"> </span><span class="err">filled</span><span class="w"> </span><span class="err">quantity</span><span class="w">
+      </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">error</span><span class="w"> </span><span class="err">code;</span><span class="w"> </span><span class="err">could</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">empty</span><span class="w">
+      </span><span class="s2">"feeAsset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">fee</span><span class="w"> </span><span class="err">asset</span><span class="w">
+      </span><span class="s2">"lastExecTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576019723550</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w">  </span><span class="err">The</span><span class="w"> </span><span class="err">last</span><span class="w"> </span><span class="err">execution</span><span class="w"> </span><span class="err">time</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">order</span><span class="w">
+      </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s16ef21882ea0866943712034f36d83"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">server</span><span class="w"> </span><span class="err">provided</span><span class="w"> </span><span class="err">orderId</span><span class="w">
+      </span><span class="s2">"orderQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0083"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">quantity</span><span class="w">
+      </span><span class="s2">"orderType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Limit"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">type</span><span class="w">
+      </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7105"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">price</span><span class="w">
+      </span><span class="s2">"seqNum"</span><span class="p">:</span><span class="w"> </span><span class="mi">8193258</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">sequence</span><span class="w"> </span><span class="err">number</span><span class="w">
+      </span><span class="s2">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buy"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">side</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">status</span><span class="w"> </span><span class="err">on</span><span class="w"> </span><span class="err">matching</span><span class="w"> </span><span class="err">engine</span><span class="w">
+      </span><span class="s2">"stopPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">only</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">stop</span><span class="w"> </span><span class="err">market</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">stop</span><span class="w"> </span><span class="err">limit</span><span class="w"> </span><span class="err">orders;</span><span class="w"> </span><span class="err">otherwise</span><span class="w"> </span><span class="err">empty</span><span class="w"> 
+      </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/USDT"</span><span class="p">},</span><span class="w">
+      </span><span class="err">...</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -2382,32 +2390,26 @@ to obtain the latest status of each order. </p>
 <p>Current History Orders - Successful Response (Status 200, code 0)</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"accountCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">           
-            </span><span class="s2">"avgPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7290.520000000"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"baseAsset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"btmxCommission"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000000"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NULL_VAL"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"execInst"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NULL_VAL"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.003288025"</span><span class="p">,</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"avgPx"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7243.34"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"cumFee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.051101764"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"cumFilledQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0083"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
             </span><span class="s2">"feeAsset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"filledQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000820000"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"notional"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5.978226400"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a16eca1ca893U9490877774G90ClwU19"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"orderQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000820000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"lastExecTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576019215402</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s16ef210b1a50866943712bfaf1584b"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"orderQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0083"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"orderType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Market"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"quoteAsset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"sendingTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1575348906967</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"seqNum"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2242870574"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7967.62"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"seqNum"</span><span class="p">:</span><span class="w"> </span><span class="mi">8159713</span><span class="p">,</span><span class="w">
             </span><span class="s2">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buy"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Filled"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"stopPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000000000"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/USDT"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1575348906991</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"H1FR4LY7qxZDGMsVzBvt6ElDwtOjPL7Z"</span><span class="w">
+            </span><span class="s2">"stopPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/USDT"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="err">...</span><span class="w">
     </span><span class="p">]</span><span class="w">
@@ -3092,29 +3094,29 @@ value into one aggregated item. Each trade object contains the following fields:
 <p>Order update message</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"m"</span><span class="p">:</span><span class="w"> </span><span class="s2">"order"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"accountCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"m"</span><span class="p">:</span><span class="w"> </span><span class="s2">"order"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"accountCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w"> 
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"ap"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"bab"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.028343365"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"btb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.028343365"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"cf"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"cfq"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"err"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"fa"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base"</span><span class="p">,</span><span class="w">        
-        </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s16ecd8e618aU9490877774d9f1789b8"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"ot"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Limit"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7105"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"q"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00083"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"qab"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6299.598792826"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"qtb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6305.501839976"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"s"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/USDT"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"sd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buy"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"sn"</span><span class="p">:</span><span class="w"> </span><span class="mi">72057600439748931</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"sp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"st"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"t"</span><span class="p">:</span><span class="w"> </span><span class="mi">1575406690850</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ap"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"bab"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2006.5974027"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"btb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2006.5974027"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cf"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"cfq"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"err"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"fa"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s16ef210b1a50866943712bfaf1584b"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"ot"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Market"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7967.62"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"q"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0083"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"qab"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21400793.928153757"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"qtb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21400860.125531003"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"s"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/USDT"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"sd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buy"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"sn"</span><span class="p">:</span><span class="w"> </span><span class="mi">8159711</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"sp"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"st"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"t"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576019215402</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -3161,7 +3163,7 @@ value into one aggregated item. Each trade object contains the following fields:
 <tr>
 <td><code>err</code></td>
 <td><code>String</code></td>
-<td>error code</td>
+<td>error code; could be empty</td>
 </tr>
 <tr>
 <td><code>fa</code></td>
@@ -3216,7 +3218,7 @@ value into one aggregated item. Each trade object contains the following fields:
 <tr>
 <td><code>sp</code></td>
 <td><code>String</code></td>
-<td>stop price</td>
+<td>stop price; could be empty</td>
 </tr>
 <tr>
 <td><code>st</code></td>
@@ -3587,16 +3589,17 @@ the timely order book data. </p>
 <p>Successful ACK message</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"m"</span><span class="p">:</span><span class="w"> </span><span class="s2">"order"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"place-order"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ack"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"m"</span><span class="p">:</span><span class="w"> </span><span class="s2">"order"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"accountCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"place-order"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ack"</span><span class="p">,</span><span class="w"> 
     </span><span class="s2">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w">    </span><span class="s2">"ETC/USDT"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"orderType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Market"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w">  </span><span class="mi">1573623067556</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w">        </span><span class="s2">"8a7612a36ab44766abec4bbb45fd84ea"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w">   </span><span class="s2">"16e83845dcdsimtrader00008c645f67"</span><span class="w">
+        </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/USDT"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"orderType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Limit"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576015701441</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17e1f6809122469589ffc991523b505d"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s16ef1daefbe08669437121523b505d"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -3606,6 +3609,7 @@ the timely order book data. </p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"m"</span><span class="p">:</span><span class="w"> </span><span class="s2">"order"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"accountCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w"> 
     </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"place-order"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Err"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3662,6 +3666,7 @@ the timely order book data. </p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"m"</span><span class="p">:</span><span class="w"> </span><span class="s2">"order"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"accountCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cancel-order"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ack"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3679,6 +3684,7 @@ the timely order book data. </p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"m"</span><span class="p">:</span><span class="w"> </span><span class="s2">"order"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"accountCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cancel-order"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ack"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3737,6 +3743,7 @@ the timely order book data. </p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"m"</span><span class="p">:</span><span class="w"> </span><span class="s2">"order"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"accountCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cancel-all"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ack"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
