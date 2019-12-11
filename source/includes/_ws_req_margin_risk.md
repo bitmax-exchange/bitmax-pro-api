@@ -50,19 +50,25 @@ The `args` schema:
 
 The response schema:
 
- Name          | Data Type             | Description                   
--------------- | --------------------- | ----------------------------- 
- `m`                | `String`              | `depth-snapshot`
- `accountId`        | `String`              | margin accountId
- `accountCategory`  | `String`              | `MARGIN`
- `symbol`           | `String`              | Symbol, e.g. `BTMX/USDT`  
- `id`               | `String`              | echo back `id` in request    
- `data:tb`          | `String`              | total balance                               
- `data:ab`          | `String`              | available balance    
- `data:nb`          | `String`              | net balance  
- `data:eim`         | `String`              |
- `data:emm`         | `String`              | 
- `data:clv`         | `String`              | 
- `data:ilv`         | `String`              | 
- `data:cus`         | `String`              | 
- `data:pts`         | `String`              | 
+ Name             | Data Type | Description                   
+----------------- | ----------| ----------------------------- 
+ `m`              | `String`  | `depth-snapshot`
+ `accountId`      | `String`  | margin accountId
+ `accountCategory`| `String`  | `MARGIN`
+ `symbol`         | `String`  | Symbol, e.g. `BTMX/USDT`  
+ `id`             | `String`  | echo back `id` in request    
+ `data`           | `Json`    | See `data` detail below
+
+`data` field detail
+
+ Name   | Data Type | Description                   
+--------| ----------| ----------------------------- 
+ `tb`   | `String`  | total balance                               
+ `ab`   | `String`  | available balance    
+ `nb`   | `String`  | net balance  
+ `eim`  | `String`  |
+ `emm`  | `String`  | 
+ `clv`  | `String`  | 
+ `ilv`  | `String`  | 
+ `cus`  | `String`  |            
+ `pts`  | `String`  |        

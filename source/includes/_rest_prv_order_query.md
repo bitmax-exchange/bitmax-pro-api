@@ -6,39 +6,54 @@
 ```json
 {
     "code": 0,
-    "data": {
-        "accountCategory": "CASH",
-        "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
-        "avgPrice": "7323.240000000",
-        "baseAsset": "BTC",
-        "btmxCommission": "0.000000000",
-        "errorCode": "NULL_VAL",
-        "execInst": "NULL_VAL",
-        "fee": "0.003302782",
-        "feeAsset": "USDT",
-        "filledQty": "0.000820000",
-        "notional": "6.005056800",
-        "orderId": "a16ecd4c0caeU9490877774BwHW0fCYn",
-        "orderQty": "0.000820000",
-        "orderType": "Market",
-        "quoteAsset": "USDT",
-        "sendingTime": 1575402344401,
-        "seqNum": "2259385850",
-        "side": "Sell",
-        "status": "Filled",
-        "stopPrice": "0.000000000",
-        "symbol": "BTC/USDT",
-        "time": 1575402344424,
-        "userId": "H1FR4LY7qxZDGMsVzBvt6ElDwtOjPL7Z"
-    }
-} 
+    "accountCategory": "CASH",
+    "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
+    "data": [
+        {
+            "avgPx": "7391.13",
+            "cumFee": "0.005151618",
+            "cumFilledQty": "0.00082",
+            "errorCode": "",
+            "feeAsset": "USDT",
+            "lastExecTime": 1575953134011,
+            "orderId": "a16eee206d610866943712rPNknIyhH",
+            "orderQty": "0.00082",
+            "orderType": "Market",
+            "price": "8130.24",
+            "seqNum": 2622058,
+            "side": "Buy",
+            "status": "Filled",
+            "stopPrice": "",
+            "symbol": "BTC/USDT"
+        },
+        {
+            "avgPx": "7392.02",
+            "cumFee": "0.005152238",
+            "cumFilledQty": "0.00082",
+            "errorCode": "",
+            "feeAsset": "USDT",
+            "lastExecTime": 1575953151764,
+            "orderId": "a16eee20b6750866943712zWEDdAjt3",
+            "orderQty": "0.00082",
+            "orderType": "Market",
+            "price": "8131.22",
+            "seqNum": 2623469,
+            "side": "Buy",
+            "status": "Filled",
+            "stopPrice": "",
+            "symbol": "BTC/USDT"
+        }
+    ]
+}
 ```
 
 Query order status, either open or history order. //TODO: not all order, specify order range later.
 
 **HTTP Request**
 
-`GET <account-group>/api/pro/{account-category}/order/status`
+`GET <account-group>/api/pro/{account-category}/order/status?OrderId={orderId}`
+
+`orderId` could be a single order Id, or multiple order Ids separated by `,`. 
 
 Set `account-category` to`cash` for cash account and `margin` for margin account. 
 

@@ -23,29 +23,29 @@
 
 ```json
 {
-    "m": "order",
-    "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
-    "accountCategory": "CASH",
+    "m": "order", 
+    "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo", 
+    "accountCategory": "CASH", 
     "data": {
-        "ap": "0",
-        "bab": "0.028343365",
-        "btb": "0.028343365",
-        "cf": "0",
-        "cfq": "0",
-        "err": "",
-        "fa": "base",        
-        "orderId": "s16ecd8e618aU9490877774d9f1789b8",
-        "ot": "Limit",
-        "p": "7105",
-        "q": "0.00083",
-        "qab": "6299.598792826",
-        "qtb": "6305.501839976",
-        "s": "BTC/USDT",
-        "sd": "Buy",
-        "sn": 72057600439748931,
-        "sp": "0",
-        "st": "New",
-        "t": 1575406690850,
+        "ap": "0", 
+        "bab": "2006.5974027", 
+        "btb": "2006.5974027",
+        "cf": "0", 
+        "cfq": "0", 
+        "err": "", 
+        "fa": "USDT",
+        "orderId": "s16ef210b1a50866943712bfaf1584b", 
+        "ot": "Market", 
+        "p": "7967.62", 
+        "q": "0.0083", 
+        "qab": "21400793.928153757", 
+        "qtb": "21400860.125531003", 
+        "s": "BTC/USDT", 
+        "sd": "Buy", 
+        "sn": 8159711, 
+        "sp": "", 
+        "st": "New", 
+        "t": 1576019215402
     }
 }
 ```
@@ -65,7 +65,7 @@ Name     | Type     | Description
 `btb`    | `String` | base asset total balance
 `cf`     | `String` | cumulated commission
 `cfq`    | `String` | cumulated filled qty
-`err`    | `String` | error code
+`err`    | `String` | error code; could be empty
 `fa`     | `String` | fee asset
 `orderId`| `String` | order id
 `ot`     | `String` | order type
@@ -76,6 +76,6 @@ Name     | Type     | Description
 `s`      | `String` | symbol
 `sd`     | `String` | order side
 `sn`     | `long`   | sequence number
-`sp`     | `String` | stop price
+`sp`     | `String` | stop price; could be empty
 `st`     | `String` | order status
 `t`      | `Long`   | latest execution timestamp

@@ -4,32 +4,26 @@
 
 ```json
 {
-    "code": 0,
     "accountCategory": "CASH",
     "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
+    "code": 0,
     "data": [
-        {           
-            "avgPrice": "7290.520000000",
-            "baseAsset": "BTC",
-            "btmxCommission": "0.000000000",
-            "errorCode": "NULL_VAL",
-            "execInst": "NULL_VAL",
-            "fee": "0.003288025",
+        {
+            "avgPx": "7243.34",
+            "cumFee": "0.051101764",
+            "cumFilledQty": "0.0083",
+            "errorCode": "",
             "feeAsset": "USDT",
-            "filledQty": "0.000820000",
-            "notional": "5.978226400",
-            "orderId": "a16eca1ca893U9490877774G90ClwU19",
-            "orderQty": "0.000820000",
+            "lastExecTime": 1576019215402,
+            "orderId": "s16ef210b1a50866943712bfaf1584b",
+            "orderQty": "0.0083",
             "orderType": "Market",
-            "quoteAsset": "USDT",
-            "sendingTime": 1575348906967,
-            "seqNum": "2242870574",
+            "price": "7967.62",
+            "seqNum": 8159713,
             "side": "Buy",
             "status": "Filled",
-            "stopPrice": "0.000000000",
-            "symbol": "BTC/USDT",
-            "time": 1575348906991,
-            "userId": "H1FR4LY7qxZDGMsVzBvt6ElDwtOjPL7Z"
+            "stopPrice": "",
+            "symbol": "BTC/USDT"
         },
         ...
     ]
