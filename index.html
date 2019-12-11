@@ -446,10 +446,6 @@
 **Important** This document is still work-in-progress and all contents are subject to change without further notice. 
 </aside>
 
-<aside class="warning">
-**Important** APIs in this document are not yet available for public access.
-</aside>
-
 <p>BitMax Pro API is the latest release of APIs allowing our users to access the exchange programmatically. It is a major revision 
 of the older releases. The BitMax team re-implemented the entire backend system in support for the BitMax Pro API. It is designed
 to be fast, flexible, stable, and comprehensive. </p>
@@ -573,7 +569,7 @@ The <code>timestamp</code> is the UTC timestamp in milliseconds.  </p>
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"assetCode"</span><span class="p">:</span><span class="w">        </span><span class="s2">"BTMX"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"assetName"</span><span class="p">:</span><span class="w">        </span><span class="s2">"BitMax.io Native Token"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"precisionScale"</span><span class="p">:</span><span class="w">    </span><span class="mi">9</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"positionScale"</span><span class="p">:</span><span class="w">     </span><span class="mi">9</span><span class="p">,</span><span class="w">
             </span><span class="s2">"nativeScale"</span><span class="p">:</span><span class="w">       </span><span class="mi">2</span><span class="p">,</span><span class="w">
             </span><span class="s2">"withdrawalFee"</span><span class="p">:</span><span class="w">     </span><span class="mi">11</span><span class="p">,</span><span class="w">
             </span><span class="s2">"minWithdrawalAmt"</span><span class="p">:</span><span class="w">  </span><span class="mi">22</span><span class="p">,</span><span class="w">
@@ -587,6 +583,52 @@ The <code>timestamp</code> is the UTC timestamp in milliseconds.  </p>
 <p><code>GET /api/pro/assets</code></p>
 
 <p>You can obtain a list of all assets listed on the exchange through this API.</p>
+
+<p><strong>Response Content</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>assetCode</code></td>
+<td><code>String</code></td>
+<td>asset code. e.g. <code>&quot;BTMX&quot;</code></td>
+</tr>
+<tr>
+<td><code>assetname</code></td>
+<td><code>String</code></td>
+<td>full name of the asset, e.g. <code>&quot;BitMax.io Native Token&quot;</code></td>
+</tr>
+<tr>
+<td><code>minWithdrawalAmt</code></td>
+<td><code>String</code></td>
+<td>minimum amount required for the withdrawal request e.g. &quot;10.0&quot;</td>
+</tr>
+<tr>
+<td><code>nativeScale</code></td>
+<td><code>Int</code></td>
+<td>scale used in deposit/withdraw transaction from/to chain.</td>
+</tr>
+<tr>
+<td><code>positionScale</code></td>
+<td><code>Int</code></td>
+<td>scale used in internal position keeping.</td>
+</tr>
+<tr>
+<td><code>withdrawFee</code></td>
+<td><code>String</code></td>
+<td>fee charged for each withdrawal request. e.g. &quot;0.01&quot;</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>String</code></td>
+<td>values: <code>Normal</code>, <code>NoDeposit</code>, <code>NoWithdraw</code>, <code>NoTransaction</code></td>
+</tr>
+</tbody></table>
 <h3 id='list-all-products'>List all Products</h3>
 <blockquote>
 <p>List all Products </p>
@@ -1324,10 +1366,10 @@ only 500 bars will be returned. </li>
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"accountGroup"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yzhao0527@gmail.com"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"cashAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="s2">"MPXFNEYEJIJ93CREXT3LTCIDIJPCFNIX"</span><span class="w">
         </span><span class="p">],</span><span class="w">
-        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yzhao0527@gmail.com"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"marginAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="s2">"mar2z3CMIEQx4UvTFbtQ9JcxWJYgHmcb"</span><span class="w">
         </span><span class="p">],</span><span class="w">
@@ -1484,13 +1526,13 @@ only 500 bars will be returned. </li>
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"accountMaxLeverage"</span><span class="p">:</span><span class="w">     </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"availableBalanceInUSDT"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17715.8175"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"currentLeverage"</span><span class="p">:</span><span class="w">        </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"cushion"</span><span class="p">:</span><span class="w">                </span><span class="s2">"-1"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"netBalanceInUSDT"</span><span class="p">:</span><span class="w">       </span><span class="s2">"17715.8175"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"pointsBalance"</span><span class="p">:</span><span class="w">          </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"totalBalanceInUSDT"</span><span class="p">:</span><span class="w">     </span><span class="s2">"17715.8175"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"totalBorrowedInUSDT"</span><span class="p">:</span><span class="w">    </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"totalInterestInUSDT"</span><span class="p">:</span><span class="w">    </span><span class="s2">"0"</span><span class="w">
+        </span><span class="s2">"totalInterestInUSDT"</span><span class="p">:</span><span class="w">    </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"netBalanceInUSDT"</span><span class="p">:</span><span class="w">       </span><span class="s2">"17715.8175"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pointsBalance"</span><span class="p">:</span><span class="w">          </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"currentLeverage"</span><span class="p">:</span><span class="w">        </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cushion"</span><span class="p">:</span><span class="w">                </span><span class="s2">"-1"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
