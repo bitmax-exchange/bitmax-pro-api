@@ -93,13 +93,13 @@ You should sign the message in header as specified in [**Authenticate a RESTful 
     "data": {
         "accountMaxLeverage":     "10",
         "availableBalanceInUSDT": "17715.8175",
-        "currentLeverage":        "1",
-        "cushion":                "-1",
-        "netBalanceInUSDT":       "17715.8175",
-        "pointsBalance":          "0",
         "totalBalanceInUSDT":     "17715.8175",
         "totalBorrowedInUSDT":    "0",
-        "totalInterestInUSDT":    "0"
+        "totalInterestInUSDT":    "0",
+        "netBalanceInUSDT":       "17715.8175",
+        "pointsBalance":          "0",
+        "currentLeverage":        "1",
+        "cushion":                "-1"
     }
 }
 ```

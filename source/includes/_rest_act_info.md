@@ -7,10 +7,10 @@
     "code": 0,
     "data": {
         "accountGroup": 0,
+        "email": "yzhao0527@gmail.com",
         "cashAccount": [
             "MPXFNEYEJIJ93CREXT3LTCIDIJPCFNIX"
         ],
-        "email": "yzhao0527@gmail.com",
         "marginAccount": [
             "mar2z3CMIEQx4UvTFbtQ9JcxWJYgHmcb"
         ],
