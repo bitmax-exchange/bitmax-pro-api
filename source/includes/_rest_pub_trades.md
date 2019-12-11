@@ -14,7 +14,7 @@ curl -X GET /api/pro/trades?symbol=BTMX/USDT
     "data": {
         "m": "trades",
         "symbol": "BTMX/USDT",
-        "trades": [
+        "data": [
             {
                 "seqnum": 144115191800016553,
                 "p": "0.06762",            
@@ -47,6 +47,15 @@ curl -X GET /api/pro/trades?symbol=BTMX/USDT
 
 
 #### Response Content 
+
+`data` field in response contains trade data and meta info.
+
+Name     | Type     | Description
+`m`      | `String` | `trades`
+`symbol` | `String` | trade symbol
+`data`   | `Json`   | A list of trade record; see below for detail.
+
+Trade record information in `data`:
 
    Name    | Type       | Description 
 ---------- | ---------- | -----------------------------
