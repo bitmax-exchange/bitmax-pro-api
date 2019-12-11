@@ -471,7 +471,18 @@ life cycle with only one indentifier (<code>orderId</code>). </li>
 <p>We always respond with json include <code>code</code> field to indicate request result. <code>0</code> usually means success response, and you could find data in json format in field <code>data</code>; any code other than <code>0</code> indicate failure during the request process. For failure response, usually you could find detailed error in fields <code>message</code>, <code>reason</code>, and possibly extra <code>info</code>.</p>
 
 <p>For private data, such as <code>open order</code>, <code>balance</code>, we usually include <code>accountId</code>, and <code>accountCategory</code> value in top level of response. </p>
-<h2 id='authenticate-a-restful-request'>Authenticate a RESTful Request</h2>
+<h2 id='authenticate-a-restful-request'>Authenticate a RESTful Request</h2><h3 id='create-request'>Create Request</h3>
+<p>To access private data via RESTful APIs, you must include the following headers:</p>
+
+<ul>
+<li><code>x-auth-key</code> - required, the api key as a string. </li>
+<li><code>x-auth-timestamp</code> - required, the UTC timestamp in milliseconds of your request</li>
+<li><code>x-auth-signature</code> - required, the request signature (see <a href="#signing-a-request">Signing a Request</a>)</li>
+</ul>
+
+<p>The timestamp in the header will be checked against server time. If the difference is greater than 30 seconds, the request will 
+be rejected. </p>
+<h3 id='sign-request'>Sign Request</h3>
 <blockquote>
 <p>Signing a RESTful Request</p>
 </blockquote>
@@ -536,18 +547,7 @@ curl -X GET -i <span class="se">\</span>
     <span class="o">}</span>
   <span class="o">}</span>
 <span class="o">}</span>
-</code></pre><h3 id='create-request'>Create Request</h3>
-<p>To access private data via RESTful APIs, you must include the following headers:</p>
-
-<ul>
-<li><code>x-auth-key</code> - required, the api key as a string. </li>
-<li><code>x-auth-timestamp</code> - required, the UTC timestamp in milliseconds of your request</li>
-<li><code>x-auth-signature</code> - required, the request signature (see <a href="#signing-a-request">Signing a Request</a>)</li>
-</ul>
-
-<p>The timestamp in the header will be checked against server time. If the difference is greater than 30 seconds, the request will 
-be rejected. </p>
-<h3 id='sign-request'>Sign Request</h3>
+</code></pre>
 <p>To query APIs with private data, you must include a signature using base64 encoded HMAC sha256 algorithm. The prehash string is <code>&lt;timestamp&gt;+&lt;api-path&gt;</code>. 
 The <code>timestamp</code> is the UTC timestamp in milliseconds.  </p>
 
