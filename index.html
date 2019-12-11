@@ -732,20 +732,14 @@ The <code>timestamp</code> is the UTC timestamp in milliseconds.  </p>
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTMX/USDT"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"open"</span><span class="p">:</span><span class="w">   </span><span class="s2">"0.06777"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"close"</span><span class="p">:</span><span class="w">  </span><span class="s2">"0.06809"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"high"</span><span class="p">:</span><span class="w">   </span><span class="s2">"0.06809"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"low"</span><span class="p">:</span><span class="w">    </span><span class="s2">"0.06809"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19825870"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ask"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="s2">"0.0681"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"43641"</span><span class="w">
-            </span><span class="p">],</span><span class="w">
-            </span><span class="s2">"bid"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="s2">"0.0676"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"443"</span><span class="w">
-            </span><span class="p">]</span><span class="w">
+            </span><span class="s2">"ask"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"0.000241"</span><span class="p">,</span><span class="w"> </span><span class="s2">"1563.6"</span><span class="p">],</span><span class="w">
+            </span><span class="s2">"bid"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"0.00023708"</span><span class="p">,</span><span class="w"> </span><span class="s2">"376"</span><span class="p">],</span><span class="w">
+            </span><span class="s2">"close"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00024"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"high"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000243"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"low"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000235"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"open"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000239"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QTUM/BTC"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13510.8"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1158,6 +1152,8 @@ only 500 bars will be returned. </li>
 </tr>
 </tbody></table>
 <h4 id='response-content'>Response Content</h4>
+<p><code>data</code> field in response contains depth data and meta info.</p>
+
 <table><thead>
 <tr>
 <th>Name</th>
@@ -1175,6 +1171,22 @@ only 500 bars will be returned. </li>
 <td><code>String</code></td>
 <td>e.g. <code>&quot;BTMX/USDT&quot;</code></td>
 </tr>
+<tr>
+<td><code>data</code></td>
+<td><code>Json</code></td>
+<td>actual bid and ask info. See below for detail.</td>
+</tr>
+</tbody></table>
+
+<p>Actual depth data in <code>data</code> section:</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
 <tr>
 <td><code>seqnum</code></td>
 <td><code>Long</code></td>
@@ -1212,7 +1224,7 @@ only 500 bars will be returned. </li>
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"m"</span><span class="p">:</span><span class="w"> </span><span class="s2">"trades"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTMX/USDT"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"trades"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"seqnum"</span><span class="p">:</span><span class="w"> </span><span class="mi">144115191800016553</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.06762"</span><span class="p">,</span><span class="w">            
@@ -1260,6 +1272,15 @@ only 500 bars will be returned. </li>
 </tr>
 </tbody></table>
 <h4 id='response-content'>Response Content</h4>
+<p><code>data</code> field in response contains trade data and meta info.</p>
+
+<p>Name     | Type     | Description
+<code>m</code>      | <code>String</code> | <code>trades</code>
+<code>symbol</code> | <code>String</code> | trade symbol
+<code>data</code>   | <code>Json</code>   | A list of trade record; see below for detail.</p>
+
+<p>Trade record information in <code>data</code>:</p>
+
 <table><thead>
 <tr>
 <th>Name</th>
