@@ -2505,13 +2505,14 @@ to obtain the latest status of each order. </p>
 <p><strong>General Message Request/Handling Logic from Client Side</strong></p>
 
 <ul>
-<li>Client usually initiate request with <code>op</code> parameter (followed by other required parameters).</li>
-<li>Server usually reply message with <code>m</code> value to indicate message topic, e.g., <code>order</code>, <code>depth</code>, <code>auth</code>.</li>
-<li>Private data response usually has <code>accountId</code> field, such as <code>order</code>, <code>balance</code>; public data response usually contains <code>symbol</code> field.</li>
-<li>Uniquie <code>id</code> parameter is recommended for your request. We will echo it back for you to track the requests. (The only exception is <code>depth-snapshot</code>, we do not include <code>id</code>)</li>
+<li>All messages are standard <code>JSON</code> strings. </li>
+<li>All client requests must include the required field <code>op</code> (followed by other required parameters).</li>
+<li>All server pushed/responded messages contains field <code>m</code> to indicate the message type, e.g., <code>order</code>, <code>depth</code>, <code>auth</code>.</li>
+<li>Messages carrying private data usually contain <code>accountId</code> field, such as <code>order</code>, <code>balance</code>.</li>
+<li>Although not required, it is recommended that you included the <code>id</code> field in all your requests. The server will echo it back for you to track the responses. (The only exception is <code>depth-snapshot</code>, we do not include <code>id</code>)</li>
 </ul>
 
-<p><strong>WebSocket Request</strong></p>
+<p><strong>WebSocket Entry Point</strong></p>
 
 <p><code>WSS &lt;account-group&gt;/api/pro/stream</code></p>
 
@@ -2522,7 +2523,7 @@ only subscribe to public data. </p>
 
 <p>Please refer to python code for all kinds of [websocket operation]{https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/client.py} (e.g. authorization, sub/unsub, place/cancel order, and so on) </p>
 <h2 id='keep-the-connection-alive-via-ping-pong'>Keep the Connection Alive via Ping/Pong</h2>
-<p>In order to keep the websocket connection alive, you have two options, detailed below.</p>
+<p>You can do one of the following to keep the websocket connection alive:</p>
 <h4 id='method-1-responding-to-server-ping-messages'>Method 1: Responding to Server ping messages</h4>
 <blockquote>
 <p>Method 1. keep the connection alive by responding to Server pushed ping message </p>
@@ -2630,10 +2631,10 @@ for 30 seconds if a client initiated <code>ping</code> message is received. </p>
 <span class="nv">MESSAGE</span><span class="o">=</span><span class="nv">$TIMESTAMP</span>+<span class="nv">$APIPATH</span>
 <span class="nv">SIGNATURE</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> -n <span class="nv">$MESSAGE</span> | openssl dgst -sha256 -hmac <span class="nv">$SECRET</span> -binary | base64<span class="sb">`</span>
 
-wscat -H <span class="s2">"x-auth-key: </span><span class="nv">$APIKEY</span><span class="s2">"</span> <span class="se">\</span>
-  -H <span class="s2">"x-auth-signature: </span><span class="nv">$SIGNATURE</span><span class="s2">"</span> <span class="se">\</span>
-  -H <span class="s2">"x-auth-timestamp: </span><span class="nv">$TIMESTAMP</span><span class="s2">"</span> <span class="se">\</span>
-  -c wss://bitmax.io/1/api/t/stream -w 1 -x <span class="s1">'{"op":"sub", "id": "abc123", "ch": "order:cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo:BTMX/USDT"}'</span>
+wscat -H <span class="s2">"x-auth-key:</span><span class="nv">$APIKEY</span><span class="s2">"</span> <span class="se">\</span>
+  -H <span class="s2">"x-auth-signature:</span><span class="nv">$SIGNATURE</span><span class="s2">"</span> <span class="se">\</span>
+  -H <span class="s2">"x-auth-timestamp:</span><span class="nv">$TIMESTAMP</span><span class="s2">"</span> <span class="se">\</span>
+  -c wss://bitmax.io/1/api/pro/stream -w 1 -x <span class="s1">'{"op":"sub", "id": "abc123", "ch": "order:cash"}'</span>
 </code></pre>
 <p>This is similar to the way you authenticate any RESTful request. You need to add the following header fields to the 
 connection request:</p>
