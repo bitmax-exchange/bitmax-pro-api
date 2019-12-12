@@ -7,10 +7,11 @@
 {
     "code": 0,
     "data": {
+        "ac": "CASH",
         "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
         "action": "cancel-all",
         "info": {
-            "id":        "2bmYvi7lyTrneMzpcJcf2D7Pe9V1P9wy",
+            "id":  "2bmYvi7lyTrneMzpcJcf2D7Pe9V1P9wy",
             "orderId":   "",
             "orderType": "NULL_VAL",
             "symbol":    "",
@@ -47,7 +48,26 @@ You should sign the message in header as specified in [**Authenticate a RESTful 
 
 **Response**
 
-Response with status "Ack" to indicate cancel all order request is received by server.
+Response include `code` and `data`, and status `Ack` (in field `data`) to indicate cancel all order request is received by server.
+
+`data` schema:
+
+Name        |  Type    | Description
+------------| ---------| -------- 
+`ac`        | `String` | `CASH`, `MARGIN`
+`accountId` | `String` | account Id
+`action`    | `String` | `cancel-all`,
+`info`      | `Json`   | See below for detail
+
+`info` schema:
+
+Name       |  Type    | Description
+-----------| ---------| -------- 
+`id`       | `String` | echo back the `id` in request
+`orderId`  | `String` | empty
+`orderType`| `String` | empty
+`symbol`   | `String` | `symbol` in request
+`timestamp`| `Long`   | server received timestamp
 
 **Code Sample**
 

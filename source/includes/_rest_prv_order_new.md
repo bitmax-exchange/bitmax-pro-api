@@ -198,31 +198,59 @@ In case you want to cancel an order before response from server, you could figur
 
 *ACK*
 
-Response with status 'Ack' to indicate new order request received by our server and passed some basic order field check. This is the default response type. If awaiting async order (ACCEPT or DONE) numbers exceeds capacity 1000, then the rest async order will be ACK automatically.
+Response with 0 `code` and status `Ack` to indicate new order request received by our server and passed some basic order field check. This is the default response type. If awaiting async order (ACCEPT or DONE) numbers exceeds capacity 1000, then the rest async order will be ACK automatically.
+
+`data` schema:
+
+Name           | Type     | Description
+---------------|----------|-------------- 
+`avgPx`        | `String` | average fill price
+`cumFee`       | `String` | cumulated filled comission
+`cumFilledQty` | `String` | cumulated filled qty
+`errorCode`    | `String` | Could be empty
+`feeAsset`     | `String` | Fee asset, e.g, `USDT`
+`id`           | `String` | id from request
+`lastExecTime` | `String` | latest execution timestamp
+`orderId`      | `String` | order id
+`orderQty`     | `String` | order quantity
+`orderType`    | `String` | order type
+`price`        | `String` | order price
+`seqNum`       | `Long`   | sequence number
+`side`         | `String` | order side
+`status`       | `String` | order status
+`stopPrice`    | `String` | stop price(could be empty)
+`symbol`       | `String` | symbol
 
 *ACCEPT*
 
-Response with status "New" to indicate new order request is accepted by our match engine. Return normal 'Ack' response if no 'New' status update within 5 seconds. 
+Response with 0 `code` and status `ACCEPT` to indicate new order request is accepted by our match engine. Return normal 'Ack' response if no 'New' status update within 5 seconds. Order `status` in `data` could be `New`, or `PendingNew`.
 
 *DONE*
 
-Response with status "PartiallyFilled", "Filled", or "Rejected" to indicate the order request is partially filled, fully filled, or rejected by matching engine. Return normal 'Ack' response if no order status update within 5 seconds. 
+Response with 0 `code` and status `Done` to indicate the order request is partially filled, fully filled, or rejected by matching engine. Return normal 'Ack' response if no order status update within 5 seconds. Order `status` in `data` could be `Filled`, `PartiallyFilled`, `Cancelled`, or `Reject`, and so on.
+
 
 *ERR*
 
-Response with status "Err" to provide detailed error information on the order request. 
+Response with `code` other than 0 and  status `Err` to provide detailed error information on the order request. 
 
-Name            | Type   | Description
-code            | Long   | none 0 to indicate error
-accountCategory | String | "CASH", "MARGIN"
-accountId       | String | account id
-action          | String | "place-order"
-message         | String | detail error message
-reason          | String | error info code, e.g. "INVALID_ORDER_ID"
-status          | String | "Err"
-info: symbol    | String | symbol
-info: id        | String | id from request if provided
+Name            | Type     | Description
+----------------|----------|-------------- 
+`code`          | `Long`   | none 0 to indicate error
+`ac`            | `String` | `CASH`, `MARGIN`
+`accountId`     | `String` | account id
+`action`        | `String` | `place-order`
+`message`       | `String` | detail error message
+`reason`        | `String` | error info code, e.g. "INVALID_ORDER_ID"
+`status`        | `String` | "Err"
+`info`          | `Json`   | See below for detail
 
+`info` schema:
+
+Name        | Type     | Description
+------------|----------|-------------- 
+`symbol`    | `String` | symbol
+`id`        | `String` | id from request if provided
 
 
 

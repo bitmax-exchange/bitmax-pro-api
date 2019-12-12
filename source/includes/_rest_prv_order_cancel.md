@@ -8,7 +8,7 @@
     "code": 0,
     "data": {
         "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
-        "accountCategory": "CASH",
+        "ac": "CASH",
         "action": "cancel-order",
         "status": "Ack",
         "info": {
@@ -28,7 +28,7 @@
 {
     "code": 300006,
     "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
-    "accountCategory": "CASH",
+    "ac": "CASH",
     "action": "cancel-order",
     "status": "Err",
     "message": "Invalid Client Order Id: jHAfoOqZmRv3GP1URJ5624moJ9RCG2@3",

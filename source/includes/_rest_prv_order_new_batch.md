@@ -78,12 +78,55 @@ You should sign the message in header as specified in [**Authenticate a RESTful 
 
 *ACK*
 
-Status "Ack" to indicate the batch order request is accepted by server. Field "info" includes server generated "coid" for each order in the batch request, and this is the id you should use for future status query.
+0 for `code` and status `Ack` to indicate the batch order request is accepted by server. Field "info" includes server generated "coid" for each order in the batch request, and this is the id you should use for future status query.
+
+`data` schema:
+
+Name        |  Type    | Description
+------------| ---------| -------- 
+`ac`        | `String` | `CASH`, `MARGIN`
+`accountId` | `String` | account Id
+`action`    | `String` | `cancel-all`
+`status`    | `String` |  `Ack` 
+`info`      | `List`   | See below for detail
+
+`info` schema:
+
+Name       |  Type    | Description
+-----------| ---------| -------- 
+`id`       | `String` | echo back the `id` in request
+`orderId`  | `String` | server assigned order Id for this single order
+`orderType`| `String` | order type
+`symbol`   | `String` | `symbol` in request
+`timestamp`| `Long`   | server received timestamp
 
 *ERR*
 
-Status "ERR" to indicate the batch order request is accepted by server. Field "info" includes detailed order information to explain why the batch request fail for each individual order. "coid" is original order id provided by user for each order.
+Non 0 `code` and status `ERR` to indicate the batch order request is accepted by server. Field `info` includes detailed order information to explain why the batch request fail for each individual order. "coid" is original order id provided by user for each order.
 
+Error schema
+
+Name        |  Type    | Description
+------------| ---------| -------- 
+`code`      | `Long`   | 0
+`ac`        | `String` | `CASH`, `MARGIN`
+`accountId` | `String` | account Id
+`action`    | `String` | `batch-cancel-order`
+`message`   | `String` | error message detail
+`reason`    | `String` | short error message 
+`status`    | `String` |  `Err` 
+`info`      | `List`   | See below for detail
+
+`info` schema:
+
+Name        |  Type    | Description
+------------| ---------| -------- 
+`code`      | `Long`   | 0
+`id`        | `String` | echo `id` in request
+`orderId`   | `String` | empty
+`message`   | `String` | error message detail
+`reason`    | `String` | short error message 
+`symbol`    | `String` | symbol in order
 
 **Code Sample**
 

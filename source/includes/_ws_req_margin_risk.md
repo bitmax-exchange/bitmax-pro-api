@@ -20,7 +20,7 @@
 {
     "m":"margin-risk", 
     "accountId":"marGad02EnGqSo6P2SMBoNUX4lGyxjsy",
-    "accountCategory":"MARGIN", 
+    "ac":"MARGIN", 
     "id":"abcefg", 
     "data": {
         "tb":"14058.242182715",
@@ -54,7 +54,7 @@ The response schema:
 ----------------- | ----------| ----------------------------- 
  `m`              | `String`  | `depth-snapshot`
  `accountId`      | `String`  | margin accountId
- `accountCategory`| `String`  | `MARGIN`
+ `ac`             | `String`  | `MARGIN`
  `symbol`         | `String`  | Symbol, e.g. `BTMX/USDT`  
  `id`             | `String`  | echo back `id` in request    
  `data`           | `Json`    | See `data` detail below

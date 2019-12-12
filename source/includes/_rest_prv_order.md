@@ -11,7 +11,7 @@ For all order related ack or data, there is *orderId* field to identify the orde
 ###
 ### Generate Order Id
 
-We use the following method to generate an unique id for each order place/cancel request.
+We use the following method to generate an unique id for each order place/cancel request. (You could get `userUID` from `Account Info` API.)
 
 **Method**
   

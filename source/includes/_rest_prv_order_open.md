@@ -47,7 +47,26 @@ You should sign the message in header as specified in [**Authenticate a RESTful 
 
 **Response**
 
-Return order infomation in *"data"* field. 
+Return a list of order infomation in `data` field:
+
+Name           | Type     | Description
+---------------|----------|-------------- 
+`avgPx`        | `String` | average fill price
+`cumFee`       | `String` | cumulated filled comission
+`cumFilledQty` | `String` | cumulated filled qty
+`errorCode`    | `String` | Could be empty
+`feeAsset`     | `String` | Fee asset, e.g, `USDT`
+`lastExecTime` | `String` | latest execution timestamp
+`orderId`      | `String` | order id
+`orderQty`     | `String` | order quantity
+`orderType`    | `String` | order type
+`price`        | `String` | order price
+`seqNum`       | `Long`   | sequence number
+`side`         | `String` | order side
+`status`       | `String` | order status
+`stopPrice`    | `String` | stop price(could be empty)
+`symbol`       | `String` | symbol
+
 
 Error Response Messages
 

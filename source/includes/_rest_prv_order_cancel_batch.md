@@ -8,7 +8,7 @@
 {
     "code": 0,
     "data": {
-        "accountCategory": "CASH",
+        "ac": "CASH",
         "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
         "action": "batch-cancel-order",
         "status": "Ack",
@@ -37,7 +37,7 @@
 ```json
 {
     "code": 300013,
-    "accountCategory": "CASH",
+    "ac": "CASH",
     "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
     "action": "batch-place-order", 
     "message": "Batch Order failed, please check each order info for detail.",
@@ -84,11 +84,57 @@ You should sign the message in header as specified in [**Authenticate a RESTful 
 
 *ACK*
 
-Response with status "Ack" to indicate batch is received by server and pass some basic check.
+Response with `code` as 0 to indicate batch is successfuly received by server and pass some basic check. `data` field explains order ack detail. 
+Order detail for each order is in `info` field list.
+
+`data` schema:
+
+Name        |  Type    | Description
+------------| ---------| -------- 
+`ac`        | `String` | `CASH`, `MARGIN`
+`accountId` | `String` | account Id
+`action`    | `String` | `cancel-all`
+`status`    | `String` |  `Ack` 
+`info`      | `List`   | See below for detail
+
+`info` schema:
+
+Name       |  Type    | Description
+-----------| ---------| -------- 
+`id`       | `String` | echo back the `id` in request
+`orderId`  | `String` | orderId in request to cancel
+`orderType`| `String` | empty
+`symbol`   | `String` | `symbol` in request
+`timestamp`| `Long`   | server received timestamp
+
 
 *ERR* 
 
-Response with status "Err" to explain detailed failure reason for each order in the batch request.
+Response with non 0 `code` and status "Err" to explain detailed failure reason for each order in the batch request. Error detail for each order is in `info` field.
+
+Error schema
+
+Name        |  Type    | Description
+------------| ---------| -------- 
+`code`      | `Long`   | 0
+`ac`        | `String` | `CASH`, `MARGIN`
+`accountId` | `String` | account Id
+`action`    | `String` | `batch-cancel-order`
+`message`   | `String` | error message detail
+`reason`    | `String` | short error message 
+`status`    | `String` |  `Err` 
+`info`      | `List`   | See below for detail
+
+`info` schema:
+
+Name        |  Type    | Description
+------------| ---------| -------- 
+`code`      | `Long`   | 0
+`id`        | `String` | echo `id` in request
+`orderId`   | `String` | orderId in request to cancel
+`message`   | `String` | error message detail
+`reason`    | `String` | short error message 
+`symbol`    | `String` | symbol in order
 
 
 **Code Sample**
