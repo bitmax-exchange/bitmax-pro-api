@@ -7,7 +7,7 @@
 {
     "code": 0,
     "data": {
-        "accountCategory": "MARGIN",
+        "ac": "MARGIN",
         "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
         "action": "place-order",
         "info": {
@@ -43,7 +43,7 @@
 {
     "code": 0,
     "data": {
-        "accountCategory": "CASH",
+        "ac": "CASH",
         "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
         "action": "place-order",          
         "info": {            
@@ -85,7 +85,7 @@
 ```json
 {"code": 0,
  "data": {
-    "accountCategory": "CASH",
+    "ac": "CASH",
     "accountId": "MPXFNEYEJIJ93CREXT3LTCIDIJPCFNIX",
     "action": "place-order",
     "info": {
@@ -113,7 +113,7 @@
 ```json
 {
     "code": 300011,
-    "accountCategory": "CASH",
+    "ac": "CASH",
     "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
     "action": "place-order",
     "info": {
