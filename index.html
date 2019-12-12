@@ -1567,7 +1567,7 @@ only 500 bars will be returned. </li>
 
 <p>For all order related ack or data, there is <em>orderId</em> field to identify the order. </p>
 <h3 id='generate-order-id'>Generate Order Id</h3>
-<p>We use the following method to generate an unique id for each order place/cancel request.</p>
+<p>We use the following method to generate an unique id for each order place/cancel request. (You could get <code>userUID</code> from <code>Account Info</code> API.)</p>
 
 <p><strong>Method</strong></p>
 
@@ -1912,30 +1912,180 @@ only 500 bars will be returned. </li>
 
 <p><em>ACK</em></p>
 
-<p>Response with status &#39;Ack&#39; to indicate new order request received by our server and passed some basic order field check. This is the default response type. If awaiting async order (ACCEPT or DONE) numbers exceeds capacity 1000, then the rest async order will be ACK automatically.</p>
+<p>Response with 0 <code>code</code> and status <code>Ack</code> to indicate new order request received by our server and passed some basic order field check. This is the default response type. If awaiting async order (ACCEPT or DONE) numbers exceeds capacity 1000, then the rest async order will be ACK automatically.</p>
+
+<p><code>data</code> schema:</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>avgPx</code></td>
+<td><code>String</code></td>
+<td>average fill price</td>
+</tr>
+<tr>
+<td><code>cumFee</code></td>
+<td><code>String</code></td>
+<td>cumulated filled comission</td>
+</tr>
+<tr>
+<td><code>cumFilledQty</code></td>
+<td><code>String</code></td>
+<td>cumulated filled qty</td>
+</tr>
+<tr>
+<td><code>errorCode</code></td>
+<td><code>String</code></td>
+<td>Could be empty</td>
+</tr>
+<tr>
+<td><code>feeAsset</code></td>
+<td><code>String</code></td>
+<td>Fee asset, e.g, <code>USDT</code></td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>String</code></td>
+<td>id from request</td>
+</tr>
+<tr>
+<td><code>lastExecTime</code></td>
+<td><code>String</code></td>
+<td>latest execution timestamp</td>
+</tr>
+<tr>
+<td><code>orderId</code></td>
+<td><code>String</code></td>
+<td>order id</td>
+</tr>
+<tr>
+<td><code>orderQty</code></td>
+<td><code>String</code></td>
+<td>order quantity</td>
+</tr>
+<tr>
+<td><code>orderType</code></td>
+<td><code>String</code></td>
+<td>order type</td>
+</tr>
+<tr>
+<td><code>price</code></td>
+<td><code>String</code></td>
+<td>order price</td>
+</tr>
+<tr>
+<td><code>seqNum</code></td>
+<td><code>Long</code></td>
+<td>sequence number</td>
+</tr>
+<tr>
+<td><code>side</code></td>
+<td><code>String</code></td>
+<td>order side</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>String</code></td>
+<td>order status</td>
+</tr>
+<tr>
+<td><code>stopPrice</code></td>
+<td><code>String</code></td>
+<td>stop price(could be empty)</td>
+</tr>
+<tr>
+<td><code>symbol</code></td>
+<td><code>String</code></td>
+<td>symbol</td>
+</tr>
+</tbody></table>
 
 <p><em>ACCEPT</em></p>
 
-<p>Response with status &quot;New&quot; to indicate new order request is accepted by our match engine. Return normal &#39;Ack&#39; response if no &#39;New&#39; status update within 5 seconds. </p>
+<p>Response with 0 <code>code</code> and status <code>ACCEPT</code> to indicate new order request is accepted by our match engine. Return normal &#39;Ack&#39; response if no &#39;New&#39; status update within 5 seconds. Order <code>status</code> in <code>data</code> could be <code>New</code>, or <code>PendingNew</code>.</p>
 
 <p><em>DONE</em></p>
 
-<p>Response with status &quot;PartiallyFilled&quot;, &quot;Filled&quot;, or &quot;Rejected&quot; to indicate the order request is partially filled, fully filled, or rejected by matching engine. Return normal &#39;Ack&#39; response if no order status update within 5 seconds. </p>
+<p>Response with 0 <code>code</code> and status <code>Done</code> to indicate the order request is partially filled, fully filled, or rejected by matching engine. Return normal &#39;Ack&#39; response if no order status update within 5 seconds. Order <code>status</code> in <code>data</code> could be <code>Filled</code>, <code>PartiallyFilled</code>, <code>Cancelled</code>, or <code>Reject</code>, and so on.</p>
 
 <p><em>ERR</em></p>
 
-<p>Response with status &quot;Err&quot; to provide detailed error information on the order request. </p>
+<p>Response with <code>code</code> other than 0 and  status <code>Err</code> to provide detailed error information on the order request. </p>
 
-<p>Name            | Type   | Description
-code            | Long   | none 0 to indicate error
-accountCategory | String | &quot;CASH&quot;, &quot;MARGIN&quot;
-accountId       | String | account id
-action          | String | &quot;place-order&quot;
-message         | String | detail error message
-reason          | String | error info code, e.g. &quot;INVALID_ORDER_ID&quot;
-status          | String | &quot;Err&quot;
-info: symbol    | String | symbol
-info: id        | String | id from request if provided</p>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>code</code></td>
+<td><code>Long</code></td>
+<td>none 0 to indicate error</td>
+</tr>
+<tr>
+<td><code>ac</code></td>
+<td><code>String</code></td>
+<td><code>CASH</code>, <code>MARGIN</code></td>
+</tr>
+<tr>
+<td><code>accountId</code></td>
+<td><code>String</code></td>
+<td>account id</td>
+</tr>
+<tr>
+<td><code>action</code></td>
+<td><code>String</code></td>
+<td><code>place-order</code></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>String</code></td>
+<td>detail error message</td>
+</tr>
+<tr>
+<td><code>reason</code></td>
+<td><code>String</code></td>
+<td>error info code, e.g. &quot;INVALID_ORDER_ID&quot;</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>String</code></td>
+<td>&quot;Err&quot;</td>
+</tr>
+<tr>
+<td><code>info</code></td>
+<td><code>Json</code></td>
+<td>See below for detail</td>
+</tr>
+</tbody></table>
+
+<p><code>info</code> schema:</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>symbol</code></td>
+<td><code>String</code></td>
+<td>symbol</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>String</code></td>
+<td>id from request if provided</td>
+</tr>
+</tbody></table>
 
 <p>Error Response Messages (TODO: verify HTTP Status Code)</p>
 
@@ -1966,7 +2116,7 @@ info: id        | String | id from request if provided</p>
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"accountCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ac"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cancel-order"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ack"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1985,7 +2135,7 @@ info: id        | String | id from request if provided</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">300006</span><span class="p">,</span><span class="w">
     </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"accountCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ac"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cancel-order"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Err"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid Client Order Id: jHAfoOqZmRv3GP1URJ5624moJ9RCG2@3"</span><span class="p">,</span><span class="w">
@@ -2073,10 +2223,11 @@ info: id        | String | id from request if provided</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"ac"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cancel-all"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w">        </span><span class="s2">"2bmYvi7lyTrneMzpcJcf2D7Pe9V1P9wy"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w">  </span><span class="s2">"2bmYvi7lyTrneMzpcJcf2D7Pe9V1P9wy"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w">   </span><span class="s2">""</span><span class="p">,</span><span class="w">
             </span><span class="s2">"orderType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NULL_VAL"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w">    </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -2124,7 +2275,74 @@ info: id        | String | id from request if provided</p>
 
 <p><strong>Response</strong></p>
 
-<p>Response with status &quot;Ack&quot; to indicate cancel all order request is received by server.</p>
+<p>Response include <code>code</code> and <code>data</code>, and status <code>Ack</code> (in field <code>data</code>) to indicate cancel all order request is received by server.</p>
+
+<p><code>data</code> schema:</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>ac</code></td>
+<td><code>String</code></td>
+<td><code>CASH</code>, <code>MARGIN</code></td>
+</tr>
+<tr>
+<td><code>accountId</code></td>
+<td><code>String</code></td>
+<td>account Id</td>
+</tr>
+<tr>
+<td><code>action</code></td>
+<td><code>String</code></td>
+<td><code>cancel-all</code>,</td>
+</tr>
+<tr>
+<td><code>info</code></td>
+<td><code>Json</code></td>
+<td>See below for detail</td>
+</tr>
+</tbody></table>
+
+<p><code>info</code> schema:</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td><code>String</code></td>
+<td>echo back the <code>id</code> in request</td>
+</tr>
+<tr>
+<td><code>orderId</code></td>
+<td><code>String</code></td>
+<td>empty</td>
+</tr>
+<tr>
+<td><code>orderType</code></td>
+<td><code>String</code></td>
+<td>empty</td>
+</tr>
+<tr>
+<td><code>symbol</code></td>
+<td><code>String</code></td>
+<td><code>symbol</code> in request</td>
+</tr>
+<tr>
+<td><code>timestamp</code></td>
+<td><code>Long</code></td>
+<td>server received timestamp</td>
+</tr>
+</tbody></table>
 
 <p><strong>Code Sample</strong></p>
 
@@ -2208,11 +2426,175 @@ to obtain the latest status of each order. </p>
 
 <p><em>ACK</em></p>
 
-<p>Status &quot;Ack&quot; to indicate the batch order request is accepted by server. Field &quot;info&quot; includes server generated &quot;coid&quot; for each order in the batch request, and this is the id you should use for future status query.</p>
+<p>0 for <code>code</code> and status <code>Ack</code> to indicate the batch order request is accepted by server. Field &quot;info&quot; includes server generated &quot;coid&quot; for each order in the batch request, and this is the id you should use for future status query.</p>
+
+<p><code>data</code> schema:</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>ac</code></td>
+<td><code>String</code></td>
+<td><code>CASH</code>, <code>MARGIN</code></td>
+</tr>
+<tr>
+<td><code>accountId</code></td>
+<td><code>String</code></td>
+<td>account Id</td>
+</tr>
+<tr>
+<td><code>action</code></td>
+<td><code>String</code></td>
+<td><code>cancel-all</code></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>String</code></td>
+<td><code>Ack</code></td>
+</tr>
+<tr>
+<td><code>info</code></td>
+<td><code>List</code></td>
+<td>See below for detail</td>
+</tr>
+</tbody></table>
+
+<p><code>info</code> schema:</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td><code>String</code></td>
+<td>echo back the <code>id</code> in request</td>
+</tr>
+<tr>
+<td><code>orderId</code></td>
+<td><code>String</code></td>
+<td>server assigned order Id for this single order</td>
+</tr>
+<tr>
+<td><code>orderType</code></td>
+<td><code>String</code></td>
+<td>order type</td>
+</tr>
+<tr>
+<td><code>symbol</code></td>
+<td><code>String</code></td>
+<td><code>symbol</code> in request</td>
+</tr>
+<tr>
+<td><code>timestamp</code></td>
+<td><code>Long</code></td>
+<td>server received timestamp</td>
+</tr>
+</tbody></table>
 
 <p><em>ERR</em></p>
 
-<p>Status &quot;ERR&quot; to indicate the batch order request is accepted by server. Field &quot;info&quot; includes detailed order information to explain why the batch request fail for each individual order. &quot;coid&quot; is original order id provided by user for each order.</p>
+<p>Non 0 <code>code</code> and status <code>ERR</code> to indicate the batch order request is accepted by server. Field <code>info</code> includes detailed order information to explain why the batch request fail for each individual order. &quot;coid&quot; is original order id provided by user for each order.</p>
+
+<p>Error schema</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>code</code></td>
+<td><code>Long</code></td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>ac</code></td>
+<td><code>String</code></td>
+<td><code>CASH</code>, <code>MARGIN</code></td>
+</tr>
+<tr>
+<td><code>accountId</code></td>
+<td><code>String</code></td>
+<td>account Id</td>
+</tr>
+<tr>
+<td><code>action</code></td>
+<td><code>String</code></td>
+<td><code>batch-cancel-order</code></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>String</code></td>
+<td>error message detail</td>
+</tr>
+<tr>
+<td><code>reason</code></td>
+<td><code>String</code></td>
+<td>short error message</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>String</code></td>
+<td><code>Err</code></td>
+</tr>
+<tr>
+<td><code>info</code></td>
+<td><code>List</code></td>
+<td>See below for detail</td>
+</tr>
+</tbody></table>
+
+<p><code>info</code> schema:</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>code</code></td>
+<td><code>Long</code></td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>String</code></td>
+<td>echo <code>id</code> in request</td>
+</tr>
+<tr>
+<td><code>orderId</code></td>
+<td><code>String</code></td>
+<td>empty</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>String</code></td>
+<td>error message detail</td>
+</tr>
+<tr>
+<td><code>reason</code></td>
+<td><code>String</code></td>
+<td>short error message</td>
+</tr>
+<tr>
+<td><code>symbol</code></td>
+<td><code>String</code></td>
+<td>symbol in order</td>
+</tr>
+</tbody></table>
 
 <p><strong>Code Sample</strong></p>
 
@@ -2224,7 +2606,7 @@ to obtain the latest status of each order. </p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"accountCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ac"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"batch-cancel-order"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ack"</span><span class="p">,</span><span class="w">
@@ -2252,7 +2634,7 @@ to obtain the latest status of each order. </p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">300013</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"accountCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ac"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"batch-place-order"</span><span class="p">,</span><span class="w"> 
     </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Batch Order failed, please check each order info for detail."</span><span class="p">,</span><span class="w">
@@ -2298,11 +2680,176 @@ to obtain the latest status of each order. </p>
 
 <p><em>ACK</em></p>
 
-<p>Response with status &quot;Ack&quot; to indicate batch is received by server and pass some basic check.</p>
+<p>Response with <code>code</code> as 0 to indicate batch is successfuly received by server and pass some basic check. <code>data</code> field explains order ack detail. 
+Order detail for each order is in <code>info</code> field list.</p>
+
+<p><code>data</code> schema:</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>ac</code></td>
+<td><code>String</code></td>
+<td><code>CASH</code>, <code>MARGIN</code></td>
+</tr>
+<tr>
+<td><code>accountId</code></td>
+<td><code>String</code></td>
+<td>account Id</td>
+</tr>
+<tr>
+<td><code>action</code></td>
+<td><code>String</code></td>
+<td><code>cancel-all</code></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>String</code></td>
+<td><code>Ack</code></td>
+</tr>
+<tr>
+<td><code>info</code></td>
+<td><code>List</code></td>
+<td>See below for detail</td>
+</tr>
+</tbody></table>
+
+<p><code>info</code> schema:</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td><code>String</code></td>
+<td>echo back the <code>id</code> in request</td>
+</tr>
+<tr>
+<td><code>orderId</code></td>
+<td><code>String</code></td>
+<td>orderId in request to cancel</td>
+</tr>
+<tr>
+<td><code>orderType</code></td>
+<td><code>String</code></td>
+<td>empty</td>
+</tr>
+<tr>
+<td><code>symbol</code></td>
+<td><code>String</code></td>
+<td><code>symbol</code> in request</td>
+</tr>
+<tr>
+<td><code>timestamp</code></td>
+<td><code>Long</code></td>
+<td>server received timestamp</td>
+</tr>
+</tbody></table>
 
 <p><em>ERR</em> </p>
 
-<p>Response with status &quot;Err&quot; to explain detailed failure reason for each order in the batch request.</p>
+<p>Response with non 0 <code>code</code> and status &quot;Err&quot; to explain detailed failure reason for each order in the batch request. Error detail for each order is in <code>info</code> field.</p>
+
+<p>Error schema</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>code</code></td>
+<td><code>Long</code></td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>ac</code></td>
+<td><code>String</code></td>
+<td><code>CASH</code>, <code>MARGIN</code></td>
+</tr>
+<tr>
+<td><code>accountId</code></td>
+<td><code>String</code></td>
+<td>account Id</td>
+</tr>
+<tr>
+<td><code>action</code></td>
+<td><code>String</code></td>
+<td><code>batch-cancel-order</code></td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>String</code></td>
+<td>error message detail</td>
+</tr>
+<tr>
+<td><code>reason</code></td>
+<td><code>String</code></td>
+<td>short error message</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>String</code></td>
+<td><code>Err</code></td>
+</tr>
+<tr>
+<td><code>info</code></td>
+<td><code>List</code></td>
+<td>See below for detail</td>
+</tr>
+</tbody></table>
+
+<p><code>info</code> schema:</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>code</code></td>
+<td><code>Long</code></td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>String</code></td>
+<td>echo <code>id</code> in request</td>
+</tr>
+<tr>
+<td><code>orderId</code></td>
+<td><code>String</code></td>
+<td>orderId in request to cancel</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td><code>String</code></td>
+<td>error message detail</td>
+</tr>
+<tr>
+<td><code>reason</code></td>
+<td><code>String</code></td>
+<td>short error message</td>
+</tr>
+<tr>
+<td><code>symbol</code></td>
+<td><code>String</code></td>
+<td>symbol in order</td>
+</tr>
+</tbody></table>
 
 <p><strong>Code Sample</strong></p>
 
@@ -2373,7 +2920,91 @@ to obtain the latest status of each order. </p>
 
 <p><strong><em>Response</em></strong></p>
 
-<p>Returns order information in <em>&quot;data&quot;</em> field. Please use <em>orderId</em> field to match with your order.</p>
+<p>Returns a list order information in <code>data</code> field. Please use <code>orderId</code> field to match with your order.</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>avgPx</code></td>
+<td><code>String</code></td>
+<td>average fill price</td>
+</tr>
+<tr>
+<td><code>cumFee</code></td>
+<td><code>String</code></td>
+<td>cumulated filled comission</td>
+</tr>
+<tr>
+<td><code>cumFilledQty</code></td>
+<td><code>String</code></td>
+<td>cumulated filled qty</td>
+</tr>
+<tr>
+<td><code>errorCode</code></td>
+<td><code>String</code></td>
+<td>Could be empty</td>
+</tr>
+<tr>
+<td><code>feeAsset</code></td>
+<td><code>String</code></td>
+<td>Fee asset, e.g, <code>USDT</code></td>
+</tr>
+<tr>
+<td><code>lastExecTime</code></td>
+<td><code>String</code></td>
+<td>latest execution timestamp</td>
+</tr>
+<tr>
+<td><code>orderId</code></td>
+<td><code>String</code></td>
+<td>order id</td>
+</tr>
+<tr>
+<td><code>orderQty</code></td>
+<td><code>String</code></td>
+<td>order quantity</td>
+</tr>
+<tr>
+<td><code>orderType</code></td>
+<td><code>String</code></td>
+<td>order type</td>
+</tr>
+<tr>
+<td><code>price</code></td>
+<td><code>String</code></td>
+<td>order price</td>
+</tr>
+<tr>
+<td><code>seqNum</code></td>
+<td><code>Long</code></td>
+<td>sequence number</td>
+</tr>
+<tr>
+<td><code>side</code></td>
+<td><code>String</code></td>
+<td>order side</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>String</code></td>
+<td>order status</td>
+</tr>
+<tr>
+<td><code>stopPrice</code></td>
+<td><code>String</code></td>
+<td>stop price(could be empty)</td>
+</tr>
+<tr>
+<td><code>symbol</code></td>
+<td><code>String</code></td>
+<td>symbol</td>
+</tr>
+</tbody></table>
 
 <p><strong>Code Sample</strong></p>
 
@@ -2424,7 +3055,91 @@ to obtain the latest status of each order. </p>
 
 <p><strong>Response</strong></p>
 
-<p>Return order infomation in <em>&quot;data&quot;</em> field. </p>
+<p>Return a list of order infomation in <code>data</code> field:</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>avgPx</code></td>
+<td><code>String</code></td>
+<td>average fill price</td>
+</tr>
+<tr>
+<td><code>cumFee</code></td>
+<td><code>String</code></td>
+<td>cumulated filled comission</td>
+</tr>
+<tr>
+<td><code>cumFilledQty</code></td>
+<td><code>String</code></td>
+<td>cumulated filled qty</td>
+</tr>
+<tr>
+<td><code>errorCode</code></td>
+<td><code>String</code></td>
+<td>Could be empty</td>
+</tr>
+<tr>
+<td><code>feeAsset</code></td>
+<td><code>String</code></td>
+<td>Fee asset, e.g, <code>USDT</code></td>
+</tr>
+<tr>
+<td><code>lastExecTime</code></td>
+<td><code>String</code></td>
+<td>latest execution timestamp</td>
+</tr>
+<tr>
+<td><code>orderId</code></td>
+<td><code>String</code></td>
+<td>order id</td>
+</tr>
+<tr>
+<td><code>orderQty</code></td>
+<td><code>String</code></td>
+<td>order quantity</td>
+</tr>
+<tr>
+<td><code>orderType</code></td>
+<td><code>String</code></td>
+<td>order type</td>
+</tr>
+<tr>
+<td><code>price</code></td>
+<td><code>String</code></td>
+<td>order price</td>
+</tr>
+<tr>
+<td><code>seqNum</code></td>
+<td><code>Long</code></td>
+<td>sequence number</td>
+</tr>
+<tr>
+<td><code>side</code></td>
+<td><code>String</code></td>
+<td>order side</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>String</code></td>
+<td>order status</td>
+</tr>
+<tr>
+<td><code>stopPrice</code></td>
+<td><code>String</code></td>
+<td>stop price(could be empty)</td>
+</tr>
+<tr>
+<td><code>symbol</code></td>
+<td><code>String</code></td>
+<td>symbol</td>
+</tr>
+</tbody></table>
 
 <p>Error Response Messages</p>
 
@@ -3165,7 +3880,7 @@ value into one aggregated item. Each trade object contains the following fields:
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"m"</span><span class="p">:</span><span class="w"> </span><span class="s2">"order"</span><span class="p">,</span><span class="w"> 
     </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w"> 
-    </span><span class="s2">"accountCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"ac"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w"> 
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"ap"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w"> 
         </span><span class="s2">"bab"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2006.5974027"</span><span class="p">,</span><span class="w"> 
@@ -3856,7 +4571,7 @@ the timely order book data. </p>
     </span><span class="s2">"m"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open-order"</span><span class="p">,</span><span class="w"> 
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abdad113"</span><span class="p">,</span><span class="w"> 
     </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w"> 
-    </span><span class="s2">"accountCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"ac"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w"> 
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"sn"</span><span class="p">:</span><span class="w"> </span><span class="mi">103</span><span class="p">,</span><span class="w"> 
