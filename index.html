@@ -501,7 +501,7 @@ curl -X GET -i <span class="se">\</span>
   -H <span class="s2">"x-auth-key: </span><span class="nv">$APIKEY</span><span class="s2">"</span> <span class="se">\</span>
   -H <span class="s2">"x-auth-signature: </span><span class="nv">$SIGNATURE</span><span class="s2">"</span> <span class="se">\</span>
   -H <span class="s2">"x-auth-timestamp: </span><span class="nv">$TIMESTAMP</span><span class="s2">"</span> <span class="se">\</span>
-  https://bitmax.io/api/pro/info
+  https://bitmax.io/api/pro/v1/info
 </code></pre><pre class="highlight python tab-python"><code><span class="c"># python 3.6+</span>
 <span class="kn">import</span> <span class="nn">time</span><span class="p">,</span> <span class="n">hmac</span><span class="p">,</span> <span class="n">hashlib</span><span class="p">,</span> <span class="n">base64</span>
 
@@ -558,7 +558,7 @@ The <code>timestamp</code> is the UTC timestamp in milliseconds.  </p>
 <blockquote>
 <p>List all Assets</p>
 </blockquote>
-<pre class="highlight plaintext"><code>curl -X GET https://bitmax.io/api/pro/assets
+<pre class="highlight plaintext"><code>curl -X GET https://bitmax.io/api/pro/v1/assets
 </code></pre>
 <blockquote>
 <p>Sample Response </p>
@@ -580,7 +580,7 @@ The <code>timestamp</code> is the UTC timestamp in milliseconds.  </p>
 </span></code></pre>
 <p><strong>HTTP Request</strong> </p>
 
-<p><code>GET /api/pro/assets</code></p>
+<p><code>GET /api/pro/v1/assets</code></p>
 
 <p>You can obtain a list of all assets listed on the exchange through this API.</p>
 
@@ -633,7 +633,7 @@ The <code>timestamp</code> is the UTC timestamp in milliseconds.  </p>
 <blockquote>
 <p>List all Products </p>
 </blockquote>
-<pre class="highlight plaintext"><code>curl -X GET https://bitmax.io/api/pro/products
+<pre class="highlight plaintext"><code>curl -X GET https://bitmax.io/api/pro/v1/products
 </code></pre>
 <blockquote>
 <p>Sample Response </p>
@@ -659,7 +659,7 @@ The <code>timestamp</code> is the UTC timestamp in milliseconds.  </p>
 </span></code></pre>
 <p><strong>HTTP Request</strong></p>
 
-<p><code>GET /api/pro/products</code></p>
+<p><code>GET /api/pro/v1/products</code></p>
 <h4 id='response-content'>Response Content</h4>
 <p>You can obtain a list of all products traded on the exchange through this API.</p>
 
@@ -745,7 +745,7 @@ The <code>timestamp</code> is the UTC timestamp in milliseconds.  </p>
 <blockquote>
 <p>Ticker for one product</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="err">//</span><span class="w"> </span><span class="err">curl</span><span class="w"> </span><span class="err">-X</span><span class="w"> </span><span class="err">GET</span><span class="w"> </span><span class="err">'https</span><span class="p">:</span><span class="err">//bitmax.io/api/pro/ticker?symbol=BTMX/USDT'</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="err">//</span><span class="w"> </span><span class="err">curl</span><span class="w"> </span><span class="err">-X</span><span class="w"> </span><span class="err">GET</span><span class="w"> </span><span class="err">'https</span><span class="p">:</span><span class="err">//bitmax.io/api/pro/v</span><span class="mi">1</span><span class="err">/ticker?symbol=BTMX/USDT'</span><span class="w">
 </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -769,26 +769,32 @@ The <code>timestamp</code> is the UTC timestamp in milliseconds.  </p>
 <blockquote>
 <p>List of Tickers for one or multiple products</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="err">//</span><span class="w"> </span><span class="err">curl</span><span class="w"> </span><span class="err">-X</span><span class="w"> </span><span class="err">GET</span><span class="w"> </span><span class="s2">"https://bitmax.io/api/pro/ticker?symbol=BTMX/USDT,"</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="err">//</span><span class="w"> </span><span class="err">curl</span><span class="w"> </span><span class="err">-X</span><span class="w"> </span><span class="err">GET</span><span class="w"> </span><span class="s2">"https://bitmax.io/api/pro/v1/ticker?symbol=BTMX/USDT,"</span><span class="w">
 </span><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"ask"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"0.000241"</span><span class="p">,</span><span class="w"> </span><span class="s2">"1563.6"</span><span class="p">],</span><span class="w">
-            </span><span class="s2">"bid"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"0.00023708"</span><span class="p">,</span><span class="w"> </span><span class="s2">"376"</span><span class="p">],</span><span class="w">
-            </span><span class="s2">"close"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00024"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"high"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000243"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"low"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000235"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"open"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000239"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QTUM/BTC"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13510.8"</span><span class="w">
+            </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTMX/USDT"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"open"</span><span class="p">:</span><span class="w">   </span><span class="s2">"0.06777"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"close"</span><span class="p">:</span><span class="w">  </span><span class="s2">"0.06809"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"high"</span><span class="p">:</span><span class="w">   </span><span class="s2">"0.06809"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"low"</span><span class="p">:</span><span class="w">    </span><span class="s2">"0.06809"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19825870"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ask"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"0.0681"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"43641"</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"bid"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"0.0676"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"443"</span><span class="w">
+            </span><span class="p">]</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>HTTP Request</strong></p>
 
-<p><code>GET api/pro/ticker</code></p>
+<p><code>GET api/pro/v1/ticker</code></p>
 
 <p>You can get summary statistics of one or multiple symbols with this API. </p>
 <h4 id='request-parameters'>Request Parameters</h4>
@@ -877,7 +883,7 @@ If you want to wrap the object in a one-element list, append a comma to the symb
 <blockquote>
 <p>Request </p>
 </blockquote>
-<pre class="highlight plaintext"><code>curl -X GET https://bitmax.io/api/pro/barhist/info
+<pre class="highlight plaintext"><code>curl -X GET https://bitmax.io/api/pro/v1/barhist/info
 </code></pre>
 <blockquote>
 <p>Sample response</p>
@@ -938,7 +944,7 @@ If you want to wrap the object in a one-element list, append a comma to the symb
 </span></code></pre>
 <p><strong>HTTP Request</strong></p>
 
-<p><code>GET /api/pro/barhist/info</code></p>
+<p><code>GET /api/pro/v1/barhist/info</code></p>
 
 <p>This API returns a list of all bar intervals supported by the server. </p>
 <h4 id='request-parameters'>Request Parameters</h4>
@@ -970,7 +976,7 @@ If you want to wrap the object in a one-element list, append a comma to the symb
 <blockquote>
 <p>Request </p>
 </blockquote>
-<pre class="highlight plaintext"><code>curl -X GET https://bitmax.io/api/pro/barhist?symbol=BTMX/USDT&amp;interval=1
+<pre class="highlight plaintext"><code>curl -X GET https://bitmax.io/api/pro/v1/barhist?symbol=BTMX/USDT&amp;interval=1
 </code></pre>
 <blockquote>
 <p>Sample response</p>
@@ -1006,7 +1012,7 @@ If you want to wrap the object in a one-element list, append a comma to the symb
 </span></code></pre>
 <p><strong>HTTP Request</strong></p>
 
-<p><code>GET /api/pro/barhist</code></p>
+<p><code>GET /api/pro/v1/barhist</code></p>
 
 <p>This API returns a list of <strong>bar</strong>s, with each contains the open/close/high/low prices of a symbol for a specific time range. </p>
 <h4 id='request-parameters-2'>Request Parameters</h4>
@@ -1135,7 +1141,7 @@ only 500 bars will be returned. </li>
 <blockquote>
 <p>Request for Order Book (Depth) Data</p>
 </blockquote>
-<pre class="highlight plaintext"><code>curl -X GET https://bitmax.io/api/pro/depth?symbol=BTMX/USDT
+<pre class="highlight plaintext"><code>curl -X GET https://bitmax.io/api/pro/v1/depth?symbol=BTMX/USDT
 </code></pre>
 <blockquote>
 <p>Order Book (Depth) Data - Sample response </p>
@@ -1174,7 +1180,7 @@ only 500 bars will be returned. </li>
 </span></code></pre>
 <p><strong>HTTP Request</strong></p>
 
-<p><code>GET /api/pro/depth</code></p>
+<p><code>GET /api/pro/v1/depth</code></p>
 <h4 id='request-parameters'>Request Parameters</h4>
 <table><thead>
 <tr>
@@ -1256,7 +1262,7 @@ only 500 bars will be returned. </li>
 <blockquote>
 <p>Request </p>
 </blockquote>
-<pre class="highlight plaintext"><code>curl -X GET /api/pro/trades?symbol=BTMX/USDT
+<pre class="highlight plaintext"><code>curl -X GET /api/pro/v1/trades?symbol=BTMX/USDT
 </code></pre>
 <blockquote>
 <p>Sample response </p>
@@ -1287,7 +1293,7 @@ only 500 bars will be returned. </li>
 </span></code></pre>
 <p><strong>HTTP Request</strong></p>
 
-<p><code>GET /api/pro/trades</code></p>
+<p><code>GET /api/pro/v1/trades</code></p>
 <h4 id='request-parameters'>Request Parameters</h4>
 <table><thead>
 <tr>
@@ -1366,12 +1372,12 @@ only 500 bars will be returned. </li>
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"accountGroup"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yzhao0527@gmail.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yyzzxxz@gmail.com"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"cashAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="s2">"MPXFNEYEJIJ93CREXT3LTCIDIJPCFNIX"</span><span class="w">
+            </span><span class="s2">"dadFNEYEJIJ93CRxdafd3LTCIDIJPCFNIX"</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="s2">"marginAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="s2">"mar2z3CMIEQx4UvTFbtQ9JcxWJYgHmcb"</span><span class="w">
+            </span><span class="s2">"mar2z3CMIEQx4UadasbtQ9JcxWJYgHmcb"</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="s2">"tradePermission"</span><span class="p">:</span><span class="w">    </span><span class="err">True</span><span class="p">,</span><span class="w">
         </span><span class="s2">"transferPermission"</span><span class="p">:</span><span class="w"> </span><span class="err">True</span><span class="p">,</span><span class="w">
@@ -1382,7 +1388,7 @@ only 500 bars will be returned. </li>
 </span></code></pre>
 <p><strong>HTTP Request</strong> </p>
 
-<p><code>GET /api/pro/info</code></p>
+<p><code>GET /api/pro/v1/info</code></p>
 
 <p><strong>Signature</strong></p>
 
@@ -1475,7 +1481,7 @@ only 500 bars will be returned. </li>
 </span></code></pre>
 <p><strong>HTTP Request</strong></p>
 
-<p><code>GET &lt;account-group&gt;/api/pro/cash/balance</code></p>
+<p><code>GET &lt;account-group&gt;/api/pro/v1/cash/balance</code></p>
 
 <p><strong>Signature</strong></p>
 
@@ -1514,7 +1520,7 @@ only 500 bars will be returned. </li>
 </span></code></pre>
 <p><strong>HTTP Request</strong> </p>
 
-<p><code>GET &lt;account-group&gt;/api/pro/margin/balance</code></p>
+<p><code>GET &lt;account-group&gt;/api/pro/v1/margin/balance</code></p>
 
 <p><strong>Signature</strong></p>
 
@@ -1544,7 +1550,7 @@ only 500 bars will be returned. </li>
 </span></code></pre>
 <p><strong>HTTP Request</strong></p>
 
-<p><code>POST &lt;account-group&gt;/api/pro/margin/risk</code></p>
+<p><code>POST &lt;account-group&gt;/api/pro/v1/margin/risk</code></p>
 
 <p><strong>Signature</strong></p>
 
@@ -1707,7 +1713,7 @@ only 500 bars will be returned. </li>
 
 <p><strong>HTTP Request</strong></p>
 
-<p><code>POST &lt;account-group&gt;/api/pro/{account-category}/order</code></p>
+<p><code>POST &lt;account-group&gt;/api/pro/v1/{account-category}/order</code></p>
 
 <p>Set <code>account-category</code> to<code>cash</code> for cash account and <code>margin</code> for margin account. </p>
 
@@ -2150,7 +2156,7 @@ only 500 bars will be returned. </li>
 
 <p><strong>HTTP Request</strong></p>
 
-<p><code>DELETE &lt;account-group&gt;/api/pro/{account-category}/order</code></p>
+<p><code>DELETE &lt;account-group&gt;/api/pro/v1/{account-category}/order</code></p>
 
 <p>Set <code>account-category</code> to <code>cash</code> for cash account and <code>margin</code> for margin account. </p>
 
@@ -2241,7 +2247,7 @@ only 500 bars will be returned. </li>
 
 <p><strong>HTTP Request</strong></p>
 
-<p><code>DELETE &lt;account-group&gt;/api/pro/{account-category}/order/all</code></p>
+<p><code>DELETE &lt;account-group&gt;/api/pro/v1/{account-category}/order/all</code></p>
 
 <p>Set <code>account-category</code> to<code>cash</code> for cash account and <code>margin</code> for margin account. </p>
 
@@ -2357,7 +2363,8 @@ to obtain the latest status of each order. </p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ac"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w">        
         </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"batch-place-order"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
@@ -2383,7 +2390,7 @@ to obtain the latest status of each order. </p>
 <p>Place Batch Orders - Error Response (Status 200, code 0)</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"accountCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ac"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"batch-place-order"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">300013</span><span class="p">,</span><span class="w">
@@ -2410,7 +2417,7 @@ to obtain the latest status of each order. </p>
 
 <p><strong>HTTP Request</strong></p>
 
-<p><code>POST &lt;account-group&gt;/api/pro/{account-category}/order/batch</code></p>
+<p><code>POST &lt;account-group&gt;/api/pro/v1/{account-category}/order/batch</code></p>
 
 <p>Set <code>account-category</code> to<code>cash</code> for cash account and <code>margin</code> for margin account.</p>
 
@@ -2664,7 +2671,7 @@ to obtain the latest status of each order. </p>
 
 <p><strong>HTTP Request</strong></p>
 
-<p><code>DELETE &lt;account-group&gt;/api/pro/{account-category}/order/batch</code></p>
+<p><code>DELETE &lt;account-group&gt;/api/pro/v1/{account-category}/order/batch</code></p>
 
 <p>Set <code>account-category</code> to<code>cash</code> for cash account and <code>margin</code> for margin account. </p>
 
@@ -2904,7 +2911,7 @@ Order detail for each order is in <code>info</code> field list.</p>
 
 <p><strong>HTTP Request</strong></p>
 
-<p><code>GET &lt;account-group&gt;/api/pro/{account-category}/order/status?OrderId={orderId}</code></p>
+<p><code>GET &lt;account-group&gt;/api/pro/v1/{account-category}/order/status?OrderId={orderId}</code></p>
 
 <p><code>orderId</code> could be a single order Id, or multiple order Ids separated by <code>,</code>. </p>
 
@@ -3041,7 +3048,7 @@ Order detail for each order is in <code>info</code> field list.</p>
 
 <p><strong>HTTP Request</strong></p>
 
-<p><code>GET &lt;account-group&gt;/api/pro/{account-category}/order/open</code></p>
+<p><code>GET &lt;account-group&gt;/api/pro/v1/{account-category}/order/open</code></p>
 
 <p>Set <code>account-category</code> to<code>cash</code> for cash account and <code>margin</code> for margin account. </p>
 
@@ -3174,7 +3181,7 @@ Order detail for each order is in <code>info</code> field list.</p>
 <p>Current History Orders - Successful Response (Status 200, code 0)</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"accountCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ac"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -3203,7 +3210,7 @@ Order detail for each order is in <code>info</code> field list.</p>
 
 <p><strong>HTTP Request</strong></p>
 
-<p><code>GET &lt;account-group&gt;/api/pro/{account-category}/order/hist/current</code></p>
+<p><code>GET &lt;account-group&gt;/api/pro/v1/{account-category}/order/hist/current</code></p>
 
 <p>Set <code>account-category</code> to<code>cash</code> for cash account and <code>margin</code> for margin account. </p>
 
@@ -3234,7 +3241,7 @@ Order detail for each order is in <code>info</code> field list.</p>
 
 <p><strong>WebSocket Request</strong></p>
 
-<p><code>WSS &lt;account-group&gt;/api/pro/stream</code></p>
+<p><code>WSS &lt;account-group&gt;/api/pro/v1/stream</code></p>
 
 <p>In order to authorize the session you must include <code>&lt;account-group&gt;</code> in the URL. Without <code>&lt;account-group&gt;</code>, you can 
 only subscribe to public data. </p>
@@ -3354,7 +3361,7 @@ for 30 seconds if a client initiated <code>ping</code> message is received. </p>
 wscat -H <span class="s2">"x-auth-key: </span><span class="nv">$APIKEY</span><span class="s2">"</span> <span class="se">\</span>
   -H <span class="s2">"x-auth-signature: </span><span class="nv">$SIGNATURE</span><span class="s2">"</span> <span class="se">\</span>
   -H <span class="s2">"x-auth-timestamp: </span><span class="nv">$TIMESTAMP</span><span class="s2">"</span> <span class="se">\</span>
-  -c wss://bitmax.io/1/api/t/stream -w 1 -x <span class="s1">'{"op":"sub", "id": "abc123", "ch": "order:cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo:BTMX/USDT"}'</span>
+  -c wss://bitmax.io/1/api/v1/t/stream -w 1 -x <span class="s1">'{"op":"sub", "id": "abc123", "ch": "order:cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo:BTMX/USDT"}'</span>
 </code></pre>
 <p>This is similar to the way you authenticate any RESTful request. You need to add the following header fields to the 
 connection request:</p>
@@ -3490,7 +3497,7 @@ wscat -c wss://bitmax.io/1/api/pro/stream -w 1 -x <span class="s2">"{</span><spa
 npm install -g wscat
 
 <span class="c"># Connect to websocket</span>
-wscat -c wss://bitmax.io/0/api/pro/stream -x <span class="s1">'{"op":"sub", "ch": "depth:BTMX/USDT"}'</span>
+wscat -c wss://bitmax.io/0/api/pro/v1/stream -x <span class="s1">'{"op":"sub", "ch": "depth:BTMX/USDT"}'</span>
 </code></pre>
 <blockquote>
 <p>You can also setup authorized session</p>
