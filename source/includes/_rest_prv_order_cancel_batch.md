@@ -68,7 +68,7 @@ Cancel multiple orders in a batch. If some order in the batch failed our basic c
 
 **HTTP Request**
 
-`DELETE <account-group>/api/pro/{account-category}/order/batch`
+`DELETE <account-group>/api/pro/v1/{account-category}/order/batch`
 
 Set `account-category` to`cash` for cash account and `margin` for margin account. 
 

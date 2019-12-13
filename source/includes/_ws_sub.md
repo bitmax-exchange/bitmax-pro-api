@@ -10,7 +10,7 @@
 npm install -g wscat
 
 # Connect to websocket
-wscat -c wss://bitmax.io/0/api/pro/stream -x '{"op":"sub", "ch": "depth:BTMX/USDT"}'
+wscat -c wss://bitmax.io/0/api/pro/v1/stream -x '{"op":"sub", "ch": "depth:BTMX/USDT"}'
 ```
 
 > You can also setup authorized session

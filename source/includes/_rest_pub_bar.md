@@ -3,7 +3,7 @@
 > Request 
 
 ```
-curl -X GET https://bitmax.io/api/pro/barhist/info
+curl -X GET https://bitmax.io/api/pro/v1/barhist/info
 ```
 
 > Sample response
@@ -66,7 +66,7 @@ curl -X GET https://bitmax.io/api/pro/barhist/info
 
 **HTTP Request**
 
-`GET /api/pro/barhist/info`
+`GET /api/pro/v1/barhist/info`
 
 This API returns a list of all bar intervals supported by the server. 
 
@@ -97,7 +97,7 @@ The value in the `name` field should be your input to the [Historical Bar Data](
 > Request 
 
 ```
-curl -X GET https://bitmax.io/api/pro/barhist?symbol=BTMX/USDT&interval=1
+curl -X GET https://bitmax.io/api/pro/v1/barhist?symbol=BTMX/USDT&interval=1
 ```
 
 > Sample response
@@ -135,7 +135,7 @@ curl -X GET https://bitmax.io/api/pro/barhist?symbol=BTMX/USDT&interval=1
 
 **HTTP Request**
 
-`GET /api/pro/barhist`
+`GET /api/pro/v1/barhist`
 
 This API returns a list of **bar**s, with each contains the open/close/high/low prices of a symbol for a specific time range. 
 

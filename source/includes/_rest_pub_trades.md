@@ -3,7 +3,7 @@
 > Request 
 
 ```
-curl -X GET /api/pro/trades?symbol=BTMX/USDT
+curl -X GET /api/pro/v1/trades?symbol=BTMX/USDT
 ```
 
 > Sample response 
@@ -36,7 +36,7 @@ curl -X GET /api/pro/trades?symbol=BTMX/USDT
 
 **HTTP Request**
 
-`GET /api/pro/trades`
+`GET /api/pro/v1/trades`
 
 #### Request Parameters
 

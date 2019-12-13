@@ -9,7 +9,7 @@
 
 **WebSocket Request**
 
-`WSS <account-group>/api/pro/stream`
+`WSS <account-group>/api/pro/v1/stream`
 
 
 In order to authorize the session you must include `<account-group>` in the URL. Without `<account-group>`, you can 

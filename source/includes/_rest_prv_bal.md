@@ -29,7 +29,7 @@
 
 **HTTP Request**
 
-`GET <account-group>/api/pro/cash/balance`
+`GET <account-group>/api/pro/v1/cash/balance`
 
 **Signature**
 
@@ -71,7 +71,7 @@ Please refer to python code to[query private balance]{https://github.com/bitmax-
 
 **HTTP Request** 
 
-`GET <account-group>/api/pro/margin/balance`
+`GET <account-group>/api/pro/v1/margin/balance`
 
 **Signature**
 
@@ -106,7 +106,7 @@ You should sign the message in header as specified in [**Authenticate a RESTful 
 
 **HTTP Request**
 
-`POST <account-group>/api/pro/margin/risk`
+`POST <account-group>/api/pro/v1/margin/risk`
 
 **Signature**
 

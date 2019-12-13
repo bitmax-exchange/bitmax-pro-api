@@ -3,7 +3,7 @@
 > List all Assets
 
 ```
-curl -X GET https://bitmax.io/api/pro/assets
+curl -X GET https://bitmax.io/api/pro/v1/assets
 ```
 
 > Sample Response 
@@ -27,7 +27,7 @@ curl -X GET https://bitmax.io/api/pro/assets
 
 **HTTP Request** 
 
-`GET /api/pro/assets`
+`GET /api/pro/v1/assets`
 
 You can obtain a list of all assets listed on the exchange through this API.
 

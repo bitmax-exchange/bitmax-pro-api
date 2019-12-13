@@ -3,7 +3,7 @@
 > List all Products 
 
 ```
-curl -X GET https://bitmax.io/api/pro/products
+curl -X GET https://bitmax.io/api/pro/v1/products
 ```
 
 > Sample Response 
@@ -31,7 +31,7 @@ curl -X GET https://bitmax.io/api/pro/products
 
 **HTTP Request**
 
-`GET /api/pro/products`
+`GET /api/pro/v1/products`
 
 #### Response Content
 

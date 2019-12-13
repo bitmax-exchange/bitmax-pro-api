@@ -32,7 +32,7 @@ curl -X GET -i \
   -H "x-auth-key: $APIKEY" \
   -H "x-auth-signature: $SIGNATURE" \
   -H "x-auth-timestamp: $TIMESTAMP" \
-  https://bitmax.io/api/pro/info
+  https://bitmax.io/api/pro/v1/info
 ```
 
 ```python

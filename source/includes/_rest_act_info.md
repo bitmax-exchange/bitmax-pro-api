@@ -7,12 +7,12 @@
     "code": 0,
     "data": {
         "accountGroup": 0,
-        "email": "yzhao0527@gmail.com",
+        "email": "yyzzxxz@gmail.com",
         "cashAccount": [
-            "MPXFNEYEJIJ93CREXT3LTCIDIJPCFNIX"
+            "dadFNEYEJIJ93CRxdafd3LTCIDIJPCFNIX"
         ],
         "marginAccount": [
-            "mar2z3CMIEQx4UvTFbtQ9JcxWJYgHmcb"
+            "mar2z3CMIEQx4UadasbtQ9JcxWJYgHmcb"
         ],
         "tradePermission":    True,
         "transferPermission": True,
@@ -24,7 +24,7 @@
 
 **HTTP Request** 
 
-`GET /api/pro/info`
+`GET /api/pro/v1/info`
 
 **Signature**
 

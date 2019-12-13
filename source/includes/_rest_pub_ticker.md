@@ -3,7 +3,7 @@
 > Ticker for one product
 
 ```json
-// curl -X GET 'https://bitmax.io/api/pro/ticker?symbol=BTMX/USDT'
+// curl -X GET 'https://bitmax.io/api/pro/v1/ticker?symbol=BTMX/USDT'
 {
     "code": 0,
     "data": {
@@ -28,19 +28,25 @@
 > List of Tickers for one or multiple products
 
 ```json
-// curl -X GET "https://bitmax.io/api/pro/ticker?symbol=BTMX/USDT,"
+// curl -X GET "https://bitmax.io/api/pro/v1/ticker?symbol=BTMX/USDT,"
 {
     "code": 0,
     "data": [
         {
-            "ask": ["0.000241", "1563.6"],
-            "bid": ["0.00023708", "376"],
-            "close": "0.00024",
-            "high": "0.000243",
-            "low": "0.000235",
-            "open": "0.000239",
-            "symbol": "QTUM/BTC",
-            "volume": "13510.8"
+            "symbol": "BTMX/USDT",
+            "open":   "0.06777",
+            "close":  "0.06809",
+            "high":   "0.06809",
+            "low":    "0.06809",
+            "volume": "19825870",
+            "ask": [
+                "0.0681",
+                "43641"
+            ],
+            "bid": [
+                "0.0676",
+                "443"
+            ]
         }
     ]
 }
@@ -48,7 +54,7 @@
 
 **HTTP Request**
 
-`GET api/pro/ticker`
+`GET api/pro/v1/ticker`
 
 You can get summary statistics of one or multiple symbols with this API. 
 

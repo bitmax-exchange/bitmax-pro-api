@@ -4,7 +4,7 @@
 
 ```json
 {
-    "accountCategory": "CASH",
+    "ac": "CASH",
     "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
     "code": 0,
     "data": [
@@ -34,7 +34,7 @@ This API returns all current history orders for the account specified. //TODO: n
 
 **HTTP Request**
 
-`GET <account-group>/api/pro/{account-category}/order/hist/current`
+`GET <account-group>/api/pro/v1/{account-category}/order/hist/current`
 
 Set `account-category` to`cash` for cash account and `margin` for margin account. 
 

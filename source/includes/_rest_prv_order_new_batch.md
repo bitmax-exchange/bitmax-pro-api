@@ -7,7 +7,8 @@
 {
     "code": 0,
     "data": {
-        "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
+        "ac": "CASH",
+        "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",        
         "action": "batch-place-order",
         "info": [
             {
@@ -34,7 +35,7 @@
 
 ```json
 {
-    "accountCategory": "CASH",
+    "ac": "CASH",
     "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
     "action": "batch-place-order",
     "code": 300013,
@@ -62,7 +63,7 @@ You may submit up to 10 orders at a time. Server will respond with error if you 
 
 **HTTP Request**
 
-`POST <account-group>/api/pro/{account-category}/order/batch`
+`POST <account-group>/api/pro/v1/{account-category}/order/batch`
 
 Set `account-category` to`cash` for cash account and `margin` for margin account.
 

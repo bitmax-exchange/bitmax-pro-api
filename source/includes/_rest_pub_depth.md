@@ -3,7 +3,7 @@
 > Request for Order Book (Depth) Data
 
 ```
-curl -X GET https://bitmax.io/api/pro/depth?symbol=BTMX/USDT
+curl -X GET https://bitmax.io/api/pro/v1/depth?symbol=BTMX/USDT
 ```
 
 > Order Book (Depth) Data - Sample response 
@@ -44,7 +44,7 @@ curl -X GET https://bitmax.io/api/pro/depth?symbol=BTMX/USDT
 
 **HTTP Request**
 
-`GET /api/pro/depth`
+`GET /api/pro/v1/depth`
 
 #### Request Parameters
 

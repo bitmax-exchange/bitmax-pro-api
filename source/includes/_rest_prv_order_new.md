@@ -131,7 +131,7 @@ Place a new order.
 
 **HTTP Request**
 
-`POST <account-group>/api/pro/{account-category}/order`
+`POST <account-group>/api/pro/v1/{account-category}/order`
 
 Set `account-category` to`cash` for cash account and `margin` for margin account. 
 
