@@ -67,6 +67,6 @@ The response schema:
 --------------------| --------------------- | ----------------------------- 
  `m`                | `String`              | `open-order`
  `accountId`        | `String`              | account  
- `accountCategory`  | `String`              | `cash`, `margin`
+ `ac`               | `String`              | `cash`, `margin`
  `id`               | `String`              | echo id in request
  `data`             | `Order Json Array`    | A list of open order json objects        
