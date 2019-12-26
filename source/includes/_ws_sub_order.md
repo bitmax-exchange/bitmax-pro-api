@@ -45,7 +45,8 @@
         "sn": 8159711, 
         "sp": "", 
         "st": "New", 
-        "t": 1576019215402
+        "t": 1576019215402,
+        "ei": "NULL_VAL"
     }
 }
 ```
@@ -79,3 +80,4 @@ Name     | Type     | Description
 `sp`     | `String` | stop price; could be empty
 `st`     | `String` | order status
 `t`      | `Long`   | latest execution timestamp
+`ei`     | `String` | execution instruction
