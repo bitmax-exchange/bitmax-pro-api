@@ -83,6 +83,6 @@ See [https://github.com/bitmax-exchange/bitmax-pro-api-demo](https://github.com/
 
 **2019-12-26**
 
-* Added execution instruction to order messages. This field indicates if the order is Post-Only or forced liquidation. It is named `execInst` 
-  in RESTful responses and `ei` in websocket messages.
+* Added execution instruction to order messages (place new order, list open/historical orders). This field indicates if the order is Post-Only (`Post`) or forced liquidation (`Liquidation`). It is named `execInst` 
+  in RESTful responses and `ei` in websocket messages. 
 
