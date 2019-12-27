@@ -60,12 +60,12 @@ You should sign the message in header as specified in [**Authenticate a RESTful 
 
 **Request Parameters**
 
-Name      | Type   |Required| Value Range                            | Description
-------------|--------|--------| -------------------------------------|---------------
-id          | String |  Yes   |32 chars(letter and digit number only)|Please generate unique ID for each trade; we will echo it back to help you identify the response.
-orderId     | String |  Yes   |32 chars order id responded by server when place order|
-symbol      | String |  Yes   |                                      |  
-time        | Long   |  Yes   |milliseconds since UNIX epoch in UTC  |We do not process request placed more than 30 seconds ago.
+Name        | Type   |Required| Value Range                                           | Description
+------------|--------|--------| ----------------------------------------------------- | ---------------
+id          | String |  Yes   |32 chars(letter and digit number only)                 | Please generate unique ID for each trade; we will echo it back to help you identify the response.
+orderId     | String |  Yes   |32 chars order id responded by server when place order | 
+symbol      | String |  Yes   |                                                       |  
+time        | Long   |  Yes   |milliseconds since UNIX epoch in UTC                   | We do not process request placed more than 30 seconds ago.
 
 **Response**
 

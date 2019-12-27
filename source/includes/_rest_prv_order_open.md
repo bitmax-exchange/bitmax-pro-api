@@ -9,22 +9,24 @@
  "code": 0,
  "data": [
    {
-     "avgPx": "0", // Average filled price of the order   
-      "cumFee": "0", // cumulative fee paid for this order
+     "avgPx": "0",         // Average filled price of the order   
+      "cumFee": "0",       // cumulative fee paid for this order
       "cumFilledQty": "0", // cumulative filled quantity
-      "errorCode": "", // error code; could be empty
-      "feeAsset": "USDT", // fee asset
+      "errorCode": "",     // error code; could be empty
+      "feeAsset": "USDT",  // fee asset
       "lastExecTime": 1576019723550, //  The last execution time of the order
       "orderId": "s16ef21882ea0866943712034f36d83", // server provided orderId
-      "orderQty": "0.0083", // order quantity
-      "orderType": "Limit", // order type
-      "price": "7105", // order price
-      "seqNum": 8193258, // sequence number
-      "side": "Buy", // order side
-      "status": "New", // order status on matching engine
-      "stopPrice": "", // only available for stop market and stop limit orders; otherwise empty 
-      "symbol": "BTC/USDT"},
-      ...
+      "orderQty": "0.0083",  // order quantity
+      "orderType": "Limit",  // order type
+      "price": "7105",       // order price
+      "seqNum": 8193258,     // sequence number
+      "side": "Buy",         // order side
+      "status": "New",       // order status on matching engine
+      "stopPrice": "",       // only available for stop market and stop limit orders; otherwise empty 
+      "symbol": "BTC/USDT",
+      "execInst": "NULL_VAL" // execution instruction
+    },
+    ...
   ]
 }
 ```
@@ -66,6 +68,7 @@ Name           | Type     | Description
 `status`       | `String` | order status
 `stopPrice`    | `String` | stop price(could be empty)
 `symbol`       | `String` | symbol
+`execInst`     | `String` | execution instruction, `POST` for Post-Only orders, `Liquidation` for forced-liquidation orders, and `NULL_VAL` otherwise.
 
 
 Error Response Messages

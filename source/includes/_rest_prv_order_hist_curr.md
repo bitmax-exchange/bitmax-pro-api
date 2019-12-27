@@ -23,7 +23,8 @@
             "side": "Buy",
             "status": "Filled",
             "stopPrice": "",
-            "symbol": "BTC/USDT"
+            "symbol": "BTC/USDT",
+            "execInst": "NULL_VAL"
         },
         ...
     ]

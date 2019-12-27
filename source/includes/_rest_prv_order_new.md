@@ -61,7 +61,9 @@
             "side": "Buy",
             "status": "New",
             "stopPrice": "",
-            "symbol": "BTC/USDT"},
+            "symbol": "BTC/USDT",
+            "execInst": "NULL_VAL"
+        },
         "status": "ACCEPT"
     }
 }   
@@ -77,7 +79,8 @@
     "orderQty": "0.00082", 
     "orderType": "market", 
     "side": "buy", 
-    "respInst": "DONE"}
+    "respInst": "DONE"
+}
 ```
 
 > Successful DONE Response (Status 200, code 0)
@@ -104,7 +107,9 @@
         "side": "Sell",
         "status": "Filled",
         "stopPrice": "",
-        "symbol": "BTC/USDT"},
+        "symbol": "BTC/USDT",
+        "execInst": "NULL_VAL"
+    },
     "status": "DONE"}}
 ```
 
@@ -220,6 +225,7 @@ Name           | Type     | Description
 `status`       | `String` | order status
 `stopPrice`    | `String` | stop price(could be empty)
 `symbol`       | `String` | symbol
+`execInst`     | `String` | execution instruction, `POST` for Post-Only orders, `Liquidation` for forced-liquidation orders, and `NULL_VAL` otherwise.
 
 *ACCEPT*
 

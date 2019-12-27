@@ -77,3 +77,11 @@ We provide comprehensive demos (currently available in python). We provide two t
 * Large, complex demo scripts to show you how to design a trading strategy using APIs from this document.
 
 See [https://github.com/bitmax-exchange/bitmax-pro-api-demo](https://github.com/bitmax-exchange/bitmax-pro-api-demo) for more details.
+
+
+## Release Note 
+
+### 2019-12-26
+
+* Added execution instruction to order messages. This field indicates if the order is Post-Only or forced liquidation. It is named `execInst` 
+  in RESTful responses and `ei` in websocket messages.
