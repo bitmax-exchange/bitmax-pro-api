@@ -229,6 +229,14 @@
                   <li>
                     <a href="#demo-codes" class="toc-h2 toc-link" data-title="Demo codes">Demo codes</a>
                   </li>
+                  <li>
+                    <a href="#release-note" class="toc-h2 toc-link" data-title="Release Note">Release Note</a>
+                    <ul class="toc-list-h3">
+                        <li>
+                          <a href="#2019-12-26" class="toc-h3 toc-link" data-title="2019-12-26">2019-12-26</a>
+                        </li>
+                    </ul>
+                  </li>
               </ul>
           </li>
           <li>
@@ -463,6 +471,11 @@ life cycle with only one indentifier (<code>orderId</code>). </li>
 </ul>
 
 <p>See <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo">https://github.com/bitmax-exchange/bitmax-pro-api-demo</a> for more details.</p>
+<h2 id='release-note'>Release Note</h2><h3 id='2019-12-26'>2019-12-26</h3>
+<ul>
+<li>Added execution instruction to order messages. This field indicates if the order is Post-Only or forced liquidation. It is named <code>execInst</code> 
+in RESTful responses and <code>ei</code> in websocket messages.</li>
+</ul>
 <h1 id='rest-apis'>REST APIs</h1>
 <p>We always respond with json include <code>code</code> field to indicate request result. <code>0</code> usually means success response, and you could find data in json format in field <code>data</code>; any code other than <code>0</code> indicate failure during the request process. For failure response, usually you could find detailed error in fields <code>message</code>, <code>reason</code>, and possibly extra <code>info</code>.</p>
 
@@ -1643,7 +1656,9 @@ only 500 bars will be returned. </li>
             </span><span class="s2">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buy"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"stopPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/USDT"</span><span class="p">},</span><span class="w">
+            </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/USDT"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"execInst"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NULL_VAL"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
         </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACCEPT"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">   
@@ -1658,7 +1673,8 @@ only 500 bars will be returned. </li>
     </span><span class="s2">"orderQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00082"</span><span class="p">,</span><span class="w"> 
     </span><span class="s2">"orderType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"market"</span><span class="p">,</span><span class="w"> 
     </span><span class="s2">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"buy"</span><span class="p">,</span><span class="w"> 
-    </span><span class="s2">"respInst"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DONE"</span><span class="p">}</span><span class="w">
+    </span><span class="s2">"respInst"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DONE"</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
 <p>Successful DONE Response (Status 200, code 0)</p>
@@ -1684,7 +1700,9 @@ only 500 bars will be returned. </li>
         </span><span class="s2">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sell"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Filled"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"stopPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/USDT"</span><span class="p">},</span><span class="w">
+        </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/USDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"execInst"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NULL_VAL"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DONE"</span><span class="p">}}</span><span class="w">
 </span></code></pre>
 <blockquote>
@@ -2004,6 +2022,11 @@ only 500 bars will be returned. </li>
 <td><code>symbol</code></td>
 <td><code>String</code></td>
 <td>symbol</td>
+</tr>
+<tr>
+<td><code>execInst</code></td>
+<td><code>String</code></td>
+<td>execution instruction, <code>POST</code> for Post-Only orders, <code>Liquidation</code> for forced-liquidation orders, and <code>NULL_VAL</code> otherwise.</td>
 </tr>
 </tbody></table>
 
@@ -3021,22 +3044,24 @@ Order detail for each order is in <code>info</code> field list.</p>
  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
    </span><span class="p">{</span><span class="w">
-     </span><span class="s2">"avgPx"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">Average</span><span class="w"> </span><span class="err">filled</span><span class="w"> </span><span class="err">price</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">order</span><span class="w">   
-      </span><span class="s2">"cumFee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">cumulative</span><span class="w"> </span><span class="err">fee</span><span class="w"> </span><span class="err">paid</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">this</span><span class="w"> </span><span class="err">order</span><span class="w">
+     </span><span class="s2">"avgPx"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">         </span><span class="err">//</span><span class="w"> </span><span class="err">Average</span><span class="w"> </span><span class="err">filled</span><span class="w"> </span><span class="err">price</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">order</span><span class="w">   
+      </span><span class="s2">"cumFee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">       </span><span class="err">//</span><span class="w"> </span><span class="err">cumulative</span><span class="w"> </span><span class="err">fee</span><span class="w"> </span><span class="err">paid</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">this</span><span class="w"> </span><span class="err">order</span><span class="w">
       </span><span class="s2">"cumFilledQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">cumulative</span><span class="w"> </span><span class="err">filled</span><span class="w"> </span><span class="err">quantity</span><span class="w">
-      </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">error</span><span class="w"> </span><span class="err">code;</span><span class="w"> </span><span class="err">could</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">empty</span><span class="w">
-      </span><span class="s2">"feeAsset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">fee</span><span class="w"> </span><span class="err">asset</span><span class="w">
+      </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">     </span><span class="err">//</span><span class="w"> </span><span class="err">error</span><span class="w"> </span><span class="err">code;</span><span class="w"> </span><span class="err">could</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">empty</span><span class="w">
+      </span><span class="s2">"feeAsset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">fee</span><span class="w"> </span><span class="err">asset</span><span class="w">
       </span><span class="s2">"lastExecTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576019723550</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w">  </span><span class="err">The</span><span class="w"> </span><span class="err">last</span><span class="w"> </span><span class="err">execution</span><span class="w"> </span><span class="err">time</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">order</span><span class="w">
       </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s16ef21882ea0866943712034f36d83"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">server</span><span class="w"> </span><span class="err">provided</span><span class="w"> </span><span class="err">orderId</span><span class="w">
-      </span><span class="s2">"orderQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0083"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">quantity</span><span class="w">
-      </span><span class="s2">"orderType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Limit"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">type</span><span class="w">
-      </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7105"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">price</span><span class="w">
-      </span><span class="s2">"seqNum"</span><span class="p">:</span><span class="w"> </span><span class="mi">8193258</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">sequence</span><span class="w"> </span><span class="err">number</span><span class="w">
-      </span><span class="s2">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buy"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">side</span><span class="w">
-      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">status</span><span class="w"> </span><span class="err">on</span><span class="w"> </span><span class="err">matching</span><span class="w"> </span><span class="err">engine</span><span class="w">
-      </span><span class="s2">"stopPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">only</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">stop</span><span class="w"> </span><span class="err">market</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">stop</span><span class="w"> </span><span class="err">limit</span><span class="w"> </span><span class="err">orders;</span><span class="w"> </span><span class="err">otherwise</span><span class="w"> </span><span class="err">empty</span><span class="w"> 
-      </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/USDT"</span><span class="p">},</span><span class="w">
-      </span><span class="err">...</span><span class="w">
+      </span><span class="s2">"orderQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0083"</span><span class="p">,</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">quantity</span><span class="w">
+      </span><span class="s2">"orderType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Limit"</span><span class="p">,</span><span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">type</span><span class="w">
+      </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7105"</span><span class="p">,</span><span class="w">       </span><span class="err">//</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">price</span><span class="w">
+      </span><span class="s2">"seqNum"</span><span class="p">:</span><span class="w"> </span><span class="mi">8193258</span><span class="p">,</span><span class="w">     </span><span class="err">//</span><span class="w"> </span><span class="err">sequence</span><span class="w"> </span><span class="err">number</span><span class="w">
+      </span><span class="s2">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buy"</span><span class="p">,</span><span class="w">         </span><span class="err">//</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">side</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New"</span><span class="p">,</span><span class="w">       </span><span class="err">//</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">status</span><span class="w"> </span><span class="err">on</span><span class="w"> </span><span class="err">matching</span><span class="w"> </span><span class="err">engine</span><span class="w">
+      </span><span class="s2">"stopPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">       </span><span class="err">//</span><span class="w"> </span><span class="err">only</span><span class="w"> </span><span class="err">available</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">stop</span><span class="w"> </span><span class="err">market</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">stop</span><span class="w"> </span><span class="err">limit</span><span class="w"> </span><span class="err">orders;</span><span class="w"> </span><span class="err">otherwise</span><span class="w"> </span><span class="err">empty</span><span class="w"> 
+      </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/USDT"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"execInst"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NULL_VAL"</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">execution</span><span class="w"> </span><span class="err">instruction</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="err">...</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -3142,6 +3167,11 @@ Order detail for each order is in <code>info</code> field list.</p>
 <td><code>String</code></td>
 <td>symbol</td>
 </tr>
+<tr>
+<td><code>execInst</code></td>
+<td><code>String</code></td>
+<td>execution instruction, <code>POST</code> for Post-Only orders, <code>Liquidation</code> for forced-liquidation orders, and <code>NULL_VAL</code> otherwise.</td>
+</tr>
 </tbody></table>
 
 <p>Error Response Messages</p>
@@ -3196,7 +3226,8 @@ Order detail for each order is in <code>info</code> field list.</p>
             </span><span class="s2">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buy"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Filled"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"stopPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/USDT"</span><span class="w">
+            </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/USDT"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"execInst"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NULL_VAL"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="err">...</span><span class="w">
     </span><span class="p">]</span><span class="w">
@@ -3903,7 +3934,8 @@ value into one aggregated item. Each trade object contains the following fields:
         </span><span class="s2">"sn"</span><span class="p">:</span><span class="w"> </span><span class="mi">8159711</span><span class="p">,</span><span class="w"> 
         </span><span class="s2">"sp"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> 
         </span><span class="s2">"st"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"t"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576019215402</span><span class="w">
+        </span><span class="s2">"t"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576019215402</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ei"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NULL_VAL"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -4016,6 +4048,11 @@ value into one aggregated item. Each trade object contains the following fields:
 <td><code>t</code></td>
 <td><code>Long</code></td>
 <td>latest execution timestamp</td>
+</tr>
+<tr>
+<td><code>ei</code></td>
+<td><code>String</code></td>
+<td>execution instruction</td>
 </tr>
 </tbody></table>
 <h2 id='data-query-order-request'>Data Query / Order Request</h2>
