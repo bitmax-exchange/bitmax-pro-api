@@ -231,11 +231,6 @@
                   </li>
                   <li>
                     <a href="#release-note" class="toc-h2 toc-link" data-title="Release Note">Release Note</a>
-                    <ul class="toc-list-h3">
-                        <li>
-                          <a href="#2019-12-26" class="toc-h3 toc-link" data-title="2019-12-26">2019-12-26</a>
-                        </li>
-                    </ul>
                   </li>
               </ul>
           </li>
@@ -471,7 +466,9 @@ life cycle with only one indentifier (<code>orderId</code>). </li>
 </ul>
 
 <p>See <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo">https://github.com/bitmax-exchange/bitmax-pro-api-demo</a> for more details.</p>
-<h2 id='release-note'>Release Note</h2><h3 id='2019-12-26'>2019-12-26</h3>
+<h2 id='release-note'>Release Note</h2>
+<p><strong>2019-12-26</strong></p>
+
 <ul>
 <li>Added execution instruction to order messages. This field indicates if the order is Post-Only or forced liquidation. It is named <code>execInst</code> 
 in RESTful responses and <code>ei</code> in websocket messages.</li>
@@ -2371,7 +2368,7 @@ only 500 bars will be returned. </li>
 
 <p><strong>Code Sample</strong></p>
 
-<p>Refer to sample python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/cancel_order.py">cancel all order</a></p>
+<p>Refer to sample python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/cancel_all.py">cancel all order</a></p>
 <h4 id='caveat'>Caveat</h4>
 <p>The server will process the cancel all request with best effort. Orders sent but un-acked will not be canceled. You should rely on websocket order update messages or the RESTful api 
 to obtain the latest status of each order. </p>
