@@ -60,7 +60,7 @@ BitMax Pro API is the latest release of APIs allowing our users to access the ex
 of the older releases. The BitMax team re-implemented the entire backend system in support for the BitMax Pro API. It is designed
 to be fast, flexible, stable, and comprehensive. 
 
-### What's New
+## What's New
 
 * Dynamic subscription/unsubscription to private and public data channels via WebSocket. 
 * Synchronized/Asynchronized API calls. When placing/cancelling orders, you may use synchronized method 
@@ -69,7 +69,7 @@ to be fast, flexible, stable, and comprehensive.
   life cycle with only one indentifier (`orderId`). 
 * More detailed error message.
 
-### Demo codes
+## Demo codes
 
 We provide comprehensive demos (currently available in python). We provide two types of demo codes:
 
