@@ -244,7 +244,7 @@
                           <a href="#create-request" class="toc-h3 toc-link" data-title="Create Request">Create Request</a>
                         </li>
                         <li>
-                          <a href="#sign-request" class="toc-h3 toc-link" data-title="Sign Request">Sign Request</a>
+                          <a href="#sign-a-request" class="toc-h3 toc-link" data-title="Sign a Request">Sign a Request</a>
                         </li>
                     </ul>
                   </li>
@@ -483,12 +483,12 @@ in RESTful responses and <code>ei</code> in websocket messages. </li>
 <ul>
 <li><code>x-auth-key</code> - required, the api key as a string. </li>
 <li><code>x-auth-timestamp</code> - required, the UTC timestamp in milliseconds of your request</li>
-<li><code>x-auth-signature</code> - required, the request signature (see <a href="#signing-a-request">Signing a Request</a>)</li>
+<li><code>x-auth-signature</code> - required, the request signature (see <a href="#sign-a-request">Sign a Request</a>)</li>
 </ul>
 
 <p>The timestamp in the header will be checked against server time. If the difference is greater than 30 seconds, the request will 
 be rejected. </p>
-<h3 id='sign-request'>Sign Request</h3>
+<h3 id='sign-a-request'>Sign a Request</h3>
 <blockquote>
 <p>Signing a RESTful Request</p>
 </blockquote>
@@ -1385,10 +1385,10 @@ only 500 bars will be returned. </li>
         </span><span class="s2">"marginAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="s2">"mar2z3CMIEQx4UadasbtQ9JcxWJYgHmcb"</span><span class="w">
         </span><span class="p">],</span><span class="w">
-        </span><span class="s2">"tradePermission"</span><span class="p">:</span><span class="w">    </span><span class="err">True</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"transferPermission"</span><span class="p">:</span><span class="w"> </span><span class="err">True</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"userUID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"U0866943712"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"viewPermission"</span><span class="p">:</span><span class="w">     </span><span class="err">True</span><span class="w">
+        </span><span class="s2">"tradePermission"</span><span class="p">:</span><span class="w">     </span><span class="err">True</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"transferPermission"</span><span class="p">:</span><span class="w">  </span><span class="err">True</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"userUID"</span><span class="p">:</span><span class="w">            </span><span class="s2">"U0866943712"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"viewPermission"</span><span class="p">:</span><span class="w">      </span><span class="err">True</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1703,7 +1703,7 @@ only 500 bars will be returned. </li>
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DONE"</span><span class="p">}}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>Place Order - Error Response (Status 200, code 0)</p>
+<p>Place Order - Error Response (Status 200, code 300011)</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">300011</span><span class="p">,</span><span class="w">
@@ -1730,7 +1730,7 @@ only 500 bars will be returned. </li>
 
 <p><strong>Signature</strong></p>
 
-<p>You should sign the message in header as specified in <a href="#sign-request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
+<p>You should sign the message in header as specified in <a href="#sign-a-request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
 
 <p><strong>Prehash String</strong></p>
 
@@ -3072,7 +3072,7 @@ Order detail for each order is in <code>info</code> field list.</p>
 
 <p><strong>Signature</strong></p>
 
-<p>You should sign the message in header as specified in <a href="#sign-request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
+<p>You should sign the message in header as specified in <a href="#sign-a-request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
 
 <p><strong>Prehash String</strong></p>
 
