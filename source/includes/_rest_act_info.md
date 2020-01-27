@@ -14,10 +14,10 @@
         "marginAccount": [
             "mar2z3CMIEQx4UadasbtQ9JcxWJYgHmcb"
         ],
-        "tradePermission":    True,
-        "transferPermission": True,
-        "userUID": "U0866943712",
-        "viewPermission":     True
+        "tradePermission":     True,
+        "transferPermission":  True,
+        "userUID":            "U0866943712",
+        "viewPermission":      True
     }
 }
 ```
