@@ -68,10 +68,10 @@ Response follow the following schema
 
 ```json
 {
-    "m": "error",
-    "id": "ab123",
-    "code":100005,
-    "reason":"INVALID_WS_REQUEST_DATA",
-    "info":"Invalid request action: trade-snapshot"
+    "m":      "error",
+    "id":     "ab123",
+    "code":   100005,
+    "reason": "INVALID_WS_REQUEST_DATA",
+    "info":   "Invalid request action: trade-snapshot"
 }
 ```
