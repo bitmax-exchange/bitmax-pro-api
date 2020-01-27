@@ -113,7 +113,7 @@
     "status": "DONE"}}
 ```
 
-> Place Order - Error Response (Status 200, code 0)
+> Place Order - Error Response (Status 200, code 300011)
 
 ```json
 {
@@ -142,7 +142,7 @@ Set `account-category` to`cash` for cash account and `margin` for margin account
 
 **Signature**
 
-You should sign the message in header as specified in [**Authenticate a RESTful Request**](#sign-request) section.
+You should sign the message in header as specified in [**Authenticate a RESTful Request**](#sign-a-request) section.
 
 **Prehash String**
 
