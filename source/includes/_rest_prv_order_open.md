@@ -41,7 +41,7 @@ Set `account-category` to`cash` for cash account and `margin` for margin account
 
 **Signature**
 
-You should sign the message in header as specified in [**Authenticate a RESTful Request**](#sign-request) section.
+You should sign the message in header as specified in [**Authenticate a RESTful Request**](#sign-a-request) section.
 
 **Prehash String**
 
