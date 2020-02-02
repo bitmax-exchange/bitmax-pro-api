@@ -47,22 +47,22 @@
         "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
         "action": "place-order",          
         "info": {            
-            "avgPx": "0",
-            "cumFee": "0",
+            "avgPx":        "0",
+            "cumFee":       "0",
             "cumFilledQty": "0",
-            "errorCode": "",
-            "feeAsset": "USDT",
+            "errorCode":    "",
+            "feeAsset":     "USDT",
             "lastExecTime": 1575573998500,
-            "orderId": "a16ed787462fU9490877774N4KBHIVN0",
-            "orderQty": "0.00081",
-            "orderType": "Limit",
-            "price": "7019",
-            "seqNum": 2323407894,
-            "side": "Buy",
-            "status": "New",
-            "stopPrice": "",
-            "symbol": "BTC/USDT",
-            "execInst": "NULL_VAL"
+            "orderId":      "a16ed787462fU9490877774N4KBHIVN0",
+            "orderQty":     "0.00081",
+            "orderType":    "Limit",
+            "price":        "7019",
+            "seqNum":       2323407894,
+            "side":         "Buy",
+            "status":       "New",
+            "stopPrice":    "",
+            "symbol":       "BTC/USDT",
+            "execInst":     "NULL_VAL"
         },
         "status": "ACCEPT"
     }
@@ -73,13 +73,13 @@
 
 ```json
 {
-    "id": "UHTe3uVB0KhNGatoRS10YgABwHW0fCYn", 
-    "time": 1575348906131, 
-    "symbol": "BTC/USDT",
-    "orderQty": "0.00082", 
+    "id":        "UHTe3uVB0KhNGatoRS10YgABwHW0fCYn", 
+    "time":      1575348906131, 
+    "symbol":    "BTC/USDT",
+    "orderQty":  "0.00082", 
     "orderType": "market", 
-    "side": "buy", 
-    "respInst": "DONE"
+    "side":      "buy", 
+    "respInst":  "DONE"
 }
 ```
 
