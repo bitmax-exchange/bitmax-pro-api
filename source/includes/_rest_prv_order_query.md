@@ -10,6 +10,10 @@
     "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
     "data": [
         {
+            "symbol": "BTC/USDT",
+            "price": "8130.24",
+            "orderQty": "0.00082",
+            "orderType": "Limit",
             "avgPx": "7391.13",
             "cumFee": "0.005151618",
             "cumFilledQty": "0.00082",
@@ -17,16 +21,17 @@
             "feeAsset": "USDT",
             "lastExecTime": 1575953134011,
             "orderId": "a16eee206d610866943712rPNknIyhH",
-            "orderQty": "0.00082",
-            "orderType": "Market",
-            "price": "8130.24",
             "seqNum": 2622058,
             "side": "Buy",
             "status": "Filled",
             "stopPrice": "",
-            "symbol": "BTC/USDT"
+            "execInst": "NULL_VAL"
         },
         {
+            "symbol": "BTC/USDT",
+            "price": "8131.22",
+            "orderQty": "0.00082",
+            "orderType": "Market",
             "avgPx": "7392.02",
             "cumFee": "0.005152238",
             "cumFilledQty": "0.00082",
@@ -34,14 +39,11 @@
             "feeAsset": "USDT",
             "lastExecTime": 1575953151764,
             "orderId": "a16eee20b6750866943712zWEDdAjt3",
-            "orderQty": "0.00082",
-            "orderType": "Market",
-            "price": "8131.22",
             "seqNum": 2623469,
             "side": "Buy",
             "status": "Filled",
             "stopPrice": "",
-            "symbol": "BTC/USDT"
+            "execInst": "NULL_VAL"
         }
     ]
 }
