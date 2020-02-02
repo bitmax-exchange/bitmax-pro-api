@@ -10,40 +10,40 @@
     "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
     "data": [
         {
-            "symbol": "BTC/USDT",
-            "price": "8130.24",
-            "orderQty": "0.00082",
-            "orderType": "Limit",
-            "avgPx": "7391.13",
-            "cumFee": "0.005151618",
+            "symbol":       "BTC/USDT",
+            "price":        "8130.24",
+            "orderQty":     "0.00082",
+            "orderType":    "Limit",
+            "avgPx":        "7391.13",
+            "cumFee":       "0.005151618",
             "cumFilledQty": "0.00082",
-            "errorCode": "",
-            "feeAsset": "USDT",
+            "errorCode":    "",
+            "feeAsset":     "USDT",
             "lastExecTime": 1575953134011,
-            "orderId": "a16eee206d610866943712rPNknIyhH",
-            "seqNum": 2622058,
-            "side": "Buy",
-            "status": "Filled",
-            "stopPrice": "",
-            "execInst": "NULL_VAL"
+            "orderId":      "a16eee206d610866943712rPNknIyhH",
+            "seqNum":       2622058,
+            "side":         "Buy",
+            "status":       "Filled",
+            "stopPrice":    "",
+            "execInst":     "NULL_VAL"
         },
         {
-            "symbol": "BTC/USDT",
-            "price": "8131.22",
-            "orderQty": "0.00082",
-            "orderType": "Market",
-            "avgPx": "7392.02",
-            "cumFee": "0.005152238",
+            "symbol":       "BTC/USDT",
+            "price":        "8131.22",
+            "orderQty":     "0.00082",
+            "orderType":    "Market",
+            "avgPx":        "7392.02",
+            "cumFee":       "0.005152238",
             "cumFilledQty": "0.00082",
-            "errorCode": "",
-            "feeAsset": "USDT",
+            "errorCode":    "",
+            "feeAsset":     "USDT",
             "lastExecTime": 1575953151764,
-            "orderId": "a16eee20b6750866943712zWEDdAjt3",
-            "seqNum": 2623469,
-            "side": "Buy",
-            "status": "Filled",
-            "stopPrice": "",
-            "execInst": "NULL_VAL"
+            "orderId":      "a16eee20b6750866943712zWEDdAjt3",
+            "seqNum":       2623469,
+            "side":         "Buy",
+            "status":       "Filled",
+            "stopPrice":    "",
+            "execInst":     "NULL_VAL"
         }
     ]
 }
@@ -88,6 +88,7 @@ Name           | Type     | Description
 `status`       | `String` | order status
 `stopPrice`    | `String` | stop price(could be empty)
 `symbol`       | `String` | symbol
+`execInst`     | `String` | execution instruction, `POST` for Post-Only orders, `Liquidation` for forced-liquidation orders, and `NULL_VAL` otherwise.
 
 
 **Code Sample**
