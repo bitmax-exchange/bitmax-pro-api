@@ -41,7 +41,7 @@ You should sign the message in header as specified in [**Authenticate a RESTful 
 
 **Code Sample**
 
-Please refer to python code to[query private balance]{https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_balance.py}
+Please refer to python code to [query private balance](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_balance.py)
 
 ### Margin Account Balance 
 
