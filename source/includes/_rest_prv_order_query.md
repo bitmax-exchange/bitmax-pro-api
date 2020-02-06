@@ -53,7 +53,7 @@ Query order status, either open or history order. //TODO: not all order, specify
 
 **HTTP Request**
 
-`GET <account-group>/api/pro/v1/{account-category}/order/status?OrderId={orderId}`
+`GET <account-group>/api/pro/v1/{account-category}/order/status?orderId={orderId}`
 
 `orderId` could be a single order Id, or multiple order Ids separated by `,`. 
 
