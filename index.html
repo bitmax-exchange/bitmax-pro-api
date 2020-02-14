@@ -3238,28 +3238,48 @@ Order detail for each order is in <code>info</code> field list.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This API returns all current history orders for the account specified. //TODO: not all history, specify order range later.</p>
-
-<p><strong>HTTP Request</strong></p>
-
+<h4 id='http-request'>HTTP Request</h4>
 <p><code>GET &lt;account-group&gt;/api/pro/v1/{account-category}/order/hist/current</code></p>
 
 <p>Set <code>account-category</code> to<code>cash</code> for cash account and <code>margin</code> for margin account. </p>
-
-<p><strong>Signature</strong></p>
-
+<h4 id='signature'>Signature</h4>
 <p>You should sign the message in header as specified in <a href="#sign-request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
-
-<p><strong>Prehash String</strong></p>
-
+<h4 id='prehash-string'>Prehash String</h4>
 <p><code>&lt;timestamp&gt;+order/hist/current</code></p>
-
-<p><strong>Response</strong></p>
-
+<h4 id='request-parameters'>Request Parameters</h4>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>n</code></td>
+<td><code>Int</code></td>
+<td>No</td>
+<td>maximum number of orders to be included in the response</td>
+</tr>
+<tr>
+<td><code>symbol</code></td>
+<td><code>String</code></td>
+<td>No</td>
+<td>symbol filter, e.g. <code>&quot;BTMX/USDT&quot;</code></td>
+</tr>
+<tr>
+<td><code>executedOnly</code></td>
+<td><code>Boolean</code></td>
+<td>No</td>
+<td>if <code>True</code>, include orders with non-zero filled quantities only.</td>
+</tr>
+</tbody></table>
+<h4 id='response'>Response</h4>
 <p>Return a list of history orders in <em>&quot;data&quot;</em> field.</p>
 
 <p><strong>Code Sample</strong></p>
 
-<p>Please refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_order.py">get hist orders</a></p>
+<p>Please refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_order_hist_curr.py">get hist orders</a></p>
 <h1 id='websocket'>WebSocket</h1>
 <p><strong>General Message Request/Handling Logic from Client Side</strong></p>
 
