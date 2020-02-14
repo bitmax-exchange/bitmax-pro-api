@@ -77,7 +77,7 @@ This API endpoint does not take any parameters.
 
 #### Resposne
 
- Name              | Type | Description                                        
+ Name               | Type      | Description                                        
 ------------------- | --------- | ---------------------------------------------------
  `name`             | `String`  | name of the interval
  `intervalInMillis` | `Long`    | length of the interval 
