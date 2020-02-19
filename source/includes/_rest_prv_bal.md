@@ -27,21 +27,42 @@
 }
 ```
 
-**HTTP Request**
+#### HTTP Request
 
 `GET <account-group>/api/pro/v1/cash/balance`
 
-**Signature**
+#### Signature
 
 You should sign the message in header as specified in [**Authenticate a RESTful Request**](#sign-request) section.
 
-**Prehash String** 
+#### Prehash String
 
 `<timestamp>+balance`
 
-**Code Sample**
+
+#### Request Parameters 
+
+Name          |  Type     | Required | Value Range  | Description
+------------- | --------- | -------- | ------------ | -----------
+**showAll**   | `Boolean` |   No     | true / false | by default, the API will only respond with assets with non-zero balances. Set `showAll=true` to include all assets in the response. 
+
+
+#### Response Content
+
+ Name                | Type     | Description                        | Sample Response
+-------------------- | -------- | ---------------------------------- | -------------------------
+**asset**            | `String` | asset code                         | `"USDT"`
+**totalBalance**     | `String` | total balance in string format     | `"1234.56"`
+**availableBalance** | `String` | available balance in string format | `"234.56"`
+
+
+#### Code Sample
 
 Please refer to python code to [query private balance](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_balance.py)
+
+
+
+
 
 ### Margin Account Balance 
 
@@ -69,18 +90,34 @@ Please refer to python code to [query private balance](https://github.com/bitmax
 }
 ```
 
-**HTTP Request** 
+#### HTTP Request
 
 `GET <account-group>/api/pro/v1/margin/balance`
 
-**Signature**
+#### Signature
 
 You should sign the message in header as specified in [**Authenticate a RESTful Request**](#signing-a-Request) section.
 
-**Prehash String** 
+#### Prehash String
 
 `<timestamp>+balance`
 
+#### Request Parameters 
+
+Name          |  Type     | Required | Value Range  | Description
+------------- | --------- | -------- | ------------ | -----------
+**showAll**   | `Boolean` |   No     | true / false | by default, the API will only respond with assets with non-zero balances. Set `showAll=true` to include all assets in the response. 
+
+
+#### Response Content
+
+ Name                | Type     | Description       | Sample Response
+-------------------- | -------- | ----------------- | -------------------------
+**asset**            | `String` | asset code        | `"USDT"`
+**totalBalance**     | `String` | total balance     | `"1234.56"`
+**availableBalance** | `String` | available balance | `"234.56"`
+**borrowed**         | `String` | borrowed amount   | `"0"`
+**interest**         | `String` | interest owed     | `"0"`
 
 
 ### Margin Risk Profile
@@ -104,19 +141,19 @@ You should sign the message in header as specified in [**Authenticate a RESTful 
 }
 ```
 
-**HTTP Request**
+#### HTTP Request
 
 `POST <account-group>/api/pro/v1/margin/risk`
 
-**Signature**
+#### Signature
 
 You should sign the message in header as specified in [**Authenticate a RESTful Request**](#signing-a-Request) section.
 
-**Prehash String**
+#### Prehash String
 
 `<timestamp>+margin/risk`
 
-**Code Sample**
+#### Code Sample
 
 Please refer to python code to[query private margin risk]{https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_margin_risk.py}
 
