@@ -1484,21 +1484,59 @@ only 500 bars will be returned. </li>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p><strong>HTTP Request</strong></p>
-
+</span></code></pre><h4 id='http-request'>HTTP Request</h4>
 <p><code>GET &lt;account-group&gt;/api/pro/v1/cash/balance</code></p>
-
-<p><strong>Signature</strong></p>
-
+<h4 id='signature'>Signature</h4>
 <p>You should sign the message in header as specified in <a href="#sign-request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
-
-<p><strong>Prehash String</strong> </p>
-
+<h4 id='prehash-string'>Prehash String</h4>
 <p><code>&lt;timestamp&gt;+balance</code></p>
-
-<p><strong>Code Sample</strong></p>
-
+<h4 id='request-parameters'>Request Parameters</h4>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Value Range</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>showAll</strong></td>
+<td><code>Boolean</code></td>
+<td>No</td>
+<td>true / false</td>
+<td>by default, the API will only respond with assets with non-zero balances. Set <code>showAll=true</code> to include all assets in the response.</td>
+</tr>
+</tbody></table>
+<h4 id='response-content'>Response Content</h4>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Sample Response</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>asset</strong></td>
+<td><code>String</code></td>
+<td>asset code</td>
+<td><code>&quot;USDT&quot;</code></td>
+</tr>
+<tr>
+<td><strong>totalBalance</strong></td>
+<td><code>String</code></td>
+<td>total balance in string format</td>
+<td><code>&quot;1234.56&quot;</code></td>
+</tr>
+<tr>
+<td><strong>availableBalance</strong></td>
+<td><code>String</code></td>
+<td>available balance in string format</td>
+<td><code>&quot;234.56&quot;</code></td>
+</tr>
+</tbody></table>
+<h4 id='code-sample'>Code Sample</h4>
 <p>Please refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_balance.py">query private balance</a></p>
 <h3 id='margin-account-balance'>Margin Account Balance</h3>
 <blockquote>
@@ -1523,18 +1561,70 @@ only 500 bars will be returned. </li>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p><strong>HTTP Request</strong> </p>
-
+</span></code></pre><h4 id='http-request-2'>HTTP Request</h4>
 <p><code>GET &lt;account-group&gt;/api/pro/v1/margin/balance</code></p>
-
-<p><strong>Signature</strong></p>
-
+<h4 id='signature-2'>Signature</h4>
 <p>You should sign the message in header as specified in <a href="#signing-a-Request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
-
-<p><strong>Prehash String</strong> </p>
-
+<h4 id='prehash-string-2'>Prehash String</h4>
 <p><code>&lt;timestamp&gt;+balance</code></p>
+<h4 id='request-parameters-2'>Request Parameters</h4>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Value Range</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>showAll</strong></td>
+<td><code>Boolean</code></td>
+<td>No</td>
+<td>true / false</td>
+<td>by default, the API will only respond with assets with non-zero balances. Set <code>showAll=true</code> to include all assets in the response.</td>
+</tr>
+</tbody></table>
+<h4 id='response-content-2'>Response Content</h4>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Sample Response</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>asset</strong></td>
+<td><code>String</code></td>
+<td>asset code</td>
+<td><code>&quot;USDT&quot;</code></td>
+</tr>
+<tr>
+<td><strong>totalBalance</strong></td>
+<td><code>String</code></td>
+<td>total balance</td>
+<td><code>&quot;1234.56&quot;</code></td>
+</tr>
+<tr>
+<td><strong>availableBalance</strong></td>
+<td><code>String</code></td>
+<td>available balance</td>
+<td><code>&quot;234.56&quot;</code></td>
+</tr>
+<tr>
+<td><strong>borrowed</strong></td>
+<td><code>String</code></td>
+<td>borrowed amount</td>
+<td><code>&quot;0&quot;</code></td>
+</tr>
+<tr>
+<td><strong>interest</strong></td>
+<td><code>String</code></td>
+<td>interest owed</td>
+<td><code>&quot;0&quot;</code></td>
+</tr>
+</tbody></table>
 <h3 id='margin-risk-profile'>Margin Risk Profile</h3>
 <blockquote>
 <p>Margin Account Risk Profile - Sample response </p>
@@ -1553,21 +1643,13 @@ only 500 bars will be returned. </li>
         </span><span class="s2">"cushion"</span><span class="p">:</span><span class="w">                </span><span class="s2">"-1"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p><strong>HTTP Request</strong></p>
-
+</span></code></pre><h4 id='http-request-3'>HTTP Request</h4>
 <p><code>POST &lt;account-group&gt;/api/pro/v1/margin/risk</code></p>
-
-<p><strong>Signature</strong></p>
-
+<h4 id='signature-3'>Signature</h4>
 <p>You should sign the message in header as specified in <a href="#signing-a-Request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
-
-<p><strong>Prehash String</strong></p>
-
+<h4 id='prehash-string-3'>Prehash String</h4>
 <p><code>&lt;timestamp&gt;+margin/risk</code></p>
-
-<p><strong>Code Sample</strong></p>
-
+<h4 id='code-sample-2'>Code Sample</h4>
 <p>Please refer to python code to[query private margin risk]{https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_margin_risk.py}</p>
 <h2 id='order'>Order</h2>
 <p>Trading and Order related APIs. API path usually depend on account-group and account-category: </p>
