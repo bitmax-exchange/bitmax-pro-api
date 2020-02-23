@@ -4182,35 +4182,35 @@ request message. Here are some use cases: </p>
 </tr>
 </thead><tbody>
 <tr>
-<td><code>op</code></td>
+<td><strong>op</strong></td>
 <td><code>String</code></td>
 <td>Yes</td>
 <td><code>req</code></td>
 <td></td>
 </tr>
 <tr>
-<td><code>id</code></td>
+<td><strong>id</strong></td>
 <td><code>String</code></td>
 <td>No</td>
 <td>digits and numbers</td>
 <td>if provided, the server will echo back this value in the response message</td>
 </tr>
 <tr>
-<td><code>action</code></td>
+<td><strong>action</strong></td>
 <td><code>String</code></td>
 <td>Yes</td>
 <td>See below</td>
 <td>name of the request action with optional arguments</td>
 </tr>
 <tr>
-<td><code>account</code></td>
+<td><strong>account</strong></td>
 <td><code>String</code></td>
 <td>NO</td>
 <td><code>cash</code>, <code>margin</code></td>
 <td>the account of the interest, this field is not required for public data request</td>
 </tr>
 <tr>
-<td><code>args</code></td>
+<td><strong>args</strong></td>
 <td><code>{key:value}</code></td>
 <td>No</td>
 <td></td>
@@ -4225,47 +4225,39 @@ request message. Here are some use cases: </p>
 </tr>
 </thead><tbody>
 <tr>
-<td><code>place-order</code></td>
+<td><strong>place-order</strong></td>
 <td>Place new order</td>
 </tr>
 <tr>
-<td><code>cancel-order</code></td>
+<td><strong>cancel-order</strong></td>
 <td>Cancel exisitng open order</td>
 </tr>
 <tr>
-<td><code>cancel-all</code></td>
+<td><strong>cancel-all</strong></td>
 <td>Cancel all open orders on account level</td>
 </tr>
 <tr>
-<td><code>batch-place-order</code></td>
-<td>Place new order in batch</td>
-</tr>
-<tr>
-<td><code>batch-cancel-order</code></td>
-<td>Cancel orders in batch</td>
-</tr>
-<tr>
-<td><code>depth-snapshot</code></td>
+<td><strong>depth-snapshot</strong></td>
 <td>Get market depth for symbol up to 500 level</td>
 </tr>
 <tr>
-<td><code>depth-snapshot-top100</code></td>
+<td><strong>depth-snapshot-top100</strong></td>
 <td>Get top 100 depth</td>
 </tr>
 <tr>
-<td><code>market-trades</code></td>
+<td><strong>market-trades</strong></td>
 <td>Get market trades for a symbol</td>
 </tr>
 <tr>
-<td><code>balance</code></td>
+<td><strong>balance</strong></td>
 <td>Request balance</td>
 </tr>
 <tr>
-<td><code>open-order</code></td>
+<td><strong>open-order</strong></td>
 <td>Query open order</td>
 </tr>
 <tr>
-<td><code>margin-risk</code></td>
+<td><strong>margin-risk</strong></td>
 <td>Get margin risk</td>
 </tr>
 </tbody></table>
@@ -4284,22 +4276,22 @@ request message. Here are some use cases: </p>
 </tr>
 </thead><tbody>
 <tr>
-<td><code>m</code></td>
+<td><strong>m</strong></td>
 <td><code>String</code></td>
 <td>message topic related with request <code>action</code></td>
 </tr>
 <tr>
-<td><code>id</code></td>
+<td><strong>id</strong></td>
 <td><code>Optional[String]</code></td>
 <td>user specified UUID, if provided, the server will echo back this value in the response message</td>
 </tr>
 <tr>
-<td><code>action</code></td>
+<td><strong>action</strong></td>
 <td><code>String</code></td>
 <td>echo <code>action</code> field in request</td>
 </tr>
 <tr>
-<td><code>data</code> or <code>info</code></td>
+<td><strong>data</strong> or <strong>info</strong></td>
 <td><code>Json</code></td>
 <td>detailed <code>data</code> for data request, or <code>info</code> for operation result(e.g. order place/cancel)</td>
 </tr>
@@ -4315,27 +4307,27 @@ request message. Here are some use cases: </p>
 </tr>
 </thead><tbody>
 <tr>
-<td><code>m</code></td>
+<td><strong>m</strong></td>
 <td><code>String</code></td>
 <td>&quot;error&quot;</td>
 </tr>
 <tr>
-<td><code>id</code></td>
+<td><strong>id</strong></td>
 <td><code>String</code></td>
 <td>Echo back the error</td>
 </tr>
 <tr>
-<td><code>code</code></td>
-<td>Long</td>
+<td><strong>code</strong></td>
+<td><code>Long</code></td>
 <td></td>
 </tr>
 <tr>
-<td><code>reason</code></td>
+<td><strong>reason</strong></td>
 <td><code>String</code></td>
 <td>simple error  message</td>
 </tr>
 <tr>
-<td><code>info</code></td>
+<td><strong>info</strong></td>
 <td><code>String</code></td>
 <td>detailed error message</td>
 </tr>
