@@ -159,7 +159,7 @@ Please refer to python code to[query private margin risk]{https://github.com/bit
 
 > Transfer from Cash To Margin - Sample request and response
 
-Request
+> Request
 
 ```json
 {
@@ -170,7 +170,7 @@ Request
 }
  ```
 
-Response
+> Response
 
 ```json
 {
