@@ -297,6 +297,9 @@
                         <li>
                           <a href="#margin-risk-profile" class="toc-h3 toc-link" data-title="Margin Risk Profile">Margin Risk Profile</a>
                         </li>
+                        <li>
+                          <a href="#transfer-balance-between-accounts" class="toc-h3 toc-link" data-title="Transfer Balance between Accounts">Transfer Balance between Accounts</a>
+                        </li>
                     </ul>
                   </li>
                   <li>
@@ -1651,6 +1654,69 @@ only 500 bars will be returned. </li>
 <p><code>&lt;timestamp&gt;+margin/risk</code></p>
 <h4 id='code-sample-2'>Code Sample</h4>
 <p>Please refer to python code to[query private margin risk]{https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_margin_risk.py}</p>
+<h3 id='transfer-balance-between-accounts'>Transfer Balance between Accounts</h3>
+<blockquote>
+<p>Transfer from Cash To Margin - Sample request and response </p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fromAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cash"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"toAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"margin"</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h4 id='http-request-4'>HTTP Request</h4>
+<p><code>GET &lt;account-group&gt;/api/pro/transfer</code></p>
+<h4 id='signature-4'>Signature</h4>
+<p>You should sign the message in header as specified in <a href="#sign-request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
+<h4 id='prehash-string-4'>Prehash String</h4>
+<p><code>&lt;timestamp&gt;+transfer</code></p>
+<h4 id='request-parameters-3'>Request Parameters</h4>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Value Range</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>amount</strong></td>
+<td><code>String</code></td>
+<td>Yes</td>
+<td>Positive numerical string</td>
+<td>Asset amount to transfer.</td>
+</tr>
+<tr>
+<td><strong>asset</strong></td>
+<td><code>String</code></td>
+<td>Yes</td>
+<td>Valid asset code</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>fromAccount</strong></td>
+<td><code>String</code></td>
+<td>Yes</td>
+<td><code>cash</code>/<code>margin</code>/<code>futures</code></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>toAccount</strong></td>
+<td><code>String</code></td>
+<td>Yes</td>
+<td><code>cash</code>/<code>margin</code>/<code>futures</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p>Please note, we only support direct balance transfer between <code>cash</code> and <code>margin</code>, <code>cash</code> and <code>futures</code>.</p>
+<h4 id='response-content-3'>Response Content</h4>
+<p>Response <code>code</code> value 0 indicate successful transfer. </p>
+<h4 id='code-sample-3'>Code Sample</h4>
+<p>Please refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/balance_prv_transfer.py">query private balance</a></p>
 <h2 id='order'>Order</h2>
 <p>Trading and Order related APIs. API path usually depend on account-group and account-category: </p>
 
@@ -2211,7 +2277,7 @@ only 500 bars will be returned. </li>
 
 <p><strong>Code Sample</strong></p>
 
-<p>Refer to sample python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/tree/master/python/place_order.py">place order</a></p>
+<p>Refer to sample python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/tree/master/python/order_new.py">place order</a></p>
 <h3 id='cancel-order'>Cancel Order</h3>
 <blockquote>
 <p>Cancel Order - Successful ACK Response (Status 200, code 0)</p>
@@ -2280,9 +2346,9 @@ only 500 bars will be returned. </li>
 <tr>
 <td>id</td>
 <td>String</td>
-<td>Yes</td>
+<td>No</td>
 <td>32 chars(letter and digit number only)</td>
-<td>Please generate unique ID for each trade; we will echo it back to help you identify the response.</td>
+<td>We echo it back to help you identify the response if provided.</td>
 </tr>
 <tr>
 <td>orderId</td>
@@ -2319,7 +2385,7 @@ only 500 bars will be returned. </li>
 
 <p><strong>Code Sample</strong></p>
 
-<p>Refer to sample python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/cancel_order.py">cancel order</a></p>
+<p>Refer to sample python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/order_cancel.py">cancel order</a></p>
 <h3 id='cancel-all-orders'>Cancel All Orders</h3>
 <blockquote>
 <p>Cancel All Orders - Successful ACK Response (Status 200, code 0)</p>
@@ -2450,7 +2516,7 @@ only 500 bars will be returned. </li>
 
 <p><strong>Code Sample</strong></p>
 
-<p>Refer to sample python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/cancel_all.py">cancel all order</a></p>
+<p>Refer to sample python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/order_cancel_all.py">cancel all order</a></p>
 <h4 id='caveat'>Caveat</h4>
 <p>The server will process the cancel all request with best effort. Orders sent but un-acked will not be canceled. You should rely on websocket order update messages or the RESTful api 
 to obtain the latest status of each order. </p>
@@ -2703,7 +2769,7 @@ to obtain the latest status of each order. </p>
 
 <p><strong>Code Sample</strong></p>
 
-<p>Please refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/place_order.py">place batch order</a></p>
+<p>Please refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/order_new.py">place batch order</a></p>
 <h3 id='cancel-batch-orders'>Cancel Batch Orders</h3>
 <blockquote>
 <p>Cancel Batch Orders - Successful ACK Response (Status 200, code 0)</p>
@@ -3120,12 +3186,12 @@ Order detail for each order is in <code>info</code> field list.</p>
 
 <p><strong>Code Sample</strong></p>
 
-<p>Please refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_order.py">get order status</a></p>
+<p>Please refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/order_query.py">get order status</a></p>
 <h3 id='list-open-orders'>List Open Orders</h3>
 <blockquote>
 <p>Open Orders - Successful Response (Status 200, code 0)</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"accountCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"ac"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
  </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w">
  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
