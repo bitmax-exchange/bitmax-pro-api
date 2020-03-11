@@ -50,6 +50,10 @@ includes:
   - ws_req_trades
   - error_code
 
+header_navigators:
+  - <a href="https://github.com/bitmax-exchange/bitmax-pro-api" class="current">BitMax Cash/Margin APIs</a>
+  - <a href="https://github.com/bitmax-exchange/bitmax-futures-api-doc">Futures APIs</a>
+
 search: true
 ---
 
