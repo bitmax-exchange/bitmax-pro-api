@@ -155,23 +155,30 @@ You should sign the message in header as specified in [**Authenticate a RESTful 
 Please refer to python code to[query private margin risk]{https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_margin_risk.py}
 
 
-### Transfer Balance between Accounts
+### Balance Transfer
 
-> Transfer from Cash To Margin - Sample request and response 
+> Transfer from Cash To Margin - Sample request and response
+
+Request
 
 ```json
 {
     "amount": "11.0",
     "asset": "USDT",
     "fromAccount": "cash",
-    "toAccount": "margin"}
+    "toAccount": "margin"
+}
  ```
+
+Response
 
 ```json
 {
     "code": 0,
 }
 ```
+
+This api allows balance transfer between different accounts of the same user.
 
 #### HTTP Request
 
@@ -204,4 +211,4 @@ Response `code` value 0 indicate successful transfer.
 
 #### Code Sample
 
-Please refer to python code to [query private balance](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/balance_prv_transfer.py)
+Please refer to python code to [transfer balance](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/balance_prv_transfer.py)
