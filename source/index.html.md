@@ -51,8 +51,8 @@ includes:
   - error_code
 
 header_navigators:
-  - <a href="https://github.com/bitmax-exchange/bitmax-pro-api" class="current">BitMax Cash/Margin APIs</a>
-  - <a href="https://github.com/bitmax-exchange/bitmax-futures-api-doc">Futures APIs</a>
+  - <a href="https://bitmax-exchange.github.io/bitmax-pro-api/#bitmax-pro-api-documentation" class="current">Cash/Margin APIs</a>
+  - <a href="https://bitmax-exchange.github.io/bitmax-futures-api-doc/#bitmax-futures-trading-api-documentation">Futures APIs</a>
 
 search: true
 ---
