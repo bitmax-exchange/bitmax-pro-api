@@ -298,7 +298,7 @@
                           <a href="#margin-risk-profile" class="toc-h3 toc-link" data-title="Margin Risk Profile">Margin Risk Profile</a>
                         </li>
                         <li>
-                          <a href="#transfer-balance-between-accounts" class="toc-h3 toc-link" data-title="Transfer Balance between Accounts">Transfer Balance between Accounts</a>
+                          <a href="#balance-transfer" class="toc-h3 toc-link" data-title="Balance Transfer">Balance Transfer</a>
                         </li>
                     </ul>
                   </li>
@@ -1654,19 +1654,26 @@ only 500 bars will be returned. </li>
 <p><code>&lt;timestamp&gt;+margin/risk</code></p>
 <h4 id='code-sample-2'>Code Sample</h4>
 <p>Please refer to python code to[query private margin risk]{https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_margin_risk.py}</p>
-<h3 id='transfer-balance-between-accounts'>Transfer Balance between Accounts</h3>
+<h3 id='balance-transfer'>Balance Transfer</h3>
 <blockquote>
-<p>Transfer from Cash To Margin - Sample request and response </p>
+<p>Transfer from Cash To Margin - Sample request and response</p>
 </blockquote>
+
+<p>Request</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11.0"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"fromAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cash"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"toAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"margin"</span><span class="p">}</span><span class="w">
-</span></code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"toAccount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"margin"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Response</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h4 id='http-request-4'>HTTP Request</h4>
+</span></code></pre>
+<p>This api allows balance transfer between different accounts of the same user.</p>
+<h4 id='http-request-4'>HTTP Request</h4>
 <p><code>GET &lt;account-group&gt;/api/pro/transfer</code></p>
 <h4 id='signature-4'>Signature</h4>
 <p>You should sign the message in header as specified in <a href="#sign-request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
@@ -1716,7 +1723,7 @@ only 500 bars will be returned. </li>
 <h4 id='response-content-3'>Response Content</h4>
 <p>Response <code>code</code> value 0 indicate successful transfer. </p>
 <h4 id='code-sample-3'>Code Sample</h4>
-<p>Please refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/balance_prv_transfer.py">query private balance</a></p>
+<p>Please refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/balance_prv_transfer.py">transfer balance</a></p>
 <h2 id='order'>Order</h2>
 <p>Trading and Order related APIs. API path usually depend on account-group and account-category: </p>
 
