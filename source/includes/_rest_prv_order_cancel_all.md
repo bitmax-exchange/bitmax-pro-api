@@ -71,7 +71,7 @@ Name       |  Type    | Description
 
 **Code Sample**
 
-Refer to sample python code to [cancel all order](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/cancel_all.py)
+Refer to sample python code to [cancel all order](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/order_cancel_all.py)
 
 #### Caveat 
 

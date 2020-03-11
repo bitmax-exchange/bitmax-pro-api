@@ -93,4 +93,4 @@ Name           | Type     | Description
 
 **Code Sample**
 
-Please refer to python code to [get order status](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_order.py)
+Please refer to python code to [get order status](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/order_query.py)

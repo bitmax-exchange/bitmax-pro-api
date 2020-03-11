@@ -62,7 +62,7 @@ You should sign the message in header as specified in [**Authenticate a RESTful 
 
 Name        | Type   |Required| Value Range                                           | Description
 ------------|--------|--------| ----------------------------------------------------- | ---------------
-id          | String |  Yes   |32 chars(letter and digit number only)                 | Please generate unique ID for each trade; we will echo it back to help you identify the response.
+id          | String |  No    |32 chars(letter and digit number only)                 | We echo it back to help you identify the response if provided.
 orderId     | String |  Yes   |32 chars order id responded by server when place order | 
 symbol      | String |  Yes   |                                                       |  
 time        | Long   |  Yes   |milliseconds since UNIX epoch in UTC                   | We do not process request placed more than 30 seconds ago.
@@ -80,4 +80,4 @@ Response with status "Err" to indicate there is something wrong with the cancel 
 
 **Code Sample**
 
-Refer to sample python code to [cancel order](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/cancel_order.py)
+Refer to sample python code to [cancel order](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/order_cancel.py)

@@ -61,9 +61,6 @@ Name          |  Type     | Required | Value Range  | Description
 Please refer to python code to [query private balance](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_balance.py)
 
 
-
-
-
 ### Margin Account Balance 
 
 > Margin Account Balance - Sample response 
@@ -158,3 +155,53 @@ You should sign the message in header as specified in [**Authenticate a RESTful 
 Please refer to python code to[query private margin risk]{https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_margin_risk.py}
 
 
+### Transfer Balance between Accounts
+
+> Transfer from Cash To Margin - Sample request and response 
+
+```json
+{
+    "amount": "11.0",
+    "asset": "USDT",
+    "fromAccount": "cash",
+    "toAccount": "margin"}
+ ```
+
+```json
+{
+    "code": 0,
+}
+```
+
+#### HTTP Request
+
+`GET <account-group>/api/pro/transfer`
+
+#### Signature
+
+You should sign the message in header as specified in [**Authenticate a RESTful Request**](#sign-request) section.
+
+#### Prehash String
+
+`<timestamp>+transfer`
+
+
+#### Request Parameters 
+
+Name           |  Type     | Required | Value Range               | Description
+-------------- | --------- | -------- | ------------------------- | -----------
+**amount**     | `String`  |   Yes    | Positive numerical string | Asset amount to transfer.
+**asset**      | `String`  |   Yes    | Valid asset code          | 
+**fromAccount**| `String`  |   Yes    | `cash`/`margin`/`futures` |
+**toAccount**  | `String`  |   Yes    | `cash`/`margin`/`futures` |
+
+ Please note, we only support direct balance transfer between `cash` and `margin`, `cash` and `futures`.
+
+#### Response Content
+
+Response `code` value 0 indicate successful transfer. 
+
+
+#### Code Sample
+
+Please refer to python code to [query private balance](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/balance_prv_transfer.py)

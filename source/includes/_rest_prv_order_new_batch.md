@@ -131,4 +131,4 @@ Name        |  Type    | Description
 
 **Code Sample**
 
-Please refer to python code to [place batch order](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/place_order.py)
+Please refer to python code to [place batch order](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/order_new.py)

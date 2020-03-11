@@ -4,7 +4,7 @@
 > Open Orders - Successful Response (Status 200, code 0)
 
 ```json
-{"accountCategory": "CASH",
+{"ac": "CASH",
  "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
  "code": 0,
  "data": [

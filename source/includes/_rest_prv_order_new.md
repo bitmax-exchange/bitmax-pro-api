@@ -269,4 +269,4 @@ HTTP Status Code | Error Code | Reason           | Example
 
 **Code Sample**
 
-Refer to sample python code to [place order](https://github.com/bitmax-exchange/bitmax-pro-api-demo/tree/master/python/place_order.py)
+Refer to sample python code to [place order](https://github.com/bitmax-exchange/bitmax-pro-api-demo/tree/master/python/order_new.py)
