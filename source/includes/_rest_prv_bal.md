@@ -182,7 +182,7 @@ This api allows balance transfer between different accounts of the same user.
 
 #### HTTP Request
 
-`GET <account-group>/api/pro/transfer`
+`GET <account-group>/api/pro/v1/transfer`
 
 #### Signature
 
