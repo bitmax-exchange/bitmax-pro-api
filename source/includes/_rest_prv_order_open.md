@@ -33,21 +33,21 @@
 
 This API returns all current open orders for the account specified. 
 
-**HTTP Request**
+#### HTTP Request
 
 `GET <account-group>/api/pro/v1/{account-category}/order/open`
 
 Set `account-category` to`cash` for cash account and `margin` for margin account. 
 
-**Signature**
+#### Signature
 
 You should sign the message in header as specified in [**Authenticate a RESTful Request**](#sign-a-request) section.
 
-**Prehash String**
+#### Prehash String
 
 `<timestamp>+order/open`
 
-**Response**
+#### Response
 
 Return a list of order infomation in `data` field:
 
@@ -77,8 +77,7 @@ HTTP Status Code | Error Code | Reason           | Example
 ---------------- | ---------- | ---------------- | ----------------------------------------------------------------------
 400              | xxx        | Parameter Error  | `{"code": xxx, "message": "missing requird parameter \"account\"} "}`  @TODO
 
-
-**Code Sample**
+#### Code Sample
 
 Please refer to python code to [get open orders](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_order.py)
 

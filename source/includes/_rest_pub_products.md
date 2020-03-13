@@ -29,7 +29,7 @@ curl -X GET https://bitmax.io/api/pro/v1/products
 }
 ```
 
-**HTTP Request**
+#### HTTP Request
 
 `GET /api/pro/v1/products`
 

@@ -133,7 +133,7 @@ curl -X GET https://bitmax.io/api/pro/v1/barhist?symbol=BTMX/USDT&interval=1
 }
 ```
 
-**HTTP Request**
+#### HTTP Request
 
 `GET /api/pro/v1/barhist`
 
@@ -160,20 +160,19 @@ The requested time range is determined by three parameters - `to`, `from`, and `
     only 500 bars will be returned. 
   * if both `from` and `n` are specified, the server will pick one that returns fewer bars. 
 
-#### Response 
+#### Response
 
 Name     | Type   |   value  | Description
 ---------| -------| ---------| -------------------------------
 `m`      | String |`bar`     | message type
-`s`      | String |          | symbol 
+`s`      | String |          | symbol
 `data:ts`| Long   |          | bar start time in milliseconds
-`i`      | String |          | interval 
-`o`      | String |          | open price 
-`c`      | String |          | close price 
-`h`      | String |          | high price 
-`l`      | String |          | low price 
+`i`      | String |          | interval
+`o`      | String |          | open price
+`c`      | String |          | close price
+`h`      | String |          | high price
+`l`      | String |          | low price
 `v`      | String |          | volume in quote asset
-            
 
 #### Code Sample
 

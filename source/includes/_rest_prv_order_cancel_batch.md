@@ -66,21 +66,21 @@
 
 Cancel multiple orders in a batch. If some order in the batch failed our basic check, then the whole batch request failed.
 
-**HTTP Request**
+#### HTTP Request
 
 `DELETE <account-group>/api/pro/v1/{account-category}/order/batch`
 
 Set `account-category` to`cash` for cash account and `margin` for margin account. 
 
-**Signature**
+#### Signature
 
-You should sign the message in header as specified in [**Authenticate a RESTful Request**](#sign-request) section.
+You should sign the message in header as specified in [**Authenticate a RESTful Request**](#sign-a-request) section.
 
-**Prehash String**
+#### Prehash String
 
 `<timestamp>+order/batch`
 
-**Response**
+#### Response
 
 *ACK*
 
@@ -121,22 +121,21 @@ Name        |  Type    | Description
 `accountId` | `String` | account Id
 `action`    | `String` | `batch-cancel-order`
 `message`   | `String` | error message detail
-`reason`    | `String` | short error message 
-`status`    | `String` |  `Err` 
+`reason`    | `String` | short error message
+`status`    | `String` |  `Err`
 `info`      | `List`   | See below for detail
 
 `info` schema:
 
 Name        |  Type    | Description
-------------| ---------| -------- 
+------------| ---------| ------------
 `code`      | `Long`   | 0
 `id`        | `String` | echo `id` in request
 `orderId`   | `String` | orderId in request to cancel
 `message`   | `String` | error message detail
-`reason`    | `String` | short error message 
+`reason`    | `String` | short error message
 `symbol`    | `String` | symbol in order
 
+#### Code Sample
 
-**Code Sample**
-
-please refer to python code to [cancel batch order](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/cancel_order.py)
+please refer to python code to [cancel batch order](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/order_cancel.py)

@@ -40,25 +40,23 @@
 }
 ```
 
-Cancel an existing open order. 
+Cancel an existing open order.
 
-
-**HTTP Request**
+#### HTTP Request
 
 `DELETE <account-group>/api/pro/v1/{account-category}/order`
 
 Set `account-category` to `cash` for cash account and `margin` for margin account. 
 
-**Signature**
+#### Signature
 
-You should sign the message in header as specified in [**Authenticate a RESTful Request**](#sign-request) section.
+You should sign the message in header as specified in [**Authenticate a RESTful Request**](#sign-a-request) section.
 
-**Prehash String**
+#### Prehash String
 
 `<timestamp>+order`
 
-
-**Request Parameters**
+#### Request Parameters
 
 Name        | Type   |Required| Value Range                                           | Description
 ------------|--------|--------| ----------------------------------------------------- | ---------------
@@ -67,7 +65,7 @@ orderId     | String |  Yes   |32 chars order id responded by server when place 
 symbol      | String |  Yes   |                                                       |  
 time        | Long   |  Yes   |milliseconds since UNIX epoch in UTC                   | We do not process request placed more than 30 seconds ago.
 
-**Response**
+#### Response
 
 *ACK*
 
@@ -77,7 +75,6 @@ Response with status "Ack" to indicate the cancel order request is received by s
 
 Response with status "Err" to indicate there is something wrong with the cancel order request. We echo back the *coid* field in your request.
 
-
-**Code Sample**
+#### Code Sample
 
 Refer to sample python code to [cancel order](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/order_cancel.py)

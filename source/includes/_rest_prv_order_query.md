@@ -51,7 +51,7 @@
 
 Query order status, either open or history order. //TODO: not all order, specify order range later.
 
-**HTTP Request**
+#### HTTP Request
 
 `GET <account-group>/api/pro/v1/{account-category}/order/status?orderId={orderId}`
 
@@ -59,15 +59,15 @@ Query order status, either open or history order. //TODO: not all order, specify
 
 Set `account-category` to`cash` for cash account and `margin` for margin account. 
 
-**Signature**
+#### Signature
 
-You should sign the message in header as specified in [**Authenticate a RESTful Request**](#sign-request) section.
+You should sign the message in header as specified in [**Authenticate a RESTful Request**](#sign-a-request) section.
 
-**Prehash String**
+#### Prehash String
 
 `<timestamp>+order/status`
 
-***Response***
+#### Response
 
 Returns a list order information in `data` field. Please use `orderId` field to match with your order.
 
@@ -90,7 +90,6 @@ Name           | Type     | Description
 `symbol`       | `String` | symbol
 `execInst`     | `String` | execution instruction, `POST` for Post-Only orders, `Liquidation` for forced-liquidation orders, and `NULL_VAL` otherwise.
 
-
-**Code Sample**
+#### Code Sample
 
 Please refer to python code to [get order status](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/order_query.py)

@@ -48,9 +48,7 @@ The response schema:
  `symbol`      | `String`              | Symbol, e.g. `BTMX/USDT`      
  `data`        | `Json Array`          | A list of trade json objects                              
 
-The `data` field is a list containing one or more trade objects. The server may combine consecutive trades with the same price and `bm` 
-value into one aggregated item. Each trade object contains the following fields:
-
+The `data` field is a list containing one or more trade objects. The server may combine consecutive trades with the same price and `bm` value into one aggregated item. Each trade object contains the following fields:
 
  Name     | Type       | Description                                                                                    
 --------- | ---------- | ---------------------------------------------------------------------------------------------- 

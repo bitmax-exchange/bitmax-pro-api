@@ -52,7 +52,7 @@
 }
 ```
 
-**HTTP Request**
+#### HTTP Request
 
 `GET api/pro/v1/ticker`
 

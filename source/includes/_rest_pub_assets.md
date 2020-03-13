@@ -25,13 +25,13 @@ curl -X GET https://bitmax.io/api/pro/v1/assets
 }
 ```
 
-**HTTP Request** 
+#### HTTP Request
 
 `GET /api/pro/v1/assets`
 
 You can obtain a list of all assets listed on the exchange through this API.
 
-**Response Content**
+#### Response Content
 
  Name               | Type     | Description                                                                                 
 ------------------- | -------- | --------------------- 
@@ -42,5 +42,3 @@ You can obtain a list of all assets listed on the exchange through this API.
  `positionScale`    | `Int`    | scale used in internal position keeping.
  `withdrawFee`      | `String` | fee charged for each withdrawal request. e.g. "0.01"
  `status`           | `String` | values: `Normal`, `NoDeposit`, `NoWithdraw`, `NoTransaction`
-
-
