@@ -32,6 +32,7 @@ includes:
   - rest_prv_order_query
   - rest_prv_order_open
   - rest_prv_order_hist_curr
+  - rest_prv_order_hist
   - ws_general
   - ws_keep_alive
   - ws_auth
@@ -48,6 +49,7 @@ includes:
   - ws_req_order_cancel_all
   - ws_req_order_open
   - ws_req_trades
+  - ws_req_margin_risk
   - error_code
 
 header_navigators:
@@ -83,10 +85,9 @@ We provide comprehensive demos (currently available in python). We provide two t
 See [https://github.com/bitmax-exchange/bitmax-pro-api-demo](https://github.com/bitmax-exchange/bitmax-pro-api-demo) for more details.
 
 
-## Release Note 
+## Release Note
 
 **2019-12-26**
 
 * Added execution instruction to order messages (place new order, list open/historical orders). This field indicates if the order is Post-Only (`Post`) or forced liquidation (`Liquidation`). It is named `execInst` 
   in RESTful responses and `ei` in websocket messages. 
-
