@@ -50,8 +50,19 @@ under the License.
         <%= image_tag('navbar.png') %>
       </span>
     </a>
+    <header>
+      <div class="flexbox">
+        <a href="https://bitmax.io">
+          <%= image_tag "logo.png", class: 'logo' %>
+        </a>
+        <div class="navbox">
+          <% current_page.data.header_navigators.each do |navigator| %>
+            <span class="navsell navtab"><%=navigator %></span>
+          <% end %>
+        </div>
+      </div>
+    </header>
     <div class="toc-wrapper">
-      <%= image_tag "logo.png", class: 'logo' %>
       <% if language_tabs.any? %>
         <div class="lang-selector">
           <% language_tabs.each do |lang| %>
