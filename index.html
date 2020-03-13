@@ -350,6 +350,15 @@
             <a href="#websocket" class="toc-h1 toc-link" data-title="WebSocket">WebSocket</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#general-message-request-handling-logic-from-client-side" class="toc-h2 toc-link" data-title="General Message Request/Handling Logic from Client Side">General Message Request/Handling Logic from Client Side</a>
+                  </li>
+                  <li>
+                    <a href="#websocket-request" class="toc-h2 toc-link" data-title="WebSocket Request">WebSocket Request</a>
+                  </li>
+                  <li>
+                    <a href="#code-sample" class="toc-h2 toc-link" data-title="Code Sample">Code Sample</a>
+                  </li>
+                  <li>
                     <a href="#keep-the-connection-alive-via-ping-pong" class="toc-h2 toc-link" data-title="Keep the Connection Alive via Ping/Pong">Keep the Connection Alive via Ping/Pong</a>
                   </li>
                   <li>
@@ -596,15 +605,11 @@ The <code>timestamp</code> is the UTC timestamp in milliseconds.  </p>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p><strong>HTTP Request</strong> </p>
-
+</span></code></pre><h4 id='http-request'>HTTP Request</h4>
 <p><code>GET /api/pro/v1/assets</code></p>
 
 <p>You can obtain a list of all assets listed on the exchange through this API.</p>
-
-<p><strong>Response Content</strong></p>
-
+<h4 id='response-content'>Response Content</h4>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -675,9 +680,7 @@ The <code>timestamp</code> is the UTC timestamp in milliseconds.  </p>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p><strong>HTTP Request</strong></p>
-
+</span></code></pre><h4 id='http-request'>HTTP Request</h4>
 <p><code>GET /api/pro/v1/products</code></p>
 <h4 id='response-content'>Response Content</h4>
 <p>You can obtain a list of all products traded on the exchange through this API.</p>
@@ -810,9 +813,7 @@ The <code>timestamp</code> is the UTC timestamp in milliseconds.  </p>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p><strong>HTTP Request</strong></p>
-
+</span></code></pre><h4 id='http-request'>HTTP Request</h4>
 <p><code>GET api/pro/v1/ticker</code></p>
 
 <p>You can get summary statistics of one or multiple symbols with this API. </p>
@@ -1028,9 +1029,7 @@ If you want to wrap the object in a one-element list, append a comma to the symb
            </span><span class="s2">"s"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTMX/USDT"</span><span class="p">},</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p><strong>HTTP Request</strong></p>
-
+</span></code></pre><h4 id='http-request'>HTTP Request</h4>
 <p><code>GET /api/pro/v1/barhist</code></p>
 
 <p>This API returns a list of <strong>bar</strong>s, with each contains the open/close/high/low prices of a symbol for a specific time range. </p>
@@ -1196,9 +1195,7 @@ only 500 bars will be returned. </li>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p><strong>HTTP Request</strong></p>
-
+</span></code></pre><h4 id='http-request'>HTTP Request</h4>
 <p><code>GET /api/pro/v1/depth</code></p>
 <h4 id='request-parameters'>Request Parameters</h4>
 <table><thead>
@@ -1309,9 +1306,7 @@ only 500 bars will be returned. </li>
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p><strong>HTTP Request</strong></p>
-
+</span></code></pre><h4 id='http-request'>HTTP Request</h4>
 <p><code>GET /api/pro/v1/trades</code></p>
 <h4 id='request-parameters'>Request Parameters</h4>
 <table><thead>
@@ -1500,7 +1495,7 @@ only 500 bars will be returned. </li>
 </span></code></pre><h4 id='http-request'>HTTP Request</h4>
 <p><code>GET &lt;account-group&gt;/api/pro/v1/cash/balance</code></p>
 <h4 id='signature'>Signature</h4>
-<p>You should sign the message in header as specified in <a href="#sign-request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
+<p>You should sign the message in header as specified in <a href="#sign-a-request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
 <h4 id='prehash-string'>Prehash String</h4>
 <p><code>&lt;timestamp&gt;+balance</code></p>
 <h4 id='request-parameters'>Request Parameters</h4>
@@ -1889,20 +1884,22 @@ only 500 bars will be returned. </li>
 </span></code></pre>
 <p>Place a new order.</p>
 
-<p><strong>HTTP Request</strong></p>
+<p><strong><em>HTTP Request</em></strong></p>
 
 <p><code>POST &lt;account-group&gt;/api/pro/v1/{account-category}/order</code></p>
 
 <p>Set <code>account-category</code> to<code>cash</code> for cash account and <code>margin</code> for margin account. </p>
 
-<p><strong>Signature</strong></p>
+<p><strong><em>Signature</em></strong></p>
 
 <p>You should sign the message in header as specified in <a href="#sign-a-request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
 
-<p><strong>Prehash String</strong></p>
+<p><strong><em>Prehash String</em></strong></p>
 
 <p><code>&lt;timestamp&gt;+order</code></p>
-<h4 id='request-parameters'>Request Parameters</h4>
+
+<p><strong><em>Request Parameters</em></strong></p>
+
 <table><thead>
 <tr>
 <th>Name</th>
@@ -2073,7 +2070,9 @@ only 500 bars will be returned. </li>
 <td></td>
 </tr>
 </tbody></table>
-<h4 id='order-request-criteria'>Order Request Criteria</h4>
+
+<p><strong><em>Order Request Criteria</em></strong></p>
+
 <p>When placing a new <strong>limit</strong> order, the request parameters must meet all criteria defined in the <a href="#list-all-products">Products API</a>:</p>
 
 <ul>
@@ -2089,7 +2088,9 @@ only 500 bars will be returned. </li>
 </ul></li>
 <li>For margin trading, you must make sure you have sufficient <strong>max sellable amount</strong> to fund the order. </li>
 </ul>
-<h4 id='response'>Response</h4>
+
+<p><strong><em>Response</em></strong></p>
+
 <p>In &quot;Err&quot; response, <em>id</em> is the id provided by user when placing order; for other responses, <em>orderId</em> is the id generated by server following &quot;Order id generation method&quot; above, and this is the id you should provide for future order query or cancel. </p>
 
 <p>In case you want to cancel an order before response from server, you could figure out the orderId following <strong>Order id generation method</strong> above.</p>
@@ -2294,7 +2295,7 @@ only 500 bars will be returned. </li>
 </tr>
 </tbody></table>
 
-<p><strong>Code Sample</strong></p>
+<p><strong><em>Code Sample</em></strong></p>
 
 <p>Refer to sample python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/tree/master/python/order_new.py">place order</a></p>
 <h3 id='cancel-order'>Cancel Order</h3>
@@ -2335,24 +2336,16 @@ only 500 bars will be returned. </li>
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Cancel an existing open order. </p>
-
-<p><strong>HTTP Request</strong></p>
-
+<p>Cancel an existing open order.</p>
+<h4 id='http-request'>HTTP Request</h4>
 <p><code>DELETE &lt;account-group&gt;/api/pro/v1/{account-category}/order</code></p>
 
 <p>Set <code>account-category</code> to <code>cash</code> for cash account and <code>margin</code> for margin account. </p>
-
-<p><strong>Signature</strong></p>
-
-<p>You should sign the message in header as specified in <a href="#sign-request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
-
-<p><strong>Prehash String</strong></p>
-
+<h4 id='signature'>Signature</h4>
+<p>You should sign the message in header as specified in <a href="#sign-a-request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
+<h4 id='prehash-string'>Prehash String</h4>
 <p><code>&lt;timestamp&gt;+order</code></p>
-
-<p><strong>Request Parameters</strong></p>
-
+<h4 id='request-parameters'>Request Parameters</h4>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -2391,9 +2384,7 @@ only 500 bars will be returned. </li>
 <td>We do not process request placed more than 30 seconds ago.</td>
 </tr>
 </tbody></table>
-
-<p><strong>Response</strong></p>
-
+<h4 id='response'>Response</h4>
 <p><em>ACK</em></p>
 
 <p>Response with status &quot;Ack&quot; to indicate the cancel order request is received by server. And you should use provided &quot;orderId&quot; to check cancel status in the future; we also echo back <em>id</em> from your request for reference purpose.</p>
@@ -2401,9 +2392,7 @@ only 500 bars will be returned. </li>
 <p><em>ERR</em></p>
 
 <p>Response with status &quot;Err&quot; to indicate there is something wrong with the cancel order request. We echo back the <em>coid</em> field in your request.</p>
-
-<p><strong>Code Sample</strong></p>
-
+<h4 id='code-sample'>Code Sample</h4>
 <p>Refer to sample python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/order_cancel.py">cancel order</a></p>
 <h3 id='cancel-all-orders'>Cancel All Orders</h3>
 <blockquote>
@@ -2427,23 +2416,15 @@ only 500 bars will be returned. </li>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Cancel all current open orders for the account specified, and optional symbol.</p>
-
-<p><strong>HTTP Request</strong></p>
-
+<h4 id='http-request'>HTTP Request</h4>
 <p><code>DELETE &lt;account-group&gt;/api/pro/v1/{account-category}/order/all</code></p>
 
 <p>Set <code>account-category</code> to<code>cash</code> for cash account and <code>margin</code> for margin account. </p>
-
-<p><strong>Signature</strong></p>
-
-<p>You should sign the message in header as specified in <a href="#sign-request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
-
-<p><strong>Prehash String</strong></p>
-
+<h4 id='signature'>Signature</h4>
+<p>You should sign the message in header as specified in <a href="#sign-a-request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
+<h4 id='prehash-string'>Prehash String</h4>
 <p><code>&lt;timestamp&gt;+order/all</code></p>
-
-<p><strong>Request Parameters</strong></p>
-
+<h4 id='request-parameters'>Request Parameters</h4>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -2461,9 +2442,7 @@ only 500 bars will be returned. </li>
 <td>If provided, only cancel all orders on this symbol; otherwise, cancel all open orders under this account.</td>
 </tr>
 </tbody></table>
-
-<p><strong>Response</strong></p>
-
+<h4 id='response'>Response</h4>
 <p>Response include <code>code</code> and <code>data</code>, and status <code>Ack</code> (in field <code>data</code>) to indicate cancel all order request is received by server.</p>
 
 <p><code>data</code> schema:</p>
@@ -2532,9 +2511,7 @@ only 500 bars will be returned. </li>
 <td>server received timestamp</td>
 </tr>
 </tbody></table>
-
-<p><strong>Code Sample</strong></p>
-
+<h4 id='code-sample'>Code Sample</h4>
 <p>Refer to sample python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/order_cancel_all.py">cancel all order</a></p>
 <h4 id='caveat'>Caveat</h4>
 <p>The server will process the cancel all request with best effort. Orders sent but un-acked will not be canceled. You should rely on websocket order update messages or the RESTful api 
@@ -2851,23 +2828,15 @@ to obtain the latest status of each order. </p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Cancel multiple orders in a batch. If some order in the batch failed our basic check, then the whole batch request failed.</p>
-
-<p><strong>HTTP Request</strong></p>
-
+<h4 id='http-request'>HTTP Request</h4>
 <p><code>DELETE &lt;account-group&gt;/api/pro/v1/{account-category}/order/batch</code></p>
 
 <p>Set <code>account-category</code> to<code>cash</code> for cash account and <code>margin</code> for margin account. </p>
-
-<p><strong>Signature</strong></p>
-
-<p>You should sign the message in header as specified in <a href="#sign-request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
-
-<p><strong>Prehash String</strong></p>
-
+<h4 id='signature'>Signature</h4>
+<p>You should sign the message in header as specified in <a href="#sign-a-request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
+<h4 id='prehash-string'>Prehash String</h4>
 <p><code>&lt;timestamp&gt;+order/batch</code></p>
-
-<p><strong>Response</strong></p>
-
+<h4 id='response'>Response</h4>
 <p><em>ACK</em></p>
 
 <p>Response with <code>code</code> as 0 to indicate batch is successfuly received by server and pass some basic check. <code>data</code> field explains order ack detail. 
@@ -3040,10 +3009,8 @@ Order detail for each order is in <code>info</code> field list.</p>
 <td>symbol in order</td>
 </tr>
 </tbody></table>
-
-<p><strong>Code Sample</strong></p>
-
-<p>please refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/cancel_order.py">cancel batch order</a></p>
+<h4 id='code-sample'>Code Sample</h4>
+<p>please refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/order_cancel.py">cancel batch order</a></p>
 <h3 id='query-order'>Query Order</h3>
 <blockquote>
 <p>Query Order - Successful Response (Status 200, code 0)</p>
@@ -3093,25 +3060,17 @@ Order detail for each order is in <code>info</code> field list.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Query order status, either open or history order. //TODO: not all order, specify order range later.</p>
-
-<p><strong>HTTP Request</strong></p>
-
+<h4 id='http-request'>HTTP Request</h4>
 <p><code>GET &lt;account-group&gt;/api/pro/v1/{account-category}/order/status?orderId={orderId}</code></p>
 
 <p><code>orderId</code> could be a single order Id, or multiple order Ids separated by <code>,</code>. </p>
 
 <p>Set <code>account-category</code> to<code>cash</code> for cash account and <code>margin</code> for margin account. </p>
-
-<p><strong>Signature</strong></p>
-
-<p>You should sign the message in header as specified in <a href="#sign-request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
-
-<p><strong>Prehash String</strong></p>
-
+<h4 id='signature'>Signature</h4>
+<p>You should sign the message in header as specified in <a href="#sign-a-request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
+<h4 id='prehash-string'>Prehash String</h4>
 <p><code>&lt;timestamp&gt;+order/status</code></p>
-
-<p><strong><em>Response</em></strong></p>
-
+<h4 id='response'>Response</h4>
 <p>Returns a list order information in <code>data</code> field. Please use <code>orderId</code> field to match with your order.</p>
 
 <table><thead>
@@ -3202,9 +3161,7 @@ Order detail for each order is in <code>info</code> field list.</p>
 <td>execution instruction, <code>POST</code> for Post-Only orders, <code>Liquidation</code> for forced-liquidation orders, and <code>NULL_VAL</code> otherwise.</td>
 </tr>
 </tbody></table>
-
-<p><strong>Code Sample</strong></p>
-
+<h4 id='code-sample'>Code Sample</h4>
 <p>Please refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/order_query.py">get order status</a></p>
 <h3 id='list-open-orders'>List Open Orders</h3>
 <blockquote>
@@ -3237,23 +3194,15 @@ Order detail for each order is in <code>info</code> field list.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This API returns all current open orders for the account specified. </p>
-
-<p><strong>HTTP Request</strong></p>
-
+<h4 id='http-request'>HTTP Request</h4>
 <p><code>GET &lt;account-group&gt;/api/pro/v1/{account-category}/order/open</code></p>
 
 <p>Set <code>account-category</code> to<code>cash</code> for cash account and <code>margin</code> for margin account. </p>
-
-<p><strong>Signature</strong></p>
-
+<h4 id='signature'>Signature</h4>
 <p>You should sign the message in header as specified in <a href="#sign-a-request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
-
-<p><strong>Prehash String</strong></p>
-
+<h4 id='prehash-string'>Prehash String</h4>
 <p><code>&lt;timestamp&gt;+order/open</code></p>
-
-<p><strong>Response</strong></p>
-
+<h4 id='response'>Response</h4>
 <p>Return a list of order infomation in <code>data</code> field:</p>
 
 <table><thead>
@@ -3362,9 +3311,7 @@ Order detail for each order is in <code>info</code> field list.</p>
 <td><code>{&quot;code&quot;: xxx, &quot;message&quot;: &quot;missing requird parameter \&quot;account\&quot;} &quot;}</code>  @TODO</td>
 </tr>
 </tbody></table>
-
-<p><strong>Code Sample</strong></p>
-
+<h4 id='code-sample'>Code Sample</h4>
 <p>Please refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_order.py">get open orders</a></p>
 
 <p>Change from the previous version:</p>
@@ -3404,13 +3351,13 @@ Order detail for each order is in <code>info</code> field list.</p>
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This API returns all current history orders for the account specified. //TODO: not all history, specify order range later.</p>
+<p>This API returns all current history orders for the account specified. If you need earlier data, please refer to #list-history-orders.</p>
 <h4 id='http-request'>HTTP Request</h4>
 <p><code>GET &lt;account-group&gt;/api/pro/v1/{account-category}/order/hist/current</code></p>
 
 <p>Set <code>account-category</code> to<code>cash</code> for cash account and <code>margin</code> for margin account. </p>
 <h4 id='signature'>Signature</h4>
-<p>You should sign the message in header as specified in <a href="#sign-request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
+<p>You should sign the message in header as specified in <a href="#sign-a-request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
 <h4 id='prehash-string'>Prehash String</h4>
 <p><code>&lt;timestamp&gt;+order/hist/current</code></p>
 <h4 id='request-parameters'>Request Parameters</h4>
@@ -3443,29 +3390,21 @@ Order detail for each order is in <code>info</code> field list.</p>
 </tbody></table>
 <h4 id='response'>Response</h4>
 <p>Return a list of history orders in <em>&quot;data&quot;</em> field.</p>
-
-<p><strong>Code Sample</strong></p>
-
-<p>Please refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_order_hist_curr.py">get hist orders</a></p>
-<h1 id='websocket'>WebSocket</h1>
-<p><strong>General Message Request/Handling Logic from Client Side</strong></p>
-
+<h4 id='code-sample'>Code Sample</h4>
+<p>Please refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_order_hist_curr.py">get recent hist orders</a></p>
+<h1 id='websocket'>WebSocket</h1><h3 id='general-message-request-handling-logic-from-client-side'>General Message Request/Handling Logic from Client Side</h3>
 <ul>
 <li>Client usually initiate request with <code>op</code> parameter (followed by other required parameters).</li>
 <li>Server usually reply message with <code>m</code> value to indicate message topic, e.g., <code>order</code>, <code>depth</code>, <code>auth</code>.</li>
 <li>Private data response usually has <code>accountId</code> field, such as <code>order</code>, <code>balance</code>; public data response usually contains <code>symbol</code> field.</li>
 <li>Uniquie <code>id</code> parameter is recommended for your request. We will echo it back for you to track the requests. (The only exception is <code>depth-snapshot</code>, we do not include <code>id</code>)</li>
 </ul>
-
-<p><strong>WebSocket Request</strong></p>
-
+<h3 id='websocket-request'>WebSocket Request</h3>
 <p><code>WSS &lt;account-group&gt;/api/pro/v1/stream</code></p>
 
 <p>In order to authorize the session you must include <code>&lt;account-group&gt;</code> in the URL. Without <code>&lt;account-group&gt;</code>, you can 
 only subscribe to public data. </p>
-
-<p><strong>Code Sample</strong> </p>
-
+<h3 id='code-sample'>Code Sample</h3>
 <p>Please refer to python code for all kinds of [websocket operation]{https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/client.py} (e.g. authorization, sub/unsub, place/cancel order, and so on) </p>
 <h2 id='keep-the-connection-alive-via-ping-pong'>Keep the Connection Alive via Ping/Pong</h2>
 <p>In order to keep the websocket connection alive, you have two options, detailed below.</p>
@@ -4976,8 +4915,7 @@ the timely order book data. </p>
 </tr>
 </tbody></table>
 
-<p>The <code>data</code> field is a list containing one or more trade objects. The server may combine consecutive trades with the same price and <code>bm</code> 
-value into one aggregated item. Each trade object contains the following fields:</p>
+<p>The <code>data</code> field is a list containing one or more trade objects. The server may combine consecutive trades with the same price and <code>bm</code> value into one aggregated item. Each trade object contains the following fields:</p>
 
 <table><thead>
 <tr>
