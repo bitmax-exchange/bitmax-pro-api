@@ -192,7 +192,6 @@ You should sign the message in header as specified in [**Authenticate a RESTful 
 
 `<timestamp>+transfer`
 
-
 #### Request Parameters 
 
 Name           |  Type     | Required | Value Range               | Description
