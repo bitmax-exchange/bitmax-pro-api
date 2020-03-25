@@ -4645,7 +4645,6 @@ request message. Here are some use cases: </p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"m"</span><span class="p">:</span><span class="w"> </span><span class="s2">"depth-snapshot"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTMX/USDT"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcdefg"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"seqnum"</span><span class="p">:</span><span class="w"> </span><span class="mi">3167819629</span><span class="p">,</span><span class="w">
         </span><span class="s2">"ts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1573142900389</span><span class="p">,</span><span class="w">
@@ -4672,7 +4671,7 @@ request message. Here are some use cases: </p>
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>You can request the current order book via websocket by an <code>depth-snapshot</code> request. </p>
+<p>You can request the current order book via websocket by an <code>depth-snapshot</code> request.</p>
 
 <p>The <code>args</code> schema:</p>
 
@@ -4696,7 +4695,7 @@ request message. Here are some use cases: </p>
 <tr>
 <td><code>id</code></td>
 <td><code>String</code></td>
-<td>for result match purpose</td>
+<td>echo back in case of error</td>
 </tr>
 <tr>
 <td><code>args:symbol</code></td>
@@ -4723,11 +4722,6 @@ request message. Here are some use cases: </p>
 <td><code>symbol</code></td>
 <td><code>String</code></td>
 <td>Symbol, e.g. <code>BTMX/USDT</code></td>
-</tr>
-<tr>
-<td><code>id</code></td>
-<td><code>String</code></td>
-<td>echo back <code>id</code> in request</td>
 </tr>
 <tr>
 <td><code>data:seqnum</code></td>
