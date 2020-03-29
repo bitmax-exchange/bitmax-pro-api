@@ -13,7 +13,7 @@ For all order related ack or data, there is *orderId* field to identify the orde
 
 We use the following method to generate an unique id for each order place/cancel request. (You could get `userUID` from `Account Info` API.)
 
-**Method**
+#### Method
   
   * A = 'a' for order via rest api, or 's' for order via websocket;
 
@@ -25,7 +25,7 @@ We use the following method to generate an unique id for each order place/cancel
   
   * Final order Id = A + B + C + D.
 
-**Code Sample**
+#### Code Sample
 
 Please refer to python code to [gen server order id](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/util.py)
 

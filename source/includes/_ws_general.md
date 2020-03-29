@@ -1,4 +1,4 @@
-# WebSocket 
+# WebSocket
 
 ### General Message Request/Handling Logic from Client Side
  

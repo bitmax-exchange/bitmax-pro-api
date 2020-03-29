@@ -44,7 +44,7 @@ The `args` schema:
  Name          | Data Type           | Description                
 -------------- | ------------------- | -------------------------- 
  `op`          | `String`            | `req`                      
- `action`      | `String`            | `depth-snapshot`      
+ `action`      | `String`            | `margin-risk`      
  `id`          | `String`            | for result match purpose     
  `args:symbol` | `String`            | Symbol, e.g. `BTMX/USDT`   
 
@@ -52,23 +52,24 @@ The response schema:
 
  Name             | Data Type | Description                   
 ----------------- | ----------| ----------------------------- 
- `m`              | `String`  | `depth-snapshot`
+ `m`              | `String`  | `margin-risk`
  `accountId`      | `String`  | margin accountId
  `ac`             | `String`  | `MARGIN`
  `symbol`         | `String`  | Symbol, e.g. `BTMX/USDT`  
- `id`             | `String`  | echo back `id` in request    
+ `id`             | `String`  | echo back `id` in request
  `data`           | `Json`    | See `data` detail below
 
 `data` field detail
 
- Name   | Data Type | Description                   
---------| ----------| ----------------------------- 
- `tb`   | `String`  | total balance                               
- `ab`   | `String`  | available balance    
+ Name   | Data Type | Description
+--------| ----------| -----------------------------
+ `tb`   | `String`  | total balance
+ `ab`   | `String`  | available balance
  `nb`   | `String`  | net balance  
- `eim`  | `String`  |
- `emm`  | `String`  | 
- `clv`  | `String`  | 
- `ilv`  | `String`  | 
- `cus`  | `String`  |            
- `pts`  | `String`  |        
+ `eim`  | `String`  | effective initial margin
+ `emm`  | `String`  | effective maintaince margin
+ `clv`  | `String`  | current leverage
+ `ilv`  | `String`  | initial leverage
+ `alv`  | `String`  | account max leverage
+ `cus`  | `String`  | cushion
+ `pts`  | `String`  | points balance

@@ -31,13 +31,13 @@
 }
 ```
 
-This API returns all current history orders for the account specified. If you need earlier data, please refer to #list-history-orders.
+This API returns all current history orders for the account specified. If you need earlier data or more filter, please refer to [**Order History API**](#list-history-orders).
 
 #### HTTP Request
 
 `GET <account-group>/api/pro/v1/{account-category}/order/hist/current`
 
-Set `account-category` to`cash` for cash account and `margin` for margin account. 
+Set `account-category` to`cash` for cash account and `margin` for margin account.
 
 #### Signature
 
