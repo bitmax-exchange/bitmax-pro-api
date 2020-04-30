@@ -51,3 +51,4 @@ you can use to update the order book snapshot. In the message, `price` is always
 * if `size` is zero, you should **delete** the level at `price`. 
 
 See [Orderbook Snapshot](#orderbook-snapshot) for code examples.
+
