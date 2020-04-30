@@ -31,22 +31,21 @@
 }
 ```
 
-This API returns all current history orders for the account specified. //TODO: not all history, specify order range later.
+This API returns all current history orders for the account specified. If you need earlier data or more filter, please refer to [**Order History API**](#list-history-orders).
 
 #### HTTP Request
 
 `GET <account-group>/api/pro/v1/{account-category}/order/hist/current`
 
-Set `account-category` to`cash` for cash account and `margin` for margin account. 
+Set `account-category` to`cash` for cash account and `margin` for margin account.
 
 #### Signature
 
-You should sign the message in header as specified in [**Authenticate a RESTful Request**](#sign-request) section.
+You should sign the message in header as specified in [**Authenticate a RESTful Request**](#sign-a-request) section.
 
 #### Prehash String
 
 `<timestamp>+order/hist/current`
-
 
 #### Request Parameters
 
@@ -56,11 +55,10 @@ You should sign the message in header as specified in [**Authenticate a RESTful 
  `symbol`        | `String`  | No       | symbol filter, e.g. `"BTMX/USDT"`
  `executedOnly`  | `Boolean` | No       | if `True`, include orders with non-zero filled quantities only.
 
-
 #### Response
 
 Return a list of history orders in *"data"* field.
 
-**Code Sample**
+#### Code Sample
 
-Please refer to python code to [get hist orders](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_order_hist_curr.py)
+Please refer to python code to [get recent hist orders](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_order_hist_curr.py)

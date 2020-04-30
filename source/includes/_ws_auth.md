@@ -66,7 +66,7 @@ TIMESTAMP=`date +%s%N | cut -c -13`
 MESSAGE=$TIMESTAMP+$APIPATH
 SIGNATURE=`echo -n $MESSAGE | openssl dgst -sha256 -hmac $SECRET -binary | base64`
 
-wscat -c wss://bitmax.io/1/api/pro/stream -w 1 -x "{\"op\":\"auth\", \"id\": \"abc123\", \"t\": $TIMESTAMP, "key": \"$APIKEY\", \"sig\": \"$SIGNATURE\"}"
+wscat -c wss://bitmax.io/1/api/v1/pro/stream -w 1 -x "{\"op\":\"auth\", \"id\": \"abc123\", \"t\": $TIMESTAMP, "key": \"$APIKEY\", \"sig\": \"$SIGNATURE\"}"
 ```
 
 You can also authenticate a live websocket session by sending an `op:auth` message to the server. 

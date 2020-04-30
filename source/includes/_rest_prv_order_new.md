@@ -134,20 +134,19 @@
 
 Place a new order.
 
-**HTTP Request**
+#### HTTP Request
 
 `POST <account-group>/api/pro/v1/{account-category}/order`
 
 Set `account-category` to`cash` for cash account and `margin` for margin account. 
 
-**Signature**
+#### Signature
 
 You should sign the message in header as specified in [**Authenticate a RESTful Request**](#sign-a-request) section.
 
-**Prehash String**
+#### Prehash String
 
 `<timestamp>+order`
-
 
 #### Request Parameters
 
@@ -180,7 +179,6 @@ postOnly    |        | x     |            |
 stopPrice   |        |       | o          | o
 timeInForce |        | x     |            | 
 
-
 #### Order Request Criteria
 
 When placing a new **limit** order, the request parameters must meet all criteria defined in the [Products API](#list-all-products):
@@ -193,7 +191,6 @@ When placing a new **limit** order, the request parameters must meet all criteri
   * for buy orders, if `commissionType=Quote`, the quote asset balance must be no less than `orderPrice * orderQty * (1 + commissionReserveRate)`. For all other `commissionType`s (`Base` and `Received`), the quote asset balance must be no less than `orderPrice * orderQty`
   * for sell orders, if `commissionType=Base`, your base asset balance must be no less than `orderQty * (1 + commissionReserveRate)`, For other `commissionType`s (`Received` and `Quote`), the base asset balance must be no less than `orderQty`.
 * For margin trading, you must make sure you have sufficient **max sellable amount** to fund the order. 
-
 
 #### Response
 
@@ -266,7 +263,6 @@ HTTP Status Code | Error Code | Reason           | Example
 ---------------- | ---------- | ---------------- | ----------------------------------------------------------------------
 400              | xxx        | Parameter Error  | 
 
-
-**Code Sample**
+#### Code Sample
 
 Refer to sample python code to [place order](https://github.com/bitmax-exchange/bitmax-pro-api-demo/tree/master/python/order_new.py)

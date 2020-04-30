@@ -42,7 +42,7 @@ curl -X GET https://bitmax.io/api/pro/v1/depth?symbol=BTMX/USDT
 }
 ```
 
-**HTTP Request**
+#### HTTP Request
 
 `GET /api/pro/v1/depth`
 
@@ -52,7 +52,7 @@ curl -X GET https://bitmax.io/api/pro/v1/depth?symbol=BTMX/USDT
 ---------- | ------- | -------- | ----------------------------------- |---------------
  `symbol`  | String  | Yes      |  Valid symbol supported by exchange | 
 
-#### Response Content 
+#### Response Content
 
 `data` field in response contains depth data and meta info.
 

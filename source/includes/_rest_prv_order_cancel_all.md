@@ -24,29 +24,27 @@
 
 Cancel all current open orders for the account specified, and optional symbol.
 
-**HTTP Request**
+#### HTTP Request
 
 `DELETE <account-group>/api/pro/v1/{account-category}/order/all`
 
 Set `account-category` to`cash` for cash account and `margin` for margin account. 
 
-**Signature**
+#### Signature
 
-You should sign the message in header as specified in [**Authenticate a RESTful Request**](#sign-request) section.
+You should sign the message in header as specified in [**Authenticate a RESTful Request**](#sign-a-request) section.
 
-**Prehash String**
+#### Prehash String
 
 `<timestamp>+order/all`
 
-
-**Request Parameters**
-
+#### Request Parameters
 
    Name  | Type   | Required | Value Range                            | Description
 -------- | -------| -------- | -------------------------------------- |---------------
  symbol  | String |   No     |  Valid symbol supported by exchange    | If provided, only cancel all orders on this symbol; otherwise, cancel all open orders under this account.
 
-**Response**
+#### Response
 
 Response include `code` and `data`, and status `Ack` (in field `data`) to indicate cancel all order request is received by server.
 
@@ -69,7 +67,7 @@ Name       |  Type    | Description
 `symbol`   | `String` | `symbol` in request
 `timestamp`| `Long`   | server received timestamp
 
-**Code Sample**
+#### Code Sample
 
 Refer to sample python code to [cancel all order](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/order_cancel_all.py)
 

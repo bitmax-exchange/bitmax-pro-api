@@ -61,21 +61,21 @@ Place multiple orders in a batch. If some order in the batch failed our basic ch
 
 You may submit up to 10 orders at a time. Server will respond with error if you submit more than 10 orders.
 
-**HTTP Request**
+#### HTTP Request
 
 `POST <account-group>/api/pro/v1/{account-category}/order/batch`
 
 Set `account-category` to`cash` for cash account and `margin` for margin account.
 
-**Signature**
+#### Signature
 
-You should sign the message in header as specified in [**Authenticate a RESTful Request**](#sign-request) section.
+You should sign the message in header as specified in [**Authenticate a RESTful Request**](#sign-a-request) section.
 
-**Prehash String**
+#### Prehash String
 
 `<timestamp>+order/batch`
 
-**Response**
+#### Response
 
 *ACK*
 
@@ -88,7 +88,7 @@ Name        |  Type    | Description
 `ac`        | `String` | `CASH`, `MARGIN`
 `accountId` | `String` | account Id
 `action`    | `String` | `cancel-all`
-`status`    | `String` |  `Ack` 
+`status`    | `String` |  `Ack`
 `info`      | `List`   | See below for detail
 
 `info` schema:
@@ -129,6 +129,6 @@ Name        |  Type    | Description
 `reason`    | `String` | short error message 
 `symbol`    | `String` | symbol in order
 
-**Code Sample**
+#### Code Sample
 
 Please refer to python code to [place batch order](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/order_new.py)

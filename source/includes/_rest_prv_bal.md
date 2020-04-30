@@ -33,14 +33,14 @@
 
 #### Signature
 
-You should sign the message in header as specified in [**Authenticate a RESTful Request**](#sign-request) section.
+You should sign the message in header as specified in [**Authenticate a RESTful Request**](#sign-a-request) section.
 
 #### Prehash String
 
 `<timestamp>+balance`
 
 
-#### Request Parameters 
+#### Request Parameters
 
 Name          |  Type     | Required | Value Range  | Description
 ------------- | --------- | -------- | ------------ | -----------
@@ -191,7 +191,6 @@ You should sign the message in header as specified in [**Authenticate a RESTful 
 #### Prehash String
 
 `<timestamp>+transfer`
-
 
 #### Request Parameters 
 

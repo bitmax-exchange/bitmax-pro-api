@@ -34,7 +34,7 @@ curl -X GET /api/pro/v1/trades?symbol=BTMX/USDT
 }
 ```
 
-**HTTP Request**
+#### HTTP Request
 
 `GET /api/pro/v1/trades`
 
