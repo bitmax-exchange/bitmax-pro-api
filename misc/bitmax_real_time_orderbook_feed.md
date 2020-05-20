@@ -1,4 +1,6 @@
-# WebSocket - Real-time Level 2 Order Book Update 
+# WebSocket - Real-time Level 2 Order Book Updates 
+
+**Note**: you must first authenticate the WebSocket session in order to subscribe to real-time level 2 order book updates.
 
 In addition to the regular `depth` channel,  you shall subscribe to the `depth-realtime` channel for data feed with loweMX/USDTcy.
 If the request is successful, you will receive the full orderbook in the WebSocket: 
