@@ -148,7 +148,8 @@ If the request failed, you will receive an ack message with non-zero `code` valu
     }
 
 
+## Maintaining a Live Full Orderbook
+
 If you are already subscribed to the `depth-realtime` channel, our server guarentees that the order of the `depth-snapshot-realtime` message and 
 `depth-snapshot` messages. When you receive the `depth-snapshot-realtime` message, you can reset your cached orderbook using the snapshot data 
-and update the cached orderbook with following `depth-realtime` updates.
-
+and update the cached orderbook with following `depth-realtime` updates. 

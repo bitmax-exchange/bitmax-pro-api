@@ -50,6 +50,7 @@ includes:
   - ws_req_order_open
   - ws_req_trades
   - ws_req_margin_risk
+  - expr
   - error_code
 
 header_navigators:
