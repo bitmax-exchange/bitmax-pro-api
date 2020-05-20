@@ -78,7 +78,7 @@ Under the default setting (`ack=New`), the order life cycle consists of five dif
 
 The client will be notified whenever the order changes state. 
 
-![order-life-cycle-new-ack-mode](/images/order-life-cycle-new-ack-mode.png "Order Life Cycle in the New Ack mode")
+![order-life-cycle-new-ack-mode](/misc/images/order-life-cycle-new-ack-mode.png "Order Life Cycle in the New Ack mode")
 
 In the **Ready Ack** mode (`ack=Ready`), We introduced a new state Ready, which means the order has been accepted by the matching engine as a maker order and is ready to cross with other orders. 
 Also, in the Ready Ack mode, the server will no longer send message to client when the order enters the New state. Thus, in the ready ack mode, clients will receive the following messages for an order:
@@ -92,7 +92,7 @@ Also, in the Ready Ack mode, the server will no longer send message to client wh
 Please note: the first message following an successfully placed order could be any of the five messages above. For instance, a large buy order with price = `ask1` will first cross with maker orders on `ask1` 
 and then becomes a maker order. In this case, the first order message will be `PartiallyFilled`.
 
-![order-life-cycle-ready-ack-mode](/images/order-life-cycle-ready-ack-mode.png "Order Life Cycle in the Ready Ack mode")
+![order-life-cycle-ready-ack-mode](/misc/images/order-life-cycle-ready-ack-mode.png "Order Life Cycle in the Ready Ack mode")
 
 Here is a sample Ready message:
 
