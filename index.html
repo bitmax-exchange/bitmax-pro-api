@@ -5365,7 +5365,7 @@ the timely order book data. </p>
 </tbody></table>
 <h1 id='experimental-apis'>Experimental APIs</h1><h2 id='real-time-level-2-orderbook-updates'>Real Time Level 2 Orderbook Updates</h2>
 <p>WebSocket messages from the default <code>depth</code> channel are throttled with 300 milliseconds throttling intervals. If you want to 
-subscribe to realtime orderbook updates, please refer to this <a href="/misc/bitmax_real_time_orderbook_feed.md">article</a>.</p>
+subscribe to realtime orderbook updates, please refer to this <a href="https://github.com/bitmax-exchange/bitmax-pro-api/blob/master/misc/bitmax_real_time_orderbook_feed.md">article</a>.</p>
 <h2 id='subscribe-to-order-channel-with-ready-ack-mode'>Subscribe to Order Channel with Ready Ack Mode</h2>
 <p>By default, when you subscribe to the order channel via WebSocket, you automatically enter the New Ack Mode. In this mode, when the 
 order is accepted by the matching engine, you will receive an order message with status <code>st=New</code>. This is true even when the order will 
@@ -5374,7 +5374,7 @@ in the New Ack Mode, you will first receive an order message with <code>st=New</
 if your order successfully enters the orderbook without crossing with order on the opposite side, you will only receive one message with <code>st=New</code>. 
 This makes it hard for trading bots to decide when to take actions.</p>
 
-<p>To address this issue, we introduced the <strong>Ready Ack</strong> mode. Follow this <a href="/misc/bitmax_ws_order_channel_ready_mode.md">link</a> for more details.</p>
+<p>To address this issue, we introduced the <strong>Ready Ack</strong> mode. Follow this <a href="https://github.com/bitmax-exchange/bitmax-pro-api/blob/master/misc/bitmax_ws_order_channel_ready_mode.md">link</a> for more details.</p>
 <h1 id='error-message'>Error Message</h1>
 <p>We structure our error message in three levels:
     * Error Group provide a broad error category (Error group id = error code / 10000)
