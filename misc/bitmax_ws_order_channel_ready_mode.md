@@ -121,3 +121,165 @@ Here is a sample Ready message:
     }
 }
 ```
+
+## Sample Order Messages in Ready Ack Mode
+
+### New 
+
+```json
+{
+    "m": "order",
+    "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
+    "ac": "CASH",
+    "data": {
+        "sn": 5744236244,
+        "orderId": "s1723274f109U9698887124UYZcCovZR",
+        "s": "BTMX/USDT",
+        "ot": "Limit",
+        "t": 1589984424581,
+        "p": "0.06",
+        "q": "150",
+        "sd": "Sell",
+        "st": "Ready",
+        "ap": "0",
+        "cfq": "0",
+        "sp": "",
+        "err": "",
+        "btb": "650",
+        "bab": "500",
+        "qtb": "100",
+        "qab": "100",
+        "cf": "0",
+        "fa": "USDT",
+        "ei": "NULL_VAL"
+    }
+}
+```
+
+### PartiallyFilled
+
+```json
+{
+    "m": "order",
+    "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
+    "ac": "CASH",
+    "data": {
+        "sn": 5744212681,
+        "orderId": "s1723271a990U9698887124oF1ZWI2E0",
+        "s": "BTMX/USDT",
+        "ot": "Limit",
+        "t": 1589984209677,
+        "p": "0.04054",
+        "q": "400",
+        "sd": "Sell",
+        "st": "PartiallyFilled",
+        "ap": "0.04054",
+        "cfq": "296",
+        "sp": "",
+        "err": "",
+        "btb": "604",
+        "bab": "500",
+        "qtb": "100",
+        "qab": "100",
+        "cf": "0.01199984",
+        "fa": "USDT",
+        "ei": "NULL_VAL"
+    }
+}
+```
+
+### Filled
+
+```json
+{
+    "m": "order",
+    "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
+    "ac": "CASH",
+    "data": {
+        "sn": 5744228002,
+        "orderId": "s1723273cc4dU9698887124KmD7JCk9K",
+        "s": "BTMX/USDT",
+        "ot": "Limit",
+        "t": 1589984349641,
+        "p": "0.04",
+        "q": "150",
+        "sd": "Sell",
+        "st": "Filled",
+        "ap": "0.04054",
+        "cfq": "150",
+        "sp": "",
+        "err": "",
+        "btb": "500",
+        "bab": "500",
+        "qtb": "100",
+        "qab": "100",
+        "cf": "0.006081",
+        "fa": "USDT",
+        "ei": "NULL_VAL"
+    }
+}
+```
+
+### Canceled 
+
+```json
+{
+    "m": "order",
+    "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
+    "ac": "CASH",
+    "data": {
+        "sn": 5744236665,
+        "orderId": "s1723274f109U9698887124UYZcCovZR",
+        "s": "BTMX/USDT",
+        "ot": "Limit",
+        "t": 1589984426698,
+        "p": "0.06",
+        "q": "150",
+        "sd": "Sell",
+        "st": "Canceled",
+        "ap": "0",
+        "cfq": "0",
+        "sp": "",
+        "err": "",
+        "btb": "500",
+        "bab": "500",
+        "qtb": "100",
+        "qab": "100",
+        "cf": "0",
+        "fa": "USDT",
+        "ei": "NULL_VAL"
+    }
+}
+```
+
+### Rejected
+
+```json
+{
+    "m": "order",
+    "accountId": "cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo",
+    "ac": "CASH",
+    "data": {
+        "sn": 5744182462,
+        "orderId": "s172326e1f85U9698887124qTSAvg1uJ",
+        "s": "BTMX/USDT",
+        "ot": "Limit",
+        "t": 1589983977725,
+        "p": "0.05",
+        "q": "400",
+        "sd": "Sell",
+        "st": "Rejected",
+        "ap": "0",
+        "cfq": "0",
+        "sp": "",
+        "err": "PostOnlyWouldTake",
+        "btb": "500",
+        "bab": "500",
+        "qtb": "100",
+        "qab": "100",
+        "cf": "0",
+        "fa": "USDT",
+        "ei": "Post"
+    }
+}
+```
