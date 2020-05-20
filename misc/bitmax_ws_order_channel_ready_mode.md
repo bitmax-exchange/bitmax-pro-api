@@ -11,7 +11,7 @@ In this document, we introduce an alternative **Ready Ack** mode, making it easi
 
 ## Activate the Ack Mode
 
-You shall specify the websocket version by adding an ack field in the auth message when authenticating the websocket. 
+You shall specify the websocket version by adding an ack field in the auth message when authenticating the websocket, (set `ack=ready` to turn on the ready ack mode):
 
 ```json
 {
@@ -20,7 +20,7 @@ You shall specify the websocket version by adding an ack field in the auth messa
     "t": 1585438955783,
     "key": "<api-key>",
     "sig": "<signature>",
-    "ack": "ready"  // set ack = "ready" to turn on the ready ack mode
+    "ack": "ready"
 }
 ```
 
