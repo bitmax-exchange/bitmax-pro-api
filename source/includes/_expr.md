@@ -3,7 +3,7 @@
 ## Real Time Level 2 Orderbook Updates
 
 WebSocket messages from the default `depth` channel are throttled with 300 milliseconds throttling intervals. If you want to 
-subscribe to realtime orderbook updates, please refer to this [article](/misc/bitmax_real_time_orderbook_feed.md).
+subscribe to realtime orderbook updates, please refer to this [article](https://github.com/bitmax-exchange/bitmax-pro-api/blob/master/misc/bitmax_real_time_orderbook_feed.md).
 
 
 ## Subscribe to Order Channel with Ready Ack Mode
@@ -15,5 +15,5 @@ in the New Ack Mode, you will first receive an order message with `st=New`, then
 if your order successfully enters the orderbook without crossing with order on the opposite side, you will only receive one message with `st=New`. 
 This makes it hard for trading bots to decide when to take actions.
 
-To address this issue, we introduced the **Ready Ack** mode. Follow this [link](/misc/bitmax_ws_order_channel_ready_mode.md) for more details.
+To address this issue, we introduced the **Ready Ack** mode. Follow this [link](https://github.com/bitmax-exchange/bitmax-pro-api/blob/master/misc/bitmax_ws_order_channel_ready_mode.md) for more details.
 
