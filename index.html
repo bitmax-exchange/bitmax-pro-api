@@ -436,6 +436,17 @@
               </ul>
           </li>
           <li>
+            <a href="#experimental-apis" class="toc-h1 toc-link" data-title="Experimental APIs">Experimental APIs</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#real-time-level-2-orderbook-updates" class="toc-h2 toc-link" data-title="Real Time Level 2 Orderbook Updates">Real Time Level 2 Orderbook Updates</a>
+                  </li>
+                  <li>
+                    <a href="#subscribe-to-order-channel-with-ready-ack-mode" class="toc-h2 toc-link" data-title="Subscribe to Order Channel with Ready Ack Mode">Subscribe to Order Channel with Ready Ack Mode</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#error-message" class="toc-h1 toc-link" data-title="Error Message">Error Message</a>
               <ul class="toc-list-h2">
                   <li>
@@ -5352,6 +5363,18 @@ the timely order book data. </p>
 <td>points balance</td>
 </tr>
 </tbody></table>
+<h1 id='experimental-apis'>Experimental APIs</h1><h2 id='real-time-level-2-orderbook-updates'>Real Time Level 2 Orderbook Updates</h2>
+<p>WebSocket messages from the default <code>depth</code> channel are throttled with 300 milliseconds throttling intervals. If you want to 
+subscribe to realtime orderbook updates, please refer to this <a href="/misc/bitmax_real_time_orderbook_feed.md">article</a>.</p>
+<h2 id='subscribe-to-order-channel-with-ready-ack-mode'>Subscribe to Order Channel with Ready Ack Mode</h2>
+<p>By default, when you subscribe to the order channel via WebSocket, you automatically enter the New Ack Mode. In this mode, when the 
+order is accepted by the matching engine, you will receive an order message with status <code>st=New</code>. This is true even when the order will 
+immediately change status. For instance, when you place a Post-only order that crosses the book, it will immediately be rejected. However, 
+in the New Ack Mode, you will first receive an order message with <code>st=New</code>, then immediately receive another message with <code>st=Canceled</code>. However, 
+if your order successfully enters the orderbook without crossing with order on the opposite side, you will only receive one message with <code>st=New</code>. 
+This makes it hard for trading bots to decide when to take actions.</p>
+
+<p>To address this issue, we introduced the <strong>Ready Ack</strong> mode. Follow this <a href="/misc/bitmax_ws_order_channel_ready_mode.md">link</a> for more details.</p>
 <h1 id='error-message'>Error Message</h1>
 <p>We structure our error message in three levels:
     * Error Group provide a broad error category (Error group id = error code / 10000)
