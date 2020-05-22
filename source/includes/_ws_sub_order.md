@@ -1,4 +1,4 @@
-### Channel: Order
+### Channel: Order (and Balance)
 
 > Subscribe to `cash` account order update stream
 
@@ -50,6 +50,8 @@
     }
 }
 ```
+
+Note: once you subscribe to the **order** channel, you will start receiving messages from the **balance** channel automatically. If you unsubscribe from the **order** channel, you will simultaneously unsubscribe from the **balance** channel.
 
 Order update stream is supported on both *account* and *account + symbol* level.
 

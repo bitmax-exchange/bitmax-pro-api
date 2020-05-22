@@ -76,7 +76,8 @@ Under the default setting (`ack=New`), the order life cycle consists of five dif
 * Canceled
 * Rejected
 
-The client will be notified whenever the order changes state. 
+You will receive order updates messages whenever the order gets updated throughtout the order's life cycle. For instance, when your order gets
+crossed with other orders, you will receive `order` message with status `PartiallyFilled` or `Filled` ; when you successfully canceled your order, you will receive `order` message with status `Canceled`, etc.  
 
 ![order-life-cycle-new-ack-mode](/misc/images/order-life-cycle-new-ack-mode.png "Order Life Cycle in the New Ack mode")
 
