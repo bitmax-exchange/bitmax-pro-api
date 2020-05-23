@@ -397,7 +397,7 @@
                           <a href="#channel-bar-data" class="toc-h3 toc-link" data-title="Channel: Bar Data">Channel: Bar Data</a>
                         </li>
                         <li>
-                          <a href="#channel-order" class="toc-h3 toc-link" data-title="Channel: Order">Channel: Order</a>
+                          <a href="#channel-order-and-balance" class="toc-h3 toc-link" data-title="Channel: Order (and Balance)">Channel: Order (and Balance)</a>
                         </li>
                     </ul>
                   </li>
@@ -4271,7 +4271,7 @@ value into one aggregated item. Each trade object contains the following fields:
 <td>if true, the buyer of the trade is the maker.</td>
 </tr>
 </tbody></table>
-<h3 id='channel-order'>Channel: Order</h3>
+<h3 id='channel-order-and-balance'>Channel: Order (and Balance)</h3>
 <blockquote>
 <p>Subscribe to <code>cash</code> account order update stream</p>
 </blockquote>
@@ -4295,36 +4295,66 @@ value into one aggregated item. Each trade object contains the following fields:
     </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w"> 
     </span><span class="s2">"ac"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w"> 
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"ap"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"bab"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2006.5974027"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"btb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2006.5974027"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"cf"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"cfq"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"err"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"fa"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"s"</span><span class="p">:</span><span class="w">       </span><span class="s2">"BTC/USDT"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"sn"</span><span class="p">:</span><span class="w">       </span><span class="mi">8159711</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"sd"</span><span class="p">:</span><span class="w">      </span><span class="s2">"Buy"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"ap"</span><span class="p">:</span><span class="w">      </span><span class="s2">"0"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"bab"</span><span class="p">:</span><span class="w">     </span><span class="s2">"2006.5974027"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"btb"</span><span class="p">:</span><span class="w">     </span><span class="s2">"2006.5974027"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cf"</span><span class="p">:</span><span class="w">      </span><span class="s2">"0"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"cfq"</span><span class="p">:</span><span class="w">     </span><span class="s2">"0"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"err"</span><span class="p">:</span><span class="w">     </span><span class="s2">""</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"fa"</span><span class="p">:</span><span class="w">      </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s16ef210b1a50866943712bfaf1584b"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"ot"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Market"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"p"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7967.62"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"q"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0083"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"qab"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21400793.928153757"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"qtb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21400860.125531003"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"s"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC/USDT"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"sd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buy"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"sn"</span><span class="p">:</span><span class="w"> </span><span class="mi">8159711</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"sp"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"st"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"t"</span><span class="p">:</span><span class="w"> </span><span class="mi">1576019215402</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"ei"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NULL_VAL"</span><span class="w">
+        </span><span class="s2">"ot"</span><span class="p">:</span><span class="w">      </span><span class="s2">"Market"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"p"</span><span class="p">:</span><span class="w">       </span><span class="s2">"7967.62"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"q"</span><span class="p">:</span><span class="w">       </span><span class="s2">"0.0083"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"qab"</span><span class="p">:</span><span class="w">     </span><span class="s2">"793.23"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"qtb"</span><span class="p">:</span><span class="w">     </span><span class="s2">"860.23"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"sp"</span><span class="p">:</span><span class="w">      </span><span class="s2">""</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"st"</span><span class="p">:</span><span class="w">      </span><span class="s2">"New"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"t"</span><span class="p">:</span><span class="w">        </span><span class="mi">1576019215402</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ei"</span><span class="p">:</span><span class="w">      </span><span class="s2">"NULL_VAL"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Order update stream is supported on both <em>account</em> and <em>account + symbol</em> level.</p>
+<blockquote>
+<p>Balance Update Message (Cash Account)</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"m"</span><span class="p">:</span><span class="w"> </span><span class="s2">"balance"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cshQtyfq8XLAA9kcf19h8bXHbAwwoqDo"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ac"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"a"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sn"</span><span class="p">:</span><span class="w"> </span><span class="mi">8159798</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"600"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ab"</span><span class="p">:</span><span class="w"> </span><span class="s2">"600"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Balance Update Message (Margin Account)</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"m"</span><span class="p">:</span><span class="w"> </span><span class="s2">"balance"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"marOxpKJV83dxTRx0Eyxpa0gxc4Txt0P"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ac"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MARGIN"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"a"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sn"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">8159798</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tb"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"600"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ab"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"600"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"brw"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"int"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Note: once you subscribe to the <strong>order</strong> channel, you will start receiving messages from the <strong>balance</strong> channel automatically. If you unsubscribe from the <strong>order</strong> channel, you will simultaneously unsubscribe from the <strong>balance</strong> channel.</p>
 
-<p>For account level, you could specify account category <code>cash</code>, <code>margin</code>, or specific account id.</p>
-
-<p>If you already subscribe to <em>account</em> level, you cannot subject to <em>symbol</em> level. In order to change to <em>account + symbol</em> level, unsubscribe from <em>account</em> level first, then subscribe to symbol level.</p>
-
-<p>The <code>data</code> field is a single order udpate object.  Each order update object contains the following fields:</p>
+<p>You need to specify the account when subscribing to the order channel. You could specify account category <code>cash</code>, <code>margin</code>, or specific account id.</p>
+<h4 id='order-messages'>Order Messages</h4>
+<p>You can track the state change of each order thoughout its life cycle with the order update message (<code>m=order</code>). The <code>data</code> field is a single order udpate object.  Each order update object contains the following fields:</p>
 
 <table><thead>
 <tr>
@@ -4333,6 +4363,16 @@ value into one aggregated item. Each trade object contains the following fields:
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td><code>s</code></td>
+<td><code>String</code></td>
+<td>symbol</td>
+</tr>
+<tr>
+<td><code>sn</code></td>
+<td><code>long</code></td>
+<td>sequence number</td>
+</tr>
 <tr>
 <td><code>ap</code></td>
 <td><code>String</code></td>
@@ -4399,19 +4439,9 @@ value into one aggregated item. Each trade object contains the following fields:
 <td>quote asset total balance</td>
 </tr>
 <tr>
-<td><code>s</code></td>
-<td><code>String</code></td>
-<td>symbol</td>
-</tr>
-<tr>
 <td><code>sd</code></td>
 <td><code>String</code></td>
 <td>order side</td>
-</tr>
-<tr>
-<td><code>sn</code></td>
-<td><code>long</code></td>
-<td>sequence number</td>
 </tr>
 <tr>
 <td><code>sp</code></td>
@@ -4432,6 +4462,81 @@ value into one aggregated item. Each trade object contains the following fields:
 <td><code>ei</code></td>
 <td><code>String</code></td>
 <td>execution instruction</td>
+</tr>
+</tbody></table>
+<h4 id='balance-messages'>Balance Messages</h4>
+<p>You will also receive balance update message (<code>m=balance</code>) for the asset balance updates not caused by orders. For instance, when you make wallet deposits/withdrawals, or when you transfer asset from the cash account 
+to the margin account, you will receive balance update message.</p>
+
+<p>For <em>Cash Account Balance Update</em>, the data field contains:</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>a</code></td>
+<td><code>String</code></td>
+<td>asset</td>
+</tr>
+<tr>
+<td><code>sn</code></td>
+<td><code>long</code></td>
+<td>sequence number</td>
+</tr>
+<tr>
+<td><code>tb</code></td>
+<td><code>String</code></td>
+<td>total balance</td>
+</tr>
+<tr>
+<td><code>ab</code></td>
+<td><code>String</code></td>
+<td>available balance</td>
+</tr>
+</tbody></table>
+
+<p>For <em>Margin Account Balance Update</em>, the data field contains:</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>a</code></td>
+<td><code>String</code></td>
+<td>asset</td>
+</tr>
+<tr>
+<td><code>sn</code></td>
+<td><code>long</code></td>
+<td>sequence number</td>
+</tr>
+<tr>
+<td><code>tb</code></td>
+<td><code>String</code></td>
+<td>total balance</td>
+</tr>
+<tr>
+<td><code>ab</code></td>
+<td><code>String</code></td>
+<td>available balance</td>
+</tr>
+<tr>
+<td><code>brw</code></td>
+<td><code>String</code></td>
+<td>borrowed amount</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td><code>String</code></td>
+<td>interest amount</td>
 </tr>
 </tbody></table>
 <h2 id='data-query-order-request'>Data Query / Order Request</h2>
