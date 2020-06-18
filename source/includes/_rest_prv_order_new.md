@@ -160,7 +160,7 @@ side       | String |  Yes   |["buy", "sell"]                       |
 id         | String |  No    |>=9 chars(letter and digit number only)|Optional but recommended. We echo it back to help you match response with request.
 orderPrice | String |  No    |                                      |The limit price for limit order. Please set price scale properly.
 stopPrice  | String |  No    |                                      |Trigger price of stop limit order
-postOnly   | Boolean|  No    |["true", "false"]                     |
+postOnly   | Boolean|  No    |[true, false]                         |
 timeInForce| String |  No    |["GTC", "IOC"]                        |GTC: good-till-canceled; IOC: immediate-or-cancel. GTC by default.
 respInst   | String |  No    |["ACK", "ACCEPT", "DONE"]             |Response instruction. Refer to "Response" below. "ACK" by default.  
 
