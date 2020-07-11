@@ -101,9 +101,10 @@ You should sign the message in header as specified in [**Authenticate a RESTful 
 
 #### Request Parameters 
 
-Name          |  Type     | Required | Value Range  | Description
-------------- | --------- | -------- | ------------ | -----------
-**showAll**   | `Boolean` |   No     | true / false | by default, the API will only respond with assets with non-zero balances. Set `showAll=true` to include all assets in the response. 
+Name          |  Type     | Required | Value Range    | Description
+------------- | --------- | -------- | -------------- | -----------
+**asset**     | `String`  |   No     |valid asset code| this allow you query single asset balance, e.g. `BTC`
+**showAll**   | `Boolean` |   No     |  true / false  | by default, the API will only respond with assets with non-zero balances. Set `showAll=true` to include all assets in the response. 
 
 
 #### Response Content
