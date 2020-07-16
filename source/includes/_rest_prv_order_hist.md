@@ -61,7 +61,7 @@ You should sign the message in header as specified in [**Authenticate a RESTful 
  `symbol`        | `String`  | No       | symbol filter, e.g. `BTMX/USDT`
  `category`      | `String`  | No       | account filter: `cash`/`margin`/`futures`
  `orderType`     | `String`  | No       | `market`, `limit`, and so on.
- `side`|         | `String`  | No       | `buy`/`sell`
+ `side`          | `String`  | No       | `buy`/`sell`
  `status`        | `String`  | No       | `Canceled`/`Filled`  
  `startTime`     | `Long`    | No       | start time in milliseconds.
  `endTime`       | `Long`    | No       | end time in milliseconds.
