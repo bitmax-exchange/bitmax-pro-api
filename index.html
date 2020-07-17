@@ -5424,8 +5424,9 @@ the timely order book data. </p>
             </span><span class="s2">"qtb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w"> 
             </span><span class="s2">"qab"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w"> 
             </span><span class="s2">"cf"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w"> 
-            </span><span class="s2">"fa"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">},</span><span class="w"> 
-            </span><span class="err">...</span><span class="w">
+            </span><span class="s2">"fa"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="w">
+        </span><span class="p">},</span><span class="w"> 
+        </span><span class="err">...</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -5462,10 +5463,18 @@ the timely order book data. </p>
 </tr>
 <tr>
 <td><code>args:symbols</code></td>
-<td><code>String</code></td>
-<td></td>
+<td><code>Optional[String]</code></td>
+<td>add the (optional) symbol filter, see below for details.</td>
 </tr>
 </tbody></table>
+
+<p>The <code>symbols</code> key in the <code>args</code> map allows you to customize the symbol filter in a flexible way:</p>
+
+<ul>
+<li>to query open orders of the a specific symbol, set <code>symbols</code> to a valid symbol code. For instance, <code>{&quot;symbols&quot;: &quot;BTC/USDT&quot;}</code></li>
+<li>to query open orders of multiple symbols, set <code>symbols</code> to comma separated string of valid symbol codes. For instance, <code>{&quot;symbols&quot;: &quot;BTC/USDT,ETH/USDT&quot;}</code> allows you to query open orders of both <code>BTC/USDT</code> and <code>ETH/USDT</code> at the same time.</li>
+<li>to query all open orders, you may either use the wild card (<code>{&quot;symbols&quot;: &quot;*&quot;}</code>) or simply omit the <code>symbols</code> key (<code>{}</code>). </li>
+</ul>
 
 <p>The response schema:</p>
 
