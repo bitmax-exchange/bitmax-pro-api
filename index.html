@@ -313,6 +313,17 @@
                     </ul>
                   </li>
                   <li>
+                    <a href="#wallet" class="toc-h2 toc-link" data-title="Wallet">Wallet</a>
+                    <ul class="toc-list-h3">
+                        <li>
+                          <a href="#query-deposit-addresses" class="toc-h3 toc-link" data-title="Query Deposit Addresses">Query Deposit Addresses</a>
+                        </li>
+                        <li>
+                          <a href="#query-wallet-transaction-history" class="toc-h3 toc-link" data-title="Query Wallet Transaction History">Query Wallet Transaction History</a>
+                        </li>
+                    </ul>
+                  </li>
+                  <li>
                     <a href="#order" class="toc-h2 toc-link" data-title="Order">Order</a>
                     <ul class="toc-list-h3">
                         <li>
@@ -506,6 +517,13 @@ life cycle with only one indentifier (<code>orderId</code>). </li>
 
 <p>See <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo">https://github.com/bitmax-exchange/bitmax-pro-api-demo</a> for more details.</p>
 <h2 id='release-note'>Release Note</h2>
+<p><strong>2020-07-17</strong></p>
+
+<ul>
+<li>Added API to <a href="#query-deposit-addresses">query deposit addresses</a>.</li>
+<li>Added API to <a href="#query-wallet-transaction-history">query wallet transaction history</a></li>
+</ul>
+
 <p><strong>2019-12-26</strong></p>
 
 <ul>
@@ -1569,7 +1587,7 @@ only 500 bars will be returned. </li>
 </tr>
 </tbody></table>
 <h4 id='code-sample'>Code Sample</h4>
-<p>Please refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_balance.py">query private balance</a></p>
+<p>Please refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_balance.py">query balance</a></p>
 <h3 id='margin-account-balance'>Margin Account Balance</h3>
 <blockquote>
 <p>Margin Account Balance - Sample response </p>
@@ -1689,7 +1707,7 @@ only 500 bars will be returned. </li>
 <h4 id='prehash-string-3'>Prehash String</h4>
 <p><code>&lt;timestamp&gt;+margin/risk</code></p>
 <h4 id='code-sample-2'>Code Sample</h4>
-<p>Please refer to python code to[query private margin risk]{https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_margin_risk.py}</p>
+<p>Please refer to python code to[query margin risk]{https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_margin_risk.py}</p>
 <h3 id='balance-transfer'>Balance Transfer</h3>
 <blockquote>
 <p>Transfer from Cash To Margin - Sample request and response</p>
@@ -1761,7 +1779,297 @@ only 500 bars will be returned. </li>
 <h4 id='response-content-3'>Response Content</h4>
 <p>Response <code>code</code> value 0 indicate successful transfer. </p>
 <h4 id='code-sample-3'>Code Sample</h4>
-<p>Please refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/balance_prv_transfer.py">transfer balance</a></p>
+<p>Please refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/balance_prv_transfer.py">transfer token amount different accounts</a></p>
+<h2 id='wallet'>Wallet</h2><h3 id='query-deposit-addresses'>Query Deposit Addresses</h3>
+<blockquote>
+<p>Query Deposit Addresses - Sample Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"assetName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tether"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+                </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1P67...TnG3"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"blockchain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Omni"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"destTag"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xd3...c466"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"blockchain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ERC20"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"destTag"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TPpK...ovJk"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"blockchain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRC20"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"destTag"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h4 id='http-request'>HTTP Request</h4>
+<p><code>GET /api/pro/v1/wallet/deposit/address</code></p>
+<h4 id='signature'>Signature</h4>
+<p>You should sign the message in header as specified in <a href="#sign-a-request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
+<h4 id='prehash-string'>Prehash String</h4>
+<p><code>&lt;timestamp&gt;+wallet/deposit/address</code></p>
+<h4 id='request-parameters'>Request Parameters</h4>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Value Range</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>asset</strong></td>
+<td><code>String</code></td>
+<td>Yes</td>
+<td>valid asset code</td>
+<td>this allow you query single asset balance, e.g. <code>BTC</code></td>
+</tr>
+<tr>
+<td><strong>blockchain</strong></td>
+<td><code>Boolean</code></td>
+<td>No</td>
+<td>blockchain name</td>
+<td>the (optional) blockchain filter</td>
+</tr>
+</tbody></table>
+<h4 id='response-content'>Response Content</h4>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Sample Response</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>asset</strong></td>
+<td><code>String</code></td>
+<td>asset code</td>
+<td><code>&quot;USDT&quot;</code></td>
+</tr>
+<tr>
+<td><strong>assetName</strong></td>
+<td><code>String</code></td>
+<td>asset name</td>
+<td><code>&quot;Tether&quot;</code></td>
+</tr>
+<tr>
+<td><strong>address</strong></td>
+<td><code>List</code></td>
+<td>list of address objects</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p>Content of elements in the <code>address</code> field:</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Sample Response</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>address</strong></td>
+<td><code>String</code></td>
+<td>wallet address</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>blockchain</strong></td>
+<td><code>String</code></td>
+<td>blockchain name</td>
+<td><code>&quot;ERC20&quot;</code></td>
+</tr>
+<tr>
+<td><strong>destTag</strong></td>
+<td><code>String</code></td>
+<td>the destination tag (or memo for some tokens) attached to the address. This field could be an empty string.</td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id='code-sample'>Code Sample</h4>
+<p>Please refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_deposit_address.py">query deposit addresses</a></p>
+<h3 id='query-wallet-transaction-history'>Query Wallet Transaction History</h3>
+<blockquote>
+<p>Query Wallet Transaction History - Sample Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+                </span><span class="s2">"asset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"400"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"commission"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"destAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1wX8...iHih"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"networkTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Slc8...xo2d"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"numConfirmations"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"numConfirmed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"requestId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ZgO7...cctn"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"confirmed"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1595001735000</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"transactionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"withdrawal"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"hasNext"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h4 id='http-request'>HTTP Request</h4>
+<p><code>GET /api/pro/v1/wallet/transactions</code></p>
+<h4 id='signature'>Signature</h4>
+<p>You should sign the message in header as specified in <a href="#sign-a-request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
+<h4 id='prehash-string'>Prehash String</h4>
+<p><code>&lt;timestamp&gt;+wallet/transactions</code></p>
+<h4 id='request-parameters'>Request Parameters</h4>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Value Range</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>asset</strong></td>
+<td><code>String</code></td>
+<td>No</td>
+<td>valid asset code</td>
+<td>this allow you query single asset balance, e.g. <code>BTC</code></td>
+</tr>
+<tr>
+<td><strong>txType</strong></td>
+<td><code>String</code></td>
+<td>No</td>
+<td>deposit / withdrwal</td>
+<td>add the (optional) transaction type filter</td>
+</tr>
+<tr>
+<td><strong>page</strong></td>
+<td><code>Int</code></td>
+<td>No</td>
+<td>a positive interger</td>
+<td>the page number, starting at 1</td>
+</tr>
+<tr>
+<td><strong>pageSize</strong></td>
+<td><code>Int</code></td>
+<td>No</td>
+<td>a positive interger</td>
+<td>the page size, must be positive</td>
+</tr>
+</tbody></table>
+<h4 id='response-content'>Response Content</h4>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Sample Response</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>asset</strong></td>
+<td><code>String</code></td>
+<td>asset code</td>
+<td><code>&quot;USDT&quot;</code></td>
+</tr>
+<tr>
+<td><strong>amount</strong></td>
+<td><code>String</code></td>
+<td>the transaction amount</td>
+<td><code>&quot;400&quot;</code></td>
+</tr>
+<tr>
+<td><strong>commission</strong></td>
+<td><code>String</code></td>
+<td>the commission charged by the exchange</td>
+<td><code>&quot;0&quot;</code></td>
+</tr>
+<tr>
+<td><strong>destAddress</strong></td>
+<td><code>Object</code></td>
+<td>the destination address, see below for details</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>networkTransactionId</strong></td>
+<td><code>String</code></td>
+<td>the transaction hash ID</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>numConfirmations</strong></td>
+<td><code>Int</code></td>
+<td>the minimun number of confirmations for the transaction to be viewed as confirmed.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>numConfirmed</strong></td>
+<td><code>Int</code></td>
+<td>current number of confirmations</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>requestId</strong></td>
+<td><code>String</code></td>
+<td>the requestId of the request</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>status</strong></td>
+<td><code>String</code></td>
+<td><code>pending</code> / <code>reviewing</code> / <code>confirmed</code> / <code>rejected</code> / <code>canceled</code> / <code>failed</code></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>time</strong></td>
+<td><code>Long</code></td>
+<td>UTC timestamp in milliseconds, timestamp of the transaction.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>transactionType</strong></td>
+<td><code>String</code></td>
+<td><code>deposit</code> / <code>withdrawal</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p>Content of elements in the <code>destAddress</code> field:</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>address</strong></td>
+<td><code>String</code></td>
+<td>wallet address</td>
+</tr>
+<tr>
+<td><strong>destTag</strong></td>
+<td><code>Optional[String]</code></td>
+<td>the destination tag (or memo for some tokens) attached to the address. This field could be an empty string.</td>
+</tr>
+</tbody></table>
+<h4 id='code-sample'>Code Sample</h4>
+<p>Please refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_wallet_tx_hist.py">query wallet transactions</a></p>
 <h2 id='order'>Order</h2>
 <p>Trading and Order related APIs. API path usually depend on account-group and account-category: </p>
 
