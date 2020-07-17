@@ -63,9 +63,9 @@ The request schema:
 
 The `symbols` key in the `args` map allows you to customize the symbol filter in a flexible way:
 
-* to query open orders of the a specific symbol, set `symbols` to a valid symbol code. For instance, `{"symbols": "BTC/USDT"}`
-* to query open orders of multiple symbols, set `symbols` to comma separated string of valid symbol codes. For instance, `{"symbols": "BTC/USDT,ETH/USDT"}` allows you to query open orders of both `BTC/USDT` and `ETH/USDT` at the same time.
-* to query all open orders, you may either use the wild card (`{"symbols": "*"}`) or simply omit the `symbols` key (`{}`). 
+* to query open orders of the **a specific symbol**, set `symbols` to a valid symbol code. For instance, `{"symbols": "BTC/USDT"}`
+* to query open orders of **multiple symbols**, set `symbols` to comma separated string of valid symbol codes. For instance, `{"symbols": "BTC/USDT,ETH/USDT"}` allows you to query open orders of both `BTC/USDT` and `ETH/USDT` at the same time.
+* to query **all open orders**, you may either use the wild card (`{"symbols": "*"}`) or simply omit the `symbols` key (`{}`). 
 
 
 The response schema:
