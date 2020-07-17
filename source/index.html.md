@@ -23,6 +23,9 @@ includes:
   - rest_act_info
   - rest_act_fee
   - rest_prv_bal
+  - rest_prv_wal
+  - rest_prv_wal_deposit
+  - rest_prv_wal_txes
   - rest_prv_order
   - rest_prv_order_new
   - rest_prv_order_cancel
@@ -87,6 +90,13 @@ See [https://github.com/bitmax-exchange/bitmax-pro-api-demo](https://github.com/
 
 
 ## Release Note
+
+**2020-07-17**
+
+* Added API to [query deposit addresses](#query-deposit-addresses).
+* Added API to [query wallet transaction history](#query-wallet-transaction-history)
+
+* Add 
 
 **2019-12-26**
 

@@ -59,7 +59,7 @@ Name          |  Type     | Required | Value Range    | Description
 
 #### Code Sample
 
-Please refer to python code to [query private balance](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_balance.py)
+Please refer to python code to [query balance](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_balance.py)
 
 
 ### Margin Account Balance 
@@ -154,7 +154,7 @@ You should sign the message in header as specified in [**Authenticate a RESTful 
 
 #### Code Sample
 
-Please refer to python code to[query private margin risk]{https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_margin_risk.py}
+Please refer to python code to[query margin risk]{https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_margin_risk.py}
 
 
 ### Balance Transfer
@@ -212,4 +212,4 @@ Response `code` value 0 indicate successful transfer.
 
 #### Code Sample
 
-Please refer to python code to [transfer balance](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/balance_prv_transfer.py)
+Please refer to python code to [transfer token amount different accounts](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/balance_prv_transfer.py)
