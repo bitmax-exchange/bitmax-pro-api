@@ -213,7 +213,7 @@ Name           | Type     | Description
 `feeAsset`     | `String` | Fee asset, e.g, `USDT`
 `id`           | `String` | id from request
 `lastExecTime` | `String` | latest execution timestamp
-`orderId`      | `String` | order id
+`orderId`      | `String` | order id, this is what you should provide for future order query or cancel.
 `orderQty`     | `String` | order quantity
 `orderType`    | `String` | order type
 `price`        | `String` | order price
@@ -223,6 +223,8 @@ Name           | Type     | Description
 `stopPrice`    | `String` | stop price(could be empty)
 `symbol`       | `String` | symbol
 `execInst`     | `String` | execution instruction, `POST` for Post-Only orders, `Liquidation` for forced-liquidation orders, and `NULL_VAL` otherwise.
+
+
 
 *ACCEPT*
 
