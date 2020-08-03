@@ -19,8 +19,8 @@
 ```json
 {
     "m"   : "order-status", 
-    "code": 0,              # when code = 0, the request is successful. 
-    "id"  : "6ogiJZJ3",     # the same id as specified in the request. 
+    "code": 0,              // when code = 0, the request is successful. 
+    "id"  : "6ogiJZJ3",     // the same id as specified in the request. 
     "data": [{
         "sn"     :   20,                                 // sequence number
         "e"      :   "ExecutionReport",                  // event name, for orders, this field is always ExecutionReport
