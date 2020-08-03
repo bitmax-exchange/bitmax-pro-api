@@ -1,4 +1,4 @@
-### WS: Query Order Status by ID
+### WS: Query Order Status by ID (Pending Release)
 
 > Requesting order status on two orderIds
 
