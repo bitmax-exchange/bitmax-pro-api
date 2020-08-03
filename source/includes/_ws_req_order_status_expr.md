@@ -7,7 +7,7 @@
     "op"     : "req",
     "id"     : "6ogiJZJ3",
     "action" : "order-status",
-    "account": "cash",  # you could also use the actual accountId
+    "account": "cash",  // you could also use the actual accountId
     "args": {
         "orderId": "r173b199149dU6846912707bbtcuKQyG,r173b1872c58U6846912707bbtcuAJW5"
     }
@@ -22,30 +22,30 @@
     "code": 0,              # when code = 0, the request is successful. 
     "id"  : "6ogiJZJ3",     # the same id as specified in the request. 
     "data": [{
-        "sn"     :   20,                                 # sequence number
-        "e"      :   "ExecutionReport",                  # event name, for orders, this field is always ExecutionReport
-        "a"      :   "cshsWhHrfh4TO8KwJc17p051L1JklWRi", # accountId
-        "ac"     :   "CASH",                             # account category: CASH/MARGIN/FUTURES
-        "t"      :   1596412468486,                      # last execution time
-        "ct"     :   1596412468477,                      # create time
-        "orderId":   "r173b199149dU6846912707bbtcuKQyG", # order Id
-        "sd"     :   "Buy",                              # order side: Buy/Sell
-        "ot"     :   "Limit",                            # order type: Market, Limit, etc.
-        "ei"     :   "NULL_VAL",                         # execution instruction
-        "q"      :   "0.001",                            # order quantity
-        "p"      :   "11050",                            # order price 
-        "sp"     :   "0",                                # stop price
-        "spb"    :   "",                                 # stop price trigger
-        "s"      :   "BTC/USDT",                         # symbol
-        "st"     :   "Filled",                           # order status: New/Filled/PartiallyFileed/Canceled/Rejected
-        "err"    :   "",                                 # error code
-        "lp"     :   "11050",                            # last filled price
-        "lq"     :   "0.001",                            # last filled quantity
-        "ap"     :   "11050",                            # average filled price 
-        "cfq"    :   "0.001",                            # cummulative filled quantity
-        "f"      :   "0",                                # fee
-        "cf"     :   "0.001105",                         # cumuulative fee
-        "fa"     :   "USDT"                              # fee asset
+        "sn"     :   20,                                 // sequence number
+        "e"      :   "ExecutionReport",                  // event name, for orders, this field is always ExecutionReport
+        "a"      :   "cshsWhHrfh4TO8KwJc17p051L1JklWRi", // accountId
+        "ac"     :   "CASH",                             // account category: CASH/MARGIN/FUTURES
+        "t"      :   1596412468486,                      // last execution time
+        "ct"     :   1596412468477,                      // create time
+        "orderId":   "r173b199149dU6846912707bbtcuKQyG", // order Id
+        "sd"     :   "Buy",                              // order side: Buy/Sell
+        "ot"     :   "Limit",                            // order type: Market, Limit, etc.
+        "ei"     :   "NULL_VAL",                         // execution instruction
+        "q"      :   "0.001",                            // order quantity
+        "p"      :   "11050",                            // order price 
+        "sp"     :   "0",                                // stop price
+        "spb"    :   "",                                 // stop price trigger
+        "s"      :   "BTC/USDT",                         // symbol
+        "st"     :   "Filled",                           // order status: New/Filled/PartiallyFileed/Canceled/Rejected
+        "err"    :   "",                                 // error code
+        "lp"     :   "11050",                            // last filled price
+        "lq"     :   "0.001",                            // last filled quantity
+        "ap"     :   "11050",                            // average filled price 
+        "cfq"    :   "0.001",                            // cummulative filled quantity
+        "f"      :   "0",                                // fee
+        "cf"     :   "0.001105",                         // cumuulative fee
+        "fa"     :   "USDT"                              // fee asset
     },
     ...
   ]
