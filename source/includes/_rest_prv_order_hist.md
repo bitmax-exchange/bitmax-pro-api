@@ -44,8 +44,6 @@ This API returns history orders according to specified parameters (up to 500 rec
 
 `GET <account-group>/api/pro/v1/order/hist`
 
-Set `account-category` to`cash` for cash account and `margin` for margin account.
-
 #### Signature
 
 You should sign the message in header as specified in [**Authenticate a RESTful Request**](#sign-a-request) section.
