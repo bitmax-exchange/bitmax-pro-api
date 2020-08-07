@@ -517,6 +517,12 @@ life cycle with only one indentifier (<code>orderId</code>). </li>
 
 <p>See <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo">https://github.com/bitmax-exchange/bitmax-pro-api-demo</a> for more details.</p>
 <h2 id='release-note'>Release Note</h2>
+<p><strong>2020-08-06</strong></p>
+
+<ul>
+<li>Added <code>expireTime</code> and <code>allowedIps</code> to <a href="#account-info">account info</a></li>
+</ul>
+
 <p><strong>2020-07-17</strong></p>
 
 <ul>
@@ -1422,15 +1428,17 @@ only 500 bars will be returned. </li>
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"accountGroup"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
         </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yyzzxxz@gmail.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"expireTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1604620800000</span><span class="p">,</span><span class="w">         </span><span class="err">//</span><span class="w"> </span><span class="err">expire</span><span class="w"> </span><span class="err">time</span><span class="p">,</span><span class="w"> </span><span class="err">UTC</span><span class="w"> </span><span class="err">timestamp</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">milliseconds.</span><span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">api</span><span class="w"> </span><span class="err">key</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">expire</span><span class="w">
+        </span><span class="s2">"allowedIps"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"123.123.123.123"</span><span class="p">],</span><span class="w">
         </span><span class="s2">"cashAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="s2">"dadFNEYEJIJ93CRxdafd3LTCIDIJPCFNIX"</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="s2">"marginAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="s2">"mar2z3CMIEQx4UadasbtQ9JcxWJYgHmcb"</span><span class="w">
         </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"userUID"</span><span class="p">:</span><span class="w">            </span><span class="s2">"U0866943712"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"tradePermission"</span><span class="p">:</span><span class="w">     </span><span class="err">True</span><span class="p">,</span><span class="w">
         </span><span class="s2">"transferPermission"</span><span class="p">:</span><span class="w">  </span><span class="err">True</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"userUID"</span><span class="p">:</span><span class="w">            </span><span class="s2">"U0866943712"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"viewPermission"</span><span class="p">:</span><span class="w">      </span><span class="err">True</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1467,6 +1475,16 @@ only 500 bars will be returned. </li>
 <td><code>email</code></td>
 <td><code>String</code></td>
 <td></td>
+</tr>
+<tr>
+<td><code>expireTime</code></td>
+<td><code>Long</code></td>
+<td>the time when the API key will be expired (UTC timestamp in milliseconds). If -1, the api key will not expire</td>
+</tr>
+<tr>
+<td><code>allowedIps</code></td>
+<td><code>List[String]</code></td>
+<td>list of IPs allowed for the api key</td>
 </tr>
 <tr>
 <td><code>cashAccount</code></td>
