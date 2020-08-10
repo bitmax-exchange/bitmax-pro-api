@@ -8,15 +8,17 @@
     "data": {
         "accountGroup": 0,
         "email": "yyzzxxz@gmail.com",
+        "expireTime": 1604620800000,         // expire time, UTC timestamp in milliseconds. If -1, the api key will not expire
+        "allowedIps": ["123.123.123.123"],
         "cashAccount": [
             "dadFNEYEJIJ93CRxdafd3LTCIDIJPCFNIX"
         ],
         "marginAccount": [
             "mar2z3CMIEQx4UadasbtQ9JcxWJYgHmcb"
         ],
+        "userUID":            "U0866943712",
         "tradePermission":     True,
         "transferPermission":  True,
-        "userUID":            "U0866943712",
         "viewPermission":      True
     }
 }
@@ -44,6 +46,8 @@ You can obtain your `accountGroup` from this API, which you will need to include
 --------------------- | -------------- | --------------------- 
  `accountGroup`       | `Int`          | non-negative integer
  `email`              | `String`       | 
+ `expireTime`         | `Long`         | the time when the API key will be expired (UTC timestamp in milliseconds). If -1, the api key will not expire
+ `allowedIps`         | `List[String]` | list of IPs allowed for the api key
  `cashAccount`        | `List[String]` | 
  `marginAccount`      | `List[String]` | 
  `tradePermission`    | `Boolean`      | 

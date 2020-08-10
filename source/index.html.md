@@ -91,6 +91,11 @@ See [https://github.com/bitmax-exchange/bitmax-pro-api-demo](https://github.com/
 
 ## Release Note
 
+**2020-08-06**
+
+* Added `expireTime` and `allowedIps` to [account info](#account-info)
+
+
 **2020-07-17**
 
 * Added API to [query deposit addresses](#query-deposit-addresses).
