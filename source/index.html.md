@@ -35,7 +35,8 @@ includes:
   - rest_prv_order_query
   - rest_prv_order_open
   - rest_prv_order_hist_curr
-  - rest_prv_order_hist
+  - rest_prv_order_hist_deprecated
+  - rest_prv_order_hist_v2
   - ws_general
   - ws_keep_alive
   - ws_auth
@@ -91,10 +92,13 @@ See [https://github.com/bitmax-exchange/bitmax-pro-api-demo](https://github.com/
 
 ## Release Note
 
+**2020-08-10**
+
+* We have deprecated [list history orders API](#list-history-orders-deprecated) and replace it with [list history orders v2 API](#list-history-orders-v2). 
+
 **2020-08-06**
 
 * Added `expireTime` and `allowedIps` to [account info](#account-info)
-
 
 **2020-07-17**
 
