@@ -354,7 +354,10 @@
                           <a href="#list-current-history-orders" class="toc-h3 toc-link" data-title="List Current History Orders">List Current History Orders</a>
                         </li>
                         <li>
-                          <a href="#list-history-orders" class="toc-h3 toc-link" data-title="List History Orders">List History Orders</a>
+                          <a href="#list-history-orders-deprecated" class="toc-h3 toc-link" data-title="List History Orders (Deprecated)">List History Orders (Deprecated)</a>
+                        </li>
+                        <li>
+                          <a href="#list-history-orders-v2" class="toc-h3 toc-link" data-title="List History Orders (v2)">List History Orders (v2)</a>
                         </li>
                     </ul>
                   </li>
@@ -517,6 +520,12 @@ life cycle with only one indentifier (<code>orderId</code>). </li>
 
 <p>See <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo">https://github.com/bitmax-exchange/bitmax-pro-api-demo</a> for more details.</p>
 <h2 id='release-note'>Release Note</h2>
+<p><strong>2020-08-10</strong></p>
+
+<ul>
+<li>We have deprecated <a href="#list-history-orders-deprecated">list history orders API</a> and replace it with <a href="#list-history-orders-v2">list history orders v2 API</a>. </li>
+</ul>
+
 <p><strong>2020-08-06</strong></p>
 
 <ul>
@@ -3721,46 +3730,39 @@ Order detail for each order is in <code>info</code> field list.</p>
 <p>Return a list of history orders in <em>&quot;data&quot;</em> field.</p>
 <h4 id='code-sample'>Code Sample</h4>
 <p>Please refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_order_hist_curr.py">get recent hist orders</a></p>
-<h3 id='list-history-orders'>List History Orders</h3>
+<h3 id='list-history-orders-deprecated'>List History Orders (Deprecated)</h3>
+<p>This API has been deprecated, please use <a href="#list-history-orders-v2">list order history v2</a> instead. </p>
+<h3 id='list-history-orders-v2'>List History Orders (v2)</h3>
 <blockquote>
 <p>History Orders - Successful Response (Status 200, code 0)</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"data"</span><span class="p">:</span><span class="w">
-                </span><span class="p">[</span><span class="w">
-                    </span><span class="p">{</span><span class="w">
-                        </span><span class="s2">"ac"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FUTURES"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"testabcdefg"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"avgPx"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"cumFee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"cumQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"errorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NULL_VAL"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"execInst"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NULL_VAL"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"feeAsset"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"lastExecTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1584072844085</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"orderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"r170d21956dd5450276356bbtcpKa74"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"orderQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.1499"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"orderType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Limit"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4000"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"sendingTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1584072841033</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"seqNum"</span><span class="p">:</span><span class="w"> </span><span class="mi">24105338</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buy"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Canceled"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"stopPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC-PERP"</span><span class="p">},</span><span class="w">
-                 </span><span class="p">]</span><span class="w"> 
-            </span><span class="s2">"hasNext"</span><span class="p">:</span><span class="w"> </span><span class="err">False</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"pageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"orderId"</span><span class="w">     </span><span class="p">:</span><span class="w">  </span><span class="s2">"a173ad938fc3U22666567717788c3b66"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">orderId</span><span class="w">
+      </span><span class="s2">"seqNum"</span><span class="w">      </span><span class="p">:</span><span class="w">  </span><span class="mi">18777366360</span><span class="p">,</span><span class="w">                        </span><span class="err">//</span><span class="w"> </span><span class="err">sequence</span><span class="w"> </span><span class="err">number</span><span class="w">
+      </span><span class="s2">"accountId"</span><span class="w">   </span><span class="p">:</span><span class="w">  </span><span class="s2">"cshwSjbpPjSwHmxPdz2CPQVU9mnbzPpt"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">accountId</span><span class="w"> 
+      </span><span class="s2">"symbol"</span><span class="w">      </span><span class="p">:</span><span class="w">  </span><span class="s2">"BTC/USDT"</span><span class="p">,</span><span class="w">                         </span><span class="err">//</span><span class="w"> </span><span class="err">symbol</span><span class="w">
+      </span><span class="s2">"orderType"</span><span class="w">   </span><span class="p">:</span><span class="w">  </span><span class="s2">"Limit"</span><span class="p">,</span><span class="w">                            </span><span class="err">//</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">type</span><span class="w"> </span><span class="err">(Limit/Market/StopMarket/StopLimit)</span><span class="w">
+      </span><span class="s2">"side"</span><span class="w">        </span><span class="p">:</span><span class="w">  </span><span class="s2">"Sell"</span><span class="p">,</span><span class="w">                             </span><span class="err">//</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">side</span><span class="w"> </span><span class="err">(Buy/Sell)</span><span class="w">
+      </span><span class="s2">"price"</span><span class="w">       </span><span class="p">:</span><span class="w">  </span><span class="s2">"11346.77"</span><span class="p">,</span><span class="w">                         </span><span class="err">//</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">price</span><span class="w">
+      </span><span class="s2">"stopPrice"</span><span class="w">   </span><span class="p">:</span><span class="w">  </span><span class="s2">"0"</span><span class="p">,</span><span class="w">                                </span><span class="err">//</span><span class="w"> </span><span class="err">stop</span><span class="w"> </span><span class="err">price</span><span class="w"> </span><span class="err">(</span><span class="mi">0</span><span class="w"> </span><span class="err">by</span><span class="w"> </span><span class="err">default)</span><span class="w">
+      </span><span class="s2">"orderQty"</span><span class="w">    </span><span class="p">:</span><span class="w">  </span><span class="s2">"0.01"</span><span class="p">,</span><span class="w">                             </span><span class="err">//</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">quantity</span><span class="w"> </span><span class="err">(in</span><span class="w"> </span><span class="err">base</span><span class="w"> </span><span class="err">asset)</span><span class="w">
+      </span><span class="s2">"status"</span><span class="w">      </span><span class="p">:</span><span class="w">  </span><span class="s2">"Canceled"</span><span class="p">,</span><span class="w">                         </span><span class="err">//</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">status</span><span class="w"> </span><span class="err">(Filled/Canceled/Rejected)</span><span class="w">
+      </span><span class="s2">"createTime"</span><span class="w">  </span><span class="p">:</span><span class="w">  </span><span class="mi">1596344995793</span><span class="p">,</span><span class="w">                      </span><span class="err">//</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">creation</span><span class="w"> </span><span class="err">time</span><span class="w">
+      </span><span class="s2">"lastExecTime"</span><span class="p">:</span><span class="w">  </span><span class="mi">1596344996053</span><span class="p">,</span><span class="w">                      </span><span class="err">//</span><span class="w"> </span><span class="err">last</span><span class="w"> </span><span class="err">execution</span><span class="w"> </span><span class="err">time</span><span class="w">
+      </span><span class="s2">"avgFillPrice"</span><span class="p">:</span><span class="w">  </span><span class="s2">"11346.77"</span><span class="p">,</span><span class="w">                         </span><span class="err">//</span><span class="w"> </span><span class="err">average</span><span class="w"> </span><span class="err">filled</span><span class="w"> </span><span class="err">price</span><span class="w">
+      </span><span class="s2">"fillQty"</span><span class="w">     </span><span class="p">:</span><span class="w">  </span><span class="s2">"0.01"</span><span class="p">,</span><span class="w">                             </span><span class="err">//</span><span class="w"> </span><span class="err">filled</span><span class="w"> </span><span class="err">quantity</span><span class="w"> </span><span class="err">(in</span><span class="w"> </span><span class="err">base</span><span class="w"> </span><span class="err">asset)</span><span class="w">
+      </span><span class="s2">"fee"</span><span class="w">         </span><span class="p">:</span><span class="w">  </span><span class="s2">"-0.004992579"</span><span class="p">,</span><span class="w">                     </span><span class="err">//</span><span class="w"> </span><span class="err">cummulative</span><span class="w"> </span><span class="err">fee.</span><span class="w"> </span><span class="err">if</span><span class="w"> </span><span class="err">negative</span><span class="p">,</span><span class="w"> </span><span class="err">this</span><span class="w"> </span><span class="err">value</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">commission</span><span class="w"> </span><span class="err">charged;</span><span class="w"> </span><span class="err">if</span><span class="w"> </span><span class="err">possitive</span><span class="p">,</span><span class="w"> </span><span class="err">this</span><span class="w"> </span><span class="err">value</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">rebate</span><span class="w"> </span><span class="err">received.</span><span class="w">
+      </span><span class="s2">"feeAsset"</span><span class="w">    </span><span class="p">:</span><span class="w">  </span><span class="s2">"USDT"</span><span class="w">                              </span><span class="err">//</span><span class="w"> </span><span class="err">fee</span><span class="w"> </span><span class="err">asset</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This API returns history orders according to specified parameters (up to 500 records). Compared with <a href="#list-current-history-orders"><strong>Current Order History API</strong></a>, this API is more flexible, but usually expects higher latency.</p>
+<p>This API returns history orders according to specified parameters (up to 500 records).</p>
 <h4 id='http-request'>HTTP Request</h4>
-<p><code>GET &lt;account-group&gt;/api/pro/v1/order/hist</code></p>
+<p><code>GET &lt;account-group&gt;/api/pro/v2/order/hist</code></p>
 <h4 id='signature'>Signature</h4>
 <p>You should sign the message in header as specified in <a href="#sign-a-request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
 <h4 id='prehash-string'>Prehash String</h4>
@@ -3775,34 +3777,16 @@ Order detail for each order is in <code>info</code> field list.</p>
 </tr>
 </thead><tbody>
 <tr>
+<td><code>account</code></td>
+<td><code>String</code></td>
+<td>Yes</td>
+<td>account type: <code>cash</code>/<code>margin</code>/<code>futures</code>, or actual accountId</td>
+</tr>
+<tr>
 <td><code>symbol</code></td>
 <td><code>String</code></td>
 <td>No</td>
 <td>symbol filter, e.g. <code>BTMX/USDT</code></td>
-</tr>
-<tr>
-<td><code>category</code></td>
-<td><code>String</code></td>
-<td>No</td>
-<td>account filter: <code>cash</code>/<code>margin</code>/<code>futures</code></td>
-</tr>
-<tr>
-<td><code>orderType</code></td>
-<td><code>String</code></td>
-<td>No</td>
-<td><code>market</code>, <code>limit</code>, and so on.</td>
-</tr>
-<tr>
-<td><code>side</code></td>
-<td><code>String</code></td>
-<td>No</td>
-<td><code>buy</code>/<code>sell</code></td>
-</tr>
-<tr>
-<td><code>status</code></td>
-<td><code>String</code></td>
-<td>No</td>
-<td><code>Canceled</code>/<code>Filled</code></td>
 </tr>
 <tr>
 <td><code>startTime</code></td>
@@ -3817,25 +3801,34 @@ Order detail for each order is in <code>info</code> field list.</p>
 <td>end time in milliseconds.</td>
 </tr>
 <tr>
-<td><code>page</code></td>
-<td><code>Int</code></td>
+<td><code>seqNum</code></td>
+<td><code>Long</code></td>
 <td>No</td>
-<td>number of page, default 1.</td>
+<td>the seqNum to search from. All records in the response have seqNum no less than the input argument.</td>
 </tr>
 <tr>
-<td><code>pageSize</code></td>
+<td><code>limit</code></td>
 <td><code>Int</code></td>
 <td>No</td>
-<td>number of record per page, default 20.</td>
+<td>number of records to return. default 500, max 1000.</td>
 </tr>
 </tbody></table>
+
+<p>Please note <code>seqNum</code> increases regirously but not continuously in response.</p>
+
+<p>Rule for combination usage of <code>startTime</code>, <code>endTime</code>, and <code>seqNum</code>: 
+ * If at least one of <code>seqNum</code> and <code>startTime</code> is provided, the search will start from the oldest possible record (after given <code>startTime</code> or <code>seqNum</code>).
+ * If neither <code>seqNum</code> nor <code>startTime</code> is provided, the search will start from the latest record (or <code>endTime</code> if provided) to the oldest.</p>
+
+<p>To retrieve the full history of orders, it is recommended to use <code>seqNum</code> and follow the procedure below:
+ * Query the first batch of orders by sending a query with only <code>startTime</code> specifying. 
+ * Let <code>n</code> be the largest <code>seqNum</code> of orders obtained from the previous query, query the next batch by only setting <code>seqNum = n+1</code>. 
+ * repeat the previous step until you have reached the latest record.</p>
 
 <p><strong><em>Response</em></strong></p>
 
 <p>Return a list of history orders in <em>&quot;data&quot;</em> field.</p>
 
-<p><code>data</code> schema:</p>
-
 <table><thead>
 <tr>
 <th>Name</th>
@@ -3843,106 +3836,10 @@ Order detail for each order is in <code>info</code> field list.</p>
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td><code>data</code></td>
-<td><code>Array</code></td>
-<td>List of orders, see below for detail</td>
-</tr>
-<tr>
-<td><code>hasNext</code></td>
-<td><code>Boolean</code></td>
-<td>If more data available</td>
-</tr>
-<tr>
-<td><code>limit</code></td>
-<td><code>Int</code></td>
-<td>Total number of orders to be returned</td>
-</tr>
-<tr>
-<td><code>page</code></td>
-<td><code>Int</code></td>
-<td>Current page</td>
-</tr>
-<tr>
-<td><code>pageSize</code></td>
-<td><code>Int</code></td>
-<td>Page Size</td>
-</tr>
-</tbody></table>
-
-<p>Order <code>data</code> schema:</p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>ac</code></td>
-<td><code>String</code></td>
-<td><code>CASH</code>/<code>MARGIN</code>/<code>FUTURES</code></td>
-</tr>
-<tr>
-<td><code>accountId</code></td>
-<td><code>String</code></td>
-<td>account Id</td>
-</tr>
-<tr>
-<td><code>avgPx</code></td>
-<td><code>String</code></td>
-<td>average fill price</td>
-</tr>
-<tr>
-<td><code>cumFee</code></td>
-<td><code>String</code></td>
-<td>cumulated filled comission</td>
-</tr>
-<tr>
-<td><code>cumQty</code></td>
-<td><code>String</code></td>
-<td>cumulated filled qty</td>
-</tr>
-<tr>
-<td><code>errorCode</code></td>
-<td><code>String</code></td>
-<td>Could be empty</td>
-</tr>
-<tr>
-<td><code>feeAsset</code></td>
-<td><code>String</code></td>
-<td>Fee asset, e.g, <code>USDT</code></td>
-</tr>
-<tr>
-<td><code>lastExecTime</code></td>
-<td><code>String</code></td>
-<td>latest execution timestamp</td>
-</tr>
 <tr>
 <td><code>orderId</code></td>
 <td><code>String</code></td>
 <td>order id</td>
-</tr>
-<tr>
-<td><code>orderQty</code></td>
-<td><code>String</code></td>
-<td>order quantity</td>
-</tr>
-<tr>
-<td><code>orderType</code></td>
-<td><code>String</code></td>
-<td>order type</td>
-</tr>
-<tr>
-<td><code>price</code></td>
-<td><code>String</code></td>
-<td>order price</td>
-</tr>
-<tr>
-<td><code>sendingTime</code></td>
-<td><code>Long</code></td>
-<td>order sending time</td>
 </tr>
 <tr>
 <td><code>seqNum</code></td>
@@ -3950,19 +3847,9 @@ Order detail for each order is in <code>info</code> field list.</p>
 <td>sequence number</td>
 </tr>
 <tr>
-<td><code>side</code></td>
+<td><code>accountId</code></td>
 <td><code>String</code></td>
-<td>order side</td>
-</tr>
-<tr>
-<td><code>status</code></td>
-<td><code>String</code></td>
-<td>order status</td>
-</tr>
-<tr>
-<td><code>stopPrice</code></td>
-<td><code>String</code></td>
-<td>stop price(could be empty)</td>
+<td>account Id</td>
 </tr>
 <tr>
 <td><code>symbol</code></td>
@@ -3970,15 +3857,70 @@ Order detail for each order is in <code>info</code> field list.</p>
 <td>symbol</td>
 </tr>
 <tr>
-<td><code>execInst</code></td>
+<td><code>orderType</code></td>
 <td><code>String</code></td>
-<td>execution instruction, <code>POST</code> for Post-Only orders, <code>Liquidation</code> for forced-liquidation orders, and <code>NULL_VAL</code> otherwise.</td>
+<td>order type</td>
+</tr>
+<tr>
+<td><code>side</code></td>
+<td><code>String</code></td>
+<td>order side</td>
+</tr>
+<tr>
+<td><code>price</code></td>
+<td><code>String</code></td>
+<td>order price</td>
+</tr>
+<tr>
+<td><code>stopPrice</code></td>
+<td><code>String</code></td>
+<td>stop price (0 by default)</td>
+</tr>
+<tr>
+<td><code>orderQty</code></td>
+<td><code>String</code></td>
+<td>order quantity</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>String</code></td>
+<td>order status</td>
+</tr>
+<tr>
+<td><code>createTime</code></td>
+<td><code>Long</code></td>
+<td>order sending time</td>
+</tr>
+<tr>
+<td><code>lastExecTime</code></td>
+<td><code>String</code></td>
+<td>latest execution timestamp</td>
+</tr>
+<tr>
+<td><code>avgFillPrice</code></td>
+<td><code>String</code></td>
+<td>average fill price</td>
+</tr>
+<tr>
+<td><code>fillQty</code></td>
+<td><code>String</code></td>
+<td>cumulated filled qty</td>
+</tr>
+<tr>
+<td><code>fee</code></td>
+<td><code>String</code></td>
+<td>cummulative fee. if negative, this value is the commission charged; if possitive, this value is the rebate received.</td>
+</tr>
+<tr>
+<td><code>feeAsset</code></td>
+<td><code>String</code></td>
+<td>Fee asset, e.g, <code>USDT</code></td>
 </tr>
 </tbody></table>
 
 <p><strong><em>Code Sample</em></strong></p>
 
-<p>Please refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_order_hist.py">get hist orders</a></p>
+<p>Please refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_order_hist_v2.py">get hist orders</a></p>
 <h1 id='websocket'>WebSocket</h1><h3 id='general-message-request-handling-logic-from-client-side'>General Message Request/Handling Logic from Client Side</h3>
 <ul>
 <li>Client usually initiate request with <code>op</code> parameter (followed by other required parameters).</li>
