@@ -3818,14 +3818,20 @@ Order detail for each order is in <code>info</code> field list.</p>
 
 <p>Please note <code>seqNum</code> increases regirously but not continuously in response.</p>
 
-<p>Rule for combination usage of <code>startTime</code>, <code>endTime</code>, and <code>seqNum</code>: 
- * If at least one of <code>seqNum</code> and <code>startTime</code> is provided, the search will start from the oldest possible record (after given <code>startTime</code> or <code>seqNum</code>).
- * If neither <code>seqNum</code> nor <code>startTime</code> is provided, the search will start from the latest record (or <code>endTime</code> if provided) to the oldest.</p>
+<p>Rule for combination usage of <code>startTime</code>, <code>endTime</code>, and <code>seqNum</code>: </p>
 
-<p>To retrieve the full history of orders, it is recommended to use <code>seqNum</code> and follow the procedure below:
- * Query the first batch of orders by sending a query with only <code>startTime</code> specifying. 
- * Let <code>n</code> be the largest <code>seqNum</code> of orders obtained from the previous query, query the next batch by only setting <code>seqNum = n+1</code>. 
- * repeat the previous step until you have reached the latest record.</p>
+<ul>
+<li>If at least one of <code>seqNum</code> and <code>startTime</code> is provided, the search will start from the oldest possible record (after given <code>startTime</code> or <code>seqNum</code>).</li>
+<li>If neither <code>seqNum</code> nor <code>startTime</code> is provided, the search will start from the latest record (or <code>endTime</code> if provided) to the oldest.</li>
+</ul>
+
+<p>To retrieve the full history of orders, it is recommended to use <code>seqNum</code> and follow the procedure below:</p>
+
+<ul>
+<li>Query the first batch of orders by sending a query with only <code>startTime</code> specifying. </li>
+<li>Let <code>n</code> be the largest <code>seqNum</code> of orders obtained from the previous query, query the next batch by only setting <code>seqNum = n+1</code>. </li>
+<li>repeat the previous step until you have reached the latest record.</li>
+</ul>
 
 <p><strong><em>Response</em></strong></p>
 
