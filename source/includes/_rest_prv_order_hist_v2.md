@@ -56,13 +56,15 @@ You should sign the message in header as specified in [**Authenticate a RESTful 
 Please note `seqNum` increases regirously but not continuously in response.
 
 Rule for combination usage of `startTime`, `endTime`, and `seqNum`: 
- * If at least one of `seqNum` and `startTime` is provided, the search will start from the oldest possible record (after given `startTime` or `seqNum`).
- * If neither `seqNum` nor `startTime` is provided, the search will start from the latest record (or `endTime` if provided) to the oldest.
+
+* If at least one of `seqNum` and `startTime` is provided, the search will start from the oldest possible record (after given `startTime` or `seqNum`).
+* If neither `seqNum` nor `startTime` is provided, the search will start from the latest record (or `endTime` if provided) to the oldest.
 
 To retrieve the full history of orders, it is recommended to use `seqNum` and follow the procedure below:
- * Query the first batch of orders by sending a query with only `startTime` specifying. 
- * Let `n` be the largest `seqNum` of orders obtained from the previous query, query the next batch by only setting `seqNum = n+1`. 
- * repeat the previous step until you have reached the latest record.
+
+* Query the first batch of orders by sending a query with only `startTime` specifying. 
+* Let `n` be the largest `seqNum` of orders obtained from the previous query, query the next batch by only setting `seqNum = n+1`. 
+* repeat the previous step until you have reached the latest record.
 
 
 ***Response***
