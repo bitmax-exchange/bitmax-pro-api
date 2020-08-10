@@ -28,7 +28,7 @@
 }
 ```
 
-This API returns history orders according to specified parameters (up to 500 records).
+This API returns history orders according to specified parameters (up to 500 records). You have access to at least 30 days of order history.
 
 #### HTTP Request
 
