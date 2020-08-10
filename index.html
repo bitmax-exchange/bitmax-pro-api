@@ -3732,6 +3732,8 @@ Order detail for each order is in <code>info</code> field list.</p>
 <p>Please refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_prv_order_hist_curr.py">get recent hist orders</a></p>
 <h3 id='list-history-orders-deprecated'>List History Orders (Deprecated)</h3>
 <p>This API has been deprecated, please use <a href="#list-history-orders-v2">list order history v2</a> instead. </p>
+
+<p>If you still want to use the already deprecated api, please refer to <a href="https://github.com/bitmax-exchange/bitmax-pro-api/blob/master/misc/rest_prv_order_hist_deprecated.md">List History Orders (Deprecated)</a>.</p>
 <h3 id='list-history-orders-v2'>List History Orders (v2)</h3>
 <blockquote>
 <p>History Orders - Successful Response (Status 200, code 0)</p>
@@ -3760,7 +3762,7 @@ Order detail for each order is in <code>info</code> field list.</p>
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This API returns history orders according to specified parameters (up to 500 records).</p>
+<p>This API returns history orders according to specified parameters (up to 500 records). You have access to at least 30 days of order history.</p>
 <h4 id='http-request'>HTTP Request</h4>
 <p><code>GET &lt;account-group&gt;/api/pro/v2/order/hist</code></p>
 <h4 id='signature'>Signature</h4>
