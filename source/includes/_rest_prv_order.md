@@ -27,9 +27,9 @@ We use the following method to generate an unique id for each order place/cancel
   * Final order Id = A + B + C + D.
 
 
-### Extra info on `id`
+#### Extra info on `id`
  
- * `id` value must satisfy regrex pattern "^\w[\w\-]*\w$", and with length up to 32.  ("Invalid Client Order id" error for violation)
+ * `id` value must satisfy regrex pattern "^\w[\w\-]*\w$" (i.e. start and end with word character), and with length up to 32.  ("Invalid Client Order id" error for violation)
 
  * `id` value with length 9 is recommended, since we take the right most 9 chars for order Id generation.
 
