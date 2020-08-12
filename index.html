@@ -2122,11 +2122,8 @@ only 500 bars will be returned. </li>
 <h3 id='extra-info-on-id'>Extra info on <code>id</code></h3>
 <ul>
 <li><p><code>id</code> value must satisfy regrex pattern &quot;^\w[\w-]*\w$&quot;, and with length up to 32.  (&quot;Invalid Client Order id&quot; error for violation)</p></li>
-<li><p><code>id</code> value with length 9 is recommended, since we take the right most 9 chars for order Id generation.</p>
-
-<ul>
-<li><code>id</code> value with length &lt; 9 will not be used in order Id generation, but we still echo it back in order ack message (empty string when no <code>id</code> value provided).</li>
-</ul></li>
+<li><p><code>id</code> value with length 9 is recommended, since we take the right most 9 chars for order Id generation.</p></li>
+<li><p><code>id</code> value with length &lt; 9 will not be used in order Id generation, but we still echo it back in order ack message (empty string when no <code>id</code> value provided).</p></li>
 <li><p>If a valid <code>id</code> value is provided when placing order, order Id from server side is pre-determined. This could be helpful for order status check in case of accidently internet connection issue.</p></li>
 </ul>
 <h4 id='code-sample'>Code Sample</h4>
