@@ -330,6 +330,9 @@
                           <a href="#generate-order-id" class="toc-h3 toc-link" data-title="Generate Order Id">Generate Order Id</a>
                         </li>
                         <li>
+                          <a href="#extra-info-on-id" class="toc-h3 toc-link" data-title="Extra info on <code>id</code>">Extra info on <code>id</code></a>
+                        </li>
+                        <li>
                           <a href="#place-order" class="toc-h3 toc-link" data-title="Place Order">Place Order</a>
                         </li>
                         <li>
@@ -2115,6 +2118,16 @@ only 500 bars will be returned. </li>
 <li><p>C = User UID (11 chars, starting with &#39;U&#39; followed by 10 digits);</p></li>
 <li><p>D = If user provide client order Id (with length &gt;= 9, letters and digits only), then take the right 9 chars; otherwise, we randomly generate 9 chars;</p></li>
 <li><p>Final order Id = A + B + C + D.</p></li>
+</ul>
+<h3 id='extra-info-on-id'>Extra info on <code>id</code></h3>
+<ul>
+<li><p><code>id</code> value must satisfy regrex pattern &quot;^\w[\w-]*\w$&quot;, and with length up to 32.  (&quot;Invalid Client Order id&quot; error for violation)</p></li>
+<li><p><code>id</code> value with length 9 is recommended, since we take the right most 9 chars for order Id generation.</p>
+
+<ul>
+<li><code>id</code> value with length &lt; 9 will not be used in order Id generation, but we still echo it back in order ack message (empty string when no <code>id</code> value provided).</li>
+</ul></li>
+<li><p>If a valid <code>id</code> value is provided when placing order, order Id from server side is pre-determined. This could be helpful for order status check in case of accidently internet connection issue.</p></li>
 </ul>
 <h4 id='code-sample'>Code Sample</h4>
 <p>Please refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/util.py">gen server order id</a></p>
