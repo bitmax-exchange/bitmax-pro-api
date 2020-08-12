@@ -2114,7 +2114,7 @@ only 500 bars will be returned. </li>
 <li><p>B = Convert timestamp (in miliseconds) to hex string;</p></li>
 <li><p>C = User UID (11 chars, starting with &#39;U&#39; followed by 10 digits);</p></li>
 <li><p>D = If user provide client order Id (with length &gt;= 9, letters and digits only), then take the right 9 chars; otherwise, we randomly generate 9 chars;</p></li>
-<li><p>Final order Id = A + B + C + D.</p></li>
+<li><p>Final order Id is concatenation of strings A, B, C, D from above steps, i.e., orderId = A + B + C + D.</p></li>
 </ul>
 <h4 id='extra-info-on-id'>Extra info on <code>id</code></h4>
 <ul>
