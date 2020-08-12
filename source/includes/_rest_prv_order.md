@@ -24,7 +24,7 @@ We use the following method to generate an unique id for each order place/cancel
   
   * D = If user provide client order Id (with length >= 9, letters and digits only), then take the right 9 chars; otherwise, we randomly generate 9 chars;
   
-  * Final order Id = A + B + C + D.
+  * Final order Id is concatenation of strings A, B, C, D from above steps, i.e., orderId = A + B + C + D.
 
 
 #### Extra info on `id`
