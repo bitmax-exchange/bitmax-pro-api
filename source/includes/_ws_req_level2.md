@@ -64,7 +64,7 @@ The response schema:
 You can following the steps below to keep track of the the most recent order book:
 
 * Connecting to WebSocket Stream
-* Subscribe to the depth update stream, see [Level 2 Order Book Updates (Depth)](#level-2-order-book-updates-depth).
+* Subscribe to the depth update stream, see [Level 2 Order Book Updates](#channel-level-2-order-book-updates).
 * Send a `depth-snapshot` request to the server.
 * Once you obtain the snapshot message from the server, initialize the snapshot.
 * Using consequent `depth` messages to update the order book.

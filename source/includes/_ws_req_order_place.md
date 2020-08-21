@@ -65,7 +65,7 @@ Place order via websocket
 
 Make new order request follow the general websocket request rule, with proper place new order parameters as specified in rest api for *args* field.
 
-see [placing order via RESTful API](#place-new-order).
+see [placing order via RESTful API](#place-order).
 
 **Response**
 

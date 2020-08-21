@@ -79,7 +79,7 @@ HTTP Status Code | Error Code | Reason           | Example
 
 #### Code Sample
 
-Please refer to python code to [get open orders](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_order.py)
+Please refer to python code to [get open orders](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/order_query.py)
 
 Change from the previous version:
 

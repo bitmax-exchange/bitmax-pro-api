@@ -30,7 +30,7 @@
 
 **Signature**
 
-You should sign the message in header as specified in [**Authenticate a RESTful Request**](#sign-a-Request) section.
+You should sign the message in header as specified in [**Authenticate a RESTful Request**](#sign-a-request) section.
 
 **prehash string** 
 

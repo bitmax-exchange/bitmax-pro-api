@@ -50,5 +50,5 @@ you can use to update the order book snapshot. In the message, `price` is always
 * if `size` is positive and the `price` exists in the current order book, you should **update** the existing level to `[price, size]`. 
 * if `size` is zero, you should **delete** the level at `price`. 
 
-See [Orderbook Snapshot](#orderbook-snapshot) for code examples.
+See [Orderbook Snapshot](https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/websocket_orderbook_snapshot.py) for code examples.
 
