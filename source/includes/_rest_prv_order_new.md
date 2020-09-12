@@ -150,23 +150,23 @@ You should sign the message in header as specified in [**Authenticate a RESTful 
 
 #### Request Parameters
 
-Name       | Type   |Required| Value Range                          | Description
------------|--------|------- | -------------------------------------|---------------
-symbol     | String |  Yes   |                                      |
-time       | Long   |  Yes   |milliseconds since UNIX epoch in UTC  |We do not process request placed more than 30 seconds ago.
-orderQty   | String |  Yes   |                                      |Order size. Please set scale properly for each symbol.
-orderType  | String |  Yes   |["market", "limit"]                   |Order type
-side       | String |  Yes   |["buy", "sell"]                       |  
-id         | String |  No    |>=9 chars(letter and digit number only)|Optional but recommended. We echo it back to help you match response with request.
-orderPrice | String |  No    |                                      |The limit price for limit order. Please set price scale properly.
-stopPrice  | String |  No    |                                      |Trigger price of stop limit order
-postOnly   | Boolean|  No    |[true, false]                         |
-timeInForce| String |  No    |["GTC", "IOC"]                        |GTC: good-till-canceled; IOC: immediate-or-cancel. GTC by default.
-respInst   | String |  No    |["ACK", "ACCEPT", "DONE"]             |Response instruction. Refer to "Response" below. "ACK" by default.  
+Name       | Type   |Required| Value Range                                    | Description
+-----------|--------|------- | -----------------------------------------------|---------------
+symbol     | String |  Yes   |                                                |
+time       | Long   |  Yes   |milliseconds since UNIX epoch in UTC            |We do not process request placed more than 30 seconds ago.
+orderQty   | String |  Yes   |                                                |Order size. Please set scale properly for each symbol.
+orderType  | String |  Yes   |["market", "limit", "stop_market", "stop_limit"]|Order type
+side       | String |  Yes   |["buy", "sell"]                                 |  
+id         | String |  No    |>=9 chars(letter and digit number only)         |Optional but recommended. We echo it back to help you match response with request.
+orderPrice | String |  No    |                                                |The limit price for limit order. Please set price scale properly.
+stopPrice  | String |  No    |                                                |Trigger price of stop limit order
+postOnly   | Boolean|  No    |[true, false]                                   |
+timeInForce| String |  No    |["GTC", "IOC"]                                  |GTC: good-till-canceled; IOC: immediate-or-cancel. GTC by default.
+respInst   | String |  No    |["ACK", "ACCEPT", "DONE"]                       |Response instruction. Refer to "Response" below. "ACK" by default.  
 
 The table below shows how to correctly configure order of different types: (o - required, x - optional)
 
-Name        | Market | Limit | StopMarket | StopLimit
+Name        | market | limit | stop_market| stop_limit
 ----------- | ------ | ----- | ---------- | ---------
 id          | x      | x     | x          | x    
 time        | o      | o     | o          | o
