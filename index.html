@@ -1458,7 +1458,7 @@ only 500 bars will be returned. </li>
 
 <p><strong>Signature</strong></p>
 
-<p>You should sign the message in header as specified in <a href="#sign-a-Request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
+<p>You should sign the message in header as specified in <a href="#sign-a-request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
 
 <p><strong>prehash string</strong> </p>
 
@@ -2295,7 +2295,7 @@ only 500 bars will be returned. </li>
 <td>orderType</td>
 <td>String</td>
 <td>Yes</td>
-<td>[&quot;market&quot;, &quot;limit&quot;]</td>
+<td>[&quot;market&quot;, &quot;limit&quot;, &quot;stop_market&quot;, &quot;stop_limit&quot;]</td>
 <td>Order type</td>
 </tr>
 <tr>
@@ -2354,10 +2354,10 @@ only 500 bars will be returned. </li>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Market</th>
-<th>Limit</th>
-<th>StopMarket</th>
-<th>StopLimit</th>
+<th>market</th>
+<th>limit</th>
+<th>stop_market</th>
+<th>stop_limit</th>
 </tr>
 </thead><tbody>
 <tr>
@@ -3657,7 +3657,7 @@ Order detail for each order is in <code>info</code> field list.</p>
 </tr>
 </tbody></table>
 <h4 id='code-sample'>Code Sample</h4>
-<p>Please refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/query_order.py">get open orders</a></p>
+<p>Please refer to python code to <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/order_query.py">get open orders</a></p>
 
 <p>Change from the previous version:</p>
 
@@ -3924,7 +3924,7 @@ Order detail for each order is in <code>info</code> field list.</p>
 <tr>
 <td><code>fee</code></td>
 <td><code>String</code></td>
-<td>cummulative fee. if positive, this value is the commission charged; if negative, this value is the rebate received.</td>
+<td>cummulative fee. if negative, this value is the commission charged; if possitive, this value is the rebate received.</td>
 </tr>
 <tr>
 <td><code>feeAsset</code></td>
@@ -4428,7 +4428,7 @@ you can use to update the order book snapshot. In the message, <code>price</code
 <li>if <code>size</code> is zero, you should <strong>delete</strong> the level at <code>price</code>. </li>
 </ul>
 
-<p>See <a href="#orderbook-snapshot">Orderbook Snapshot</a> for code examples.</p>
+<p>See <a href="https://github.com/bitmax-exchange/bitmax-pro-api-demo/blob/master/python/websocket_orderbook_snapshot.py">Orderbook Snapshot</a> for code examples.</p>
 <h3 id='channel-market-trades'>Channel: Market Trades</h3>
 <blockquote>
 <p>Subscribe to <code>BTMX/USDT</code> market trades stream</p>
@@ -5132,7 +5132,7 @@ request message. Here are some use cases: </p>
 
 <ul>
 <li>Connecting to WebSocket Stream</li>
-<li>Subscribe to the depth update stream, see <a href="#level-2-order-book-updates-depth">Level 2 Order Book Updates (Depth)</a>.</li>
+<li>Subscribe to the depth update stream, see <a href="#channel-level-2-order-book-updates">Level 2 Order Book Updates</a>.</li>
 <li>Send a <code>depth-snapshot</code> request to the server.</li>
 <li>Once you obtain the snapshot message from the server, initialize the snapshot.</li>
 <li>Using consequent <code>depth</code> messages to update the order book.</li>
@@ -5216,7 +5216,7 @@ the timely order book data. </p>
 
 <p>Make new order request follow the general websocket request rule, with proper place new order parameters as specified in rest api for <em>args</em> field.</p>
 
-<p>see <a href="#place-new-order">placing order via RESTful API</a>.</p>
+<p>see <a href="#place-order">placing order via RESTful API</a>.</p>
 
 <p><strong>Response</strong></p>
 
