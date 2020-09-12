@@ -87,7 +87,7 @@ Name           | Type     | Description
 `lastExecTime` | `String` | latest execution timestamp
 `avgFillPrice` | `String` | average fill price
 `fillQty`      | `String` | cumulated filled qty
-`fee`          | `String` | cummulative fee. if negative, this value is the commission charged; if possitive, this value is the rebate received.
+`fee`          | `String` | cummulative fee. if positive, this value is the commission charged; if negative, this value is the rebate received.
 `feeAsset`     | `String` | Fee asset, e.g, `USDT`
 
 ***Code Sample***
