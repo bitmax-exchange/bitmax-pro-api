@@ -3408,7 +3408,7 @@ Order detail for each order is in <code>info</code> field list.</p>
 <h4 id='http-request'>HTTP Request</h4>
 <p><code>GET &lt;account-group&gt;/api/pro/v1/{account-category}/order/status?orderId={orderId}</code></p>
 
-<p><code>orderId</code> could be a single order Id, or multiple order Ids separated by <code>,</code>:</p>
+<p><code>orderId</code> could be a single order Id, or multiple order Ids separated by a comma (<code>,</code>):</p>
 
 <ul>
 <li>If you set <code>symbol</code> to be a single symbol, such as <code>BTMX/USDT</code>, the API will respond with the ticker of the target symbol as an object. 
@@ -3553,6 +3553,24 @@ If you want to wrap the object in a one-element list, append a comma to the symb
 <p>You should sign the message in header as specified in <a href="#sign-a-request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
 <h4 id='prehash-string'>Prehash String</h4>
 <p><code>&lt;timestamp&gt;+order/open</code></p>
+<h4 id='request-parameters'>Request Parameters</h4>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Value Range</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>symbol</code></td>
+<td><code>String</code></td>
+<td>No</td>
+<td>A valid symbol</td>
+<td>add a symbol filter.</td>
+</tr>
+</tbody></table>
 <h4 id='response'>Response</h4>
 <p>Return a list of order infomation in <code>data</code> field:</p>
 
