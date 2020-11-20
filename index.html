@@ -3431,9 +3431,9 @@ Order detail for each order is in <code>info</code> field list.</p>
 <p><code>orderId</code> could be a single order Id, or multiple order Ids separated by a comma (<code>,</code>):</p>
 
 <ul>
-<li>If you set <code>symbol</code> to be a single symbol, such as <code>BTMX/USDT</code>, the API will respond with the ticker of the target symbol as an object. 
+<li>If you set <code>symbol</code> to be a single symbol, such as <code>BTMX/USDT</code>, the API will respond with the target order as an object. 
 If you want to wrap the object in a one-element list, append a comma to the symbol, e.g. <code>BTMX/USDT,</code>.</li>
-<li>You shall specify <code>symbol</code> as a comma separated symbol list, e.g. <code>BTMX/USDT,BTC/USDT</code>. The API will respond with a list of tickers. </li>
+<li>You shall specify <code>symbol</code> as a comma separated symbol list, e.g. <code>BTMX/USDT,BTC/USDT</code>. The API will respond with a list of order objects. </li>
 </ul>
 <h4 id='signature'>Signature</h4>
 <p>You should sign the message in header as specified in <a href="#sign-a-request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
