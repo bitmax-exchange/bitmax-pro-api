@@ -3408,7 +3408,13 @@ Order detail for each order is in <code>info</code> field list.</p>
 <h4 id='http-request'>HTTP Request</h4>
 <p><code>GET &lt;account-group&gt;/api/pro/v1/{account-category}/order/status?orderId={orderId}</code></p>
 
-<p><code>orderId</code> could be a single order Id, or multiple order Ids separated by <code>,</code>. </p>
+<p><code>orderId</code> could be a single order Id, or multiple order Ids separated by <code>,</code>:</p>
+
+<ul>
+<li>If you set <code>symbol</code> to be a single symbol, such as <code>BTMX/USDT</code>, the API will respond with the ticker of the target symbol as an object. 
+If you want to wrap the object in a one-element list, append a comma to the symbol, e.g. <code>BTMX/USDT,</code>.</li>
+<li>You shall specify <code>symbol</code> as a comma separated symbol list, e.g. <code>BTMX/USDT,BTC/USDT</code>. The API will respond with a list of tickers. </li>
+</ul>
 
 <p>Set <code>account-category</code> to<code>cash</code> for cash account and <code>margin</code> for margin account. </p>
 <h4 id='signature'>Signature</h4>
