@@ -66,9 +66,9 @@ Name       | Type      | Required | Value Range                              | D
 
 `orderId` could be a single order Id, or multiple order Ids separated by a comma (`,`):
 
-* If you set `symbol` to be a single symbol, such as `BTMX/USDT`, the API will respond with the ticker of the target symbol as an object. 
+* If you set `symbol` to be a single symbol, such as `BTMX/USDT`, the API will respond with the target order as an object. 
   If you want to wrap the object in a one-element list, append a comma to the symbol, e.g. `BTMX/USDT,`.
-* You shall specify `symbol` as a comma separated symbol list, e.g. `BTMX/USDT,BTC/USDT`. The API will respond with a list of tickers. 
+* You shall specify `symbol` as a comma separated symbol list, e.g. `BTMX/USDT,BTC/USDT`. The API will respond with a list of order objects. 
 
 
 #### Signature
