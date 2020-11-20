@@ -3404,9 +3404,29 @@ Order detail for each order is in <code>info</code> field list.</p>
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Query order status, either open or history order. &lt;!-- TODO: not all order, specify order range later.--&gt;</p>
+<p>Query order status, either open or history order.</p>
 <h4 id='http-request'>HTTP Request</h4>
 <p><code>GET &lt;account-group&gt;/api/pro/v1/{account-category}/order/status?orderId={orderId}</code></p>
+
+<p>Set <code>account-category</code> to<code>cash</code> for cash account and <code>margin</code> for margin account. </p>
+<h4 id='request-parameters'>Request Parameters</h4>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Value Range</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>orderId</code></td>
+<td><code>String</code></td>
+<td>No</td>
+<td>one or more order Ids separated by comma</td>
+<td></td>
+</tr>
+</tbody></table>
 
 <p><code>orderId</code> could be a single order Id, or multiple order Ids separated by a comma (<code>,</code>):</p>
 
@@ -3415,8 +3435,6 @@ Order detail for each order is in <code>info</code> field list.</p>
 If you want to wrap the object in a one-element list, append a comma to the symbol, e.g. <code>BTMX/USDT,</code>.</li>
 <li>You shall specify <code>symbol</code> as a comma separated symbol list, e.g. <code>BTMX/USDT,BTC/USDT</code>. The API will respond with a list of tickers. </li>
 </ul>
-
-<p>Set <code>account-category</code> to<code>cash</code> for cash account and <code>margin</code> for margin account. </p>
 <h4 id='signature'>Signature</h4>
 <p>You should sign the message in header as specified in <a href="#sign-a-request"><strong>Authenticate a RESTful Request</strong></a> section.</p>
 <h4 id='prehash-string'>Prehash String</h4>
