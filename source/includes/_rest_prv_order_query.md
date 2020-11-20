@@ -49,11 +49,20 @@
 }
 ```
 
-Query order status, either open or history order. <!-- TODO: not all order, specify order range later.-->
+Query order status, either open or history order.
 
 #### HTTP Request
 
 `GET <account-group>/api/pro/v1/{account-category}/order/status?orderId={orderId}`
+
+Set `account-category` to`cash` for cash account and `margin` for margin account. 
+
+#### Request Parameters
+
+Name       | Type      | Required | Value Range                              | Description
+-----------| --------- | -------- | ---------------------------------------- | ---------------
+`orderId`  | `String`  |  No      | one or more order Ids separated by comma | 
+
 
 `orderId` could be a single order Id, or multiple order Ids separated by a comma (`,`):
 
@@ -61,7 +70,6 @@ Query order status, either open or history order. <!-- TODO: not all order, spec
   If you want to wrap the object in a one-element list, append a comma to the symbol, e.g. `BTMX/USDT,`.
 * You shall specify `symbol` as a comma separated symbol list, e.g. `BTMX/USDT,BTC/USDT`. The API will respond with a list of tickers. 
 
-Set `account-category` to`cash` for cash account and `margin` for margin account. 
 
 #### Signature
 
