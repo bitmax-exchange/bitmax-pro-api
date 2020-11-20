@@ -47,6 +47,14 @@ You should sign the message in header as specified in [**Authenticate a RESTful 
 
 `<timestamp>+order/open`
 
+
+#### Request Parameters
+
+Name       | Type      | Required | Value Range     | Description
+-----------| --------- | -------- | --------------- | ---------------
+`symbol`   | `String`  |  No      | A valid symbol  | add a symbol filter.
+
+
 #### Response
 
 Return a list of order infomation in `data` field:
