@@ -49,7 +49,7 @@
 }
 ```
 
-Query order status, either open or history order. //TODO: not all order, specify order range later.
+Query order status, either open or history order. <!-- TODO: not all order, specify order range later.-->
 
 #### HTTP Request
 
