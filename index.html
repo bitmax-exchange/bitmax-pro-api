@@ -565,13 +565,13 @@ be rejected. </p>
 <p>Signing a RESTful Request</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># bash </span>
-<span class="nv">APIPATH</span><span class="o">=</span>user/info
+<span class="nv">APIPATH</span><span class="o">=</span>info
 <span class="nv">APIKEY</span><span class="o">=</span>CEcrjGyipqt0OflgdQQSRGdrDXdDUY2x
 <span class="nv">SECRET</span><span class="o">=</span>hV8FgjyJtpvVeAcMAgzgAFQCN36wmbWuN7o3WPcYcYhFd8qvE43gzFGVsFcCqMNk
-<span class="nv">TIMESTAMP</span><span class="o">=</span><span class="sb">`</span>date +%s%N | cut -c -13<span class="sb">`</span> <span class="c"># 1562952827927</span>
+<span class="nv">TIMESTAMP</span><span class="o">=</span><span class="sb">`</span>date +%s%N | cut -c -13<span class="sb">`</span> <span class="c"># 1608133910000</span>
 <span class="nv">MESSAGE</span><span class="o">=</span><span class="nv">$TIMESTAMP</span>+<span class="nv">$APIPATH</span>
 <span class="nv">SIGNATURE</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span> -n <span class="nv">$MESSAGE</span> | openssl dgst -sha256 -hmac <span class="nv">$SECRET</span> -binary | base64<span class="sb">`</span>
-<span class="nb">echo</span> <span class="nv">$SIGNATURE</span>  <span class="c"># vBZf8OQuiTJIVbNpNHGY3zcUsK5gJpwb5lgCgarpxYI=</span>
+<span class="nb">echo</span> <span class="nv">$SIGNATURE</span>  <span class="c"># /pwaAgWZQ1Xd/J4yZ4ReHSPQxd3ORP/YR8TvAttqqYM=</span>
 
 curl -X GET -i <span class="se">\</span>
   -H <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
@@ -583,10 +583,10 @@ curl -X GET -i <span class="se">\</span>
 </code></pre><pre class="highlight python tab-python"><code><span class="c"># python 3.6+</span>
 <span class="kn">import</span> <span class="nn">time</span><span class="p">,</span> <span class="n">hmac</span><span class="p">,</span> <span class="n">hashlib</span><span class="p">,</span> <span class="n">base64</span>
 
-<span class="n">api_path</span>  <span class="o">=</span> <span class="s">"user/info"</span>
+<span class="n">api_path</span>  <span class="o">=</span> <span class="s">"info"</span>
 <span class="n">api_key</span>   <span class="o">=</span> <span class="s">"CEcrjGyipqt0OflgdQQSRGdrDXdDUY2x"</span>
 <span class="n">sec_key</span>   <span class="o">=</span> <span class="s">"hV8FgjyJtpvVeAcMAgzgAFQCN36wmbWuN7o3WPcYcYhFd8qvE43gzFGVsFcCqMNk"</span>
-<span class="n">timestamp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">*</span> <span class="mf">1e3</span><span class="p">))</span> <span class="c"># 1562952827927</span>
+<span class="n">timestamp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">*</span> <span class="mf">1e3</span><span class="p">))</span> <span class="c"># 1608133910000</span>
 
 <span class="n">message</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">f</span><span class="s">"{timestamp}+{api_path}"</span><span class="p">,</span> <span class="s">'utf-8'</span><span class="p">)</span>
 <span class="n">secret</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">sec_key</span><span class="p">,</span> <span class="s">'utf-8'</span><span class="p">)</span>
@@ -598,7 +598,7 @@ curl -X GET -i <span class="se">\</span>
   <span class="s">"x-auth-signature"</span><span class="p">:</span> <span class="n">signature</span><span class="p">,</span> 
   <span class="s">"x-auth-timestamp"</span><span class="p">:</span> <span class="n">timestamp</span><span class="p">,</span>
 <span class="p">}</span>
-<span class="k">print</span><span class="p">(</span><span class="n">signature</span><span class="p">)</span>  <span class="c"># b'vBZf8OQuiTJIVbNpNHGY3zcUsK5gJpwb5lgCgarpxYI='</span>
+<span class="k">print</span><span class="p">(</span><span class="n">signature</span><span class="p">)</span>  <span class="c"># b'/pwaAgWZQ1Xd/J4yZ4ReHSPQxd3ORP/YR8TvAttqqYM='</span>
 </code></pre><pre class="highlight java tab-java"><code><span class="c1">// java 1.8+</span>
 <span class="kn">import</span> <span class="nn">javax.crypto.Mac</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">javax.crypto.spec.SecretKeySpec</span><span class="o">;</span>
