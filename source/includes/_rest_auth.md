@@ -18,13 +18,13 @@ be rejected.
 
 ```shell
 # bash 
-APIPATH=user/info
+APIPATH=info
 APIKEY=CEcrjGyipqt0OflgdQQSRGdrDXdDUY2x
 SECRET=hV8FgjyJtpvVeAcMAgzgAFQCN36wmbWuN7o3WPcYcYhFd8qvE43gzFGVsFcCqMNk
-TIMESTAMP=`date +%s%N | cut -c -13` # 1562952827927
+TIMESTAMP=`date +%s%N | cut -c -13` # 1608133910000
 MESSAGE=$TIMESTAMP+$APIPATH
 SIGNATURE=`echo -n $MESSAGE | openssl dgst -sha256 -hmac $SECRET -binary | base64`
-echo $SIGNATURE  # vBZf8OQuiTJIVbNpNHGY3zcUsK5gJpwb5lgCgarpxYI=
+echo $SIGNATURE  # /pwaAgWZQ1Xd/J4yZ4ReHSPQxd3ORP/YR8TvAttqqYM=
 
 curl -X GET -i \
   -H "Accept: application/json" \
@@ -39,10 +39,10 @@ curl -X GET -i \
 # python 3.6+
 import time, hmac, hashlib, base64
 
-api_path  = "user/info"
+api_path  = "info"
 api_key   = "CEcrjGyipqt0OflgdQQSRGdrDXdDUY2x"
 sec_key   = "hV8FgjyJtpvVeAcMAgzgAFQCN36wmbWuN7o3WPcYcYhFd8qvE43gzFGVsFcCqMNk"
-timestamp = int(round(time.time() * 1e3)) # 1562952827927
+timestamp = int(round(time.time() * 1e3)) # 1608133910000
 
 message = bytes(f"{timestamp}+{api_path}", 'utf-8')
 secret = bytes(sec_key, 'utf-8')
@@ -54,7 +54,7 @@ header = {
   "x-auth-signature": signature, 
   "x-auth-timestamp": timestamp,
 }
-print(signature)  # b'vBZf8OQuiTJIVbNpNHGY3zcUsK5gJpwb5lgCgarpxYI='
+print(signature)  # b'/pwaAgWZQ1Xd/J4yZ4ReHSPQxd3ORP/YR8TvAttqqYM='
 ```
 
 ```java
