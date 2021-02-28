@@ -59,7 +59,7 @@ includes:
 
 header_navigators:
   - <a href="https://bitmax-exchange.github.io/bitmax-pro-api/#bitmax-pro-api-documentation" class="current">Cash/Margin APIs</a>
-  - <a href="https://bitmax-exchange.github.io/bitmax-futures-api-doc/#bitmax-futures-trading-api-documentation">Futures APIs</a>
+  - <a href="https://bitmax-exchange.github.io/bitmax-futures-api-doc-v2/#bitmax-futures-trading-api-documentation">Futures APIs</a>
 
 search: true
 ---
