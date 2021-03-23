@@ -68,9 +68,12 @@ search: true
 # BitMax Pro API Documentation
 
 
-<aside class="notice">
-BitMax has officially rebranded to AscendEX! Please visit [https://ascendex.github.io/ascendex-futures-pro-api-v2/](https://ascendex.github.io/ascendex-futures-pro-api-v2/) for the most recent document. 
+<aside class="success">
+BitMax has officially rebranded AscendEX!
 </aside>
+
+**BitMax has officially rebranded to AscendEX!** Please visit [https://ascendex.github.io/ascendex-futures-pro-api-v2/](https://ascendex.github.io/ascendex-futures-pro-api-v2/) for the most recent document. 
+
 
 
 BitMax Pro API is the latest release of APIs allowing our users to access the exchange programmatically. It is a major revision 
