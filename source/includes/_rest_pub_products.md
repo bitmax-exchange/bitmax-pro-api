@@ -31,7 +31,7 @@ curl -X GET https://bitmax.io/api/pro/v1/products
 
 #### HTTP Request
 
-`GET /api/pro/v1/products`
+`GET /api/pro/v1/cash/products`
 
 #### Response Content
 
